@@ -1,15 +1,4 @@
-.footer-bottom p {
-    margin: 0;
-}.hero::after {
-    content: '';
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    background: linear-gradient(135deg, rgba(120, 171, 175, 0.07) 0%, rgba(120, 171, 175, 0.01) 100%);
-    bottom: 0;
-    left: 0;
-    border-top-right-radius: 100%;
-}/* Color Variables */
+/* Color Variables */
 :root {
     --primary-dark: #0f4c81;
     --primary-medium: #456795;
@@ -38,7 +27,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'bangla';
+  src: url('./Bangla_MN.ttf') format('truetype');
+  font-display: swap;
 }
 
 html, body {
@@ -48,6 +42,7 @@ html, body {
 body {
     background-color: var(--white);
     color: var(--dark-shade-3);
+    font-family: 'bangla';
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -114,37 +109,64 @@ nav {
     align-items: center;
 }
 
-.logo-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--primary-dark), var(--accent-teal-1));
-    border-radius: 6px;
-    margin-right: 10px;
-    position: relative;
+/* Logo Image Styling */
+.logo-img {
+    height: 32px; /* Match the height of logo-icon */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits without distortion */
+    max-width: 100%; /* Prevent overflow */
 }
 
+/* Update existing logo-icon styles to accommodate the image */
+.logo-icon {
+    width: auto; /* Allow width to adjust based on content */
+    height: 32px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.company-logo {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Remove the pseudo-element since we're using an image */
 .logo-icon::after {
-    content: '';
-    position: absolute;
-    bottom: 7px;
-    left: 7px;
-    width: 18px;
-    height: 5px;
-    background-color: var(--white);
-    border-radius: 2px;
+    display: none;
 }
 
 /* Hero Section */
 .hero {
-    min-height: 80vh;
-    height: 80vh;
+    min-height: calc(100vh - 40px); /* 100vh minus approximate footer height */
+    height: calc(100vh - 40px);
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, #f8fafd 0%, #eef2f7 100%);
+
     position: relative;
     overflow: hidden;
-    padding: 6rem 0 4rem;
+    padding: 0;
     flex: 1;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 4rem;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .hero::before {
@@ -155,17 +177,6 @@ nav {
     background: radial-gradient(circle at 85% 30%, rgba(143, 175, 204, 0.15) 0%, rgba(15, 76, 129, 0.03) 50%);
     top: 0;
     left: 0;
-}
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    gap: 4rem;
-    width: 80%;
-    height: 80%;
-    margin: 0 auto;
 }
 
 .hero-content {
@@ -182,10 +193,14 @@ nav {
     width: 55%;
     height: 100%;
     background: linear-gradient(145deg, var(--primary-medium), var(--primary-dark));
-    border-radius: 12px;
+    border-radius: 0;
     box-shadow: 0 25px 50px rgba(15, 76, 129, 0.12);
     overflow: hidden;
     position: relative;
+}
+
+.hero-image::after {
+    content: none;
 }
 
 .hero-image::before {
@@ -198,18 +213,8 @@ nav {
     mix-blend-mode: multiply;
 }
 
-.hero-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to top, var(--primary-dark) 0%, transparent 100%);
-}
-
 .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: var(--primary-medium);
     font-weight: 600;
     margin-bottom: 0.75rem;
@@ -219,7 +224,7 @@ nav {
 
 .hero-description {
     margin-bottom: 0;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     max-width: 540px;
     color: var(--dark-shade-3);
     line-height: 1.5;
@@ -256,6 +261,10 @@ footer {
     text-align: center;
     opacity: 0.6;
     line-height: 1.4;
+}
+
+.footer-bottom p {
+    margin: 0;
 }
 
 /* Responsive Styles */
@@ -297,12 +306,12 @@ footer {
     }
 }
 
+/* Mobile Media Query */
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
         height: auto;
-        padding-top: 7rem;
-        padding-bottom: 3rem;
+        padding: 7rem 0 3rem;
     }
 
     .hero-container {
