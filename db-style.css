@@ -1,4 +1,6 @@
-.hero::after {
+.footer-bottom p {
+    margin: 0;
+}.hero::after {
     content: '';
     position: absolute;
     width: 30%;
@@ -16,14 +18,14 @@
     --tertiary-light: #b5bfd4;
     --background-light: #f8fafd;
     --white: #ffffff;
-    
+
     --dark-shade-1: #15406a;
     --dark-shade-2: #163455;
     --dark-shade-3: #152840;
     --dark-shade-4: #131d2c;
     --dark-shade-5: #0d121a;
     --black: #000000;
-    
+
     --accent-teal-1: #5d8696;
     --accent-teal-2: #78abaf;
     --accent-blue: #8fafcc;
@@ -243,14 +245,15 @@ nav {
 footer {
     background-color: var(--dark-shade-4);
     color: var(--tertiary-light);
-    padding: 1.5rem 0;
+    padding: 0.7rem 0;
     margin-top: auto;
+    font-size: 0.85rem;
 }
 
 .footer-bottom {
     text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 0.6;
+    line-height: 1.4;
 }
 
 /* Responsive Styles */
