@@ -227,11 +227,28 @@ nav {
 }
 
 .hero-description {
-    margin-bottom: 0;
+    margin-bottom: 1rem; /* Changed from 0 to add space before email */
     font-size: 0.9rem;
     max-width: 540px;
     color: var(--dark-shade-3);
     line-height: 1.5;
+}
+
+.email-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.email-container a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.email-container a:hover {
+    color: var(--accent-teal-2);
+    text-decoration: underline;
 }
 
 .cta-btn {
