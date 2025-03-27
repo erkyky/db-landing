@@ -35,17 +35,23 @@
   font-display: swap;
 }
 
+/* Update the html, body styles */
 html, body {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
     background-color: var(--white);
     color: var(--dark-shade-3);
-    font-family: 'bangla';
     line-height: 1.6;
     display: flex;
     flex-direction: column;
+    overflow-y: auto; /* Allow vertical scrolling */
+    position: relative;
 }
 
 /* Typography */
@@ -146,14 +152,13 @@ nav {
 
 /* Hero Section */
 .hero {
-    min-height: calc(100vh - 40px); /* 100vh minus approximate footer height */
-    height: calc(100vh - 40px);
+    position: relative;
+    min-height: calc(100vh - 40px);
+    height: auto;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, #f8fafd 0%, #eef2f7 100%);
-
-    position: relative;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible */
     padding: 0;
     flex: 1;
 }
@@ -311,6 +316,10 @@ footer {
         width: 90%;
         height: 85%;
     }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -327,36 +336,26 @@ footer {
     }
 }
 
-@media (max-width: 1200px) {
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-}
-
 @media (max-width: 1024px) {
     .hero-subtitle {
         font-size: 0.85rem;
     }
 }
 
-/* Mobile Media Query */
+/* Update mobile media query */
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
         height: auto;
         padding: 7rem 0 3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.8rem;
-        width: 100%;
-        text-align: center;
+        overflow-y: visible;
     }
 
     .hero-container {
         flex-direction: column;
         width: 100%;
         height: auto;
+        overflow: visible;
     }
 
     .hero-content {
@@ -365,14 +364,16 @@ footer {
         text-align: center;
         margin-bottom: 3rem;
     }
-    
+
     .hero-description {
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 1.5rem;
     }
-    
+
     .hero-image {
         width: 100%;
         height: 350px;
+        max-height: 50vh; /* Limit height on very small screens */
     }
 }
