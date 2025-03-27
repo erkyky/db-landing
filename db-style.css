@@ -242,6 +242,13 @@ nav {
 .email-container {
     text-align: center;
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.email-link {
+    margin-bottom: 0.25rem;
 }
 
 .email-container a {
