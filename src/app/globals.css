@@ -128,10 +128,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-[18px] leading-relaxed text-foreground md:text-[20px];
   }
   html {
-    @apply font-sans;
+    @apply scroll-smooth font-sans;
   }
 
   .animate-element {
@@ -167,4 +167,13 @@
   .animate-delay-1000 { animation-delay: 1000ms; }
   .animate-delay-1200 { animation-delay: 1200ms; }
   .animate-delay-1400 { animation-delay: 1400ms; }
+
+  /* Premium card shadow */
+  .shadow-premium {
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 4px 24px rgba(0,0,0,0.3),
+      0 12px 48px rgba(0,0,0,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.04);
+  }
 }

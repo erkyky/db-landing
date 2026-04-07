@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepblue Capital Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d121a;
+    --sand: #cca885;
+    --teal: #78abaf;
+    --deepblue: #0f4c81;
+  }
+
+  html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: #fff; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* ── Beams Canvas ── */
+  .beams-wrap { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: var(--bg); display: flex; flex-direction: column; }
+  #beams { position: absolute; inset: 0; filter: blur(4px); pointer-events: none; }
+  .beams-content { position: relative; z-index: 10; display: flex; flex-direction: column; min-height: 100vh; }
+
+  /* ── Nav ── */
+  .nav { position: fixed; top: 20px; left: 20px; z-index: 50; display: flex; align-items: center; gap: 4px; }
+  .nav-toggle { background: none; border: none; cursor: pointer; padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+  .nav-toggle span { display: block; width: 20px; height: 1.5px; background: rgba(255,255,255,0.3); transition: all 0.3s; }
+  .nav-toggle:hover span { background: rgba(255,255,255,0.6); }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+  .nav-items { display: flex; align-items: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .nav-items.show { opacity: 1; pointer-events: auto; }
+  .nav-items a {
+    font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.35);
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px;
+    transition: color 0.3s; white-space: nowrap;
+  }
+  .nav-items a:hover { color: #fff; }
+
+  /* ── Hero ── */
+  .hero { display: flex; flex: 1; flex-direction: column; }
+  @media (min-width: 768px) { .hero { flex-direction: row; } }
+
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 96px 48px 64px; width: 100%; }
+  @media (min-width: 768px) { .hero-left { width: 60%; padding: 112px 80px 64px; } }
+
+  .hero-slogan {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 24px);
+    text-transform: uppercase; letter-spacing: 0.15em; color: var(--sand); margin-bottom: 24px;
+    cursor: default;
+  }
+  .hero-logo { margin-bottom: 40px; }
+  .hero-logo img { width: 95%; max-width: 360px; height: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+  .hero-line { width: 64px; height: 1px; background: rgba(204,168,133,0.4); margin-bottom: 32px; }
+  .hero-desc { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 16px; max-width: 540px; }
+  .hero-cta { margin-top: 32px; }
+  .hero-cta .label { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(255,255,255,0.5); }
+  .hero-cta .email-btn {
+    font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500;
+    color: var(--sand); background: none; border: none; cursor: pointer; transition: color 0.3s; position: relative;
+  }
+  .hero-cta .email-btn:hover { color: var(--teal); text-decoration: underline; }
+  .hero-cta .tooltip {
+    position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
+    font-size: 12px; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.1);
+    padding: 2px 8px; border-radius: 4px; white-space: nowrap; opacity: 0; transition: opacity 0.2s; pointer-events: none;
+  }
+  .hero-cta .email-btn:hover .tooltip { opacity: 1; }
+
+  .hero-right {
+    position: relative; width: 100%; min-height: 350px; margin-top: 48px;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    animation: heroReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  }
+  @media (min-width: 768px) { .hero-right { width: 40%; min-height: auto; margin-top: 64px; } }
+  @keyframes heroReveal {
+    from { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+    to   { clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); }
+  }
+  .hero-right .bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    border-top-left-radius: 8px;
+  }
+  .hero-right .overlay { position: absolute; inset: 0; background: linear-gradient(to left, transparent, rgba(13,18,26,0.3)); }
+
+  /* ── Fade-in animations ── */
+  .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.45s; }
+  .delay-3 { animation-delay: 0.6s; }
+  .delay-4 { animation-delay: 0.75s; }
+  .delay-5 { animation-delay: 0.9s; }
+  .delay-6 { animation-delay: 1.05s; }
+  .delay-7 { animation-delay: 1.2s; }
+
+  /* ── Logo Slider ── */
+  .slider-section { margin-top: auto; padding: 32px 0; }
+  .slider-title {
+    text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.35); margin-bottom: 24px;
+  }
+  .slider-wrap { position: relative; height: 50px; width: 100%; overflow: hidden; }
+  .slider-track {
+    display: flex; align-items: center; gap: 80px; height: 100%;
+    animation: scroll 35s linear infinite; width: max-content;
+  }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  .slider-track img {
+    height: 32px; width: auto; max-width: 140px; object-fit: contain;
+    filter: brightness(0) invert(1); opacity: 0.3;
+  }
+  .slider-fade-l, .slider-fade-r {
+    position: absolute; top: 0; height: 100%; width: 120px; pointer-events: none; z-index: 2;
+  }
+  @media (min-width: 768px) { .slider-fade-l, .slider-fade-r { width: 200px; } }
+  .slider-fade-l { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+  .slider-fade-r { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+  /* ── Footer ── */
+  .footer { padding: 12px 0; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 14px; color: rgba(255,255,255,0.4); }
+
+  /* ── Gradient Wave Text (hover effect on slogan) ── */
+  .slogan-wave {
+    position: absolute; inset: 0; overflow: hidden; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    background: linear-gradient(0deg, #cca885 calc(var(--gi, -25) * 1%), #5a8ea6 calc((var(--gi, -25) + 8) * 1%), #78abaf calc((var(--gi, -25) + 12) * 1%), #8fafcc calc((var(--gi, -25) + 16) * 1%), #cca885 calc((var(--gi, -25) + 20) * 1%), #6c83aa calc((var(--gi, -25) + 24) * 1%), #cca885 calc((var(--gi, -25) + 32) * 1%));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .hero-slogan:hover .slogan-plain { opacity: 0; }
+  .hero-slogan:hover .slogan-wave { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="beams-wrap">
+  <canvas id="beams"></canvas>
+
+  <div class="beams-content">
+    <!-- Nav -->
+    <div class="nav">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-items" id="navItems">
+        <a href="index.html">Home</a>
+        <a href="investments.html">Investments</a>
+        <a href="about.html">About</a>
+        <a href="mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest">Contact</a>
+        <a href="sign-in.html">Sign In</a>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="max-w" style="max-width: 540px;">
+          <div class="hero-slogan fade-up delay-1" style="position:relative;">
+            <span class="slogan-plain font-serif" style="transition: opacity 0.3s;">Managing Investments. and life</span>
+            <span class="slogan-wave font-serif" id="sloganWave">Managing Investments. and life</span>
+          </div>
+
+          <div class="hero-logo fade-up delay-2">
+            <img src="public/company_logo.png" alt="Deepblue Capital Partners Logo">
+          </div>
+
+          <div class="hero-line fade-up delay-3"></div>
+
+          <p class="hero-desc fade-up delay-4">
+            Deepblue Capital Partners is a forward-thinking private equity firm dedicated to strategic real estate investments.
+          </p>
+          <p class="hero-desc fade-up delay-5">
+            With 25 years of industry expertise combined, Deepblue Capital Partners identifies and capitalizes on opportunities across diverse real estate asset classes.
+          </p>
+
+          <div class="hero-cta fade-up delay-6">
+            <span class="label">Learn more: </span>
+            <button class="email-btn" id="copyEmail">
+              <span class="tooltip" id="tooltip">Click to copy</span>
+              investors@deepbluepartners.co
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right fade-up delay-2">
+        <div class="bg" style="background-image: url('public/hero_image.jpg');"></div>
+        <div class="overlay"></div>
+      </div>
+    </section>
+
+    <!-- Logo Slider -->
+    <div class="slider-section">
+      <p class="slider-title font-serif">Trusted Partners</p>
+      <div class="slider-wrap">
+        <div class="slider-track" id="sliderTrack"></div>
+        <div class="slider-fade-l"></div>
+        <div class="slider-fade-r"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">&copy; 2025 Deepblue Capital Partners. All rights reserved.</div>
+  </div>
+</div>
+
+<script>
+// ── Nav toggle ──
+const navToggle = document.getElementById('navToggle');
+const navItems = document.getElementById('navItems');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navItems.classList.toggle('show');
+});
+
+// ── Copy email ──
+const copyBtn = document.getElementById('copyEmail');
+const tooltip = document.getElementById('tooltip');
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText('investors@deepbluepartners.co');
+  tooltip.textContent = 'Copied!';
+  setTimeout(() => { tooltip.textContent = 'Click to copy'; }, 2000);
+});
+
+// ── Logo slider ──
+const logos = [
+  { name: 'JLL', src: 'public/logos/jll.png' },
+  { name: 'CBRE', src: 'public/logos/cbre.png' },
+  { name: 'Cushman & Wakefield', src: 'public/logos/cushman.png' },
+  { name: 'Newmark', src: 'public/logos/newmark.png' },
+  { name: 'Marcus & Millichap', src: 'public/logos/marcus.png' },
+  { name: 'Berkadia', src: 'public/logos/berkadia.webp' },
+  { name: 'Northmarq', src: 'public/logos/northmarq.png' },
+  { name: 'Greysteel', src: 'public/logos/greysteel.webp' },
+];
+const track = document.getElementById('sliderTrack');
+const allLogos = [...logos, ...logos];
+allLogos.forEach(l => {
+  const div = document.createElement('div');
+  div.style.cssText = 'display:flex;align-items:center;justify-content:center;padding:0 16px;flex-shrink:0;';
+  const img = document.createElement('img');
+  img.src = l.src; img.alt = l.name;
+  div.appendChild(img);
+  track.appendChild(div);
+});
+
+// ── Beams canvas (optimized — no CSS blur filter) ──
+const canvas = document.getElementById('beams');
+const ctx = canvas.getContext('2d');
+const BEAM_COUNT = 12;
+let beams = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.width = canvas.width + 'px';
+  canvas.style.height = canvas.height + 'px';
+  beams = Array.from({ length: BEAM_COUNT }, () => createBeam());
+}
+
+function createBeam() {
+  const w = canvas.width, h = canvas.height;
+  return {
+    x: Math.random() * w * 1.5 - w * 0.25,
+    y: Math.random() * h * 1.5 - h * 0.25,
+    width: 30 + Math.random() * 60,
+    length: h * 2.5,
+    angle: -35 + Math.random() * 10,
+    speed: 0.6 + Math.random() * 1.2,
+    opacity: 0.12 + Math.random() * 0.16,
+    hue: 210 + Math.random() * 20,
+    pulse: Math.random() * Math.PI * 2,
+    pulseSpeed: 0.02 + Math.random() * 0.03,
+  };
+}
+
+function resetBeam(b, i) {
+  const col = i % 3, spacing = canvas.width / 3;
+  b.y = canvas.height + 100;
+  b.x = col * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.5;
+  b.width = 100 + Math.random() * 100;
+  b.speed = 0.5 + Math.random() * 0.4;
+  b.hue = 210 + (i * 20) / BEAM_COUNT;
+  b.opacity = 0.2 + Math.random() * 0.1;
+}
+
+function drawBeam(b) {
+  ctx.save();
+  ctx.translate(b.x, b.y);
+  ctx.rotate(b.angle * Math.PI / 180);
+  const po = b.opacity * (0.8 + Math.sin(b.pulse) * 0.2) * 0.7;
+  for (let pass = 0; pass < 3; pass++) {
+    const spread = (pass + 1) * 12;
+    const g = ctx.createLinearGradient(0, 0, 0, b.length);
+    const a = po * (1 - pass * 0.3);
+    g.addColorStop(0, `hsla(${b.hue},75%,55%,0)`);
+    g.addColorStop(0.1, `hsla(${b.hue},75%,55%,${a * 0.5})`);
+    g.addColorStop(0.4, `hsla(${b.hue},75%,55%,${a})`);
+    g.addColorStop(0.6, `hsla(${b.hue},75%,55%,${a})`);
+    g.addColorStop(0.9, `hsla(${b.hue},75%,55%,${a * 0.5})`);
+    g.addColorStop(1, `hsla(${b.hue},75%,55%,0)`);
+    ctx.fillStyle = g;
+    ctx.fillRect(-(b.width + spread) / 2, 0, b.width + spread, b.length);
+  }
+  ctx.restore();
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  beams.forEach((b, i) => {
+    b.y -= b.speed;
+    b.pulse += b.pulseSpeed;
+    if (b.y + b.length < -100) resetBeam(b, i);
+    drawBeam(b);
+  });
+  requestAnimationFrame(animate);
+}
+
+resize();
+window.addEventListener('resize', resize);
+animate();
+
+// ── Gradient wave on slogan hover ──
+const wave = document.getElementById('sloganWave');
+let gi = -25, waveRaf = 0;
+function tickWave(now) {
+  gi += 1.2;
+  if (gi >= 200) gi = -25;
+  wave.style.setProperty('--gi', gi);
+  waveRaf = requestAnimationFrame(tickWave);
+}
+waveRaf = requestAnimationFrame(tickWave);
+</script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 import { Eye, EyeOff, X } from "lucide-react";
 
@@ -62,34 +63,34 @@ export const SignInPage: React.FC<SignInPageProps> = ({
   heroImageSrc,
   testimonials = [],
   onSignIn,
+  onGoogleSignIn,
   onResetPassword,
-  onCreateAccount,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row w-full bg-[#0d121a] relative">
       {/* Close button */}
-      <a
+      <Link
         href="/"
         className="absolute top-6 left-6 z-20 p-2 text-white/25 hover:text-white/60 transition-colors"
         aria-label="Close"
       >
         <X className="h-6 w-6" />
-      </a>
+      </Link>
 
       {/* Left column: sign-in form */}
       <section className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="flex flex-col gap-6">
             {/* Logo */}
-            <a href="/" className="animate-element animate-delay-100 mb-4">
+            <Link href="/" className="animate-element animate-delay-100 mb-4">
               <img
                 src="/company_logo.png"
                 alt="Deepblue Capital Partners"
                 className="h-14 w-auto brightness-0 invert opacity-70"
               />
-            </a>
+            </Link>
 
             <h1 className="animate-element animate-delay-100 text-4xl md:text-5xl font-serif font-semibold leading-tight text-white">
               {title}
@@ -174,6 +175,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
 
             <button
               type="button"
+              onClick={onGoogleSignIn}
               className="animate-element animate-delay-800 w-full flex items-center justify-center gap-3 rounded-2xl border border-white/10 py-4 font-serif text-sm text-white/70 hover:bg-white/5 transition-colors"
             >
               <svg className="h-5 w-5" viewBox="0 0 48 48">

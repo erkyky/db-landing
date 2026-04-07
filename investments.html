@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investments - Deepblue Capital Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg: #0d121a; --sand: #cca885; --teal: #78abaf; }
+  html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: #fff; min-height: 100vh; overflow-x: hidden; }
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  .beams-wrap { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: var(--bg); }
+  #beams { position: absolute; inset: 0; filter: blur(4px); pointer-events: none; }
+  .content { position: relative; z-index: 10; }
+
+  /* Nav */
+  .nav { position: fixed; top: 20px; left: 20px; z-index: 50; display: flex; align-items: center; gap: 4px; }
+  .nav-toggle { background: none; border: none; cursor: pointer; padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+  .nav-toggle span { display: block; width: 20px; height: 1.5px; background: rgba(255,255,255,0.3); transition: all 0.3s; }
+  .nav-toggle:hover span { background: rgba(255,255,255,0.6); }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+  .nav-items { display: flex; align-items: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .nav-items.show { opacity: 1; pointer-events: auto; }
+  .nav-items a { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.35); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; transition: color 0.3s; white-space: nowrap; }
+  .nav-items a:hover { color: #fff; }
+
+  /* Sections */
+  .section { padding: 0 32px; max-width: 1280px; margin: 0 auto; }
+  @media (min-width: 768px) { .section { padding: 0 64px; } }
+  @media (min-width: 1024px) { .section { padding: 0 112px; } }
+
+  .hero-section { padding-top: 112px; padding-bottom: 64px; }
+  .label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--sand); margin-bottom: 16px; }
+  h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.1; margin-bottom: 24px; }
+  h1 .muted { color: rgba(255,255,255,0.6); }
+  .subtitle { font-size: 18px; color: rgba(255,255,255,0.5); max-width: 640px; line-height: 1.7; }
+  h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
+  .accent-line { width: 64px; height: 1px; background: rgba(204,168,133,0.4); margin-bottom: 48px; }
+  .sub-text { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 48px; max-width: 540px; margin-top: -32px; }
+
+  /* Cards */
+  .card {
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px;
+    backdrop-filter: blur(4px); background: rgba(255,255,255,0.02);
+  }
+  .card-hover { transition: background 0.3s; }
+  .card-hover:hover { background: rgba(255,255,255,0.04); }
+
+  /* Stats grid */
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 80px; }
+  @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
+  .stat-value { font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; margin-bottom: 4px; }
+  .stat-label { font-size: 14px; color: var(--sand); }
+  .stat-sub { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+
+  /* Strategy grid */
+  .strategy-grid { display: grid; grid-template-columns: 1fr; gap: 24px; padding-bottom: 96px; }
+  @media (min-width: 768px) { .strategy-grid { grid-template-columns: repeat(2, 1fr); } }
+  .strategy-icon { font-size: 22px; color: rgba(204,168,133,0.6); margin-bottom: 16px; transition: color 0.3s; }
+  .card-hover:hover .strategy-icon { color: var(--sand); }
+  .strategy-title { font-size: 18px; margin-bottom: 12px; }
+  .strategy-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* Market grid */
+  .market-grid { display: grid; grid-template-columns: 1fr; gap: 24px; padding-bottom: 96px; }
+  @media (min-width: 768px) { .market-grid { grid-template-columns: repeat(3, 1fr); } }
+  .market-icon { font-size: 18px; color: var(--teal); margin: 0 auto 16px; text-align: center; }
+  .market-value { font-size: 48px; font-weight: 600; text-align: center; margin-bottom: 8px; }
+  .market-label { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; }
+
+  /* Why list */
+  .why-list { padding-bottom: 96px; }
+  .why-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .why-num { font-size: 14px; color: rgba(204,168,133,0.5); width: 24px; flex-shrink: 0; }
+  .why-arrow { color: rgba(255,255,255,0.2); flex-shrink: 0; }
+  .why-text { font-size: 16px; color: rgba(255,255,255,0.7); }
+
+  /* CTA */
+  .cta-card { text-align: center; padding: 48px; margin-bottom: 80px; }
+  .cta-title { font-size: 24px; margin-bottom: 16px; }
+  .cta-desc { font-size: 14px; color: rgba(255,255,255,0.4); max-width: 420px; margin: 0 auto 32px; }
+  .cta-btn {
+    display: inline-block; font-size: 14px; padding: 12px 32px; border-radius: 999px;
+    background: var(--sand); color: var(--bg); text-decoration: none; transition: background 0.3s;
+  }
+  .cta-btn:hover { background: rgba(204,168,133,0.85); }
+
+  .page-footer { text-align: center; font-size: 12px; color: rgba(255,255,255,0.2); padding: 0 32px 24px; }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div class="beams-wrap">
+  <canvas id="beams"></canvas>
+  <div class="content">
+    <!-- Nav -->
+    <div class="nav">
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <nav class="nav-items" id="navItems">
+        <a href="index.html">Home</a>
+        <a href="investments.html">Investments</a>
+        <a href="about.html">About</a>
+        <a href="mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest">Contact</a>
+        <a href="sign-in.html">Sign In</a>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="section hero-section fade-in">
+      <p class="label font-serif">Deepblue Value-Add Fund</p>
+      <h1 class="font-serif">Strategic Real Estate<br><span class="muted">Investment Opportunities</span></h1>
+      <p class="subtitle font-serif">Deepblue Value-Add Fund invests primarily in value-add rental housing assets in fast-growing and fundamentally strong Sunbelt markets.</p>
+    </section>
+
+    <!-- Fund Stats -->
+    <section class="section fade-in">
+      <div class="stats-grid">
+        <div class="card"><p class="stat-value font-serif">14-16%</p><p class="stat-label font-serif">Target Gross IRR</p><p class="stat-sub font-serif">10-12% Net</p></div>
+        <div class="card"><p class="stat-value font-serif">$30M</p><p class="stat-label font-serif">Target Fund Size</p><p class="stat-sub font-serif">Equity</p></div>
+        <div class="card"><p class="stat-value font-serif">3+1+1</p><p class="stat-label font-serif">Fund Term</p><p class="stat-sub font-serif">Years</p></div>
+        <div class="card"><p class="stat-value font-serif">1-3%</p><p class="stat-label font-serif">Distributable Yield</p><p class="stat-sub font-serif">Net, Post-Stabilization</p></div>
+      </div>
+    </section>
+
+    <!-- Investment Strategy -->
+    <section class="section fade-in">
+      <h2 class="font-serif">Investment Strategy</h2>
+      <div class="accent-line"></div>
+      <div class="strategy-grid">
+        <div class="card card-hover" style="padding:32px;">
+          <div class="strategy-icon">&#9678;</div>
+          <h3 class="strategy-title font-serif">Value-Add Rental Housing</h3>
+          <p class="strategy-desc font-serif">Diversified portfolio with exposure to countercyclical subsectors and favorable supply/demand dynamics in Sunbelt markets.</p>
+        </div>
+        <div class="card card-hover" style="padding:32px;">
+          <div class="strategy-icon">&#9906;</div>
+          <h3 class="strategy-title font-serif">Sunbelt Focus</h3>
+          <p class="strategy-desc font-serif">Texas, North Carolina, and Georgia — markets benefiting from outsized population, job, and wage growth.</p>
+        </div>
+        <div class="card card-hover" style="padding:32px;">
+          <div class="strategy-icon">&#9632;</div>
+          <h3 class="strategy-title font-serif">Once-in-a-Cycle Opportunity</h3>
+          <p class="strategy-desc font-serif">Current environment and future demand provide exceptional investment opportunities across rental housing.</p>
+        </div>
+        <div class="card card-hover" style="padding:32px;">
+          <div class="strategy-icon">&#9201;</div>
+          <h3 class="strategy-title font-serif">Disciplined Execution</h3>
+          <p class="strategy-desc font-serif">Agile execution with institutional discipline. High conviction, thematic investing across multiple market cycles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sunbelt Market -->
+    <section class="section fade-in">
+      <h2 class="font-serif">Sunbelt Market Advantage</h2>
+      <div class="accent-line"></div>
+      <p class="sub-text font-serif">Sunbelt markets have stronger fundamentals than the rest of the country, as defined by the South and Southwest regions per NCREIF.</p>
+      <div class="market-grid">
+        <div class="card" style="padding:32px;">
+          <div class="market-icon">&#8599;</div>
+          <p class="market-value font-serif">3x</p>
+          <p class="market-label font-serif">Higher Population Growth</p>
+        </div>
+        <div class="card" style="padding:32px;">
+          <div class="market-icon">&#9652;</div>
+          <p class="market-value font-serif">6%</p>
+          <p class="market-label font-serif">Higher Job Growth</p>
+        </div>
+        <div class="card" style="padding:32px;">
+          <div class="market-icon">$</div>
+          <p class="market-value font-serif">6%</p>
+          <p class="market-label font-serif">Higher Wage Growth</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Deepblue -->
+    <section class="section fade-in">
+      <h2 class="font-serif">Why Deepblue</h2>
+      <div class="accent-line"></div>
+      <div class="why-list">
+        <div class="why-item"><span class="why-num font-serif">01</span><span class="why-arrow">&#8599;</span><p class="why-text font-serif">Led by Industry Experts from Hines and Starwood Capital</p></div>
+        <div class="why-item"><span class="why-num font-serif">02</span><span class="why-arrow">&#8599;</span><p class="why-text font-serif">Proven Investment Track Record Across Multiple Market Cycles</p></div>
+        <div class="why-item"><span class="why-num font-serif">03</span><span class="why-arrow">&#8599;</span><p class="why-text font-serif">High Conviction, Thematic Investing</p></div>
+        <div class="why-item"><span class="why-num font-serif">04</span><span class="why-arrow">&#8599;</span><p class="why-text font-serif">Strong Risk-Adjusted Returns</p></div>
+        <div class="why-item"><span class="why-num font-serif">05</span><span class="why-arrow">&#8599;</span><p class="why-text font-serif">Agile Execution with a Disciplined Institutional Approach</p></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section fade-in">
+      <div class="card cta-card">
+        <p class="cta-title font-serif">Interested in investing?</p>
+        <p class="cta-desc font-serif">Contact our investor relations team to learn more about current opportunities in the Deepblue Value-Add Fund.</p>
+        <a href="mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest" class="cta-btn font-serif">Contact Investor Relations</a>
+      </div>
+    </section>
+
+    <p class="page-footer font-serif">Past or targeted performance is not a guarantee, projection or prediction and is not necessarily indicative of future results.</p>
+  </div>
+</div>
+
+<script>
+// Nav
+document.getElementById('navToggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.getElementById('navItems').classList.toggle('show');
+});
+
+// Beams
+const canvas = document.getElementById('beams');
+const ctx = canvas.getContext('2d');
+let beams = [];
+function resize() {
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  canvas.style.width = canvas.width+'px'; canvas.style.height = canvas.height+'px';
+  beams = Array.from({length:12}, ()=>({
+    x: Math.random()*canvas.width*1.5-canvas.width*0.25, y: Math.random()*canvas.height*1.5-canvas.height*0.25,
+    width: 30+Math.random()*60, length: canvas.height*2.5, angle: -35+Math.random()*10,
+    speed: 0.6+Math.random()*1.2, opacity: 0.12+Math.random()*0.16, hue: 210+Math.random()*20,
+    pulse: Math.random()*Math.PI*2, pulseSpeed: 0.02+Math.random()*0.03
+  }));
+}
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  beams.forEach((b,i)=>{
+    b.y -= b.speed; b.pulse += b.pulseSpeed;
+    if(b.y+b.length<-100){ b.y=canvas.height+100; b.x=(i%3)*(canvas.width/3)+canvas.width/6+(Math.random()-0.5)*canvas.width/6; }
+    ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.angle*Math.PI/180);
+    const po = b.opacity*(0.8+Math.sin(b.pulse)*0.2)*0.7;
+    for(let p=0;p<3;p++){
+      const s=(p+1)*12, a=po*(1-p*0.3), g=ctx.createLinearGradient(0,0,0,b.length);
+      g.addColorStop(0,`hsla(${b.hue},75%,55%,0)`); g.addColorStop(0.1,`hsla(${b.hue},75%,55%,${a*0.5})`);
+      g.addColorStop(0.4,`hsla(${b.hue},75%,55%,${a})`); g.addColorStop(0.6,`hsla(${b.hue},75%,55%,${a})`);
+      g.addColorStop(0.9,`hsla(${b.hue},75%,55%,${a*0.5})`); g.addColorStop(1,`hsla(${b.hue},75%,55%,0)`);
+      ctx.fillStyle=g; ctx.fillRect(-(b.width+s)/2,0,b.width+s,b.length);
+    }
+    ctx.restore();
+  });
+  requestAnimationFrame(animate);
+}
+resize(); window.addEventListener('resize',resize); animate();
+
+// Scroll fade-in
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

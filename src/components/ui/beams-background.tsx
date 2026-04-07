@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface BeamsBackgroundProps {
@@ -22,6 +21,12 @@ interface Beam {
     pulse: number;
     pulseSpeed: number;
 }
+
+const opacityMap = {
+    subtle: 0.7,
+    medium: 0.85,
+    strong: 1,
+} as const;
 
 function createBeam(width: number, height: number): Beam {
     const angle = -35 + Math.random() * 10;
@@ -47,13 +52,7 @@ export function BeamsBackground({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
-    const MINIMUM_BEAMS = 20;
-
-    const opacityMap = {
-        subtle: 0.7,
-        medium: 0.85,
-        strong: 1,
-    };
+    const BEAM_COUNT = 12;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -63,15 +62,12 @@ export function BeamsBackground({
         if (!ctx) return;
 
         const updateCanvasSize = () => {
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
             canvas.style.width = `${window.innerWidth}px`;
             canvas.style.height = `${window.innerHeight}px`;
-            ctx.scale(dpr, dpr);
 
-            const totalBeams = MINIMUM_BEAMS * 1.5;
-            beamsRef.current = Array.from({ length: totalBeams }, () =>
+            beamsRef.current = Array.from({ length: BEAM_COUNT }, () =>
                 createBeam(canvas.width, canvas.height)
             );
         };
@@ -137,7 +133,6 @@ export function BeamsBackground({
             if (!canvas || !ctx) return;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.filter = "blur(35px)";
 
             const totalBeams = beamsRef.current.length;
             beamsRef.current.forEach((beam, index) => {
@@ -174,22 +169,7 @@ export function BeamsBackground({
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0"
-                style={{ filter: "blur(15px)" }}
-            />
-
-            <motion.div
-                className="absolute inset-0 bg-[#0d121a]/5"
-                animate={{
-                    opacity: [0.05, 0.15, 0.05],
-                }}
-                transition={{
-                    duration: 10,
-                    ease: "easeInOut",
-                    repeat: Number.POSITIVE_INFINITY,
-                }}
-                style={{
-                    backdropFilter: "blur(50px)",
-                }}
+                style={{ filter: "blur(20px)" }}
             />
 
             <div className="relative z-10 flex min-h-screen w-full flex-col">

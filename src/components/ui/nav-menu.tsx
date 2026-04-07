@@ -17,17 +17,17 @@ const menuItems: MenuItem[] = [
   },
   {
     label: "Investments",
-    href: "#",
+    href: "/investments",
     gradient: "radial-gradient(circle, rgba(15,76,129,0.2) 0%, transparent 70%)",
   },
   {
     label: "About",
-    href: "#",
+    href: "/about",
     gradient: "radial-gradient(circle, rgba(204,168,133,0.15) 0%, transparent 70%)",
   },
   {
     label: "Contact",
-    href: "#",
+    href: "mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest",
     gradient: "radial-gradient(circle, rgba(120,171,175,0.15) 0%, transparent 70%)",
   },
   {
@@ -36,16 +36,6 @@ const menuItems: MenuItem[] = [
     gradient: "radial-gradient(circle, rgba(204,168,133,0.2) 0%, transparent 70%)",
   },
 ];
-
-const itemVariants: Variants = {
-  initial: { rotateX: 0, opacity: 1 },
-  hover: { rotateX: -90, opacity: 0 },
-};
-
-const backVariants: Variants = {
-  initial: { rotateX: 90, opacity: 0 },
-  hover: { rotateX: 0, opacity: 1 },
-};
 
 const glowVariants: Variants = {
   initial: { opacity: 0, scale: 0.8 },
@@ -57,13 +47,6 @@ const glowVariants: Variants = {
       scale: { duration: 0.5, type: "spring", stiffness: 300, damping: 25 },
     },
   },
-};
-
-const sharedTransition = {
-  type: "spring" as const,
-  stiffness: 100,
-  damping: 20,
-  duration: 0.5,
 };
 
 export default function NavMenu() {

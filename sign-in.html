@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In - Deepblue Capital Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg: #0d121a; --sand: #cca885; --teal: #78abaf; }
+  html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: #fff; min-height: 100vh; }
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  .page { min-height: 100vh; display: flex; flex-direction: column; }
+  @media (min-width: 768px) { .page { flex-direction: row; } }
+
+  /* Close button */
+  .close-btn {
+    position: absolute; top: 24px; left: 24px; z-index: 20; padding: 8px;
+    color: rgba(255,255,255,0.25); text-decoration: none; font-size: 24px; line-height: 1; transition: color 0.3s;
+  }
+  .close-btn:hover { color: rgba(255,255,255,0.6); }
+
+  /* Left column */
+  .form-col { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px; }
+  .form-inner { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 24px; }
+
+  .form-logo img { height: 56px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
+  .form-title { font-size: clamp(32px, 5vw, 48px); font-weight: 600; line-height: 1.1; color: #fff; }
+  .form-title span { font-weight: 300; letter-spacing: -0.02em; }
+  .form-desc { color: rgba(255,255,255,0.5); }
+
+  .field label { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .glass-input {
+    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 16px; font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    color: #fff; outline: none; transition: border-color 0.3s, background 0.3s;
+  }
+  .glass-input::placeholder { color: rgba(255,255,255,0.3); }
+  .glass-input:focus { border-color: rgba(204,168,133,0.5); background: rgba(204,168,133,0.05); }
+
+  .pw-wrap { position: relative; }
+  .pw-toggle {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.3); font-size: 18px; transition: color 0.3s;
+  }
+  .pw-toggle:hover { color: rgba(255,255,255,0.6); }
+
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+  .row label { display: flex; align-items: center; gap: 12px; cursor: pointer; color: rgba(255,255,255,0.6); }
+  .row input[type="checkbox"] { accent-color: var(--sand); }
+  .row a { color: var(--sand); text-decoration: none; transition: text-decoration 0.2s; }
+  .row a:hover { text-decoration: underline; }
+
+  .btn-primary {
+    width: 100%; padding: 16px; border-radius: 16px; border: none; cursor: pointer;
+    font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 16px;
+    background: var(--sand); color: var(--bg); transition: background 0.3s;
+  }
+  .btn-primary:hover { background: rgba(204,168,133,0.85); }
+
+  .divider { position: relative; display: flex; align-items: center; justify-content: center; }
+  .divider span.line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+  .divider span.text { padding: 0 16px; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  .btn-google {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
+    background: none; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    color: rgba(255,255,255,0.7); transition: background 0.3s;
+  }
+  .btn-google:hover { background: rgba(255,255,255,0.05); }
+  .btn-google svg { width: 20px; height: 20px; }
+
+  .footer-text { text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
+  .footer-text a { color: var(--sand); text-decoration: none; }
+  .footer-text a:hover { text-decoration: underline; }
+
+  /* Right column */
+  .hero-col { display: none; flex: 1; position: relative; padding: 16px; }
+  @media (min-width: 768px) { .hero-col { display: block; } }
+  .hero-bg {
+    position: absolute; inset: 16px; border-radius: 24px; background-size: cover; background-position: center;
+    opacity: 0; transform: translateX(40px); filter: blur(8px);
+    animation: slideRightIn 0.8s ease 0.3s forwards;
+  }
+  @keyframes slideRightIn { to { opacity: 1; transform: translateX(0); filter: blur(0); } }
+
+  .testimonials { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; gap: 16px; padding: 0 32px; width: 100%; justify-content: center; }
+  .tcard {
+    display: flex; align-items: flex-start; gap: 12px; border-radius: 24px;
+    background: rgba(13,18,26,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px; width: 256px; flex-shrink: 0;
+    opacity: 0; filter: blur(8px); transform: translateY(20px) scale(0.95);
+    animation: testimonialIn 0.6s ease forwards;
+  }
+  @keyframes testimonialIn { to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); } }
+  .tcard:nth-child(1) { animation-delay: 1s; }
+  .tcard:nth-child(2) { animation-delay: 1.2s; display: none; }
+  .tcard:nth-child(3) { animation-delay: 1.4s; display: none; }
+  @media (min-width: 1280px) { .tcard:nth-child(2) { display: flex; } }
+  @media (min-width: 1536px) { .tcard:nth-child(3) { display: flex; } }
+  .tcard img { width: 40px; height: 40px; border-radius: 16px; object-fit: cover; }
+  .tcard .info { font-size: 14px; line-height: 1.4; }
+  .tcard .name { font-weight: 500; color: #fff; }
+  .tcard .handle { color: rgba(255,255,255,0.5); }
+  .tcard .text { margin-top: 4px; color: rgba(255,255,255,0.7); }
+
+  /* Animations */
+  .anim { opacity: 0; filter: blur(8px); transform: translateY(20px); animation: fadeIn 0.6s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
+  .d4 { animation-delay: 0.4s; } .d5 { animation-delay: 0.5s; } .d6 { animation-delay: 0.6s; }
+  .d7 { animation-delay: 0.7s; } .d8 { animation-delay: 0.8s; } .d9 { animation-delay: 0.9s; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="close-btn" aria-label="Close">&times;</a>
+
+  <!-- Left: Form -->
+  <section class="form-col">
+    <div class="form-inner">
+      <a href="index.html" class="form-logo anim d1">
+        <img src="public/company_logo.png" alt="Deepblue Capital Partners">
+      </a>
+
+      <h1 class="form-title font-serif anim d1"><span>Investor Portal</span></h1>
+      <p class="form-desc font-serif anim d2">Sign in to access your portfolio, reports, and investment opportunities.</p>
+
+      <form id="signInForm">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div class="field anim d3">
+            <label class="font-serif">Email Address</label>
+            <input class="glass-input" name="email" type="email" placeholder="Enter your email address">
+          </div>
+
+          <div class="field anim d4">
+            <label class="font-serif">Password</label>
+            <div class="pw-wrap">
+              <input class="glass-input" id="pwInput" name="password" type="password" placeholder="Enter your password" style="padding-right:48px;">
+              <button type="button" class="pw-toggle" id="pwToggle">&#128065;</button>
+            </div>
+          </div>
+
+          <div class="row font-serif anim d5">
+            <label><input type="checkbox" name="rememberMe"> <span>Keep me signed in</span></label>
+            <a href="#" id="resetPw">Reset password</a>
+          </div>
+
+          <button type="submit" class="btn-primary anim d6">Sign In</button>
+        </div>
+      </form>
+
+      <div class="divider anim d7"><span class="line"></span><span class="text font-serif">Or continue with</span><span class="line"></span></div>
+
+      <button type="button" class="btn-google font-serif anim d8">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l6.19 5.238C36.971 39.801 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+        Sign in with Google
+      </button>
+
+      <p class="footer-text font-serif anim d9">
+        Need investor access? <a href="mailto:investors+prosper@deepbluepartners.co?subject=Investor%20Portal%20Access">Contact us</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Right: Hero image + testimonials -->
+  <section class="hero-col">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80');"></div>
+    <div class="testimonials">
+      <div class="tcard">
+        <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="">
+        <div class="info"><p class="name">Marcus Webb</p><p class="handle">Accredited Investor</p><p class="text">Deepblue has consistently delivered strong risk-adjusted returns across their real estate portfolio.</p></div>
+      </div>
+      <div class="tcard">
+        <img src="https://randomuser.me/api/portraits/women/57.jpg" alt="">
+        <div class="info"><p class="name">Sarah Chen</p><p class="handle">LP Partner</p><p class="text">Transparent reporting and a disciplined investment approach. Exactly what I look for in a GP.</p></div>
+      </div>
+      <div class="tcard">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+        <div class="info"><p class="name">David Reeves</p><p class="handle">Family Office</p><p class="text">The team's deep expertise in real estate asset classes gives us confidence in every allocation.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+// Password toggle
+const pwInput = document.getElementById('pwInput');
+const pwToggle = document.getElementById('pwToggle');
+pwToggle.addEventListener('click', () => {
+  const isPassword = pwInput.type === 'password';
+  pwInput.type = isPassword ? 'text' : 'password';
+});
+
+// Form submit
+document.getElementById('signInForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  console.log('Sign In submitted:', data);
+  alert('Sign in submitted (check console)');
+});
+
+// Reset password
+document.getElementById('resetPw').addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('Reset Password clicked');
+  alert('Reset password clicked');
+});
+</script>
+</body>
+</html>

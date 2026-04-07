@@ -66,15 +66,13 @@ export function GradientWaveText({
   const startAtRef = useRef(0);
   const hasPlayedRef = useRef(false);
 
-  const [isInView, setIsInView] = useState(!inView);
+  const [isInView, setIsInView] = useState(false);
+  const isVisible = inView ? isInView : true;
 
   const cycles = repeat ? 0 : 1;
 
   useEffect(() => {
-    if (!inView) {
-      setIsInView(true);
-      return;
-    }
+    if (!inView) return;
 
     const node = elRef.current;
     if (!node) return;
@@ -128,7 +126,7 @@ export function GradientWaveText({
   }, []);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isVisible) return;
 
     const node = elRef.current;
     if (!node) return;
@@ -139,11 +137,11 @@ export function GradientWaveText({
     startedRef.current = false;
     startAtRef.current = performance.now() + Math.max(0, (delay ?? 0) * 1000);
     node.style.setProperty("--gi", "-25");
-  }, [isInView, delay]);
+  }, [isVisible, delay]);
 
   useEffect(() => {
     const node = elRef.current;
-    if (!node || !isInView) return;
+    if (!node || !isVisible) return;
 
     const RANGE = 200;
     let last = performance.now();
@@ -197,7 +195,7 @@ export function GradientWaveText({
 
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [speed, paused, cycles, isInView]);
+  }, [speed, paused, cycles, isVisible]);
 
   const justifyContent =
     align === "left"
