@@ -1,7 +1,7 @@
-import { BeamsBackground } from "@/components/ui/beams-background";
-import { HeroSection } from "@/components/ui/hero-section";
-import NavMenu from "@/components/ui/nav-menu";
-import { LogoSlider } from "@/components/ui/logo-slider";
+import { BeamsBackground } from "@/components/ui/layout/beams-background";
+import { HeroSection } from "@/components/ui/hero/hero-section";
+import NavMenu from "@/components/ui/layout/nav-menu";
+import { LogoSlider } from "@/components/ui/sections/logo-slider";
 
 export default function Home() {
   return (

@@ -21,9 +21,20 @@ const banglaMN = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Deepblue Capital Partners",
+  title: {
+    default: "Deepblue Capital Partners",
+    template: "%s | Deepblue Capital Partners",
+  },
   description:
     "A forward-thinking private equity firm dedicated to strategic real estate investments.",
+  metadataBase: new URL("https://deepbluepartners.co"),
+  openGraph: {
+    siteName: "Deepblue Capital Partners",
+    type: "website",
+    locale: "en_US",
+    description:
+      "A forward-thinking private equity firm dedicated to strategic real estate investments.",
+  },
 };
 
 export default function RootLayout({

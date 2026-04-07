@@ -10,7 +10,7 @@ import {
   YAxis,
   CartesianGrid,
 } from "recharts";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface StatItem {
   value: string;
@@ -98,6 +98,7 @@ export function FeaturedSectionStats({
   stats = defaultStats,
   chartData = defaultChartData,
 }: FeaturedSectionStatsProps) {
+  const prefersReducedMotion = useReducedMotion();
   const [isChartReady, setIsChartReady] = useState(false);
 
   useEffect(() => {
@@ -111,10 +112,10 @@ export function FeaturedSectionStats({
   return (
     <motion.section
       className="mx-auto w-full max-w-7xl px-8 py-24 md:px-16 lg:px-28"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      variants={prefersReducedMotion ? undefined : containerVariants}
+      initial={prefersReducedMotion ? "visible" : "hidden"}
+      whileInView={prefersReducedMotion ? undefined : "visible"}
+      viewport={prefersReducedMotion ? undefined : { once: true, amount: 0.2 }}
     >
       <div>
         <motion.h3

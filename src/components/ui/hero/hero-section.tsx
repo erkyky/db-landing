@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { GradientWaveText } from "@/components/ui/gradient-wave-text";
+import { GradientWaveText } from "@/components/ui/hero/gradient-wave-text";
 
 interface HeroSectionProps {
   className?: string;
@@ -92,6 +92,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               <img
                 src={logo.url}
                 alt={logo.alt}
+                width={400}
+                height={100}
                 className="h-auto w-[95%] max-w-sm brightness-0 invert opacity-90"
               />
             </motion.div>
@@ -132,9 +134,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               </button>
             </motion.div>
 
-            {/* Commented out acquisitions email - preserved from original */}
-            {/*
-            <div className="mt-3">
+            <motion.div className="mt-3" variants={itemVariants}>
               <span className="text-sm text-white/50">Sell to us: </span>
               <a
                 href="mailto:acquisitions+prosper@deepbluepartners.co?subject=Property%20Acquisition%20Opportunity&body=Hello%20Deepblue%20Capital%20Partners%2C%0A%0AI%20would%20like%20to%20discuss%20a%20potential%20property%20for%20acquisition%20by%20your%20fund.%20Here%20are%20some%20initial%20details%20for%20your%20review:%0A%0AThank%20you."
@@ -142,8 +142,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               >
                 acquisitions@deepbluepartners.co
               </a>
-            </div>
-            */}
+            </motion.div>
           </motion.div>
         </div>
 
@@ -156,7 +155,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         >
           <div
             className="absolute inset-0 bg-cover bg-center rounded-tl-lg"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: `url(${heroImage})`, backgroundColor: "#1a2332" }}
           />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0d121a]/30" />
         </motion.div>

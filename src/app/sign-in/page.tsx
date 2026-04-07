@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInPage, Testimonial } from "@/components/ui/sign-in";
+import { SignInPage, Testimonial } from "@/components/ui/forms/sign-in";
 
 const testimonials: Testimonial[] = [
   {

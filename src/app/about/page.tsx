@@ -11,11 +11,11 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { BeamsBackground } from "@/components/ui/beams-background";
-import { CinematicHero } from "@/components/ui/cinematic-hero";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { InteractiveImageAccordion } from "@/components/ui/interactive-image-accordion";
-import NavMenu from "@/components/ui/nav-menu";
+import { BeamsBackground } from "@/components/ui/layout/beams-background";
+import { CinematicHero } from "@/components/ui/hero/cinematic-hero";
+import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
+import { InteractiveImageAccordion } from "@/components/ui/sections/interactive-image-accordion";
+import NavMenu from "@/components/ui/layout/nav-menu";
 
 const containerVariants = {
   hidden: { opacity: 0 },

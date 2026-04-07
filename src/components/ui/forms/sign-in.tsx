@@ -88,6 +88,8 @@ export const SignInPage: React.FC<SignInPageProps> = ({
               <img
                 src="/company_logo.png"
                 alt="Deepblue Capital Partners"
+                width={200}
+                height={56}
                 className="h-14 w-auto brightness-0 invert opacity-70"
               />
             </Link>

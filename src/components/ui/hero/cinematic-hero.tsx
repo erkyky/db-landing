@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface BadgeItem {
   emoji: string;
@@ -148,9 +142,17 @@ export function CinematicHero({
 
   // GSAP scroll timeline
   useEffect(() => {
+    let ctx: { revert: () => void } | undefined;
+
+    (async () => {
+    const { gsap } = await import("gsap");
+    const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isMobile = window.innerWidth < 768;
 
-    const ctx = gsap.context(() => {
+    ctx = gsap.context(() => {
       // Initial states
       gsap.set(".hero-eyebrow", { autoAlpha: 0, y: 30 });
       gsap.set(".hero-headline", { autoAlpha: 0, y: 60, scale: 0.9, filter: "blur(16px)" });
@@ -166,12 +168,12 @@ export function CinematicHero({
         .to(".hero-headline", { duration: 1.6, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", ease: "expo.out" }, "-=0.6")
         .to(".hero-subtitle", { duration: 1.2, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" }, "-=0.8");
 
-      if (isMobile) {
-        // On mobile: just fade in card content without pinning
-        gsap.to(".hero-card", { y: 0, autoAlpha: 1, duration: 1, delay: 1.5, ease: "power3.out" });
-        gsap.to(".hero-card-inner", { autoAlpha: 1, duration: 0.8, delay: 2, ease: "power2.out" });
-        gsap.to(".hero-stat-group", { autoAlpha: 1, duration: 0.8, delay: 2.2, stagger: 0.15, ease: "power2.out" });
-        gsap.to(".hero-badge", { autoAlpha: 1, duration: 0.6, delay: 2.5, stagger: 0.1, ease: "back.out(1.2)" });
+      if (isMobile || prefersReducedMotion) {
+        // On mobile or reduced motion: just fade in card content without pinning
+        gsap.to(".hero-card", { y: 0, autoAlpha: 1, duration: prefersReducedMotion ? 0 : 1, delay: prefersReducedMotion ? 0 : 1.5, ease: "power3.out" });
+        gsap.to(".hero-card-inner", { autoAlpha: 1, duration: prefersReducedMotion ? 0 : 0.8, delay: prefersReducedMotion ? 0 : 2, ease: "power2.out" });
+        gsap.to(".hero-stat-group", { autoAlpha: 1, duration: prefersReducedMotion ? 0 : 0.8, delay: prefersReducedMotion ? 0 : 2.2, stagger: prefersReducedMotion ? 0 : 0.15, ease: "power2.out" });
+        gsap.to(".hero-badge", { autoAlpha: 1, duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 2.5, stagger: prefersReducedMotion ? 0 : 0.1, ease: "back.out(1.2)" });
         return;
       }
 
@@ -180,7 +182,7 @@ export function CinematicHero({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=5000",
+          end: "+=3500",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -245,7 +247,9 @@ export function CinematicHero({
 
     }, containerRef);
 
-    return () => ctx.revert();
+    })();
+
+    return () => ctx?.revert();
   }, []);
 
   return (

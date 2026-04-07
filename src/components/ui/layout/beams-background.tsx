@@ -52,7 +52,22 @@ export function BeamsBackground({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
+    const isVisibleRef = useRef(true);
     const BEAM_COUNT = 12;
+
+    // Pause animation when canvas is off-screen
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isVisibleRef.current = entry.isIntersecting;
+            },
+            { threshold: 0 }
+        );
+        observer.observe(canvas);
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -131,6 +146,11 @@ export function BeamsBackground({
 
         function animate() {
             if (!canvas || !ctx) return;
+
+            if (!isVisibleRef.current) {
+                animationFrameRef.current = requestAnimationFrame(animate);
+                return;
+            }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
