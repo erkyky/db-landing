@@ -2,8 +2,8 @@
 
 export function Footer() {
   return (
-    <footer className="bg-[#131d2c] py-3">
-      <p className="text-center text-xs text-white/40">
+    <footer className="py-3">
+      <p className="text-center font-serif text-sm text-white/40">
         &copy; 2025 Deepblue Capital Partners. All rights reserved.
       </p>
     </footer>

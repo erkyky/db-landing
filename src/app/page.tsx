@@ -1,11 +1,13 @@
 import { BeamsBackground } from "@/components/ui/beams-background";
 import { HeroSection } from "@/components/ui/hero-section";
-import { Footer } from "@/components/ui/footer";
+import NavMenu from "@/components/ui/nav-menu";
+import { LogoSlider } from "@/components/ui/logo-slider";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col">
       <BeamsBackground intensity="subtle" className="flex-1 flex flex-col">
+        <NavMenu />
         <HeroSection
           logo={{
             url: "/company_logo.png",
@@ -23,8 +25,8 @@ export default function Home() {
           }}
           heroImage="/hero_image.jpg"
         />
+        <LogoSlider />
       </BeamsBackground>
-      <Footer />
     </main>
   );
 }
