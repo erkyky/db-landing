@@ -60,7 +60,7 @@
   .scroll-hero-sticky {
     position: relative; top: 0; height: 100vh; width: 100%;
     background: var(--bg); overflow: hidden;
-    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+    clip-path: polygon(38% 38%, 62% 38%, 62% 62%, 38% 62%);
     will-change: clip-path;
   }
   .scroll-hero-beams {
@@ -236,7 +236,7 @@
     <a href="investments.html">Strategies</a>
     <a href="about.html">Team</a>
     <a href="sustainability.html" class="active">Sustainability</a>
-    <a href="#">News</a>
+    <a href="news.html">News</a>
     <a href="sign-in.html">Investors</a>
   </div>
 </nav>
@@ -384,8 +384,8 @@ window.addEventListener('scroll', () => {
 const heroSticky = document.getElementById('scrollHeroSticky');
 const heroImg = document.getElementById('scrollHeroImg');
 const heroOverlay = document.getElementById('scrollHeroOverlay');
-const CLIP_START_INIT = 25;
-const CLIP_END_INIT = 75;
+const CLIP_START_INIT = 38;
+const CLIP_END_INIT = 62;
 
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -405,19 +405,13 @@ function applyHeroProgress(progress) {
 }
 
 // Auto-run the expansion animation on page load
-const ANIM_DELAY = 400;   // ms before animation starts
-const ANIM_DURATION = 2800; // ms for the full expansion
+const ANIM_DURATION = 2200; // ms for the full expansion
 let animStart = null;
 
 function autoExpand(timestamp) {
   if (!animStart) animStart = timestamp;
   const elapsed = timestamp - animStart;
-  if (elapsed < ANIM_DELAY) {
-    applyHeroProgress(0);
-    requestAnimationFrame(autoExpand);
-    return;
-  }
-  const t = Math.min((elapsed - ANIM_DELAY) / ANIM_DURATION, 1);
+  const t = Math.min(elapsed / ANIM_DURATION, 1);
   const progress = easeInOutCubic(t);
   applyHeroProgress(progress);
   if (t < 1) {
