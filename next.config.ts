@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   turbopack: {
-    root: ".",
+    root: __dirname,
   },
 };
 
