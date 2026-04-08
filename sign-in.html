@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign In - Deepblue Capital Partners</title>
+<title>Investors - Deepblue Capital Partners</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,26 +15,61 @@
   .page { min-height: 100vh; display: flex; flex-direction: column; }
   @media (min-width: 768px) { .page { flex-direction: row; } }
 
-  /* Close button */
-  .close-btn {
-    position: absolute; top: 24px; left: 24px; z-index: 20; padding: 8px;
-    color: rgba(255,255,255,0.25); text-decoration: none; font-size: 24px; line-height: 1; transition: color 0.3s;
+  /* Nav bar */
+  .nav-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 48px;
+    background: transparent;
+    transition: transform 0.3s ease;
   }
-  .close-btn:hover { color: rgba(255,255,255,0.6); }
+  .nav-bar.nav-hidden { transform: translateY(-100%); }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a {
+    font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4);
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px;
+    transition: color 0.3s; white-space: nowrap; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+    background: var(--sand); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: rgba(255,255,255,0.8); }
+  .nav-links a.active::after { width: 100%; background: var(--sand); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+  .nav-toggle span { display: block; width: 20px; height: 1.5px; background: rgba(255,255,255,0.5); transition: all 0.3s; }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+  @media (max-width: 900px) {
+    .nav-bar { padding: 16px 24px; justify-content: flex-end; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: fixed; top: 56px; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 0;
+      background: rgba(13,18,26,0.95); backdrop-filter: blur(16px);
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .nav-links.show { max-height: 400px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-links a { padding: 16px 24px; width: 100%; font-size: 15px; }
+    .nav-links a::after { display: none; }
+  }
 
   /* Left column */
-  .form-col { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px; }
+  .form-col { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px; padding-top: 80px; }
   .form-inner { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 24px; }
 
   .form-logo img { height: 56px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
   .form-title { font-size: clamp(32px, 5vw, 48px); font-weight: 600; line-height: 1.1; color: #fff; }
   .form-title span { font-weight: 300; letter-spacing: -0.02em; }
-  .form-desc { color: rgba(255,255,255,0.5); }
+  .form-desc { color: rgba(255,255,255,0.5); font-size: 16px; }
 
-  .field label { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .field label { display: block; font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
   .glass-input {
     width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px; padding: 16px; font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    border-radius: 16px; padding: 16px; font-family: 'Cormorant Garamond', serif; font-size: 16px;
     color: #fff; outline: none; transition: border-color 0.3s, background 0.3s;
   }
   .glass-input::placeholder { color: rgba(255,255,255,0.3); }
@@ -47,7 +82,7 @@
   }
   .pw-toggle:hover { color: rgba(255,255,255,0.6); }
 
-  .row { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 15px; }
   .row label { display: flex; align-items: center; gap: 12px; cursor: pointer; color: rgba(255,255,255,0.6); }
   .row input[type="checkbox"] { accent-color: var(--sand); }
   .row a { color: var(--sand); text-decoration: none; transition: text-decoration 0.2s; }
@@ -55,33 +90,34 @@
 
   .btn-primary {
     width: 100%; padding: 16px; border-radius: 16px; border: none; cursor: pointer;
-    font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 16px;
+    font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 18px;
     background: var(--sand); color: var(--bg); transition: background 0.3s;
   }
   .btn-primary:hover { background: rgba(204,168,133,0.85); }
 
   .divider { position: relative; display: flex; align-items: center; justify-content: center; }
   .divider span.line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
-  .divider span.text { padding: 0 16px; font-size: 12px; color: rgba(255,255,255,0.3); }
+  .divider span.text { padding: 0 16px; font-size: 13px; color: rgba(255,255,255,0.3); }
 
   .btn-google {
     width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px;
     padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
-    background: none; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    background: none; cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 16px;
     color: rgba(255,255,255,0.7); transition: background 0.3s;
   }
   .btn-google:hover { background: rgba(255,255,255,0.05); }
   .btn-google svg { width: 20px; height: 20px; }
 
-  .footer-text { text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
+  .footer-text { text-align: center; font-size: 15px; color: rgba(255,255,255,0.4); }
   .footer-text a { color: var(--sand); text-decoration: none; }
   .footer-text a:hover { text-decoration: underline; }
 
   /* Right column */
-  .hero-col { display: none; flex: 1; position: relative; padding: 16px; }
+  .hero-col { display: none; flex: 0 0 38%; max-width: 38%; position: relative; padding: 16px; }
   @media (min-width: 768px) { .hero-col { display: block; } }
+  @media (min-width: 1280px) { .hero-col { flex: 0 0 42%; max-width: 42%; } }
   .hero-bg {
-    position: absolute; inset: 16px; border-radius: 24px; background-size: cover; background-position: center;
+    position: absolute; top: 80px; left: 16px; right: 16px; bottom: 16px; border-radius: 24px; background-size: cover; background-position: center;
     opacity: 0; transform: translateX(40px); filter: blur(8px);
     animation: slideRightIn 0.8s ease 0.3s forwards;
   }
@@ -116,9 +152,23 @@
 </style>
 </head>
 <body>
-<div class="page">
-  <a href="index.html" class="close-btn" aria-label="Close">&times;</a>
 
+<!-- Nav -->
+<nav class="nav-bar">
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="investments.html">Strategies</a>
+    <a href="about.html">Team</a>
+    <a href="sustainability.html">Sustainability</a>
+    <a href="#">News</a>
+    <a href="sign-in.html" class="active">Investors</a>
+  </div>
+</nav>
+
+<div class="page">
   <!-- Left: Form -->
   <section class="form-col">
     <div class="form-inner">
@@ -187,6 +237,12 @@
 </div>
 
 <script>
+// Nav toggle
+document.getElementById('navToggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
 // Password toggle
 const pwInput = document.getElementById('pwInput');
 const pwToggle = document.getElementById('pwToggle');
@@ -208,6 +264,19 @@ document.getElementById('resetPw').addEventListener('click', (e) => {
   e.preventDefault();
   console.log('Reset Password clicked');
   alert('Reset password clicked');
+});
+
+// ── Auto-hide nav on scroll ──
+let lastScrollY = window.scrollY;
+const navBar = document.querySelector('.nav-bar');
+window.addEventListener('scroll', () => {
+  const currentY = window.scrollY;
+  if (currentY > 80 && currentY > lastScrollY) {
+    navBar.classList.add('nav-hidden');
+  } else {
+    navBar.classList.remove('nav-hidden');
+  }
+  lastScrollY = currentY;
 });
 </script>
 </body>
