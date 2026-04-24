@@ -6,8 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Investments", href: "/investments" },
   { label: "About", href: "/about" },
+  { label: "Investments", href: "/investments" },
   { label: "Sustainability", href: "/sustainability" },
   { label: "Sign In", href: "/sign-in" },
 ];
@@ -28,6 +28,16 @@ export default function NavMenu() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
 
+  const onLightBackdrop = pathname === "/sustainability";
+
+  const inactiveClass = onLightBackdrop
+    ? "text-[#0d121a] hover:text-black"
+    : "text-white/45 hover:text-white/85";
+
+  const activeClass = onLightBackdrop
+    ? "text-[#5a3e1c]"
+    : "text-[#cca885]";
+
   return (
     <AnimatePresence>
       {visible && (
@@ -36,7 +46,7 @@ export default function NavMenu() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="fixed top-5 left-1/2 z-50 flex -translate-x-1/2 items-center gap-8"
+          className="fixed top-5 left-1/2 z-50 flex -translate-x-1/2 items-center gap-10"
         >
           {navItems.map((item) => {
             const active = isActive(item.href);
@@ -44,10 +54,8 @@ export default function NavMenu() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-serif text-sm uppercase tracking-[0.1em] whitespace-nowrap transition-colors duration-300 ${
-                  active
-                    ? "text-[#cca885]"
-                    : "text-white/40 hover:text-white/80"
+                className={`font-serif text-base uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 ${
+                  active ? activeClass : inactiveClass
                 }`}
               >
                 {item.label}

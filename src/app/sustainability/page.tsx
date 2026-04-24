@@ -80,7 +80,7 @@ export default function SustainabilityPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Intro */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 text-center md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -99,7 +99,7 @@ export default function SustainabilityPage() {
             Investing with care for the world we share.
           </motion.h2>
           <motion.p
-            className="mt-8 font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            className="mx-auto mt-8 max-w-5xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}
           >
             At Deepblue Capital Partners, sustainable investing is not an add-on — it
