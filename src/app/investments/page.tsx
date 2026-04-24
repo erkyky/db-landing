@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
+import { Globe } from "@/components/ui/visuals/globe";
 import NavMenu from "@/components/ui/layout/nav-menu";
 
 const containerVariants = {
@@ -138,9 +139,9 @@ export default function InvestmentsPage() {
           </motion.div>
         </motion.section>
 
-        {/* 2 · The Housing Thesis — editorial image panel */}
+        {/* 2 · The Housing Thesis — globe + caption split */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1680px] px-6 pb-32 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -152,44 +153,35 @@ export default function InvestmentsPage() {
           >
             The Housing Thesis
           </motion.p>
-          <motion.h2
-            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
-            variants={itemVariants}
-          >
-            The kind of housing we want to own.
-          </motion.h2>
-          <motion.p
-            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            Durable neighborhoods, operational upside, and assets where better
-            execution matters more than financial engineering.
-          </motion.p>
 
-          <motion.div
-            className="relative mt-16 aspect-[16/9] w-full overflow-hidden"
-            variants={itemVariants}
-          >
-            <img
-              src="/hero_image.jpg"
-              alt="Target housing market"
-              className="h-full w-full object-cover grayscale contrast-110 brightness-75"
-              loading="lazy"
-              decoding="async"
-              draggable={false}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/40 to-transparent" />
+          <div className="grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
+            <motion.div variants={itemVariants}>
+              <h2 className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
+                The kind of housing we want to own.
+              </h2>
+              <p className="mt-8 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
+                Durable neighborhoods, operational upside, and assets where better
+                execution matters more than financial engineering.
+              </p>
 
-            <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 lg:p-16">
-              <p className="max-w-2xl font-serif text-3xl leading-snug text-white md:text-4xl lg:text-5xl">
-                Demographic strength. Execution upside. Downside protection.
-              </p>
-              <p className="mt-4 max-w-xl font-serif text-base leading-relaxed text-white/60 md:text-lg">
-                Target markets: TX · NC · GA &nbsp;·&nbsp; 100&ndash;250 unit business plans
-                &nbsp;·&nbsp; 2&ndash;4 exit options per deal
-              </p>
-            </div>
-          </motion.div>
+              <div className="mt-12 border-l-2 border-[#cca885]/40 pl-6">
+                <p className="font-serif text-2xl leading-snug text-white md:text-3xl">
+                  Demographic strength. Execution upside. Downside protection.
+                </p>
+                <p className="mt-4 font-serif text-base leading-relaxed text-white/55 md:text-lg">
+                  Target markets: TX · NC · GA &nbsp;·&nbsp; 100&ndash;250 unit
+                  business plans &nbsp;·&nbsp; 2&ndash;4 exit options per deal
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="flex items-center justify-center"
+              variants={itemVariants}
+            >
+              <Globe className="w-full" />
+            </motion.div>
+          </div>
         </motion.section>
 
         {/* 3 · Why Sunbelt — split: signals + tenets + return profile */}
