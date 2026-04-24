@@ -1,16 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import {
-  Award,
-  Building2,
-  CheckCircle2,
-  DollarSign,
-  ShieldCheck,
-  Target,
-  Users,
-} from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
 import { CountUp } from "@/components/ui/animation/count-up";
@@ -21,7 +11,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
@@ -34,85 +24,32 @@ const itemVariants = {
   },
 };
 
-const experienceStats: Array<{
-  icon: LucideIcon;
-  value: string;
-  label: string;
-  sub: string;
-}> = [
-  {
-    icon: Building2,
-    value: "16M+",
-    label: "Square feet",
-    sub: "Deals executed across office, mixed-use, and housing strategies.",
-  },
-  {
-    icon: DollarSign,
-    value: "$10.4B",
-    label: "Capital raised",
-    sub: "Institutional fundraising experience across multiple real estate cycles.",
-  },
-  {
-    icon: DollarSign,
-    value: "$3.8B",
-    label: "Equity sourced",
-    sub: "Raised through six funds and seven co-investment vehicles.",
-  },
-  {
-    icon: Users,
-    value: "25",
-    label: "Years combined",
-    sub: "Senior real estate experience across acquisitions and capital formation.",
-  },
+const heroStats = [
+  { value: "16M+", label: "Square feet" },
+  { value: "$10.4B", label: "Capital raised" },
+  { value: "$3.8B", label: "Equity sourced" },
+  { value: "25", label: "Years combined" },
 ];
 
-const firmPrinciples = [
-  "Institutional training paired with entrepreneurial speed.",
-  "Complementary leadership across acquisitions, capital formation, and investor oversight.",
-  "Clear decision-making, transparent reporting, and practical asset-level execution.",
-];
-
-const operatingModel: Array<{
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-}> = [
+const capabilities = [
   {
-    icon: DollarSign,
-    title: "Capital formation and oversight",
-    desc: "Deepblue structures fundraising, financial controls, and investor communications with the rigor expected by sophisticated capital partners.",
+    title: "Capital formation",
+    desc: "Investor relationships, fund structuring, financial oversight, and communication with the rigor sophisticated LPs expect.",
   },
   {
-    icon: Building2,
-    title: "Acquisitions and asset management",
-    desc: "The team evaluates markets, sources deals, and translates underwriting into hands-on business plans after closing.",
+    title: "Acquisitions",
+    desc: "Market selection, sourcing, underwriting, and transaction execution with institutional diligence standards.",
   },
   {
-    icon: ShieldCheck,
-    title: "Institutional discipline",
-    desc: "Every opportunity is filtered through basis, downside protection, and a realistic plan for value creation before capital is committed.",
+    title: "Asset management",
+    desc: "Operational plans, renovation programs, and value-add implementation carried through to disposition.",
   },
 ];
 
 const notableDeals = [
-  {
-    name: "One Vanderbilt",
-    type: "Office / Retail",
-    location: "New York, NY",
-    role: "Development and acquisition leadership with Hines.",
-  },
-  {
-    name: "National Multifamily Portfolio",
-    type: "Multifamily",
-    location: "Fort Lauderdale, FL",
-    role: "Capital formation experience tied to large-scale residential investing.",
-  },
-  {
-    name: "Sunbelt SFR Portfolio",
-    type: "Single Family Rental",
-    location: "Multiple U.S. markets",
-    role: "Fundraising and portfolio building across rental housing platforms.",
-  },
+  { name: "One Vanderbilt", type: "Office / Retail", location: "New York, NY" },
+  { name: "National Multifamily", type: "Multifamily", location: "Fort Lauderdale, FL" },
+  { name: "Sunbelt SFR Portfolio", type: "Single Family Rental", location: "Multi-market" },
 ];
 
 export default function AboutPage() {
@@ -121,7 +58,7 @@ export default function AboutPage() {
       <NavMenu />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* Hero */}
+        {/* 1 · Intro */}
         <motion.section
           className="mx-auto flex min-h-screen max-w-[1440px] flex-col items-center justify-center px-6 pb-20 pt-32 text-center md:px-12 lg:px-20"
           variants={containerVariants}
@@ -152,7 +89,7 @@ export default function AboutPage() {
             className="mt-16 grid w-full grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
             variants={itemVariants}
           >
-            {experienceStats.map((stat, i) => (
+            {heroStats.map((stat, i) => (
               <div key={stat.label}>
                 <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                   <CountUp value={stat.value} delay={0.6 + i * 0.12} />
@@ -165,100 +102,22 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-
-        {/* Firm DNA Card (moved from hero sidebar) */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <motion.div variants={itemVariants}>
-              <p className="mb-5 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-                Firm Overview
-              </p>
-              <h2 className="max-w-4xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
-                Coverage across both sides of the capital stack.
-              </h2>
-              <div className="mt-10 grid gap-4">
-                {firmPrinciples.map((item) => (
-                  <motion.div
-                    key={item}
-                    className="flex items-start gap-3 rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-5 backdrop-blur-sm shadow-premium"
-                    variants={itemVariants}
-                  >
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#cca885]" />
-                    <p className="font-serif text-lg leading-relaxed text-white/72 md:text-xl">
-                      {item}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-                      Firm DNA
-                    </p>
-                    <p className="mt-2 font-serif text-2xl text-white md:text-3xl lg:text-4xl">
-                      Three integrated capabilities.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-8 grid gap-4">
-                  {[
-                    {
-                      title: "Capital formation",
-                      desc: "Investor relationships, fund structuring, financial oversight, and communication.",
-                    },
-                    {
-                      title: "Acquisitions",
-                      desc: "Market selection, sourcing, underwriting, and transaction execution.",
-                    },
-                    {
-                      title: "Asset management",
-                      desc: "Operational plans, renovation programs, and value-add implementation.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-[1.5rem] border border-white/10 bg-[#0d121a]/75 p-5"
-                    >
-                      <p className="font-serif text-xl text-white md:text-2xl">{item.title}</p>
-                      <p className="mt-2 font-serif text-lg leading-relaxed text-white/48">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Leadership Model - ContainerScroll */}
+        {/* 2 · Leadership (scroll-pinned reveal with dual bio inside) */}
         <ContainerScroll
           className="px-4 md:px-8 lg:px-16"
-          cardClassName="h-[30rem] md:h-[42rem]"
+          cardClassName="h-[34rem] md:h-[44rem]"
           innerClassName="p-0"
           titleComponent={
-            <div className="mb-10 px-4">
+            <div className="mb-10 px-4 text-center">
               <p className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-                Leadership Model
+                Leadership
               </p>
               <h2 className="font-serif text-5xl leading-tight text-white md:text-6xl lg:text-7xl">
-                Built to align capital, sourcing, and execution in one conversation.
+                Two senior operators. One integrated story.
               </h2>
               <p className="mx-auto mt-5 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
-                Investors do not need a disconnected story. Deepblue was built so the
-                same team that raises capital also understands where the risk lives and
-                how the business plan gets executed.
+                Raising capital, underwriting risk, and running business plans live in
+                the same room — not three handoffs.
               </p>
             </div>
           }
@@ -266,240 +125,94 @@ export default function AboutPage() {
           <div className="relative h-full w-full overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1800&auto=format&fit=crop"
-              alt="Modern office space representing institutional real estate execution"
+              alt="Modern office interior representing institutional real estate execution"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               decoding="async"
               draggable={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/35 to-[#0d121a]/8" />
-            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0d121a]/68 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/70 to-[#0d121a]/10" />
 
-            <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-white/10 px-4 py-2 font-sans text-sm uppercase tracking-[0.28em] text-white/75 backdrop-blur-sm md:left-8 md:top-8 md:text-base">
-              Complementary coverage
-            </div>
-
-            <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
-              <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-                <div className="rounded-[1.7rem] border border-white/10 bg-[#0d121a]/78 p-6 backdrop-blur-xl">
-                  <p className="font-serif text-2xl text-white md:text-3xl lg:text-4xl">
-                    Two senior operators. One integrated investment story.
+            <div className="absolute inset-x-0 bottom-0 p-7 md:p-12">
+              <div className="grid gap-10 md:grid-cols-2 md:gap-0">
+                <div className="md:pr-12">
+                  <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+                    Capital formation
                   </p>
-                  <p className="mt-3 max-w-xl font-serif text-lg leading-relaxed text-white/58 md:text-xl">
-                    Anthony leads acquisitions, asset management, and value-add execution.
-                    Ying leads capital formation, financial oversight, and investor
-                    relations. The combination matters because execution quality matters.
+                  <h3 className="mt-3 font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+                    Ying Huang
+                  </h3>
+                  <p className="mt-4 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
+                    Institutional real estate fundraising, investor relations, and
+                    financial oversight across multiple cycles.
                   </p>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
-                  {[
-                    { value: "Ying", label: "Capital formation, oversight, and investor communication" },
-                    { value: "Anthony", label: "Acquisitions, asset management, and business plan execution" },
-                  ].map((item) => (
-                    <div
-                      key={item.value}
-                      className="rounded-[1.4rem] border border-white/10 bg-white/10 p-4 backdrop-blur-xl"
-                    >
-                      <p className="font-serif text-3xl text-white md:text-4xl">
-                        {item.value}
-                      </p>
-                      <p className="mt-2 font-serif text-base leading-relaxed text-white/60 md:text-lg">
-                        {item.label}
-                      </p>
-                    </div>
-                  ))}
+                <div className="md:border-l md:border-[#cca885]/25 md:pl-12">
+                  <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+                    Acquisitions &amp; asset management
+                  </p>
+                  <h3 className="mt-3 font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+                    Anthony Liu
+                  </h3>
+                  <p className="mt-4 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
+                    Senior operator with experience at Hines leading office, mixed-use,
+                    and residential value-add programs.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </ContainerScroll>
 
-        {/* Leadership Bios */}
+        {/* 3 · How We Operate — numbered typographic, no cards */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Leadership
+            How we operate
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Investor-facing leadership with institutional depth.
+            Three capabilities. One conversation.
           </motion.h2>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            {/* Ying Huang */}
-            <motion.div
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium md:p-10"
-              variants={itemVariants}
-            >
-              <div className="flex items-center gap-5">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#cca885]/12">
-                  <span className="font-serif text-3xl text-[#cca885]">YH</span>
-                </div>
-                <div>
-                  <h3 className="font-serif text-3xl text-white md:text-4xl">
-                    Ying Huang
-                  </h3>
-                  <p className="font-sans text-sm uppercase tracking-[0.28em] text-[#cca885] md:text-base">
-                    Co-founder
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {["Capital formation", "Fund oversight", "Investor relations"].map(
-                  (item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-sm uppercase tracking-[0.2em] text-white/72 md:text-base"
-                    >
-                      {item}
-                    </span>
-                  )
-                )}
-              </div>
-
-              <div className="mt-8 space-y-4 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
-                <p>
-                  Before co-founding Deepblue, Ms. Huang launched C-Star SFR Advisors
-                  and raised three residential funds, growing the platform to
-                  approximately $120 million of assets under management.
-                </p>
-                <p>
-                  Prior to that, she spent nine years at Starwood Capital Group as a
-                  Director and Partner, helping cultivate relationships with global
-                  investors and contributing to more than $3.8 billion of equity
-                  raised. In 2016, she helped secure the largest equity commitment in
-                  Starwood&apos;s history for a $4.5 billion hotel portfolio transaction.
-                </p>
-              </div>
-
-              <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-[#0d121a]/70 p-5">
-                <p className="font-serif text-xl text-white md:text-2xl">Education</p>
-                <p className="mt-2 font-serif text-lg leading-relaxed text-white/48">
-                  Harvard University (M.S. Real Estate) · Seoul National University
-                  (M.S. Urban Planning) · Fudan University (B.A.)
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Anthony Liu */}
-            <motion.div
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium md:p-10"
-              variants={itemVariants}
-            >
-              <div className="flex items-center gap-5">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#78abaf]/12">
-                  <span className="font-serif text-3xl text-[#78abaf]">AL</span>
-                </div>
-                <div>
-                  <h3 className="font-serif text-3xl text-white md:text-4xl">
-                    Anthony Liu
-                  </h3>
-                  <p className="font-sans text-sm uppercase tracking-[0.28em] text-[#78abaf] md:text-base">
-                    Co-founder
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {["Acquisitions", "Asset management", "Execution"].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-sm uppercase tracking-[0.2em] text-white/72 md:text-base"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-8 space-y-4 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
-                <p>
-                  Before co-founding Deepblue, Mr. Liu was a Managing Director in
-                  Acquisitions at Hines, where he helped source, acquire, develop, and
-                  manage multifamily, office, and retail investments in the New York
-                  metropolitan market.
-                </p>
-                <p>
-                  His experience includes the development of One Vanderbilt and The
-                  Whit, as well as acquisitions such as The Source at White Plains and
-                  the Hudson Square Portfolio. Earlier in his career, he worked at
-                  Jamestown Properties and Wells Fargo.
-                </p>
-              </div>
-
-              <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-[#0d121a]/70 p-5">
-                <p className="font-serif text-xl text-white md:text-2xl">Education</p>
-                <p className="mt-2 font-serif text-lg leading-relaxed text-white/48">
-                  Carnegie Mellon University, Tepper School of Business (Finance) ·
-                  CFA Charterholder
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Operating Model */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
-            Operating Model
-          </motion.p>
-          <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
-            variants={itemVariants}
-          >
-            How Deepblue translates experience into a working platform.
-          </motion.h2>
-          <motion.p
-            className="mt-5 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            The firm is designed so fundraising, underwriting, and asset execution are
-            part of the same operating loop instead of three disconnected processes.
-          </motion.p>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {operatingModel.map((item) => (
+          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
+            {capabilities.map((c, i) => (
               <motion.div
-                key={item.title}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium"
+                key={c.title}
+                className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
               >
-                <item.icon className="h-7 w-7 text-[#cca885]/75" />
-                <h3 className="mt-6 font-serif text-3xl text-white md:text-[2.5rem]">
-                  {item.title}
+                <p className="font-serif text-6xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-7xl">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                <h3 className="mt-6 font-serif text-3xl text-white md:text-4xl">
+                  {c.title}
                 </h3>
                 <p className="mt-4 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
-                  {item.desc}
+                  {c.desc}
                 </p>
               </motion.div>
             ))}
           </div>
         </motion.section>
 
-        {/* Asset Class Experience */}
+        {/* 4 · Asset Class Experience — interactive accordion + deal strip */}
         <motion.section
-          className="mx-auto max-w-[1680px] px-6 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1680px] px-6 pb-32 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -509,93 +222,47 @@ export default function AboutPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Asset Class Experience
+            Asset class experience
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Hands-on experience across the asset classes that shape the strategy.
+            Hands-on across the asset classes that shape the strategy.
           </motion.h2>
           <motion.p
-            className="mt-5 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}
           >
-            The team&apos;s history spans office, mixed-use, multifamily, single-family
-            rental, and value-add execution. That range helps us compare opportunity
-            sets rather than chase whatever is fashionable.
+            Office, mixed-use, multifamily, and single-family rental — range that helps
+            us compare opportunities rather than chase whatever is fashionable.
           </motion.p>
-          <motion.div className="mt-12" variants={itemVariants}>
+          <motion.div className="mt-14" variants={itemVariants}>
             <InteractiveImageAccordion />
           </motion.div>
-        </motion.section>
 
-        {/* Notable Transactions */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
-            Notable Transactions
-          </motion.p>
-          <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
-            variants={itemVariants}
-          >
-            Representative transactions that inform how the team evaluates risk.
-          </motion.h2>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {notableDeals.map((deal) => (
-              <motion.div
-                key={deal.name}
-                className="group rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium transition-colors hover:bg-white/[0.05]"
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-              >
-                <Award className="h-6 w-6 text-[#cca885]/55 transition-colors group-hover:text-[#cca885]" />
-                <h3 className="mt-6 font-serif text-3xl text-white">{deal.name}</h3>
-                <p className="mt-2 font-serif text-lg text-[#cca885]">{deal.type}</p>
-                <p className="mt-3 font-serif text-lg leading-relaxed text-white/46">
-                  {deal.location}
-                </p>
-                <p className="mt-6 font-serif text-lg leading-relaxed text-white/58 md:text-xl">
-                  {deal.role}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Closing Quote */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-24 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+          {/* Notable deals strip */}
           <motion.div
-            className="rounded-[2.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(204,168,133,0.18),rgba(13,18,26,0.82)_38%,rgba(120,171,175,0.14))] p-10 text-center backdrop-blur-xl md:p-16"
+            className="mt-20 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-3"
             variants={itemVariants}
           >
-            <Target className="mx-auto h-7 w-7 text-[#cca885]" />
-            <blockquote className="mx-auto mt-8 max-w-4xl font-serif text-3xl leading-relaxed text-white/78 md:text-4xl lg:text-5xl">
-              &ldquo;Anthony leads acquisitions, asset management, and value-add
-              execution. Ying leads capital formation, financial oversight, and
-              investor relations. The partnership works because every investment
-              decision is tied back to the operating plan.&rdquo;
-            </blockquote>
+            {notableDeals.map((d) => (
+              <div key={d.name}>
+                <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885]">
+                  {d.type}
+                </p>
+                <p className="mt-3 font-serif text-2xl text-white md:text-3xl">
+                  {d.name}
+                </p>
+                <p className="mt-1 font-serif text-base text-white/50 md:text-lg">
+                  {d.location}
+                </p>
+              </div>
+            ))}
           </motion.div>
         </motion.section>
 
-        <p className="pb-8 text-center font-serif text-base text-white/22">
+        <p className="pb-10 text-center font-serif text-base text-white/22">
           &copy; 2026 Deepblue Capital Partners. All rights reserved.
         </p>
       </BeamsBackground>
