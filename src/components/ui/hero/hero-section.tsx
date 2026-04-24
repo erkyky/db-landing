@@ -64,13 +64,13 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               onMouseEnter={() => setSloganHovered(true)}
               onMouseLeave={() => setSloganHovered(false)}
             >
-              <p className={`font-serif text-xl md:text-2xl tracking-[0.15em] text-[#cca885] uppercase transition-opacity duration-300 ${sloganHovered ? "opacity-0" : "opacity-100"}`}>
+              <p className={`font-serif text-2xl md:text-3xl tracking-[0.15em] text-[#cca885] uppercase transition-opacity duration-300 ${sloganHovered ? "opacity-0" : "opacity-100"}`}>
                 {slogan}
               </p>
               <div className={`absolute inset-0 overflow-hidden transition-opacity duration-300 ${sloganHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <GradientWaveText
                   align="left"
-                  className="font-serif text-xl md:text-2xl tracking-[0.15em] uppercase [--gradient-wave-base:#cca885] dark:[--gradient-wave-base:#cca885]"
+                  className="font-serif text-2xl md:text-3xl tracking-[0.15em] uppercase [--gradient-wave-base:#cca885] dark:[--gradient-wave-base:#cca885]"
                   speed={1.5}
                   repeat
                   bottomOffset={0}
@@ -88,7 +88,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 alt={logo.alt}
                 width={400}
                 height={100}
-                className="h-auto w-[95%] max-w-sm brightness-0 invert opacity-90"
+                className="h-auto w-[95%] max-w-md brightness-0 invert opacity-90"
               />
             </motion.div>
 
@@ -102,7 +102,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             {descriptions.map((desc, i) => (
               <motion.p
                 key={i}
-                className="mb-4 font-serif text-lg leading-relaxed text-white/70"
+                className="mb-4 font-serif text-xl leading-relaxed text-white/70"
                 variants={itemVariants}
               >
                 {desc}

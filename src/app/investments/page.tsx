@@ -164,7 +164,7 @@ export default function InvestmentsPage() {
 
         {/* Fund Snapshot Card (moved from hero sidebar) */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-20 pt-24 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -331,7 +331,7 @@ export default function InvestmentsPage() {
 
         {/* Investment Strategy */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -379,7 +379,7 @@ export default function InvestmentsPage() {
 
         {/* Market Conviction */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -421,7 +421,7 @@ export default function InvestmentsPage() {
 
         {/* Execution Model */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -467,7 +467,7 @@ export default function InvestmentsPage() {
 
         {/* Why Deepblue */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -513,7 +513,7 @@ export default function InvestmentsPage() {
 
         {/* Investor Relations CTA */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-24 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

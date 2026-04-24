@@ -68,19 +68,19 @@ export default function SustainabilityPage() {
     <>
       <NavMenu />
 
-      {/* Smooth Scroll Hero with Picture1.jpg */}
+      {/* Auto-playing hero reveal */}
       <SmoothScrollHero
-        scrollHeight={1500}
         desktopImage="/Picture1.jpg"
         mobileImage="/Picture1.jpg"
-        initialClipPercentage={25}
-        finalClipPercentage={75}
+        initialClipPercentage={40}
+        finalClipPercentage={60}
+        duration={4.5}
       />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Intro */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-20 pt-24 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -112,7 +112,7 @@ export default function SustainabilityPage() {
 
         {/* Pillars */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -135,7 +135,7 @@ export default function SustainabilityPage() {
             {pillars.map((item) => (
               <motion.div
                 key={item.title}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium"
+                className="rounded-[1.75rem] bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium"
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
               >
@@ -153,7 +153,7 @@ export default function SustainabilityPage() {
 
         {/* Commitments */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -176,7 +176,7 @@ export default function SustainabilityPage() {
             {commitments.map((item) => (
               <motion.div
                 key={item.label}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm shadow-premium md:p-8"
+                className="rounded-[1.75rem] bg-white/[0.03] p-7 backdrop-blur-sm shadow-premium md:p-8"
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
               >
@@ -197,14 +197,14 @@ export default function SustainabilityPage() {
 
         {/* Philosophy Quote */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.div
-            className="rounded-[2.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(204,168,133,0.18),rgba(13,18,26,0.82)_38%,rgba(120,171,175,0.14))] p-10 backdrop-blur-xl md:p-16"
+            className="rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(204,168,133,0.18),rgba(13,18,26,0.82)_38%,rgba(120,171,175,0.14))] p-10 backdrop-blur-xl md:p-16"
             variants={itemVariants}
           >
             <Leaf className="mx-auto h-7 w-7 text-[#cca885]" />

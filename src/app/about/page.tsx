@@ -139,7 +139,7 @@ export default function AboutPage() {
 
         {/* Firm DNA Card (moved from hero sidebar) */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-20 pt-24 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -215,7 +215,7 @@ export default function AboutPage() {
 
         {/* Experience Stats */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -319,7 +319,7 @@ export default function AboutPage() {
 
         {/* Leadership Bios */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -453,7 +453,7 @@ export default function AboutPage() {
 
         {/* Operating Model */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -501,7 +501,7 @@ export default function AboutPage() {
 
         {/* Asset Class Experience */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -534,7 +534,7 @@ export default function AboutPage() {
 
         {/* Notable Transactions */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-28 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -577,7 +577,7 @@ export default function AboutPage() {
 
         {/* Closing Quote */}
         <motion.section
-          className="mx-auto max-w-7xl px-8 pb-24 md:px-16 lg:px-28"
+          className="mx-auto max-w-[1440px] px-6 pb-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
