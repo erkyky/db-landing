@@ -134,16 +134,21 @@ export default function AboutPage() {
             variants={itemVariants}
           >
             <div className="md:pr-16">
-              <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden">
+              <div className="aspect-[4/5] w-full max-w-[280px]">
                 <img
                   src="/Ying.jpg"
                   alt="Ying Huang"
                   className="h-full w-full object-cover"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 12%, black 32%, black 92%, transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 12%, black 32%, black 92%, transparent 100%)",
+                  }}
                   loading="lazy"
                   decoding="async"
                   draggable={false}
                 />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#0d121a] to-transparent" />
               </div>
               <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Capital formation
@@ -178,16 +183,21 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
-              <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden">
+              <div className="aspect-[4/5] w-full max-w-[280px]">
                 <img
                   src="/Anthony.jpg"
                   alt="Anthony Liu"
                   className="h-full w-full object-cover"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 12%, black 32%, black 92%, transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 12%, black 32%, black 92%, transparent 100%)",
+                  }}
                   loading="lazy"
                   decoding="async"
                   draggable={false}
                 />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#0d121a] to-transparent" />
               </div>
               <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Acquisitions &amp; asset management
