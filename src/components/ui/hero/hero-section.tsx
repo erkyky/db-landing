@@ -55,8 +55,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         variants={containerVariants}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col items-center justify-center px-8 pt-40 pb-16 md:w-1/2 md:px-12 md:pt-48 lg:w-3/5 lg:px-20 xl:px-28">
-          <motion.div variants={containerVariants} className="max-w-xl flex flex-col items-center text-center">
+        <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-1/2 md:px-12 md:pt-48 lg:w-3/5 lg:px-20 xl:px-28">
+          <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan */}
             <motion.div
               className="mb-6 cursor-default relative"
@@ -69,7 +69,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               </p>
               <div className={`absolute inset-0 overflow-hidden transition-opacity duration-300 ${sloganHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <GradientWaveText
-                  align="center"
+                  align="left"
                   className="font-serif text-xl md:text-2xl tracking-[0.15em] uppercase [--gradient-wave-base:#cca885] dark:[--gradient-wave-base:#cca885]"
                   speed={1.5}
                   repeat
@@ -88,7 +88,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 alt={logo.alt}
                 width={400}
                 height={100}
-                className="mx-auto h-auto w-[95%] max-w-sm brightness-0 invert opacity-90"
+                className="h-auto w-[95%] max-w-sm brightness-0 invert opacity-90"
               />
             </motion.div>
 
