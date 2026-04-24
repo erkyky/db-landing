@@ -123,7 +123,7 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero */}
         <motion.section
-          className="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 md:px-12 lg:px-20"
+          className="mx-auto flex min-h-screen max-w-[1440px] flex-col items-center justify-center px-6 pb-20 pt-32 text-center md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -135,13 +135,13 @@ export default function AboutPage() {
             About Deepblue
           </motion.p>
           <motion.h1
-            className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
             variants={itemVariants}
           >
             A complementary leadership team built around real estate.
           </motion.h1>
           <motion.p
-            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
+            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
             variants={itemVariants}
           >
             Capital formation, acquisitions, and asset management — one team, one
@@ -149,7 +149,7 @@ export default function AboutPage() {
           </motion.p>
 
           <motion.div
-            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="mt-16 grid w-full grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
             variants={itemVariants}
           >
             {experienceStats.map((stat, i) => (

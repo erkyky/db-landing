@@ -88,22 +88,22 @@ export const SignInPage: React.FC<SignInPageProps> = ({
               <img
                 src="/company_logo.png"
                 alt="Deepblue Capital Partners"
-                width={200}
-                height={56}
-                className="h-14 w-auto brightness-0 invert opacity-70"
+                width={260}
+                height={72}
+                className="h-20 w-auto brightness-0 invert opacity-70"
               />
             </Link>
 
-            <h1 className="animate-element animate-delay-100 text-4xl md:text-5xl font-serif font-semibold leading-tight text-white">
+            <h1 className="animate-element animate-delay-100 text-5xl md:text-6xl font-serif font-semibold leading-tight text-white">
               {title}
             </h1>
-            <p className="animate-element animate-delay-200 font-serif text-white/50">
+            <p className="animate-element animate-delay-200 font-serif text-base md:text-lg text-white/50">
               {description}
             </p>
 
             <form className="space-y-5" onSubmit={onSignIn}>
               <div className="animate-element animate-delay-300">
-                <label className="text-sm font-serif text-white/50">
+                <label className="text-base font-serif text-white/50">
                   Email Address
                 </label>
                 <GlassInputWrapper>
@@ -111,13 +111,13 @@ export const SignInPage: React.FC<SignInPageProps> = ({
                     name="email"
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full bg-transparent font-serif text-sm text-white placeholder:text-white/30 p-4 rounded-2xl focus:outline-none"
+                    className="w-full bg-transparent font-serif text-base text-white placeholder:text-white/30 p-4 rounded-2xl focus:outline-none"
                   />
                 </GlassInputWrapper>
               </div>
 
               <div className="animate-element animate-delay-400">
-                <label className="text-sm font-serif text-white/50">
+                <label className="text-base font-serif text-white/50">
                   Password
                 </label>
                 <GlassInputWrapper>
@@ -143,7 +143,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
                 </GlassInputWrapper>
               </div>
 
-              <div className="animate-element animate-delay-500 flex items-center justify-between text-sm font-serif">
+              <div className="animate-element animate-delay-500 flex items-center justify-between text-base font-serif">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" name="rememberMe" className="accent-[#cca885]" />
                   <span className="text-white/60">Keep me signed in</span>
@@ -162,7 +162,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
 
               <button
                 type="submit"
-                className="animate-element animate-delay-600 w-full rounded-2xl bg-[#cca885] py-4 font-serif font-medium text-[#0d121a] hover:bg-[#cca885]/85 transition-colors"
+                className="animate-element animate-delay-600 w-full rounded-2xl bg-[#cca885] py-4 font-serif text-base font-medium text-[#0d121a] hover:bg-[#cca885]/85 transition-colors md:text-lg"
               >
                 Sign In
               </button>
@@ -170,7 +170,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
 
             <div className="animate-element animate-delay-700 relative flex items-center justify-center">
               <span className="w-full border-t border-white/10"></span>
-              <span className="px-4 text-xs font-serif text-white/30 bg-[#0d121a] absolute">
+              <span className="px-4 text-sm font-serif text-white/30 bg-[#0d121a] absolute">
                 Or continue with
               </span>
             </div>
@@ -178,7 +178,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
             <button
               type="button"
               onClick={onGoogleSignIn}
-              className="animate-element animate-delay-800 w-full flex items-center justify-center gap-3 rounded-2xl border border-white/10 py-4 font-serif text-sm text-white/70 hover:bg-white/5 transition-colors"
+              className="animate-element animate-delay-800 w-full flex items-center justify-center gap-3 rounded-2xl border border-white/10 py-4 font-serif text-base text-white/70 hover:bg-white/5 transition-colors"
             >
               <svg className="h-5 w-5" viewBox="0 0 48 48">
                 <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
@@ -189,7 +189,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
               Sign in with Google
             </button>
 
-            <p className="animate-element animate-delay-900 text-center text-sm font-serif text-white/40">
+            <p className="animate-element animate-delay-900 text-center text-base font-serif text-white/40">
               Need investor access?{" "}
               <a
                 href="mailto:investors+prosper@deepbluepartners.co?subject=Investor%20Portal%20Access"

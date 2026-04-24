@@ -148,7 +148,7 @@ export default function InvestmentsPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero */}
         <motion.section
-          className="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 md:px-12 lg:px-20"
+          className="mx-auto flex min-h-screen max-w-[1440px] flex-col items-center justify-center px-6 pb-20 pt-32 text-center md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -160,13 +160,13 @@ export default function InvestmentsPage() {
             Deepblue Value-Add Fund
           </motion.p>
           <motion.h1
-            className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
             variants={itemVariants}
           >
             Real estate exposure built for Sunbelt rental housing.
           </motion.h1>
           <motion.p
-            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
+            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
             variants={itemVariants}
           >
             Value-add rental where demographic tailwinds and active management
@@ -174,7 +174,7 @@ export default function InvestmentsPage() {
           </motion.p>
 
           <motion.div
-            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="mt-16 grid w-full grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
