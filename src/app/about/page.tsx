@@ -145,7 +145,7 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="mt-16 grid gap-12 md:grid-cols-2 md:gap-0"
+            className="mt-16 grid gap-16 md:grid-cols-2 md:gap-0"
             variants={itemVariants}
           >
             <div className="md:pr-16">
@@ -155,9 +155,18 @@ export default function AboutPage() {
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
               </h3>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
-                Institutional real estate fundraising, investor relations, and
-                financial oversight across multiple cycles.
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
+                Ying leads capital formation, investor relations, and financial
+                oversight at Deepblue. Her expertise spans fund structuring,
+                financial controls, and LP reporting across multiple real estate
+                cycles — the discipline behind how the firm communicates with
+                investors.
+              </p>
+              <p className="mt-5 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                Senior roles at Starwood Capital and other institutional real
+                estate platforms, with involvement in fundraising programs
+                representing more than $10 billion in committed capital across
+                closed-end funds and co-investment vehicles. MBA in Finance.
               </p>
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
@@ -167,9 +176,17 @@ export default function AboutPage() {
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
               </h3>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
-                Senior operator with experience at Hines leading office, mixed-use,
-                and residential value-add programs.
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
+                Anthony leads acquisitions, underwriting, and asset management.
+                His work focuses on basis-driven sourcing, operational value
+                creation, and institutional business plan execution across
+                office, mixed-use, and rental housing.
+              </p>
+              <p className="mt-5 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                Senior operator at Hines with contribution to large-scale
+                development and acquisition programs in core U.S. markets
+                before turning attention to Sunbelt rental housing strategies.
+                Master&rsquo;s in Real Estate Finance.
               </p>
             </div>
           </motion.div>
