@@ -93,13 +93,13 @@ export default function SustainabilityPage() {
             Sustainability
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
+            className="font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Investing with care for the world we share.
           </motion.h2>
           <motion.p
-            className="mt-8 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            className="mt-8 font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}
           >
             At Deepblue Capital Partners, sustainable investing is not an add-on — it
@@ -208,7 +208,7 @@ export default function SustainabilityPage() {
             variants={itemVariants}
           >
             <Leaf className="mx-auto h-7 w-7 text-[#cca885]" />
-            <blockquote className="mx-auto mt-8 max-w-4xl text-center font-serif text-3xl leading-relaxed text-white/78 md:text-4xl lg:text-5xl">
+            <blockquote className="mt-8 text-center font-serif text-3xl leading-relaxed text-white/78 md:text-4xl lg:text-5xl">
               &ldquo;Capital deployed with care creates value that compounds —
               for investors, for communities, and for the world we leave
               behind.&rdquo;

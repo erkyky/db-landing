@@ -16,8 +16,8 @@ import {
   Users,
 } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
-import { CinematicHero } from "@/components/ui/hero/cinematic-hero";
 import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
+import { CountUp } from "@/components/ui/animation/count-up";
 import { FeaturedSectionStats } from "@/components/ui/sections/featured-section-stats";
 import NavMenu from "@/components/ui/layout/nav-menu";
 
@@ -145,22 +145,51 @@ export default function InvestmentsPage() {
     <>
       <NavMenu />
 
-      {/* Cinematic Scroll-Pinned Hero */}
-      <CinematicHero
-        eyebrow="Deepblue Value-Add Fund"
-        headline="Real estate exposure built for the next phase of Sunbelt rental housing."
-        subtitle="Deepblue invests in value-add rental housing where demographic tailwinds, selective basis, and active asset management can compound durable risk-adjusted returns."
-        stats={heroStats.map((s) => ({ value: s.value, label: s.label }))}
-        badges={[
-          { emoji: "🏠", title: "Value-add housing", subtitle: "Core strategy" },
-          { emoji: "☀️", title: "Sunbelt focus", subtitle: "TX, NC, GA markets" },
-          { emoji: "🛡️", title: "Institutional discipline", subtitle: "Risk-first approach" },
-        ]}
-        ctaHref="mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest"
-        ctaLabel="Contact Investor Relations"
-      />
-
       <BeamsBackground intensity="subtle" className="min-h-0">
+        {/* Hero */}
+        <motion.section
+          className="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p
+            className="mb-6 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            Deepblue Value-Add Fund
+          </motion.p>
+          <motion.h1
+            className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            variants={itemVariants}
+          >
+            Real estate exposure built for Sunbelt rental housing.
+          </motion.h1>
+          <motion.p
+            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
+            variants={itemVariants}
+          >
+            Value-add rental where demographic tailwinds and active management
+            compound risk-adjusted returns.
+          </motion.p>
+
+          <motion.div
+            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            variants={itemVariants}
+          >
+            {heroStats.map((stat, i) => (
+              <div key={stat.label}>
+                <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                  <CountUp value={stat.value} delay={0.6 + i * 0.12} />
+                </p>
+                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </motion.section>
+
 
         {/* Fund Snapshot Card (moved from hero sidebar) */}
         <motion.section
@@ -202,32 +231,13 @@ export default function InvestmentsPage() {
                       Fund Snapshot
                     </p>
                     <p className="mt-2 font-serif text-2xl text-white md:text-3xl lg:text-4xl">
-                      Key metrics at a glance.
+                      How capital gets deployed.
                     </p>
                   </div>
                   <ArrowUpRight className="h-5 w-5 text-white/35" />
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  {heroStats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-[1.5rem] border border-white/10 bg-[#0d121a]/75 p-5"
-                    >
-                      <p className="font-serif text-4xl text-white md:text-5xl">
-                        {stat.value}
-                      </p>
-                      <p className="mt-2 font-serif text-base text-[#cca885] md:text-lg">
-                        {stat.label}
-                      </p>
-                      <p className="mt-2 font-serif text-base leading-relaxed text-white/40">
-                        {stat.detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 rounded-[1.5rem] border border-[#78abaf]/20 bg-[#78abaf]/8 p-5">
+                <div className="mt-8 rounded-[1.5rem] border border-[#78abaf]/20 bg-[#78abaf]/8 p-5">
                   <div className="flex items-start gap-3">
                     <Users className="mt-1 h-5 w-5 text-[#78abaf]" />
                     <div>

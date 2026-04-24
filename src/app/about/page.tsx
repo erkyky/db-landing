@@ -12,8 +12,8 @@ import {
   Users,
 } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
-import { CinematicHero } from "@/components/ui/hero/cinematic-hero";
 import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
+import { CountUp } from "@/components/ui/animation/count-up";
 import { InteractiveImageAccordion } from "@/components/ui/sections/interactive-image-accordion";
 import NavMenu from "@/components/ui/layout/nav-menu";
 
@@ -120,22 +120,51 @@ export default function AboutPage() {
     <>
       <NavMenu />
 
-      {/* Cinematic Scroll-Pinned Hero */}
-      <CinematicHero
-        eyebrow="About Deepblue"
-        headline="A complementary leadership team built around real estate execution."
-        subtitle="Deepblue combines capital formation, acquisitions, and asset management expertise so the investment strategy stays coherent from first meeting through final disposition."
-        stats={experienceStats.map((s) => ({ value: s.value, label: s.label }))}
-        badges={[
-          { emoji: "⚡", title: "Institutional speed", subtitle: "Training meets agility" },
-          { emoji: "🤝", title: "Complementary leadership", subtitle: "Acquisitions + capital" },
-          { emoji: "📊", title: "Transparent reporting", subtitle: "Clear decision-making" },
-        ]}
-        ctaHref="mailto:investors+prosper@deepbluepartners.co?subject=About%20Deepblue"
-        ctaLabel="Start a Conversation"
-      />
-
       <BeamsBackground intensity="subtle" className="min-h-0">
+        {/* Hero */}
+        <motion.section
+          className="mx-auto flex min-h-screen max-w-[1440px] flex-col justify-center px-6 pb-20 pt-32 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p
+            className="mb-6 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            About Deepblue
+          </motion.p>
+          <motion.h1
+            className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            variants={itemVariants}
+          >
+            A complementary leadership team built around real estate.
+          </motion.h1>
+          <motion.p
+            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
+            variants={itemVariants}
+          >
+            Capital formation, acquisitions, and asset management — one team, one
+            conversation.
+          </motion.p>
+
+          <motion.div
+            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            variants={itemVariants}
+          >
+            {experienceStats.map((stat, i) => (
+              <div key={stat.label}>
+                <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                  <CountUp value={stat.value} delay={0.6 + i * 0.12} />
+                </p>
+                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </motion.section>
+
 
         {/* Firm DNA Card (moved from hero sidebar) */}
         <motion.section
@@ -210,37 +239,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </motion.section>
-
-        {/* Experience Stats */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {experienceStats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm shadow-premium md:p-8"
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-              >
-                <stat.icon className="h-6 w-6 text-[#cca885]/75" />
-                <p className="mt-5 font-serif text-5xl text-white md:text-6xl lg:text-7xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 font-serif text-base text-[#cca885] md:text-lg">
-                  {stat.label}
-                </p>
-                <p className="mt-3 font-serif text-lg leading-relaxed text-white/48">
-                  {stat.sub}
-                </p>
-              </motion.div>
-            ))}
           </div>
         </motion.section>
 
@@ -501,7 +499,7 @@ export default function AboutPage() {
 
         {/* Asset Class Experience */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1680px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
