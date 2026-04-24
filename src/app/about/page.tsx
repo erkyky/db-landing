@@ -130,64 +130,89 @@ export default function AboutPage() {
           </motion.p>
 
           <motion.div
-            className="relative mt-16 aspect-[16/7] w-full overflow-hidden"
-            variants={itemVariants}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1800&auto=format&fit=crop"
-              alt="Conference room"
-              className="h-full w-full object-cover grayscale contrast-110 brightness-75"
-              loading="lazy"
-              decoding="async"
-              draggable={false}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/20 to-transparent" />
-          </motion.div>
-
-          <motion.div
-            className="mt-16 grid gap-16 md:grid-cols-2 md:gap-0"
+            className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0"
             variants={itemVariants}
           >
             <div className="md:pr-16">
-              <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+              <div className="aspect-[4/5] w-full max-w-sm overflow-hidden bg-white/5">
+                <img
+                  src="/Ying.jpg"
+                  alt="Ying Huang"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                />
+              </div>
+              <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Capital formation
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
               </h3>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
-                Ying leads capital formation, investor relations, and financial
-                oversight at Deepblue. Her expertise spans fund structuring,
-                financial controls, and LP reporting across multiple real estate
-                cycles — the discipline behind how the firm communicates with
-                investors.
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/72 md:text-xl">
+                Ms. Huang is a Founding Partner of Deepblue Capital Partners.
+                Before co-founding Deepblue, she launched C-Star SFR Advisors,
+                where she raised three residential funds and grew the
+                firm&rsquo;s assets under management to $120 million.
               </p>
-              <p className="mt-5 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
-                Senior roles at Starwood Capital and other institutional real
-                estate platforms, with involvement in fundraising programs
-                representing more than $10 billion in committed capital across
-                closed-end funds and co-investment vehicles. Master&rsquo;s in
-                Real Estate Finance.
+              <p className="mt-5 font-serif text-base leading-relaxed text-white/58 md:text-lg">
+                Prior to C-Star, Ms. Huang served as a Director and Partner at
+                Starwood Capital Group, one of the world&rsquo;s largest real
+                estate private equity firms. Over her nine-year tenure, she
+                cultivated relationships with leading global investors —
+                insurance companies, sovereign wealth funds, and high-net-worth
+                wealth managers — and contributed to raising over $3.8 billion
+                in equity for Starwood&rsquo;s three flagship private investment
+                funds and seven co-investment vehicles across multifamily,
+                retail, and hospitality. In 2016, she spearheaded
+                Starwood&rsquo;s $4.5 billion hotel portfolio transaction with
+                the largest Asian insurance company, securing the largest equity
+                commitment in Starwood&rsquo;s history.
+              </p>
+              <p className="mt-5 font-serif text-base leading-relaxed text-white/48 md:text-lg">
+                Master&rsquo;s in Real Estate, Harvard University.
+                Master&rsquo;s in Urban Planning and Urban Economics, Seoul
+                National University. Bachelor of Arts, Fudan University.
               </p>
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
-              <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+              <div className="aspect-[4/5] w-full max-w-sm overflow-hidden bg-white/5">
+                <img
+                  src="/Anthony.jpg"
+                  alt="Anthony Liu"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                />
+              </div>
+              <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Acquisitions &amp; asset management
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
               </h3>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
-                Anthony leads acquisitions, underwriting, and asset management.
-                His work focuses on basis-driven sourcing, operational value
-                creation, and institutional business plan execution across
-                office, mixed-use, and rental housing.
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/72 md:text-xl">
+                Mr. Liu is a Founding Partner of Deepblue Capital Partners.
+                Before co-founding Deepblue, he served as a Managing Director in
+                Acquisitions at Hines, a leading real estate investor and
+                developer, where he sourced, acquired, developed, and managed
+                investments across multifamily, commercial office, and retail in
+                the New York metropolitan market. Notable projects include the
+                development of One Vanderbilt and The Whit, and the acquisitions
+                of The Source at White Plains and The Hudson Square Portfolio.
               </p>
-              <p className="mt-5 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
-                Senior operator at Hines with contribution to large-scale
-                development and acquisition programs in core U.S. markets
-                before turning attention to Sunbelt rental housing strategies.
-                MBA in Finance.
+              <p className="mt-5 font-serif text-base leading-relaxed text-white/58 md:text-lg">
+                Prior to Hines, Mr. Liu was a member of the investments team at
+                Jamestown Properties and an investment banking analyst at Wells
+                Fargo. He serves on the boards of Apex for Youth and the
+                Chinese-American Planning Council, and is active with the FF
+                Fraternity.
+              </p>
+              <p className="mt-5 font-serif text-base leading-relaxed text-white/48 md:text-lg">
+                Carnegie Mellon University, Tepper School of Business, with a
+                concentration in finance and business. CFA charterholder.
               </p>
             </div>
           </motion.div>
