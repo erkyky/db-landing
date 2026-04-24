@@ -134,7 +134,7 @@ export default function AboutPage() {
             variants={itemVariants}
           >
             <div className="md:pr-16">
-              <div className="aspect-[4/5] w-full max-w-sm overflow-hidden bg-white/5">
+              <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden">
                 <img
                   src="/Ying.jpg"
                   alt="Ying Huang"
@@ -143,6 +143,7 @@ export default function AboutPage() {
                   decoding="async"
                   draggable={false}
                 />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#0d121a] to-transparent" />
               </div>
               <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Capital formation
@@ -177,7 +178,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
-              <div className="aspect-[4/5] w-full max-w-sm overflow-hidden bg-white/5">
+              <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden">
                 <img
                   src="/Anthony.jpg"
                   alt="Anthony Liu"
@@ -186,6 +187,7 @@ export default function AboutPage() {
                   decoding="async"
                   draggable={false}
                 />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#0d121a] to-transparent" />
               </div>
               <p className="mt-8 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
                 Acquisitions &amp; asset management
