@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
-import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
 
@@ -139,48 +138,59 @@ export default function InvestmentsPage() {
           </motion.div>
         </motion.section>
 
-        {/* 2 · The Housing Thesis — ContainerScroll */}
-        <ContainerScroll
-          className="px-4 md:px-8 lg:px-16"
-          cardClassName="h-[30rem] md:h-[42rem]"
-          innerClassName="p-0"
-          titleComponent={
-            <div className="mb-10 px-4 text-center">
-              <p className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-                The Housing Thesis
-              </p>
-              <h2 className="font-serif text-5xl leading-tight text-white md:text-6xl lg:text-7xl">
-                The kind of housing we want to own.
-              </h2>
-              <p className="mx-auto mt-5 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
-                Durable neighborhoods, operational upside, and assets where better
-                execution matters more than financial engineering.
-              </p>
-            </div>
-          }
+        {/* 2 · The Housing Thesis — editorial image panel */}
+        <motion.section
+          className="mx-auto max-w-[1440px] px-6 pb-32 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
         >
-          <div className="relative h-full w-full overflow-hidden">
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            The Housing Thesis
+          </motion.p>
+          <motion.h2
+            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            variants={itemVariants}
+          >
+            The kind of housing we want to own.
+          </motion.h2>
+          <motion.p
+            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            variants={itemVariants}
+          >
+            Durable neighborhoods, operational upside, and assets where better
+            execution matters more than financial engineering.
+          </motion.p>
+
+          <motion.div
+            className="relative mt-16 aspect-[16/9] w-full overflow-hidden"
+            variants={itemVariants}
+          >
             <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1800&auto=format&fit=crop"
-              alt="Rental housing representative of the fund's target profile"
-              className="absolute inset-0 h-full w-full object-cover"
+              src="/hero_image.jpg"
+              alt="Target housing market"
+              className="h-full w-full object-cover grayscale contrast-110 brightness-75"
               loading="lazy"
               decoding="async"
               draggable={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/55 to-[#0d121a]/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/40 to-transparent" />
 
-            <div className="absolute inset-x-0 bottom-0 p-8 md:p-12">
-              <p className="max-w-2xl font-serif text-2xl leading-snug text-white md:text-3xl lg:text-4xl">
+            <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 lg:p-16">
+              <p className="max-w-2xl font-serif text-3xl leading-snug text-white md:text-4xl lg:text-5xl">
                 Demographic strength. Execution upside. Downside protection.
               </p>
-              <p className="mt-4 max-w-xl font-serif text-lg leading-relaxed text-white/65 md:text-xl">
-                Target markets: TX · NC · GA. 100&ndash;250 unit business plans. 2&ndash;4
-                exit options per deal.
+              <p className="mt-4 max-w-xl font-serif text-base leading-relaxed text-white/60 md:text-lg">
+                Target markets: TX · NC · GA &nbsp;·&nbsp; 100&ndash;250 unit business plans
+                &nbsp;·&nbsp; 2&ndash;4 exit options per deal
               </p>
             </div>
-          </div>
-        </ContainerScroll>
+          </motion.div>
+        </motion.section>
 
         {/* 3 · Why Sunbelt — split: signals + tenets + return profile */}
         <motion.section
@@ -204,47 +214,27 @@ export default function InvestmentsPage() {
           </motion.h2>
 
           <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
-            {/* Left: 3 count-up signals + return profile */}
-            <motion.div variants={itemVariants}>
-              <div className="space-y-12">
-                {marketSignals.map((s, i) => (
-                  <motion.div
-                    key={s.label}
-                    className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
-                    variants={itemVariants}
-                    whileHover={{ x: 4 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="font-serif text-6xl text-[#cca885] md:text-7xl">
-                      <CountUp value={s.value} delay={0.2 + i * 0.15} />
-                    </p>
-                    <p className="mt-2 font-serif text-xl text-white md:text-2xl">
-                      {s.label}
-                    </p>
-                    <p className="mt-2 font-serif text-base leading-relaxed text-white/50 md:text-lg">
-                      {s.detail}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-16 border-t border-white/10 pt-8">
-                <p className="mb-5 font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
-                  Return profile
-                </p>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                  {returnProfile.map((r) => (
-                    <div key={r.label}>
-                      <p className="font-serif text-3xl text-white md:text-4xl">
-                        {r.value}
-                      </p>
-                      <p className="mt-1 font-serif text-base text-white/50 md:text-lg">
-                        {r.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Left: 3 count-up signals */}
+            <motion.div variants={itemVariants} className="space-y-12">
+              {marketSignals.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
+                  variants={itemVariants}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="font-serif text-6xl text-[#cca885] md:text-7xl">
+                    <CountUp value={s.value} delay={0.2 + i * 0.15} />
+                  </p>
+                  <p className="mt-2 font-serif text-xl text-white md:text-2xl">
+                    {s.label}
+                  </p>
+                  <p className="mt-2 font-serif text-base leading-relaxed text-white/50 md:text-lg">
+                    {s.detail}
+                  </p>
+                </motion.div>
+              ))}
             </motion.div>
 
             {/* Right: tenets list */}
@@ -272,6 +262,34 @@ export default function InvestmentsPage() {
               ))}
             </motion.div>
           </div>
+
+          {/* Return Profile — full-width editorial band */}
+          <motion.div
+            className="mt-28 border-y border-white/15 py-12 md:mt-32 md:py-16"
+            variants={itemVariants}
+          >
+            <p className="mb-10 text-center font-sans text-xs uppercase tracking-[0.38em] text-[#cca885] md:text-sm">
+              Target Return Profile
+            </p>
+            <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0">
+              {returnProfile.map((r, i) => (
+                <motion.div
+                  key={r.label}
+                  className={`px-4 text-center md:px-8 ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
+                  variants={itemVariants}
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="font-serif text-5xl leading-none text-white md:text-6xl lg:text-7xl">
+                    {r.value}
+                  </p>
+                  <p className="mt-4 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
+                    {r.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.section>
 
         {/* 4 · How We Execute — horizontal process + CTA */}

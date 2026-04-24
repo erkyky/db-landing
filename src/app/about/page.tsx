@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
-import { ContainerScroll } from "@/components/ui/animation/container-scroll-animation";
 import { CountUp } from "@/components/ui/animation/count-up";
 import { InteractiveImageAccordion } from "@/components/ui/sections/interactive-image-accordion";
 import NavMenu from "@/components/ui/layout/nav-menu";
@@ -102,68 +101,79 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-        {/* 2 · Leadership (scroll-pinned reveal with dual bio inside) */}
-        <ContainerScroll
-          className="px-4 md:px-8 lg:px-16"
-          cardClassName="h-[34rem] md:h-[44rem]"
-          innerClassName="p-0"
-          titleComponent={
-            <div className="mb-10 px-4 text-center">
-              <p className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-                Leadership
-              </p>
-              <h2 className="font-serif text-5xl leading-tight text-white md:text-6xl lg:text-7xl">
-                Two senior operators. One integrated story.
-              </h2>
-              <p className="mx-auto mt-5 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
-                Raising capital, underwriting risk, and running business plans live in
-                the same room — not three handoffs.
-              </p>
-            </div>
-          }
+        {/* 2 · Leadership — editorial image + split bios */}
+        <motion.section
+          className="mx-auto max-w-[1440px] px-6 pb-32 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
         >
-          <div className="relative h-full w-full overflow-hidden">
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            Leadership
+          </motion.p>
+          <motion.h2
+            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            variants={itemVariants}
+          >
+            Two senior operators. One integrated story.
+          </motion.h2>
+          <motion.p
+            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            variants={itemVariants}
+          >
+            Raising capital, underwriting risk, and running business plans live in
+            the same room — not three handoffs.
+          </motion.p>
+
+          <motion.div
+            className="relative mt-16 aspect-[16/7] w-full overflow-hidden"
+            variants={itemVariants}
+          >
             <img
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1800&auto=format&fit=crop"
-              alt="Modern office interior representing institutional real estate execution"
-              className="absolute inset-0 h-full w-full object-cover"
+              alt="Conference room"
+              className="h-full w-full object-cover grayscale contrast-110 brightness-75"
               loading="lazy"
               decoding="async"
               draggable={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/70 to-[#0d121a]/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/20 to-transparent" />
+          </motion.div>
 
-            <div className="absolute inset-x-0 bottom-0 p-7 md:p-12">
-              <div className="grid gap-10 md:grid-cols-2 md:gap-0">
-                <div className="md:pr-12">
-                  <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
-                    Capital formation
-                  </p>
-                  <h3 className="mt-3 font-serif text-3xl text-white md:text-4xl lg:text-5xl">
-                    Ying Huang
-                  </h3>
-                  <p className="mt-4 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
-                    Institutional real estate fundraising, investor relations, and
-                    financial oversight across multiple cycles.
-                  </p>
-                </div>
-
-                <div className="md:border-l md:border-[#cca885]/25 md:pl-12">
-                  <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
-                    Acquisitions &amp; asset management
-                  </p>
-                  <h3 className="mt-3 font-serif text-3xl text-white md:text-4xl lg:text-5xl">
-                    Anthony Liu
-                  </h3>
-                  <p className="mt-4 font-serif text-lg leading-relaxed text-white/70 md:text-xl">
-                    Senior operator with experience at Hines leading office, mixed-use,
-                    and residential value-add programs.
-                  </p>
-                </div>
-              </div>
+          <motion.div
+            className="mt-16 grid gap-12 md:grid-cols-2 md:gap-0"
+            variants={itemVariants}
+          >
+            <div className="md:pr-16">
+              <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+                Capital formation
+              </p>
+              <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
+                Ying Huang
+              </h3>
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+                Institutional real estate fundraising, investor relations, and
+                financial oversight across multiple cycles.
+              </p>
             </div>
-          </div>
-        </ContainerScroll>
+            <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
+              <p className="font-sans text-xs uppercase tracking-[0.32em] text-[#cca885] md:text-sm">
+                Acquisitions &amp; asset management
+              </p>
+              <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
+                Anthony Liu
+              </h3>
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+                Senior operator with experience at Hines leading office, mixed-use,
+                and residential value-add programs.
+              </p>
+            </div>
+          </motion.div>
+        </motion.section>
 
         {/* 3 · How We Operate — numbered typographic, no cards */}
         <motion.section
