@@ -346,22 +346,6 @@ export default function InvestmentsPage() {
             </div>
           </div>
 
-          {/* CTA line */}
-          <motion.div
-            className="mt-28 text-center"
-            variants={itemVariants}
-          >
-            <motion.a
-              href="mailto:investors+prosper@deepbluepartners.co?subject=Investment%20Interest"
-              className="group inline-flex items-center gap-5 font-serif text-2xl text-white/75 transition-colors duration-300 hover:text-[#cca885] md:text-3xl"
-              whileHover={{ scale: 1.02 }}
-            >
-              <span>Start the conversation</span>
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-3">
-                →
-              </span>
-            </motion.a>
-          </motion.div>
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
