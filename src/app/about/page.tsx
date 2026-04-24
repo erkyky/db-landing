@@ -166,7 +166,8 @@ export default function AboutPage() {
                 Senior roles at Starwood Capital and other institutional real
                 estate platforms, with involvement in fundraising programs
                 representing more than $10 billion in committed capital across
-                closed-end funds and co-investment vehicles. MBA in Finance.
+                closed-end funds and co-investment vehicles. Master&rsquo;s in
+                Real Estate Finance.
               </p>
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
@@ -186,7 +187,7 @@ export default function AboutPage() {
                 Senior operator at Hines with contribution to large-scale
                 development and acquisition programs in core U.S. markets
                 before turning attention to Sunbelt rental housing strategies.
-                Master&rsquo;s in Real Estate Finance.
+                MBA in Finance.
               </p>
             </div>
           </motion.div>
