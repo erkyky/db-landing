@@ -52,7 +52,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         variants={containerVariants}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-1/2 md:px-12 md:pt-48 lg:w-3/5 lg:px-20 xl:px-28">
+        <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-2/5 md:px-12 md:pt-48 lg:w-2/5 lg:px-20 xl:px-28">
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan */}
             <motion.div className="mb-6" variants={itemVariants}>
@@ -93,7 +93,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
         {/* Right Side: Image with Clip Path Animation */}
         <motion.div
-          className="relative w-full min-h-[350px] md:w-1/2 md:min-h-full lg:w-2/5 mt-12 md:mt-16"
+          className="relative w-full min-h-[350px] md:w-3/5 md:min-h-full lg:w-3/5 mt-12 md:mt-16"
           initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
           animate={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
