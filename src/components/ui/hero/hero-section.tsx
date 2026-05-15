@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { GradientWaveText } from "@/components/ui/hero/gradient-wave-text";
 
 interface HeroSectionProps {
   className?: string;
@@ -18,8 +17,6 @@ interface HeroSectionProps {
 
 const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
   ({ className, logo, slogan, descriptions, heroImage }, ref) => {
-    const [sloganHovered, setSloganHovered] = useState(false);
-
     const containerVariants = {
       hidden: { opacity: 0 },
       visible: {
@@ -58,27 +55,10 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-1/2 md:px-12 md:pt-48 lg:w-3/5 lg:px-20 xl:px-28">
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan */}
-            <motion.div
-              className="mb-6 cursor-default relative"
-              variants={itemVariants}
-              onMouseEnter={() => setSloganHovered(true)}
-              onMouseLeave={() => setSloganHovered(false)}
-            >
-              <p className={`font-serif text-2xl md:text-3xl tracking-[0.15em] text-[#cca885] uppercase transition-opacity duration-300 ${sloganHovered ? "opacity-0" : "opacity-100"}`}>
+            <motion.div className="mb-6" variants={itemVariants}>
+              <p className="font-serif text-2xl md:text-3xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap">
                 {slogan}
               </p>
-              <div className={`absolute inset-0 overflow-hidden transition-opacity duration-300 ${sloganHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-                <GradientWaveText
-                  align="left"
-                  className="font-serif text-2xl md:text-3xl tracking-[0.15em] uppercase [--gradient-wave-base:#cca885] dark:[--gradient-wave-base:#cca885]"
-                  speed={1.5}
-                  repeat
-                  bottomOffset={0}
-                  customColors={["#5a8ea6", "#78abaf", "#8fafcc", "#cca885", "#6c83aa"]}
-                >
-                  {slogan}
-                </GradientWaveText>
-              </div>
             </motion.div>
 
             {/* Logo */}

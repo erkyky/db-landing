@@ -15,6 +15,10 @@ const navItems = [
 const HIDE_AFTER_PX = 80;
 
 export default function NavMenu() {
+  // Temporarily hidden while pages are being finished.
+  // To restore: remove the next line.
+  return null;
+
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
 
