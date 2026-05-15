@@ -48,7 +48,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
 
     return (
         <motion.div
-            className="relative h-screen w-full"
+            className="relative h-screen w-full bg-[#0d121a]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25 }}
