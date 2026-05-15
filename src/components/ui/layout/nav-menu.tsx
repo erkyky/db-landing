@@ -24,9 +24,6 @@ export default function NavMenu() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Hide nav on the home page while it's being finished.
-  // To show it on home too: remove this conditional.
-  if (pathname === "/") return null;
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
