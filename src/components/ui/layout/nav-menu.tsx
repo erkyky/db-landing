@@ -15,10 +15,6 @@ const navItems = [
 const HIDE_AFTER_PX = 80;
 
 export default function NavMenu() {
-  // Temporarily hidden while pages are being finished.
-  // To restore: remove the next line.
-  return null;
-
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
 
@@ -28,6 +24,10 @@ export default function NavMenu() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Hide nav on the home page while it's being finished.
+  // To show it on home too: remove this conditional.
+  if (pathname === "/") return null;
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
