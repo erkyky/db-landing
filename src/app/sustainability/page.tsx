@@ -74,12 +74,9 @@ export default function SustainabilityPage() {
         mobileImage="/Picture1.jpg"
         initialClipPercentage={40}
         finalClipPercentage={60}
-        duration={4.5}
+        duration={2.8}
       >
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-5 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
-            Sustainability
-          </p>
           <h2 className="font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
             Investing with care for the world we share.
           </h2>
@@ -95,7 +92,7 @@ export default function SustainabilityPage() {
 
         {/* Pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pt-24 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

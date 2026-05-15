@@ -47,7 +47,12 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
     const clipPath = useMotionTemplate`polygon(${clipStart}% ${clipStart}%, ${clipEnd}% ${clipStart}%, ${clipEnd}% ${clipEnd}%, ${clipStart}% ${clipEnd}%)`;
 
     return (
-        <div className="relative h-screen w-full">
+        <motion.div
+            className="relative h-screen w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
+        >
             <motion.div
                 className="absolute inset-0 bg-[#0d121a]"
                 style={{
@@ -82,12 +87,12 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9, delay: duration + delay + 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.9, delay: duration * 0.55 + delay, ease: [0.22, 1, 0.36, 1] }}
                 >
                     {children}
                 </motion.div>
             )}
-        </div>
+        </motion.div>
     );
 };
 

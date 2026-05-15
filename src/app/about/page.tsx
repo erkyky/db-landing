@@ -45,10 +45,10 @@ export default function AboutPage() {
           animate="visible"
         >
           <motion.p
-            className="mb-6 font-serif text-xl leading-relaxed text-[#cca885] md:text-2xl"
+            className="mb-6 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
-            Deepblue team
+            Deepblue Team
           </motion.p>
           <motion.h1
             className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
