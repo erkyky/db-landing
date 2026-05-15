@@ -111,13 +111,6 @@ const defaultItems: AccordionItemData[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
   },
-  {
-    id: "sunbelt",
-    title: "Sunbelt Markets",
-    subtitle: "Deepblue Fund",
-    imageUrl:
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
-  },
 ];
 
 export function InteractiveImageAccordion({

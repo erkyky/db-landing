@@ -28,17 +28,17 @@ const pillars: Array<{ icon: LucideIcon; title: string; desc: string }> = [
   {
     icon: Leaf,
     title: "Environmental stewardship",
-    desc: "Every investment is evaluated for energy efficiency, carbon footprint, and long-term environmental impact before capital is committed.",
+    desc: "Energy efficiency, embodied carbon, and long-term resilience evaluated before capital is committed.",
   },
   {
     icon: HeartHandshake,
     title: "Community impact",
-    desc: "We prioritize projects that strengthen neighborhoods — creating quality housing, local jobs, and shared spaces that endure.",
+    desc: "Investments that strengthen neighborhoods — quality housing, local employment, and shared spaces that endure.",
   },
   {
     icon: ShieldCheck,
     title: "Responsible governance",
-    desc: "Transparent reporting, ethical decision-making, and accountability to both investors and the communities we serve.",
+    desc: "Transparent reporting, ethical decision-making, accountability to investors and communities alike.",
   },
 ];
 
@@ -47,19 +47,19 @@ const commitments: Array<{ icon: LucideIcon; stat: string; label: string; detail
     icon: Sun,
     stat: "100%",
     label: "ESG-screened deals",
-    detail: "Every acquisition undergoes environmental, social, and governance review as part of our underwriting process.",
+    detail: "Every acquisition passes environmental, social, and governance review during underwriting.",
   },
   {
     icon: TreePine,
     stat: "Net Zero",
     label: "Operational target",
-    detail: "Working toward net-zero carbon across our managed portfolio through efficiency upgrades and renewable energy adoption.",
+    detail: "Working toward net-zero carbon across the managed portfolio via efficiency upgrades and renewables.",
   },
   {
     icon: Droplets,
     stat: "30%",
     label: "Water reduction goal",
-    detail: "Targeting measurable reductions in water usage across properties through smart systems and sustainable landscaping.",
+    detail: "Smart-system retrofits and drought-tolerant landscaping driving measurable water savings.",
   },
 ];
 
@@ -99,14 +99,12 @@ export default function SustainabilityPage() {
             Investing with care for the world we share.
           </motion.h2>
           <motion.p
-            className="mx-auto mt-8 max-w-5xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}
           >
-            At Deepblue Capital Partners, sustainable investing is not an add-on — it
-            is foundational to how we source, underwrite, and manage every asset. We
-            believe that disciplined stewardship of capital and environment are
-            inseparable, and that the most enduring returns come from investments that
-            respect communities and the natural world.
+            At Deepblue, responsibility sits inside underwriting &mdash; not in a
+            separate department. How we operate, how we manage assets, and how
+            we engage the industry all answer to the same standard of care.
           </motion.p>
         </motion.section>
 
@@ -163,7 +161,7 @@ export default function SustainabilityPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Commitments
+            Within Our Portfolio
           </motion.p>
           <motion.h2
             className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
@@ -195,28 +193,37 @@ export default function SustainabilityPage() {
           </div>
         </motion.section>
 
-        {/* Philosophy Quote */}
+        {/* Industry Engagement */}
         <motion.section
           className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div
-            className="rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(204,168,133,0.18),rgba(13,18,26,0.82)_38%,rgba(120,171,175,0.14))] p-10 backdrop-blur-xl md:p-16"
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            <Leaf className="mx-auto h-7 w-7 text-[#cca885]" />
-            <blockquote className="mt-8 text-center font-serif text-3xl leading-relaxed text-white/78 md:text-4xl lg:text-5xl">
-              &ldquo;Capital deployed with care creates value that compounds —
-              for investors, for communities, and for the world we leave
-              behind.&rdquo;
-            </blockquote>
-            <p className="mt-6 text-center font-sans text-sm uppercase tracking-[0.28em] text-white/40 md:text-base">
-              Deepblue Capital Partners
-            </p>
-          </motion.div>
+            Industry Engagement
+          </motion.p>
+          <motion.h2
+            className="max-w-4xl font-serif text-5xl text-white md:text-6xl"
+            variants={itemVariants}
+          >
+            Standards we align with.
+          </motion.h2>
+          <motion.p
+            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+            variants={itemVariants}
+          >
+            Deepblue tracks the leading frameworks shaping responsible real
+            estate investment &mdash; the UN Principles for Responsible
+            Investment, GRESB, the Task Force on Climate-Related Financial
+            Disclosures, and the EPA&rsquo;s ENERGY STAR program &mdash; and
+            applies their guidance to underwriting, asset management, and
+            investor reporting.
+          </motion.p>
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">

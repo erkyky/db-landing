@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
-import { Globe } from "@/components/ui/visuals/globe";
 import NavMenu from "@/components/ui/layout/nav-menu";
 
 const containerVariants = {
@@ -25,7 +24,6 @@ const itemVariants = {
 
 const heroStats = [
   { value: "14-16%", label: "Target gross IRR" },
-  { value: "$30M", label: "Target equity" },
   { value: "3+1+1", label: "Fund term" },
   { value: "1-3%", label: "Distributable yield" },
 ];
@@ -67,25 +65,18 @@ const tenets = [
   },
 ];
 
-const returnProfile = [
-  { value: "19.6%", label: "Gross IRR" },
-  { value: "1.6-1.8x", label: "Equity multiple" },
-  { value: "$35M", label: "Target equity" },
-  { value: "3-11yr", label: "Fund term" },
-];
-
-const executionStages = [
+const strategicPartners = [
   {
-    title: "Source",
-    desc: "Off-market and relationship-driven deals where operational upside isn't fully priced.",
+    title: "Long-term industry relationships",
+    desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
   },
   {
-    title: "Operate",
-    desc: "Renovations, leasing, expense controls, and tenant experience improvements that drive NOI.",
+    title: "Local operating partners",
+    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket — leasing, construction, and property management run by people who live where we invest.",
   },
   {
-    title: "Exit",
-    desc: "Flexibility between recapitalization, portfolio sale, or asset-level disposition.",
+    title: "Institutional service standards",
+    desc: "Quarterly investor reporting, transparent waterfall calculations, and the diligence rhythm sophisticated LPs expect. The same standard whether the check is five million or fifty.",
   },
 ];
 
@@ -123,7 +114,7 @@ export default function InvestmentsPage() {
           </motion.p>
 
           <motion.div
-            className="mt-16 grid w-full grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="mt-16 grid w-full grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-3 md:mt-20"
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
@@ -139,52 +130,7 @@ export default function InvestmentsPage() {
           </motion.div>
         </motion.section>
 
-        {/* 2 · The Housing Thesis — globe + caption split */}
-        <motion.section
-          className="mx-auto max-w-[1680px] px-6 pb-32 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
-            The Housing Thesis
-          </motion.p>
-
-          <div className="grid gap-16 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
-            <motion.div variants={itemVariants}>
-              <h2 className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl">
-                The kind of housing we want to own.
-              </h2>
-              <p className="mt-8 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
-                Durable neighborhoods, operational upside, and assets where better
-                execution matters more than financial engineering.
-              </p>
-
-              <div className="mt-12 border-l-2 border-[#cca885]/40 pl-6">
-                <p className="font-serif text-2xl leading-snug text-white md:text-3xl">
-                  Demographic strength. Execution upside. Downside protection.
-                </p>
-                <p className="mt-4 font-serif text-base leading-relaxed text-white/55 md:text-lg">
-                  Target markets: TX · NC · GA &nbsp;·&nbsp; 100&ndash;250 unit
-                  business plans &nbsp;·&nbsp; 2&ndash;4 exit options per deal
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="flex items-center justify-center"
-              variants={itemVariants}
-            >
-              <Globe className="w-full" />
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* 3 · Why Sunbelt — split: signals + tenets + return profile */}
+        {/* Tactical Opportunities — split: signals + tenets */}
         <motion.section
           className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
@@ -196,13 +142,13 @@ export default function InvestmentsPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Why Sunbelt
+            Tactical Opportunities
           </motion.p>
           <motion.h2
             className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Where demographic momentum compounds rent and value.
+            Where demographic momentum and operational discipline compound.
           </motion.h2>
 
           <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
@@ -255,89 +201,51 @@ export default function InvestmentsPage() {
             </motion.div>
           </div>
 
-          {/* Return Profile — full-width editorial band */}
-          <motion.div
-            className="mt-28 border-y border-white/15 py-12 md:mt-32 md:py-16"
-            variants={itemVariants}
-          >
-            <p className="mb-10 text-center font-sans text-xs uppercase tracking-[0.38em] text-[#cca885] md:text-sm">
-              Target Return Profile
-            </p>
-            <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0">
-              {returnProfile.map((r, i) => (
-                <motion.div
-                  key={r.label}
-                  className={`px-4 text-center md:px-8 ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
-                  variants={itemVariants}
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-serif text-5xl leading-none text-white md:text-6xl lg:text-7xl">
-                    {r.value}
-                  </p>
-                  <p className="mt-4 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
-                    {r.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </motion.section>
 
-        {/* 4 · How We Execute — horizontal process + CTA */}
+        {/* Strategic Partners — numbered three-column */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 text-center font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            How we execute
+            Strategic Partners
           </motion.p>
           <motion.h2
-            className="mx-auto max-w-4xl text-center font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
-            Source. Operate. Exit.
+            Relationships compound. Execution scales.
           </motion.h2>
-          <motion.p
-            className="mx-auto mt-6 max-w-3xl text-center font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            A three-stage process, all under one roof.
-          </motion.p>
 
-          <div className="relative mt-24">
-            {/* Horizontal connector line (desktop only) */}
-            <div className="absolute top-8 left-[10%] right-[10%] hidden h-px bg-gradient-to-r from-transparent via-[#cca885]/35 to-transparent md:block" />
-
-            <div className="relative grid gap-16 md:grid-cols-3 md:gap-10">
-              {executionStages.map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  className="group text-center"
-                  variants={itemVariants}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#cca885]/40 bg-[#0d121a] font-serif text-xl text-[#cca885] transition-all duration-300 group-hover:border-[#cca885] group-hover:bg-[#cca885] group-hover:text-[#0d121a] md:h-20 md:w-20 md:text-2xl">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <h3 className="mt-8 font-serif text-3xl text-white md:text-4xl">
-                    {s.title}
-                  </h3>
-                  <p className="mx-auto mt-4 max-w-xs font-serif text-lg leading-relaxed text-white/55 md:text-xl">
-                    {s.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
+            {strategicPartners.map((p, i) => (
+              <motion.div
+                key={p.title}
+                className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                variants={itemVariants}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="font-serif text-6xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-7xl">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                <h3 className="mt-6 font-serif text-3xl text-white md:text-4xl">
+                  {p.title}
+                </h3>
+                <p className="mt-4 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                  {p.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
-
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
