@@ -42,7 +42,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9, delay: Math.max(0, duration * 0.55 + delay - 1), ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.9, delay: duration + delay, ease: [0.22, 1, 0.36, 1] }}
                 >
                     {children}
                 </motion.div>
