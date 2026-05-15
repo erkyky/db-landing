@@ -6,10 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Investments", href: "/investments" },
   { label: "Sustainability", href: "/sustainability" },
-  { label: "Sign In", href: "/sign-in" },
+  { label: "Team", href: "/about" },
 ];
 
 const HIDE_AFTER_PX = 80;

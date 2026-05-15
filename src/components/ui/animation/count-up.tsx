@@ -12,7 +12,7 @@ interface CountUpProps {
 
 export function CountUp({
   value,
-  duration = 1.8,
+  duration = 2.8,
   delay = 0,
   className,
 }: CountUpProps) {

@@ -94,7 +94,7 @@ export default function InvestmentsPage() {
           animate="visible"
         >
           <motion.p
-            className="mb-6 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
             variants={itemVariants}
           >
             Deepblue Value-Add Fund

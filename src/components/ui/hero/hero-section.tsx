@@ -82,7 +82,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             {descriptions.map((desc, i) => (
               <motion.p
                 key={i}
-                className="mb-4 font-serif text-2xl leading-relaxed text-white/70 md:text-3xl"
+                className="mb-4 font-serif text-xl leading-relaxed text-white/70 md:text-2xl"
                 variants={itemVariants}
               >
                 {desc}

@@ -15,8 +15,7 @@ export default function Home() {
           }}
           slogan="Managing Investments. and life"
           descriptions={[
-            "Deepblue Capital Partners is a forward-thinking private equity firm with 25 years of combined expertise,",
-            "identifying strategic real estate opportunities across diverse asset classes.",
+            "Deepblue Capital Partners is a forward-thinking private equity firm with 27 years of combined expertise, identifying strategic real estate opportunities across diverse asset classes.",
           ]}
           heroImage="/hero_image.jpg"
         />

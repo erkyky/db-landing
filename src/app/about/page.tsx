@@ -27,7 +27,7 @@ const heroStats = [
   { value: "16M+", label: "Square feet" },
   { value: "$10.4B", label: "Capital raised" },
   { value: "$3.8B", label: "Equity sourced" },
-  { value: "25", label: "Years combined" },
+  { value: "27", label: "Years combined" },
 ];
 
 
@@ -44,6 +44,12 @@ export default function AboutPage() {
           initial="hidden"
           animate="visible"
         >
+          <motion.p
+            className="mb-6 font-serif text-xl leading-relaxed text-[#cca885] md:text-2xl"
+            variants={itemVariants}
+          >
+            Deepblue team
+          </motion.p>
           <motion.h1
             className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
             variants={itemVariants}
@@ -87,7 +93,7 @@ export default function AboutPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Leadership
+            Co-Founders
           </motion.p>
           <motion.h2
             className="font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl whitespace-nowrap"
@@ -109,7 +115,7 @@ export default function AboutPage() {
           >
             <div className="md:pr-16">
               <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
-                Nine years at Starwood Capital &middot; $3.8B equity raised
+                Ex-Starwood Capital Partner
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
@@ -124,7 +130,7 @@ export default function AboutPage() {
             </div>
             <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
               <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
-                Managing Director, Hines &middot; One Vanderbilt, The Whit
+                Ex-Hines MD
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
@@ -142,7 +148,7 @@ export default function AboutPage() {
 
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-12 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
