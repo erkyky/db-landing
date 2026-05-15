@@ -1,20 +1,10 @@
 "use client";
 import * as React from "react";
-
-import {
-    motion,
-    animate,
-    useMotionValue,
-    useMotionTemplate,
-    useTransform,
-} from "framer-motion";
+import { motion } from "framer-motion";
 
 interface SmoothScrollHeroProps {
-    scrollHeight?: number;
     desktopImage?: string;
     mobileImage?: string;
-    initialClipPercentage?: number;
-    finalClipPercentage?: number;
     duration?: number;
     delay?: number;
     children?: React.ReactNode;
@@ -23,62 +13,27 @@ interface SmoothScrollHeroProps {
 const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
     desktopImage = "/hero_image.jpg",
     mobileImage = "/hero_image.jpg",
-    initialClipPercentage = 25,
-    finalClipPercentage = 75,
     duration = 2.2,
-    delay = 0.3,
+    delay = 0.2,
     children,
 }) => {
-    const progress = useMotionValue(0);
-
-    React.useEffect(() => {
-        const controls = animate(progress, 1, {
-            duration,
-            delay,
-            ease: [0.22, 1, 0.36, 1],
-        });
-        return () => controls.stop();
-    }, [progress, duration, delay]);
-
-    const clipStart = useTransform(progress, [0, 1], [initialClipPercentage, 0]);
-    const clipEnd = useTransform(progress, [0, 1], [finalClipPercentage, 100]);
-    const backgroundSize = useTransform(progress, [0, 1], ["170%", "100%"]);
-
-    const clipPath = useMotionTemplate`polygon(${clipStart}% ${clipStart}%, ${clipEnd}% ${clipStart}%, ${clipEnd}% ${clipEnd}%, ${clipStart}% ${clipEnd}%)`;
-
     return (
-        <motion.div
-            className="relative h-screen w-full bg-[#0d121a]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.25 }}
-        >
+        <div className="relative h-screen w-full bg-[#0d121a]">
             <motion.div
-                className="absolute inset-0 bg-[#0d121a]"
-                style={{
-                    clipPath,
-                    willChange: "clip-path",
-                }}
+                className="absolute inset-0"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+                style={{ willChange: "transform, opacity" }}
             >
-                <motion.div
-                    className="absolute inset-0 md:hidden"
-                    style={{
-                        backgroundImage: `url(${mobileImage})`,
-                        backgroundSize,
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                    }}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+                    style={{ backgroundImage: `url(${mobileImage})` }}
                 />
-                <motion.div
-                    className="absolute inset-0 hidden md:block"
-                    style={{
-                        backgroundImage: `url(${desktopImage})`,
-                        backgroundSize,
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                    }}
+                <div
+                    className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
+                    style={{ backgroundImage: `url(${desktopImage})` }}
                 />
-                {/* Dark gradient overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
             </motion.div>
 
@@ -92,7 +47,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     {children}
                 </motion.div>
             )}
-        </motion.div>
+        </div>
     );
 };
 

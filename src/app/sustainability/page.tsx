@@ -72,8 +72,6 @@ export default function SustainabilityPage() {
       <SmoothScrollHero
         desktopImage="/Picture1.jpg"
         mobileImage="/Picture1.jpg"
-        initialClipPercentage={40}
-        finalClipPercentage={60}
         duration={2.8}
       >
         <div className="mx-auto max-w-5xl text-center">
