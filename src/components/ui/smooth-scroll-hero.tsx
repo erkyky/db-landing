@@ -17,6 +17,7 @@ interface SmoothScrollHeroProps {
     finalClipPercentage?: number;
     duration?: number;
     delay?: number;
+    children?: React.ReactNode;
 }
 
 const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
@@ -26,6 +27,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
     finalClipPercentage = 75,
     duration = 2.2,
     delay = 0.3,
+    children,
 }) => {
     const progress = useMotionValue(0);
 
@@ -71,7 +73,20 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                         backgroundRepeat: "no-repeat",
                     }}
                 />
+                {/* Dark gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/40 via-[#0d121a]/15 to-[#0d121a]/70" />
             </motion.div>
+
+            {children && (
+                <motion.div
+                    className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, delay: duration + delay + 0.3, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    {children}
+                </motion.div>
+            )}
         </div>
     );
 };

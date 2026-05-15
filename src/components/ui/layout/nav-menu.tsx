@@ -31,7 +31,7 @@ export default function NavMenu() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
 
-  const onLightBackdrop = pathname === "/sustainability";
+  const onLightBackdrop = pathname?.startsWith("/sustainability") ?? false;
 
   const inactiveClass = onLightBackdrop
     ? "text-[#0d121a] hover:text-black"

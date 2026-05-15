@@ -218,7 +218,7 @@ export default function InvestmentsPage() {
             Strategic Partners
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Relationships compound. Execution scales.

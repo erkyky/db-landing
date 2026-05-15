@@ -68,45 +68,30 @@ export default function SustainabilityPage() {
     <>
       <NavMenu />
 
-      {/* Auto-playing hero reveal */}
+      {/* Auto-playing hero reveal with overlay text */}
       <SmoothScrollHero
         desktopImage="/Picture1.jpg"
         mobileImage="/Picture1.jpg"
         initialClipPercentage={40}
         finalClipPercentage={60}
         duration={4.5}
-      />
-
-      <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* Intro */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-20 pt-24 text-center md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-5 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
+      >
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-5 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
             Sustainability
-          </motion.p>
-          <motion.h2
-            className="font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
-            variants={itemVariants}
-          >
+          </p>
+          <h2 className="font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
             Investing with care for the world we share.
-          </motion.h2>
-          <motion.p
-            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
+          </h2>
+          <p className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl">
             At Deepblue, responsibility sits inside underwriting &mdash; not in a
             separate department. How we operate, how we manage assets, and how
             we engage the industry all answer to the same standard of care.
-          </motion.p>
-        </motion.section>
+          </p>
+        </div>
+      </SmoothScrollHero>
+
+      <BeamsBackground intensity="subtle" className="min-h-0">
 
         {/* Pillars */}
         <motion.section
@@ -123,7 +108,7 @@ export default function SustainabilityPage() {
             Our Approach
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Three pillars of sustainable investment.
@@ -164,7 +149,7 @@ export default function SustainabilityPage() {
             Within Our Portfolio
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Measurable targets, not just intentions.
@@ -208,7 +193,7 @@ export default function SustainabilityPage() {
             Industry Engagement
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl text-white md:text-6xl"
+            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Standards we align with.
