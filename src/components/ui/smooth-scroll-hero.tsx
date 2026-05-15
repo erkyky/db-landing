@@ -79,7 +79,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     }}
                 />
                 {/* Dark gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/40 via-[#0d121a]/15 to-[#0d121a]/70" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
             </motion.div>
 
             {children && (
@@ -87,7 +87,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9, delay: duration * 0.55 + delay, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.9, delay: Math.max(0, duration * 0.55 + delay - 1), ease: [0.22, 1, 0.36, 1] }}
                 >
                     {children}
                 </motion.div>
