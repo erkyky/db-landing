@@ -172,7 +172,7 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             Private Transactions
@@ -197,7 +197,7 @@ export default function InvestmentsPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <h3 className="font-serif text-4xl text-white md:text-5xl lg:text-6xl">
+              <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Multifamily
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
@@ -213,7 +213,7 @@ export default function InvestmentsPage() {
           {/* Row 2 — Affordable (text left, image reveals from right) */}
           <div className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20">
             <motion.div className="order-2 md:order-1" variants={itemVariants}>
-              <h3 className="font-serif text-4xl text-white md:text-5xl lg:text-6xl">
+              <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Affordable (LIHTC)
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
@@ -246,7 +246,7 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             What We Do
@@ -290,13 +290,13 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             Investment Thesis
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Where demographic momentum and operational discipline compound.
@@ -312,10 +312,10 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-7xl text-[#cca885] md:text-8xl">
+                  <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
-                  <p className="mt-2 font-serif text-2xl text-white md:text-3xl">
+                  <p className="mt-2 font-serif text-xl text-white md:text-2xl">
                     {s.label}
                   </p>
                   <p className="mt-2 font-serif text-lg leading-relaxed text-white/50 md:text-xl">
@@ -334,14 +334,14 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-5xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-6xl">
+                  <p className="font-serif text-4xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-5xl">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <div>
-                    <h3 className="font-serif text-3xl text-white md:text-4xl">
+                    <h3 className="font-serif text-2xl text-white md:text-3xl">
                       {t.title}
                     </h3>
-                    <p className="mt-3 font-serif text-xl leading-relaxed text-white/55 md:text-2xl">
+                    <p className="mt-3 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
                       {t.desc}
                     </p>
                   </div>
@@ -360,7 +360,7 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             Tactical Opportunities
@@ -409,13 +409,13 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             Strategic Operations
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Relationships compound. Execution scales.
@@ -430,7 +430,7 @@ export default function InvestmentsPage() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-serif text-7xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-8xl">
+                <p className="font-serif text-6xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-7xl">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
