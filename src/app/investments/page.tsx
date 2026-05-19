@@ -22,6 +22,22 @@ const itemVariants = {
   },
 };
 
+const imageRevealLeft = {
+  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+  visible: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 1.2, ease: "circOut" as const },
+  },
+};
+
+const imageRevealRight = {
+  hidden: { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" },
+  visible: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 1.2, ease: "circOut" as const },
+  },
+};
+
 const marketSignals = [
   {
     value: "3x",
@@ -131,7 +147,7 @@ export default function InvestmentsPage() {
 
           <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
             <motion.h1
-              className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
+              className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
               variants={itemVariants}
             >
               Real estate exposure built for Sunbelt rental housing.
@@ -162,7 +178,7 @@ export default function InvestmentsPage() {
             Private Transactions
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
+            className="max-w-4xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             We acquire rental housing across two complementary strategies.
@@ -172,10 +188,7 @@ export default function InvestmentsPage() {
           <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <motion.div
               className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]"
-              initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
-              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.2, ease: "circOut" }}
+              variants={imageRevealLeft}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -213,10 +226,7 @@ export default function InvestmentsPage() {
             </motion.div>
             <motion.div
               className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]"
-              initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
-              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1.2, ease: "circOut" }}
+              variants={imageRevealRight}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -242,7 +252,7 @@ export default function InvestmentsPage() {
             What We Do
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             We invest with discipline across Sunbelt rental housing.
@@ -286,7 +296,7 @@ export default function InvestmentsPage() {
             Investment Thesis
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
+            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Where demographic momentum and operational discipline compound.
@@ -356,7 +366,7 @@ export default function InvestmentsPage() {
             Tactical Opportunities
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             We invest flexible capital to construct a differentiated portfolio for our investors.
@@ -405,7 +415,7 @@ export default function InvestmentsPage() {
             Strategic Operations
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
+            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             Relationships compound. Execution scales.
