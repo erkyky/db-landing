@@ -22,12 +22,6 @@ const itemVariants = {
   },
 };
 
-const heroStats = [
-  { value: "14-16%", label: "Target gross IRR" },
-  { value: "3+1+1", label: "Fund term" },
-  { value: "1-3%", label: "Distributable yield" },
-];
-
 const marketSignals = [
   {
     value: "3x",
@@ -65,7 +59,33 @@ const tenets = [
   },
 ];
 
-const strategicPartners = [
+const whatWeDo = [
+  {
+    title: "Disciplined Due Diligence",
+    desc: "Our approach is built on rigorous underwriting that measures risk while identifying the catalysts for value. We engage only in friendly transactions and partner with experienced operators to deliver results.",
+  },
+  {
+    title: "Transformative Impact",
+    desc: "We create value by investing in properties where our capital, market insight, and operational expertise drive measurable transformation — for residents and investors alike.",
+  },
+];
+
+const tacticalPillars = [
+  {
+    title: "Unconstrained",
+    desc: "Our strategy is unconstrained by asset class within rental housing, capital structure, or Sunbelt geography. We pursue compelling risk-adjusted returns wherever they appear.",
+  },
+  {
+    title: "Nimble",
+    desc: "Markets shift quickly and windows of opportunity open and close without warning. We respond with conviction — moving decisively, with the judgment and discipline to capture opportunities less-equipped investors miss.",
+  },
+  {
+    title: "Differentiated",
+    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov — a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
+  },
+];
+
+const strategicOperations = [
   {
     title: "Long-term industry relationships",
     desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
@@ -86,51 +106,48 @@ export default function InvestmentsPage() {
       <NavMenu />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* 1 · Intro */}
+        {/* 1 · Hero — banner image + editorial headline */}
         <motion.section
-          className="mx-auto flex min-h-screen max-w-[1440px] flex-col items-center justify-center px-6 pb-20 pt-32 text-center md:px-12 lg:px-20"
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-32 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.p
-            className="mb-6 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg"
-            variants={itemVariants}
-          >
-            Deepblue Value-Add Fund
-          </motion.p>
-          <motion.h1
-            className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
-            variants={itemVariants}
-          >
-            Real estate exposure built for Sunbelt rental housing.
-          </motion.h1>
-          <motion.p
-            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
-            variants={itemVariants}
-          >
-            Value-add rental where demographic tailwinds and active management
-            compound risk-adjusted returns.
-          </motion.p>
-
           <motion.div
-            className="mt-16 grid w-full grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-3 md:mt-20"
-            variants={itemVariants}
+            className="relative h-[42vh] w-full overflow-hidden rounded-lg md:h-[58vh]"
+            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}
           >
-            {heroStats.map((stat, i) => (
-              <div key={stat.label}>
-                <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                  <CountUp value={stat.value} delay={0.6 + i * 0.12} />
-                </p>
-                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url(/investments/houston-skyline.jpg)",
+                backgroundColor: "#1a2332",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/40 via-transparent to-transparent" />
           </motion.div>
+
+          <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
+            <motion.h1
+              className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+              variants={itemVariants}
+            >
+              Real estate exposure built for Sunbelt rental housing.
+            </motion.h1>
+            <motion.p
+              className="max-w-xl self-end font-serif text-lg leading-relaxed text-white/60 md:text-xl"
+              variants={itemVariants}
+            >
+              Deepblue invests across multifamily and affordable rental housing in
+              the high-growth Sunbelt — where demographic momentum and active
+              management compound risk-adjusted returns.
+            </motion.p>
+          </div>
         </motion.section>
 
-        {/* Tactical Opportunities — split: signals + tenets */}
+        {/* 2 · Private Transactions */}
         <motion.section
           className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
@@ -142,7 +159,121 @@ export default function InvestmentsPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Tactical Opportunities
+            Private Transactions
+          </motion.p>
+          <motion.h2
+            className="max-w-4xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            variants={itemVariants}
+          >
+            We acquire rental housing across two complementary strategies.
+          </motion.h2>
+
+          {/* Row 1 — Multifamily (image left) */}
+          <motion.div
+            className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20"
+            variants={itemVariants}
+          >
+            <div className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </div>
+            <div>
+              <h3 className="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+                Multifamily
+              </h3>
+              <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+                We acquire value-add multifamily in high-growth Sunbelt submarkets.
+                Disciplined basis, hands-on operations, and partnerships with
+                seasoned local operators drive cash-flow growth and durable rent
+                expansion.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Row 2 — Affordable (text left) */}
+          <motion.div
+            className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20"
+            variants={itemVariants}
+          >
+            <div className="order-2 md:order-1">
+              <h3 className="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+                Affordable (LIHTC)
+              </h3>
+              <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+                Through Low-Income Housing Tax Credit partnerships, we preserve and
+                develop affordable rental housing — delivering durable yield,
+                federal tax benefits, and lasting community impact in the markets
+                where workforce families want to live.
+              </p>
+            </div>
+            <div className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/investments/affordable.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* 3 · What We Do */}
+        <motion.section
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            What We Do
+          </motion.p>
+          <motion.h2
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            variants={itemVariants}
+          >
+            We invest with discipline across Sunbelt rental housing.
+          </motion.h2>
+
+          <div className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0">
+            {whatWeDo.map((w, i) => (
+              <motion.div
+                key={w.title}
+                className={`${i > 0 ? "md:border-l md:border-[#cca885]/15 md:pl-16" : "md:pr-16"}`}
+                variants={itemVariants}
+              >
+                <h3 className="font-serif text-2xl text-white md:text-3xl">
+                  {w.title}
+                </h3>
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+                <p className="mt-6 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
+                  {w.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* 4 · Investment Thesis — market signals + tenets */}
+        <motion.section
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            Investment Thesis
           </motion.p>
           <motion.h2
             className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
@@ -152,7 +283,6 @@ export default function InvestmentsPage() {
           </motion.h2>
 
           <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
-            {/* Left: 3 count-up signals */}
             <motion.div variants={itemVariants} className="space-y-12">
               {marketSignals.map((s, i) => (
                 <motion.div
@@ -175,7 +305,6 @@ export default function InvestmentsPage() {
               ))}
             </motion.div>
 
-            {/* Right: tenets list */}
             <motion.div variants={itemVariants}>
               {tenets.map((t, i) => (
                 <motion.div
@@ -200,10 +329,58 @@ export default function InvestmentsPage() {
               ))}
             </motion.div>
           </div>
-
         </motion.section>
 
-        {/* Strategic Partners — numbered three-column */}
+        {/* 5 · Tactical Opportunities — image + three pillars */}
+        <motion.section
+          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.p
+            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            variants={itemVariants}
+          >
+            Tactical Opportunities
+          </motion.p>
+          <motion.h2
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            variants={itemVariants}
+          >
+            We invest flexible capital to construct a differentiated portfolio for our investors.
+          </motion.h2>
+
+          <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <motion.div
+              className="relative h-[400px] overflow-hidden rounded-lg md:h-[560px]"
+              variants={itemVariants}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/investments/tactical.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </motion.div>
+
+            <motion.div className="space-y-10" variants={itemVariants}>
+              {tacticalPillars.map((p) => (
+                <motion.div key={p.title} variants={itemVariants}>
+                  <h3 className="font-serif text-2xl text-white md:text-3xl">
+                    {p.title}
+                  </h3>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/50" />
+                  <p className="mt-5 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
+                    {p.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* 6 · Strategic Operations */}
         <motion.section
           className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
@@ -215,7 +392,7 @@ export default function InvestmentsPage() {
             className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
-            Strategic Partners
+            Strategic Operations
           </motion.p>
           <motion.h2
             className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
@@ -225,7 +402,7 @@ export default function InvestmentsPage() {
           </motion.h2>
 
           <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
-            {strategicPartners.map((p, i) => (
+            {strategicOperations.map((p, i) => (
               <motion.div
                 key={p.title}
                 className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
