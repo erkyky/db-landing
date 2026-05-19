@@ -78,8 +78,8 @@ export default function SustainabilityPage() {
 
       {/* Auto-playing hero reveal with overlay text */}
       <SmoothScrollHero
-        desktopImage="/Picture1.jpg"
-        mobileImage="/Picture1.jpg"
+        desktopImage="../Picture1.jpg"
+        mobileImage="../Picture1.jpg"
         duration={1.6}
       >
         <div className="mx-auto max-w-5xl text-center">
