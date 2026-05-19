@@ -56,7 +56,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan */}
             <motion.div className="mb-6" variants={itemVariants}>
-              <p className="font-serif text-2xl md:text-3xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap">
+              <p className="font-serif text-xl md:text-2xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap">
                 {slogan}
               </p>
             </motion.div>
@@ -68,7 +68,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 alt={logo.alt}
                 width={400}
                 height={100}
-                className="h-auto w-[95%] max-w-md brightness-0 invert opacity-90"
+                className="h-auto w-[85.5%] max-w-[25.2rem] brightness-0 invert opacity-90"
               />
             </motion.div>
 
