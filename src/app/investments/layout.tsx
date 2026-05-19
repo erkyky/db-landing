@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Investments",
   description:
-    "Deepblue Value-Add Fund targeting 14-16% gross IRR through value-add rental housing in supply-constrained Sunbelt submarkets.",
+    "Deepblue Capital Partners invests across multifamily and affordable rental housing in the high-growth Sunbelt — flexible capital, disciplined underwriting, and hands-on operations.",
 };
 
 export default function InvestmentsLayout({
