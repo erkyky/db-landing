@@ -41,7 +41,7 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-44 md:px-12 lg:px-20"
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-[166px] md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -63,7 +63,7 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-16 h-[40vh] w-full overflow-hidden rounded-lg md:mt-20 md:h-[44vh]"
+            className="relative mt-16 h-[calc(40vh+10px)] w-full overflow-hidden rounded-lg md:mt-20 md:h-[calc(44vh+10px)]"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
