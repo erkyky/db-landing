@@ -27,13 +27,25 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
                     style={{ willChange: "clip-path" }}
                 >
-                    <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-                        style={{ backgroundImage: `url(${mobileImage})` }}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src={mobileImage}
+                        alt=""
+                        aria-hidden="true"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover object-center md:hidden"
                     />
-                    <div
-                        className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
-                        style={{ backgroundImage: `url(${desktopImage})` }}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src={desktopImage}
+                        alt=""
+                        aria-hidden="true"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
                 </motion.div>
