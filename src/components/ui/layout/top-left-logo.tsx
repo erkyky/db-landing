@@ -19,7 +19,7 @@ export default function TopLeftLogo() {
     <AnimatePresence>
       {visible && (
         <div className="pointer-events-none fixed inset-x-0 top-0 z-40">
-          <div className="mx-auto flex max-w-[1440px] px-6 pt-4 md:px-12 md:pt-5 lg:px-20">
+          <div className="mx-auto flex max-w-[1440px] px-6 pt-3 md:px-12 lg:px-20">
             <motion.div
               key="top-left-logo"
               className="pointer-events-auto"
