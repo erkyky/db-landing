@@ -41,7 +41,7 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-[166px] md:px-12 lg:px-20"
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-[133.5px] md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
