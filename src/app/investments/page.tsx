@@ -30,12 +30,19 @@ const accentRule = {
   },
 };
 
-const imageFade = {
-  hidden: { opacity: 0, y: 32 },
+const imageRevealLeft = {
+  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
   visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.9, ease: "easeOut" as const },
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 1.2, ease: "circOut" as const },
+  },
+};
+
+const imageRevealRight = {
+  hidden: { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" },
+  visible: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 1.2, ease: "circOut" as const },
   },
 };
 
@@ -193,7 +200,7 @@ export default function InvestmentsPage() {
           <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <motion.div
               className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]"
-              variants={imageFade}
+              variants={imageRevealLeft}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -231,7 +238,7 @@ export default function InvestmentsPage() {
             </motion.div>
             <motion.div
               className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]"
-              variants={imageFade}
+              variants={imageRevealRight}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -392,7 +399,7 @@ export default function InvestmentsPage() {
           <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <motion.div
               className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
-              variants={imageFade}
+              variants={imageRevealLeft}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
