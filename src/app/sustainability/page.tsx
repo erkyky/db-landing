@@ -24,6 +24,14 @@ const itemVariants = {
   },
 };
 
+const imageRevealLeft = {
+  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+  visible: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 1.2, ease: "circOut" as const },
+  },
+};
+
 const pillars: Array<{ icon: LucideIcon; title: string; desc: string }> = [
   {
     icon: Leaf,
@@ -72,7 +80,7 @@ export default function SustainabilityPage() {
       <SmoothScrollHero
         desktopImage="/Picture1.jpg"
         mobileImage="/Picture1.jpg"
-        duration={2.8}
+        duration={1.6}
       >
         <div className="mx-auto max-w-5xl text-center">
           <p className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl">
@@ -204,17 +212,31 @@ export default function SustainabilityPage() {
           >
             Standards we align with.
           </motion.h2>
-          <motion.p
-            className="mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            Deepblue tracks the leading frameworks shaping responsible real
-            estate investment &mdash; the UN Principles for Responsible
-            Investment, GRESB, the Task Force on Climate-Related Financial
-            Disclosures, and the EPA&rsquo;s ENERGY STAR program &mdash; and
-            applies their guidance to underwriting, asset management, and
-            investor reporting.
-          </motion.p>
+
+          <div className="mt-14 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <motion.div
+              className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
+              variants={imageRevealLeft}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </motion.div>
+
+            <motion.p
+              className="font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+              variants={itemVariants}
+            >
+              Deepblue tracks the leading frameworks shaping responsible real
+              estate investment &mdash; the UN Principles for Responsible
+              Investment, GRESB, the Task Force on Climate-Related Financial
+              Disclosures, and the EPA&rsquo;s ENERGY STAR program &mdash; and
+              applies their guidance to underwriting, asset management, and
+              investor reporting.
+            </motion.p>
+          </div>
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">
