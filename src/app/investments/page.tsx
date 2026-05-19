@@ -375,7 +375,7 @@ export default function InvestmentsPage() {
           <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <motion.div
               className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
-              variants={itemVariants}
+              variants={imageRevealLeft}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -386,11 +386,17 @@ export default function InvestmentsPage() {
 
             <motion.div className="space-y-10" variants={itemVariants}>
               {tacticalPillars.map((p) => (
-                <motion.div key={p.title} variants={itemVariants}>
+                <motion.div
+                  key={p.title}
+                  className="group"
+                  variants={itemVariants}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <h3 className="font-serif text-3xl text-white md:text-4xl">
                     {p.title}
                   </h3>
-                  <div className="mt-4 h-px w-10 bg-[#cca885]/50" />
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
                   <p className="mt-5 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                     {p.desc}
                   </p>
