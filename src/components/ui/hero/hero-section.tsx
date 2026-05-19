@@ -22,8 +22,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       visible: {
         opacity: 1,
         transition: {
-          staggerChildren: 0.15,
-          delayChildren: 0.3,
+          staggerChildren: 0.12,
+          delayChildren: 0.1,
         },
       },
     };
@@ -35,6 +35,17 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         opacity: 1,
         transition: {
           duration: 0.6,
+          ease: "easeOut" as const,
+        },
+      },
+    };
+
+    const accentRule = {
+      hidden: { scaleX: 0 },
+      visible: {
+        scaleX: 1,
+        transition: {
+          duration: 0.9,
           ease: "easeOut" as const,
         },
       },
@@ -74,8 +85,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
             {/* Accent line */}
             <motion.div
-              className="mb-8 h-px w-16 bg-[#cca885]/40"
-              variants={itemVariants}
+              className="mb-8 h-px w-16 origin-left bg-[#cca885]/40"
+              variants={accentRule}
             />
 
             {/* Descriptions */}
