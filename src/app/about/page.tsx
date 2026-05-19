@@ -39,41 +39,60 @@ export default function AboutPage() {
       <TopLeftLogo />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* 1 · Intro */}
+        {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
-          className="mx-auto flex min-h-screen max-w-[1440px] flex-col items-center justify-center px-6 pb-20 pt-32 text-center md:px-12 lg:px-20"
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-32 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.p
-            className="mb-6 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg"
+            className="mb-8 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
             variants={itemVariants}
           >
             Deepblue Team
           </motion.p>
-          <motion.h1
-            className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
-            variants={itemVariants}
-          >
-            A complementary leadership team built around real estate.
-          </motion.h1>
-          <motion.p
-            className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
-            variants={itemVariants}
-          >
-            Capital formation, acquisitions, and asset management — one team, one
-            conversation.
-          </motion.p>
+
+          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20">
+            <motion.h1
+              className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+              variants={itemVariants}
+            >
+              A complementary leadership team built around real estate.
+            </motion.h1>
+            <motion.p
+              className="font-serif text-xl leading-relaxed text-white/60 md:text-2xl md:pt-3"
+              variants={itemVariants}
+            >
+              Capital formation, acquisitions, and asset management — one team, one
+              conversation across every deal we touch.
+            </motion.p>
+          </div>
 
           <motion.div
-            className="mt-16 grid w-full grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="relative mt-14 h-[44vh] w-full overflow-hidden rounded-lg md:mt-20 md:h-[52vh]"
+            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url(/about/team.jpg)",
+                backgroundColor: "#1a2332",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/35 via-transparent to-transparent" />
+          </motion.div>
+
+          <motion.div
+            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
               <div key={stat.label}>
                 <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                  <CountUp value={stat.value} delay={0.6 + i * 0.12} />
+                  <CountUp value={stat.value} delay={1.6 + i * 0.12} />
                 </p>
                 <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
                   {stat.label}
