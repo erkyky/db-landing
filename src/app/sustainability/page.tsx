@@ -213,9 +213,9 @@ export default function SustainabilityPage() {
             Standards we align with.
           </motion.h2>
 
-          <div className="mt-14 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
             <motion.div
-              className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
+              className="relative h-[420px] overflow-hidden rounded-lg md:h-[460px] lg:h-[420px]"
               variants={imageRevealLeft}
             >
               <div
@@ -226,7 +226,7 @@ export default function SustainabilityPage() {
             </motion.div>
 
             <motion.p
-              className="font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
+              className="max-w-xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl lg:pt-4"
               variants={itemVariants}
             >
               Deepblue tracks the leading frameworks shaping responsible real
