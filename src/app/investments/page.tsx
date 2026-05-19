@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
+import TopLeftLogo from "@/components/ui/layout/top-left-logo";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -128,6 +129,7 @@ export default function InvestmentsPage() {
   return (
     <>
       <NavMenu />
+      <TopLeftLogo />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Hero — banner image + editorial headline */}
