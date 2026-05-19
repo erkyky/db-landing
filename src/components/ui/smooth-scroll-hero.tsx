@@ -8,6 +8,8 @@ interface SmoothScrollHeroProps {
     children?: React.ReactNode;
 }
 
+const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+
 const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
     desktopImage = "/hero_image.jpg",
     mobileImage = "/hero_image.jpg",
@@ -15,52 +17,119 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
     delay = 0.2,
     children,
 }) => {
-    const heroStyle = {
-        "--hero-reveal-duration": `${duration}s`,
-        "--hero-reveal-delay": `${delay}s`,
-        "--hero-text-delay": `${delay + duration * 0.25}s`,
-    } as React.CSSProperties;
+    const textDelay = delay + duration * 0.25;
 
     return (
-        <div className="mx-auto max-w-[1440px] px-6 pt-32 md:px-12 lg:px-20">
+        <>
+            <style>{`
+@keyframes ssh-reveal { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes ssh-text-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.ssh-img-mobile { display: block; }
+.ssh-img-desktop { display: none; }
+@media (min-width: 768px) {
+  .ssh-img-mobile { display: none; }
+  .ssh-img-desktop { display: block; }
+}
+`}</style>
+
             <div
-                className="relative h-[696px] w-full overflow-hidden rounded-lg bg-[#0d121a]"
-                style={heroStyle}
+                style={{
+                    maxWidth: 1440,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    paddingLeft: "1.5rem",
+                    paddingRight: "1.5rem",
+                    paddingTop: "8rem",
+                }}
+                className="md:px-12 lg:px-20"
             >
                 <div
-                    className="hero-reveal absolute inset-0"
-                    style={{ willChange: "clip-path" }}
+                    style={{
+                        position: "relative",
+                        height: 696,
+                        width: "100%",
+                        overflow: "hidden",
+                        borderRadius: "0.5rem",
+                        background: "#0d121a",
+                    }}
                 >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={mobileImage}
-                        alt=""
-                        aria-hidden="true"
-                        fetchPriority="high"
-                        loading="eager"
-                        decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover object-center md:hidden"
-                    />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={desktopImage}
-                        alt=""
-                        aria-hidden="true"
-                        fetchPriority="high"
-                        loading="eager"
-                        decoding="async"
-                        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
-                </div>
-
-                {children && (
-                    <div className="hero-text-in absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20">
-                        {children}
+                    <div
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                            clipPath: "inset(100% 0 0 0)",
+                            animation: `ssh-reveal ${duration}s ${EASE} ${delay}s forwards`,
+                            willChange: "clip-path",
+                        }}
+                    >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={mobileImage}
+                            alt=""
+                            aria-hidden="true"
+                            fetchPriority="high"
+                            loading="eager"
+                            decoding="async"
+                            className="ssh-img-mobile"
+                            style={{
+                                position: "absolute",
+                                inset: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center",
+                            }}
+                        />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={desktopImage}
+                            alt=""
+                            aria-hidden="true"
+                            fetchPriority="high"
+                            loading="eager"
+                            decoding="async"
+                            className="ssh-img-desktop"
+                            style={{
+                                position: "absolute",
+                                inset: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center",
+                            }}
+                        />
+                        <div
+                            style={{
+                                position: "absolute",
+                                inset: 0,
+                                background:
+                                    "linear-gradient(to bottom, rgba(13,18,26,0.65), rgba(13,18,26,0.35) 50%, rgba(13,18,26,0.8))",
+                            }}
+                        />
                     </div>
-                )}
+
+                    {children && (
+                        <div
+                            style={{
+                                position: "absolute",
+                                inset: 0,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                paddingLeft: "1.5rem",
+                                paddingRight: "1.5rem",
+                                opacity: 0,
+                                transform: "translateY(24px)",
+                                animation: `ssh-text-in 0.9s ${EASE} ${textDelay}s forwards`,
+                            }}
+                            className="md:px-12 lg:px-20"
+                        >
+                            {children}
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
