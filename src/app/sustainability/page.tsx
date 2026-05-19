@@ -80,7 +80,7 @@ export default function SustainabilityPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero — image with text overlay (investments-pattern reveal) */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pt-32 md:px-12 lg:px-20"
+          className="mx-auto flex w-full max-w-[1440px] flex-col px-6 pt-32 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
