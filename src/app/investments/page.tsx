@@ -72,15 +72,15 @@ const whatWeDo = [
 
 const tacticalPillars = [
   {
-    title: "Unconstrained",
+    title: "Flexible",
     desc: "Our strategy is unconstrained by asset class within rental housing, capital structure, or Sunbelt geography. We pursue compelling risk-adjusted returns wherever they appear.",
   },
   {
-    title: "Nimble",
+    title: "Decisive",
     desc: "Markets shift quickly and windows of opportunity open and close without warning. We respond with conviction — moving decisively, with the judgment and discipline to capture opportunities less-equipped investors miss.",
   },
   {
-    title: "Differentiated",
+    title: "Distinctive",
     desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov — a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
   },
 ];
@@ -131,13 +131,13 @@ export default function InvestmentsPage() {
 
           <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
             <motion.h1
-              className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+              className="font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
               variants={itemVariants}
             >
               Real estate exposure built for Sunbelt rental housing.
             </motion.h1>
             <motion.p
-              className="max-w-xl self-end font-serif text-lg leading-relaxed text-white/60 md:text-xl"
+              className="max-w-xl self-end font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
               variants={itemVariants}
             >
               Deepblue invests across multifamily and affordable rental housing in
@@ -156,72 +156,78 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
             Private Transactions
           </motion.p>
           <motion.h2
-            className="max-w-4xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-4xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             We acquire rental housing across two complementary strategies.
           </motion.h2>
 
-          {/* Row 1 — Multifamily (image left) */}
-          <motion.div
-            className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20"
-            variants={itemVariants}
-          >
-            <div className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]">
+          {/* Row 1 — Multifamily (image left, reveals from left) */}
+          <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
+            <motion.div
+              className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]"
+              initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" }}
+              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: "circOut" }}
+            >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
                 style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </div>
-            <div>
-              <h3 className="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <h3 className="font-serif text-4xl text-white md:text-5xl lg:text-6xl">
                 Multifamily
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/65 md:text-2xl">
                 We acquire value-add multifamily in high-growth Sunbelt submarkets.
                 Disciplined basis, hands-on operations, and partnerships with
                 seasoned local operators drive cash-flow growth and durable rent
                 expansion.
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* Row 2 — Affordable (text left) */}
-          <motion.div
-            className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20"
-            variants={itemVariants}
-          >
-            <div className="order-2 md:order-1">
-              <h3 className="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
+          {/* Row 2 — Affordable (text left, image reveals from right) */}
+          <div className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20">
+            <motion.div className="order-2 md:order-1" variants={itemVariants}>
+              <h3 className="font-serif text-4xl text-white md:text-5xl lg:text-6xl">
                 Affordable (LIHTC)
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/65 md:text-2xl">
                 Through Low-Income Housing Tax Credit partnerships, we preserve and
                 develop affordable rental housing — delivering durable yield,
                 federal tax benefits, and lasting community impact in the markets
                 where workforce families want to live.
               </p>
-            </div>
-            <div className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]">
+            </motion.div>
+            <motion.div
+              className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]"
+              initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
+              whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: "circOut" }}
+            >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
                 style={{ backgroundImage: "url(/investments/affordable.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </motion.section>
 
-        {/* 3 · What We Do */}
+        {/* 3 · What We Do — hover to reveal */}
         <motion.section
           className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
           variants={containerVariants}
@@ -230,13 +236,13 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
             What We Do
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             We invest with discipline across Sunbelt rental housing.
@@ -246,16 +252,20 @@ export default function InvestmentsPage() {
             {whatWeDo.map((w, i) => (
               <motion.div
                 key={w.title}
-                className={`${i > 0 ? "md:border-l md:border-[#cca885]/15 md:pl-16" : "md:pr-16"}`}
+                className={`group ${i > 0 ? "md:border-l md:border-[#cca885]/15 md:pl-16" : "md:pr-16"}`}
                 variants={itemVariants}
               >
-                <h3 className="font-serif text-2xl text-white md:text-3xl">
+                <h3 className="font-serif text-3xl text-white md:text-4xl">
                   {w.title}
                 </h3>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-                <p className="mt-6 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
-                  {w.desc}
-                </p>
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
+                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                  <div className="min-h-0 overflow-hidden">
+                    <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-2xl md:opacity-0 md:group-hover:opacity-100">
+                      {w.desc}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -270,13 +280,13 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
             Investment Thesis
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
             variants={itemVariants}
           >
             Where demographic momentum and operational discipline compound.
@@ -292,13 +302,13 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-6xl text-[#cca885] md:text-7xl">
+                  <p className="font-serif text-7xl text-[#cca885] md:text-8xl">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
-                  <p className="mt-2 font-serif text-xl text-white md:text-2xl">
+                  <p className="mt-2 font-serif text-2xl text-white md:text-3xl">
                     {s.label}
                   </p>
-                  <p className="mt-2 font-serif text-base leading-relaxed text-white/50 md:text-lg">
+                  <p className="mt-2 font-serif text-lg leading-relaxed text-white/50 md:text-xl">
                     {s.detail}
                   </p>
                 </motion.div>
@@ -314,14 +324,14 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-4xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-5xl">
+                  <p className="font-serif text-5xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-6xl">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <div>
-                    <h3 className="font-serif text-2xl text-white md:text-3xl">
+                    <h3 className="font-serif text-3xl text-white md:text-4xl">
                       {t.title}
                     </h3>
-                    <p className="mt-3 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                    <p className="mt-3 font-serif text-xl leading-relaxed text-white/55 md:text-2xl">
                       {t.desc}
                     </p>
                   </div>
@@ -340,21 +350,21 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
             Tactical Opportunities
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-5xl leading-[1.08] text-white md:text-6xl lg:text-7xl"
             variants={itemVariants}
           >
             We invest flexible capital to construct a differentiated portfolio for our investors.
           </motion.h2>
 
-          <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <motion.div
-              className="relative h-[400px] overflow-hidden rounded-lg md:h-[560px]"
+              className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
               variants={itemVariants}
             >
               <div
@@ -367,11 +377,11 @@ export default function InvestmentsPage() {
             <motion.div className="space-y-10" variants={itemVariants}>
               {tacticalPillars.map((p) => (
                 <motion.div key={p.title} variants={itemVariants}>
-                  <h3 className="font-serif text-2xl text-white md:text-3xl">
+                  <h3 className="font-serif text-3xl text-white md:text-4xl">
                     {p.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50" />
-                  <p className="mt-5 font-serif text-lg leading-relaxed text-white/60 md:text-xl">
+                  <p className="mt-5 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                     {p.desc}
                   </p>
                 </motion.div>
@@ -389,13 +399,13 @@ export default function InvestmentsPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-base uppercase tracking-[0.32em] text-[#cca885] md:text-lg"
             variants={itemVariants}
           >
             Strategic Operations
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-6xl leading-[1.05] text-white md:text-7xl lg:text-8xl"
             variants={itemVariants}
           >
             Relationships compound. Execution scales.
@@ -410,14 +420,14 @@ export default function InvestmentsPage() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-serif text-6xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-7xl">
+                <p className="font-serif text-7xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-8xl">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <h3 className="mt-6 font-serif text-3xl text-white md:text-4xl">
+                <h3 className="mt-6 font-serif text-4xl text-white md:text-5xl">
                   {p.title}
                 </h3>
-                <p className="mt-4 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                <p className="mt-4 font-serif text-xl leading-relaxed text-white/55 md:text-2xl">
                   {p.desc}
                 </p>
               </motion.div>
