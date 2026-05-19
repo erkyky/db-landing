@@ -22,19 +22,20 @@ const itemVariants = {
   },
 };
 
-const imageRevealLeft = {
-  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+const accentRule = {
+  hidden: { scaleX: 0 },
   visible: {
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.2, ease: "circOut" as const },
+    scaleX: 1,
+    transition: { duration: 0.9, ease: "easeOut" as const },
   },
 };
 
-const imageRevealRight = {
-  hidden: { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" },
+const imageFade = {
+  hidden: { opacity: 0, y: 32 },
   visible: {
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.2, ease: "circOut" as const },
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: "easeOut" as const },
   },
 };
 
@@ -183,12 +184,16 @@ export default function InvestmentsPage() {
           >
             We acquire rental housing across two complementary strategies.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           {/* Row 1 — Multifamily (image left, reveals from left) */}
           <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <motion.div
               className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]"
-              variants={imageRevealLeft}
+              variants={imageFade}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -226,7 +231,7 @@ export default function InvestmentsPage() {
             </motion.div>
             <motion.div
               className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]"
-              variants={imageRevealRight}
+              variants={imageFade}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -257,6 +262,10 @@ export default function InvestmentsPage() {
           >
             We invest with discipline across Sunbelt rental housing.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0">
             {whatWeDo.map((w, i) => (
@@ -301,6 +310,10 @@ export default function InvestmentsPage() {
           >
             Where demographic momentum and operational discipline compound.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
             <motion.div variants={itemVariants} className="space-y-12">
@@ -371,11 +384,15 @@ export default function InvestmentsPage() {
           >
             We invest flexible capital to construct a differentiated portfolio for our investors.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <motion.div
               className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
-              variants={imageRevealLeft}
+              variants={imageFade}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
@@ -426,6 +443,10 @@ export default function InvestmentsPage() {
           >
             Relationships compound. Execution scales.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
             {strategicOperations.map((p, i) => (
