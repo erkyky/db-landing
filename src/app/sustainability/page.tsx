@@ -5,6 +5,7 @@ import { Leaf, TreePine, Droplets, Sun, HeartHandshake, ShieldCheck } from "luci
 import type { LucideIcon } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import NavMenu from "@/components/ui/layout/nav-menu";
+import TopLeftLogo from "@/components/ui/layout/top-left-logo";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -74,6 +75,7 @@ export default function SustainabilityPage() {
   return (
     <>
       <NavMenu />
+      <TopLeftLogo />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero — image with text overlay (investments-pattern reveal) */}
@@ -84,7 +86,7 @@ export default function SustainabilityPage() {
           animate="visible"
         >
           <motion.div
-            className="relative h-[60vh] w-full overflow-hidden rounded-lg md:h-[72vh]"
+            className="relative h-[80vh] w-full overflow-hidden rounded-lg"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}

@@ -28,15 +28,8 @@ export default function NavMenu() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
 
-  const onLightBackdrop = pathname?.startsWith("/sustainability") ?? false;
-
-  const inactiveClass = onLightBackdrop
-    ? "text-[#0d121a] hover:text-black"
-    : "text-white/45 hover:text-white/85";
-
-  const activeClass = onLightBackdrop
-    ? "text-[#5a3e1c]"
-    : "text-[#cca885]";
+  const inactiveClass = "text-white/45 hover:text-white/85";
+  const activeClass = "text-[#cca885]";
 
   return (
     <AnimatePresence>
