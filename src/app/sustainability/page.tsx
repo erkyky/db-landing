@@ -32,6 +32,17 @@ const imageRevealLeft = {
   },
 };
 
+// Hero text overlay: starts after the image clip-path reveal completes
+// (image reveal = 0.2s delay + 1.2s duration = 1.4s), then staggers
+// the eyebrow / headline / body the same way investments staggers its h1+p.
+const heroTextContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { delayChildren: 1.4, staggerChildren: 0.18 },
+  },
+};
+
 const pillars: Array<{ icon: LucideIcon; title: string; desc: string }> = [
   {
     icon: Leaf,
@@ -102,19 +113,28 @@ export default function SustainabilityPage() {
 
             <motion.div
               className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-12 lg:px-20"
-              variants={itemVariants}
+              variants={heroTextContainer}
             >
-              <p className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl">
+              <motion.p
+                className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl"
+                variants={itemVariants}
+              >
                 Sustainability
-              </p>
-              <h1 className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
+              </motion.p>
+              <motion.h1
+                className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
+                variants={itemVariants}
+              >
                 Investing with care for the world we share.
-              </h1>
-              <p className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl">
+              </motion.h1>
+              <motion.p
+                className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl"
+                variants={itemVariants}
+              >
                 At Deepblue, responsibility sits inside underwriting &mdash; not in a
                 separate department. How we operate, how we manage assets, and how
                 we engage the industry all answer to the same standard of care.
-              </p>
+              </motion.p>
             </motion.div>
           </motion.div>
         </motion.section>
