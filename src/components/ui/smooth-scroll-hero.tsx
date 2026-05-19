@@ -21,7 +21,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
         <div className="relative h-screen w-full bg-[#0d121a]">
             <motion.div
                 className="absolute inset-0"
-                initial={{ clipPath: "inset(50% 50% 50% 50%)" }}
+                initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
                 animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
                 transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
                 style={{ willChange: "clip-path" }}

@@ -226,12 +226,12 @@ export default function InvestmentsPage() {
           <div className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20">
             <motion.div className="order-2 md:order-1" variants={itemVariants}>
               <h3 className="font-serif text-4xl text-white md:text-5xl">
-                Affordable (LIHTC)
+                Affordable Housing
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
               <p className="mt-6 font-serif text-xl leading-relaxed text-white/65 md:text-2xl">
-                Through Low-Income Housing Tax Credit partnerships, we preserve and
-                develop affordable rental housing — delivering durable yield,
+                Through Low-Income Housing Tax Credit (LIHTC) partnerships, we
+                preserve affordable rental housing — delivering durable yield,
                 federal tax benefits, and lasting community impact in the markets
                 where workforce families want to live.
               </p>
