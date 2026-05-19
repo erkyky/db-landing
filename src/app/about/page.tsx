@@ -41,18 +41,11 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-32 md:px-12 lg:px-20"
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-12 pt-24 md:px-12 md:pb-16 md:pt-28 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.p
-            className="mb-8 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
-            Deepblue Team
-          </motion.p>
-
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20">
             <motion.h1
               className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
@@ -70,7 +63,7 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-14 h-[44vh] w-full overflow-hidden rounded-lg md:mt-20 md:h-[52vh]"
+            className="relative mt-10 h-[26vh] w-full overflow-hidden rounded-lg md:mt-12 md:h-[30vh]"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
@@ -86,11 +79,11 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8 md:mt-12 md:grid-cols-4"
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="text-center">
                 <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                   <CountUp value={stat.value} delay={1.6 + i * 0.12} />
                 </p>
