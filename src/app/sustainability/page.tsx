@@ -112,18 +112,20 @@ export default function SustainabilityPage() {
             Three pillars of sustainable investment.
           </motion.h2>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {pillars.map((item) => (
+          <div className="mt-14 grid gap-16 md:grid-cols-3 md:gap-0">
+            {pillars.map((item, i) => (
               <motion.div
                 key={item.title}
-                className="rounded-[1.75rem] bg-white/[0.03] p-8 backdrop-blur-sm shadow-premium"
+                className={`group px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
               >
-                <item.icon className="h-7 w-7 text-[#cca885]/75" />
-                <h3 className="mt-6 font-serif text-3xl text-white md:text-[2.5rem]">
+                <item.icon className="h-7 w-7 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
+                <h3 className="mt-6 font-serif text-3xl text-white md:text-4xl">
                   {item.title}
                 </h3>
+                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
                 <p className="mt-4 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
                   {item.desc}
                 </p>
@@ -153,22 +155,23 @@ export default function SustainabilityPage() {
             Measurable targets, not just intentions.
           </motion.h2>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-14 grid gap-12 md:grid-cols-3">
             {commitments.map((item) => (
               <motion.div
                 key={item.label}
-                className="rounded-[1.75rem] bg-white/[0.03] p-7 backdrop-blur-sm shadow-premium md:p-8"
+                className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
                 variants={itemVariants}
-                whileHover={{ y: -4 }}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.3 }}
               >
                 <item.icon className="h-6 w-6 text-[#cca885]/75" />
-                <p className="mt-5 font-serif text-5xl text-white md:text-6xl">
+                <p className="mt-5 font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                   {item.stat}
                 </p>
-                <p className="mt-2 font-serif text-base text-[#cca885] md:text-lg">
+                <p className="mt-2 font-serif text-xl text-white md:text-2xl">
                   {item.label}
                 </p>
-                <p className="mt-3 font-serif text-lg leading-relaxed text-white/48">
+                <p className="mt-2 font-serif text-lg leading-relaxed text-white/50 md:text-xl">
                   {item.detail}
                 </p>
               </motion.div>

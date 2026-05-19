@@ -199,7 +199,7 @@ export default function InvestmentsPage() {
           {/* Row 1 — Multifamily (image left, reveals from left) */}
           <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <motion.div
-              className="relative h-[320px] overflow-hidden rounded-lg md:h-[440px]"
+              className="relative h-[280px] overflow-hidden rounded-lg md:h-[360px]"
               variants={imageRevealLeft}
             >
               <div
@@ -237,7 +237,7 @@ export default function InvestmentsPage() {
               </p>
             </motion.div>
             <motion.div
-              className="relative order-1 h-[320px] overflow-hidden rounded-lg md:order-2 md:h-[440px]"
+              className="relative order-1 h-[280px] overflow-hidden rounded-lg md:order-2 md:h-[360px]"
               variants={imageRevealRight}
             >
               <div
