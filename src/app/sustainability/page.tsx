@@ -5,7 +5,6 @@ import { Leaf, TreePine, Droplets, Sun, HeartHandshake, ShieldCheck } from "luci
 import type { LucideIcon } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import NavMenu from "@/components/ui/layout/nav-menu";
-import SmoothScrollHero from "@/components/ui/smooth-scroll-hero";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -76,28 +75,47 @@ export default function SustainabilityPage() {
     <>
       <NavMenu />
 
-      {/* Auto-playing hero reveal with overlay text */}
-      <SmoothScrollHero
-        desktopImage="../Picture1.jpg"
-        mobileImage="../Picture1.jpg"
-        duration={1.6}
-      >
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl">
-            Sustainability
-          </p>
-          <h2 className="font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
-            Investing with care for the world we share.
-          </h2>
-          <p className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl">
-            At Deepblue, responsibility sits inside underwriting &mdash; not in a
-            separate department. How we operate, how we manage assets, and how
-            we engage the industry all answer to the same standard of care.
-          </p>
-        </div>
-      </SmoothScrollHero>
-
       <BeamsBackground intensity="subtle" className="min-h-0">
+        {/* Hero — image with text overlay (investments-pattern reveal) */}
+        <motion.section
+          className="mx-auto flex max-w-[1440px] flex-col px-6 pt-32 md:px-12 lg:px-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div
+            className="relative h-[60vh] w-full overflow-hidden rounded-lg md:h-[72vh]"
+            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url(/Picture1.jpg)",
+                backgroundColor: "#1a2332",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
+
+            <motion.div
+              className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-12 lg:px-20"
+              variants={itemVariants}
+            >
+              <p className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl">
+                Sustainability
+              </p>
+              <h1 className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl">
+                Investing with care for the world we share.
+              </h1>
+              <p className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl">
+                At Deepblue, responsibility sits inside underwriting &mdash; not in a
+                separate department. How we operate, how we manage assets, and how
+                we engage the industry all answer to the same standard of care.
+              </p>
+            </motion.div>
+          </motion.div>
+        </motion.section>
 
         {/* Pillars */}
         <motion.section
