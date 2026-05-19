@@ -155,25 +155,30 @@ export default function SustainabilityPage() {
             Measurable targets, not just intentions.
           </motion.h2>
 
-          <div className="mt-14 grid gap-12 md:grid-cols-3">
+          <div className="mt-14 space-y-14 md:space-y-16">
             {commitments.map((item) => (
               <motion.div
                 key={item.label}
-                className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
+                className="group max-w-3xl"
                 variants={itemVariants}
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.3 }}
               >
-                <item.icon className="h-6 w-6 text-[#cca885]/75" />
-                <p className="mt-5 font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                  {item.stat}
-                </p>
-                <p className="mt-2 font-serif text-xl text-white md:text-2xl">
-                  {item.label}
-                </p>
-                <p className="mt-2 font-serif text-lg leading-relaxed text-white/50 md:text-xl">
-                  {item.detail}
-                </p>
+                <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
+                <div className="mt-4 flex flex-wrap items-baseline gap-x-8 gap-y-2">
+                  <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                    {item.stat}
+                  </p>
+                  <p className="font-serif text-xl text-white md:text-2xl">
+                    {item.label}
+                  </p>
+                </div>
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
+                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                  <div className="min-h-0 overflow-hidden">
+                    <p className="mt-6 font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
+                      {item.detail}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
