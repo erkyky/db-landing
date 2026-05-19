@@ -167,7 +167,7 @@ export default function SustainabilityPage() {
             {commitments.map((item) => (
               <motion.div
                 key={item.label}
-                className="group max-w-3xl"
+                className="group"
                 variants={itemVariants}
               >
                 <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
@@ -182,7 +182,7 @@ export default function SustainabilityPage() {
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
                 <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
                   <div className="min-h-0 overflow-hidden">
-                    <p className="mt-6 font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
+                    <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
                       {item.detail}
                     </p>
                   </div>

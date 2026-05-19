@@ -322,7 +322,7 @@ export default function InvestmentsPage() {
             variants={accentRule}
           />
 
-          <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <motion.div variants={itemVariants} className="space-y-12">
               {marketSignals.map((s, i) => (
                 <motion.div

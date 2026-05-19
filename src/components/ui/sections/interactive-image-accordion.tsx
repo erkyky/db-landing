@@ -121,7 +121,7 @@ export function InteractiveImageAccordion({
 
   return (
     <div className={className}>
-      <div className="flex flex-row items-center justify-start gap-3 overflow-x-auto px-1 py-4 sm:justify-center">
+      <div className="flex flex-row items-center justify-start gap-3 overflow-x-auto px-1 py-4">
         {items.map((item, index) => (
           <AccordionItem
             key={item.id}
