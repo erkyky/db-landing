@@ -5,8 +5,8 @@ import { LogoSlider } from "@/components/ui/sections/logo-slider";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col">
-      <BeamsBackground intensity="subtle" className="flex-1 flex flex-col">
+    <main className="relative flex min-h-screen flex-col md:h-screen md:overflow-hidden">
+      <BeamsBackground intensity="subtle" className="flex h-full flex-1 flex-col">
         <NavMenu />
         <HeroSection
           logo={{
@@ -20,7 +20,13 @@ export default function Home() {
           heroImage="/hero_image.jpg"
         />
         <LogoSlider />
-        <p className="pb-10 text-center font-serif text-base text-white/22">
+        <p
+          className="text-center font-serif text-white/22"
+          style={{
+            fontSize: "clamp(0.7rem, 0.8vw, 0.95rem)",
+            paddingBottom: "clamp(0.5rem, 1vh, 1.5rem)",
+          }}
+        >
           &copy; 2026 Deepblue Capital Partners. All rights reserved.
         </p>
       </BeamsBackground>

@@ -17,11 +17,23 @@ const logos = [
 
 export function LogoSlider() {
   return (
-    <div className="relative w-full py-8 mt-auto">
-      <p className="text-center font-serif text-sm uppercase tracking-[0.2em] text-white/35 mb-6">
+    <div
+      className="relative w-full"
+      style={{ paddingTop: "clamp(0.75rem, 1.5vh, 2rem)", paddingBottom: "clamp(0.75rem, 1.5vh, 2rem)" }}
+    >
+      <p
+        className="text-center font-serif uppercase tracking-[0.2em] text-white/35"
+        style={{
+          fontSize: "clamp(0.7rem, 0.8vw, 0.9rem)",
+          marginBottom: "clamp(0.5rem, 1vh, 1.5rem)",
+        }}
+      >
         Trusted Partners
       </p>
-      <div className="relative h-[50px] w-full overflow-hidden">
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ height: "clamp(36px, 5vh, 60px)" }}
+      >
         <InfiniteSlider
           className="flex h-full w-full items-center"
           duration={35}

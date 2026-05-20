@@ -75,7 +75,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       <motion.section
         ref={ref}
         className={cn(
-          "relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col overflow-hidden md:flex-row",
+          "relative flex w-full flex-1 flex-col overflow-hidden md:flex-row md:items-center",
           className
         )}
         initial="hidden"
@@ -83,11 +83,23 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         variants={containerVariants}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-2/5 md:px-12 md:pt-48 lg:w-2/5 lg:px-20 xl:px-28">
+        <div
+          className="flex w-full flex-col justify-center md:w-2/5"
+          style={{
+            paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
+            paddingRight: "clamp(1.5rem, 3vw, 4rem)",
+            paddingTop: "clamp(8rem, 14vh, 12rem)",
+            paddingBottom: "clamp(2rem, 4vh, 4rem)",
+          }}
+        >
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan — letter-by-letter reveal */}
             <motion.p
-              className="mb-6 font-serif text-xl md:text-2xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap"
+              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap"
+              style={{
+                fontSize: "clamp(0.9rem, 1.4vw, 1.6rem)",
+                marginBottom: "clamp(0.75rem, 1.5vh, 1.5rem)",
+              }}
               variants={sloganContainer}
             >
               {Array.from(slogan).map((char, i) => (
@@ -103,19 +115,25 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             </motion.p>
 
             {/* Logo */}
-            <motion.div className="mb-10" variants={itemVariants}>
+            <motion.div
+              variants={itemVariants}
+              style={{ marginBottom: "clamp(1rem, 2vh, 2.5rem)" }}
+            >
               <img
                 src={logo.url}
                 alt={logo.alt}
-                width={400}
-                height={100}
-                className="h-auto w-[85.5%] max-w-[25.2rem] brightness-0 invert opacity-90"
+                className="h-auto brightness-0 invert opacity-90"
+                style={{ width: "clamp(180px, 22vw, 400px)" }}
               />
             </motion.div>
 
             {/* Accent line */}
             <motion.div
-              className="mb-8 h-px w-32 origin-left bg-[#cca885]/40 md:w-48"
+              className="h-px origin-left bg-[#cca885]/40"
+              style={{
+                width: "clamp(80px, 12vw, 192px)",
+                marginBottom: "clamp(1rem, 1.5vh, 2rem)",
+              }}
               variants={accentRule}
             />
 
@@ -123,7 +141,11 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             {descriptions.map((desc, i) => (
               <motion.p
                 key={i}
-                className="mb-4 font-serif text-xl leading-relaxed text-white/70 md:text-2xl"
+                className="font-serif leading-relaxed text-white/70"
+                style={{
+                  fontSize: "clamp(0.95rem, 1.15vw, 1.5rem)",
+                  marginBottom: "clamp(0.5rem, 1vh, 1rem)",
+                }}
                 variants={itemVariants}
               >
                 {desc}
@@ -132,15 +154,16 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           </motion.div>
         </div>
 
-        {/* Right Side: Image with Clip Path Animation */}
+        {/* Right Side: Image with Clip Path Animation — flush to right edge */}
         <motion.div
-          className="relative w-full h-[400px] md:w-3/5 md:h-[500px] lg:w-3/5 lg:h-[560px] mt-7 md:mt-[140px] lg:mt-[156px]"
+          className="relative w-full md:w-3/5"
+          style={{ height: "clamp(360px, 60vh, 720px)" }}
           initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
           animate={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
         >
           <div
-            className="absolute inset-0 bg-cover bg-center rounded-tl-lg"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${heroImage})`, backgroundColor: "#1a2332" }}
           />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0d121a]/30" />
