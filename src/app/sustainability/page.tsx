@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, TreePine, Droplets, Sun, HeartHandshake, ShieldCheck } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
@@ -44,39 +42,33 @@ const heroTextContainer = {
   },
 };
 
-const pillars: Array<{ icon: LucideIcon; title: string; desc: string }> = [
+const pillars: Array<{ title: string; desc: string }> = [
   {
-    icon: Leaf,
     title: "Environmental stewardship",
     desc: "Energy efficiency, embodied carbon, and long-term resilience evaluated before capital is committed.",
   },
   {
-    icon: HeartHandshake,
     title: "Community impact",
     desc: "Investments that strengthen neighborhoods — quality housing, local employment, and shared spaces that endure.",
   },
   {
-    icon: ShieldCheck,
     title: "Responsible governance",
     desc: "Transparent reporting, ethical decision-making, accountability to investors and communities alike.",
   },
 ];
 
-const commitments: Array<{ icon: LucideIcon; stat: string; label: string; detail: string }> = [
+const commitments: Array<{ stat: string; label: string; detail: string }> = [
   {
-    icon: Sun,
     stat: "100%",
     label: "ESG-screened deals",
     detail: "Every acquisition passes environmental, social, and governance review during underwriting.",
   },
   {
-    icon: TreePine,
     stat: "Net Zero",
     label: "Operational target",
     detail: "Working toward net-zero carbon across the managed portfolio via efficiency upgrades and renewables.",
   },
   {
-    icon: Droplets,
     stat: "30%",
     label: "Water reduction goal",
     detail: "Smart-system retrofits and drought-tolerant landscaping driving measurable water savings.",
@@ -185,8 +177,7 @@ export default function SustainabilityPage() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <item.icon className="h-7 w-7 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
-                <h3 className="mt-6 font-serif text-3xl text-white md:text-4xl">
+                <h3 className="font-serif text-3xl text-white md:text-4xl">
                   {item.title}
                 </h3>
                 <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
@@ -241,8 +232,7 @@ export default function SustainabilityPage() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
-                  <div className="mt-4 flex flex-wrap items-baseline gap-x-8 gap-y-2">
+                  <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
                     <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                       <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                     </p>
