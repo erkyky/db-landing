@@ -124,12 +124,6 @@ export default function SustainabilityPage() {
               className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-12 lg:px-20"
               variants={heroTextContainer}
             >
-              <motion.p
-                className="mb-6 font-sans text-lg uppercase tracking-[0.32em] text-[#cca885] md:text-xl"
-                variants={itemVariants}
-              >
-                Sustainability
-              </motion.p>
               <motion.h1
                 className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
                 variants={itemVariants}
@@ -146,6 +140,10 @@ export default function SustainabilityPage() {
               </motion.p>
             </motion.div>
           </motion.div>
+          <motion.div
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
+            variants={accentRule}
+          />
         </motion.section>
 
         {/* Pillars */}
@@ -193,6 +191,10 @@ export default function SustainabilityPage() {
               </motion.div>
             ))}
           </div>
+          <motion.div
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
+            variants={accentRule}
+          />
         </motion.section>
 
         {/* Commitments */}
@@ -219,6 +221,17 @@ export default function SustainabilityPage() {
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
             variants={accentRule}
           />
+
+          <motion.div
+            className="relative mt-14 h-[280px] w-full overflow-hidden rounded-lg md:h-[380px] lg:h-[420px]"
+            variants={imageRevealLeft}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+              style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+          </motion.div>
 
           <div className="mt-14 space-y-14 md:space-y-16">
             {commitments.map((item, i) => (
@@ -249,57 +262,10 @@ export default function SustainabilityPage() {
               </motion.div>
             ))}
           </div>
-        </motion.section>
-
-        {/* Industry Engagement */}
-        <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
-            variants={itemVariants}
-          >
-            Industry Engagement
-          </motion.p>
-          <motion.h2
-            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
-            variants={itemVariants}
-          >
-            Standards we align with.
-          </motion.h2>
           <motion.div
-            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
             variants={accentRule}
           />
-
-          <div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-            <motion.div
-              className="relative h-[420px] overflow-hidden rounded-lg md:h-[460px] lg:h-[420px]"
-              variants={imageRevealLeft}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </motion.div>
-
-            <motion.p
-              className="max-w-xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl lg:pt-4"
-              variants={itemVariants}
-            >
-              Deepblue tracks the leading frameworks shaping responsible real
-              estate investment &mdash; the UN Principles for Responsible
-              Investment, GRESB, the Task Force on Climate-Related Financial
-              Disclosures, and the EPA&rsquo;s ENERGY STAR program &mdash; and
-              applies their guidance to underwriting, asset management, and
-              investor reporting.
-            </motion.p>
-          </div>
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">

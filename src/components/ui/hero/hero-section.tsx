@@ -85,7 +85,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
             {/* Accent line */}
             <motion.div
-              className="mb-8 h-px w-16 origin-left bg-[#cca885]/40"
+              className="mb-8 h-px w-32 origin-left bg-[#cca885]/40 md:w-48"
               variants={accentRule}
             />
 

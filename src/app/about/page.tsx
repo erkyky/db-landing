@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-16 h-[calc(40vh+10px)] w-full overflow-hidden rounded-lg md:mt-20 md:h-[calc(44vh+10px)]"
+            className="relative mt-16 aspect-[36/17] w-full overflow-hidden rounded-lg md:mt-20"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
@@ -107,6 +107,10 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
+          <motion.div
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
+            variants={accentRule}
+          />
         </motion.section>
 
         {/* 2 · Leadership — editorial image + split bios */}
@@ -188,6 +192,10 @@ export default function AboutPage() {
               </p>
             </motion.div>
           </motion.div>
+          <motion.div
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
+            variants={accentRule}
+          />
         </motion.section>
 
         {/* Asset Class Experience — interactive accordion */}
@@ -224,6 +232,10 @@ export default function AboutPage() {
           <motion.div className="mt-14" variants={itemVariants}>
             <InteractiveImageAccordion />
           </motion.div>
+          <motion.div
+            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
+            variants={accentRule}
+          />
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
