@@ -51,6 +51,26 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       },
     };
 
+    const sloganContainer = {
+      hidden: { opacity: 1 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.025 },
+      },
+    };
+
+    const sloganLetter = {
+      hidden: { opacity: 0, y: 6 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.35,
+          ease: [0.22, 1, 0.36, 1] as const,
+        },
+      },
+    };
+
     return (
       <motion.section
         ref={ref}
@@ -65,12 +85,22 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         {/* Left Side: Content */}
         <div className="flex w-full flex-col justify-center px-8 pt-40 pb-16 md:w-2/5 md:px-12 md:pt-48 lg:w-2/5 lg:px-20 xl:px-28">
           <motion.div variants={containerVariants} className="max-w-xl">
-            {/* Slogan */}
-            <motion.div className="mb-6" variants={itemVariants}>
-              <p className="font-serif text-xl md:text-2xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap">
-                {slogan}
-              </p>
-            </motion.div>
+            {/* Slogan — letter-by-letter reveal */}
+            <motion.p
+              className="mb-6 font-serif text-xl md:text-2xl tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap"
+              variants={sloganContainer}
+            >
+              {Array.from(slogan).map((char, i) => (
+                <motion.span
+                  key={i}
+                  variants={sloganLetter}
+                  className="inline-block"
+                  aria-hidden={char === " " ? "true" : undefined}
+                >
+                  {char === " " ? " " : char}
+                </motion.span>
+              ))}
+            </motion.p>
 
             {/* Logo */}
             <motion.div className="mb-10" variants={itemVariants}>
