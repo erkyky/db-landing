@@ -56,13 +56,13 @@ export default function AboutPage() {
         >
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20">
             <motion.h1
-              className="font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+              className="font-serif text-h1 leading-[1.05] text-white"
               variants={itemVariants}
             >
               A complementary leadership team built around real estate.
             </motion.h1>
             <motion.p
-              className="font-serif text-xl leading-relaxed text-white/60 md:text-2xl md:pt-3"
+              className="font-serif text-body leading-relaxed text-white/60 md:pt-3"
               variants={itemVariants}
             >
               Capital formation, acquisitions, and asset management — one team, one
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-12 h-[24vh] w-full overflow-hidden md:mt-16 md:h-[28vh] lg:h-[34vh]"
+            className="relative mt-12 aspect-[3.56/1] w-full overflow-hidden md:mt-16"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                <p className="font-serif text-stat text-[#cca885]">
                   <CountUp value={stat.value} delay={1.6 + i * 0.12} />
                 </p>
                 <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
@@ -118,13 +118,13 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
             variants={itemVariants}
           >
             Co-Founders
           </motion.p>
           <motion.h2
-            className="font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl whitespace-nowrap"
+            className="font-serif text-h2 leading-[1.08] text-white whitespace-nowrap"
             variants={itemVariants}
           >
             Two Executives. One integrated story.
@@ -143,14 +143,14 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-serif text-4xl text-white md:text-5xl">
+              <h3 className="font-serif text-h3-lg text-white">
                 Ying Huang
               </h3>
-              <p className="mt-3 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
+              <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
                 Ex-Starwood Capital Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
+              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                 Founding Partner of Deepblue. Previously Director and Partner at
                 Starwood Capital Group, where she led the $4.5B 2016 hotel
                 portfolio transaction &mdash; the largest equity commitment in
@@ -164,14 +164,14 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-serif text-4xl text-white md:text-5xl">
+              <h3 className="font-serif text-h3-lg text-white">
                 Anthony Liu
               </h3>
-              <p className="mt-3 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
+              <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
                 Ex-Hines Managing Director
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
+              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                 Founding Partner of Deepblue. Previously Managing Director,
                 Acquisitions at Hines &mdash; sourcing and managing New York
                 multifamily, office, and retail including One Vanderbilt and the
@@ -191,13 +191,13 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.1 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
             variants={itemVariants}
           >
             Asset class experience
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
             Hands-on across the asset classes that shape the strategy.
@@ -208,12 +208,12 @@ export default function AboutPage() {
           />
           <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
             <motion.div variants={itemVariants}>
-              <p className="font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
+              <p className="font-serif text-body leading-relaxed text-white/58">
                 Office, mixed-use, multifamily, and single-family rental — range
                 that helps us compare opportunities rather than chase whatever is
                 fashionable.
               </p>
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
+              <p className="mt-6 font-serif text-body leading-relaxed text-white/58">
                 Each asset class shaped a discipline we still apply today — from
                 large-scale acquisitions at Hines and Starwood to value-add
                 execution and single-family portfolio management.

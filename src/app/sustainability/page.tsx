@@ -89,7 +89,7 @@ export default function SustainabilityPage() {
           initial="hidden"
           animate="visible"
         >
-          <div className="relative h-[80vh] w-full overflow-hidden">
+          <div className="relative aspect-[1.80/1] w-full overflow-hidden">
             {[0, 1, 2, 3, 4, 5].map((i) => {
               // Overlap adjacent stripes by ~0.5% on each interior edge so
               // sub-pixel rounding can't leave visible seams once the
@@ -126,13 +126,13 @@ export default function SustainabilityPage() {
               variants={heroTextContainer}
             >
               <motion.h1
-                className="max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-6xl lg:text-7xl"
+                className="max-w-5xl font-serif text-h1 leading-[0.95] text-white"
                 variants={itemVariants}
               >
                 Investing with care for the world we share.
               </motion.h1>
               <motion.p
-                className="mx-auto mt-8 max-w-3xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
+                className="mx-auto mt-8 max-w-3xl font-serif text-body leading-relaxed text-white/60"
                 variants={itemVariants}
               >
                 At Deepblue, responsibility sits inside underwriting &mdash; not in a
@@ -152,13 +152,13 @@ export default function SustainabilityPage() {
           viewport={{ once: true, amount: 0.15 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
             variants={itemVariants}
           >
             Our Approach
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
             Three pillars of sustainable investment.
@@ -177,11 +177,11 @@ export default function SustainabilityPage() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-3xl text-white md:text-4xl">
+                <h3 className="font-serif text-h3-md text-white">
                   {item.title}
                 </h3>
                 <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <p className="mt-4 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                <p className="mt-4 font-serif text-body-sm leading-relaxed text-white/55">
                   {item.desc}
                 </p>
               </motion.div>
@@ -198,13 +198,13 @@ export default function SustainabilityPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="mb-4 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base"
+            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
             variants={itemVariants}
           >
             Within Our Portfolio
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
             Measurable targets, not just intentions.
@@ -233,15 +233,15 @@ export default function SustainabilityPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                    <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                    <p className="font-serif text-stat text-[#cca885]">
                       <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                     </p>
-                    <p className="font-serif text-xl text-white md:text-2xl">
+                    <p className="font-serif text-body text-white">
                       {item.label}
                     </p>
                   </div>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-4 max-w-3xl font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                  <p className="mt-4 max-w-3xl font-serif text-body-sm leading-relaxed text-white/55">
                     {item.detail}
                   </p>
                 </motion.div>
