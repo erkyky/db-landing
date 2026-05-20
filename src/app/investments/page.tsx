@@ -221,26 +221,37 @@ export default function InvestmentsPage() {
             variants={accentRule}
           />
 
-          <div className="mt-20 grid gap-16 md:grid-cols-3 md:gap-0">
-            {whatWeDo.map((w, i) => (
-              <motion.div
-                key={w.title}
-                className={`group md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                variants={itemVariants}
-              >
-                <h3 className="font-serif text-h3-md text-white">
-                  {w.title}
-                </h3>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
-                  <div className="min-h-0 overflow-hidden">
-                    <p className="mt-6 font-serif text-body leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
-                      {w.desc}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <motion.div
+              className="relative h-[400px] overflow-hidden lg:h-auto"
+              variants={imageRevealLeft}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/investments/bright.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </motion.div>
+
+            <motion.div className="space-y-10" variants={itemVariants}>
+              {whatWeDo.map((w) => (
+                <motion.div
+                  key={w.title}
+                  className="group"
+                  variants={itemVariants}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="font-serif text-h3-md text-white">
+                    {w.title}
+                  </h3>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <p className="mt-5 font-serif text-body leading-relaxed text-white/60">
+                    {w.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.section>
 
@@ -351,19 +362,21 @@ export default function InvestmentsPage() {
                   key={p.title}
                   className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
                   variants={itemVariants}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
+                  <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-500 group-hover:text-[#cca885]/80">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover:w-20 group-hover:bg-[#cca885]" />
                   <h4 className="mt-6 font-serif text-h3-md text-white">
                     {p.title}
                   </h4>
-                  <p className="mt-4 font-serif text-body leading-relaxed text-white/55">
-                    {p.desc}
-                  </p>
+                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                    <div className="min-h-0 overflow-hidden">
+                      <p className="mt-4 font-serif text-body leading-relaxed text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>

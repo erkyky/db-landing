@@ -2,4 +2,4 @@
 :HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/Bangla_MN-s.p.16x0ywrpu2~fb.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"investments","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"ozKBLoZhqmu-oyJjyx_SA"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"investments","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"f61cG9f5Jw8hCJ2y1GVkW"}
