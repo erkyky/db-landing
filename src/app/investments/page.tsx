@@ -110,19 +110,19 @@ const marketSignals = [
 const tenets = [
   {
     title: "Value-add rental",
-    desc: "Multifamily and adjacent strategies where operations and positioning create outsized value. We buy assets that under-earn their submarket and underwrite a clear path to closing the gap.",
+    desc: "Multifamily and adjacent strategies where operations and positioning unlock outsized value. We acquire assets that under-earn their submarket and underwrite a clear path to closing the gap.",
   },
   {
     title: "Sunbelt selection",
-    desc: "TX, NC, GA — migration, jobs, and household formation support durable rent growth. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
+    desc: "Sunbelt corridors where migration, jobs, and household formation outpace national averages. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
   },
   {
-    title: "Basis integrity",
-    desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today — and refuses to pay above it.",
+    title: "Anchored to replacement cost",
+    desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today. We refuse to pay above it.",
   },
   {
     title: "Institutional risk controls",
-    desc: "Rigorous underwriting, structured business plans, and active asset management at scale. Quarterly reporting, transparent waterfalls, and a portfolio review cadence built for sophisticated LPs.",
+    desc: "Structured business plans with measurable milestones, monitored at the asset and portfolio level. Active oversight surfaces inflection points before they become surprises.",
   },
 ];
 
