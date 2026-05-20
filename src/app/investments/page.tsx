@@ -47,6 +47,48 @@ const imageRevealRight = {
   },
 };
 
+const whatWeDo = [
+  {
+    title: "Disciplined Due Diligence",
+    desc: "Underwriting is where conviction is built. Every transaction passes through a framework that prices risk before return, validates operators on execution history, and commits capital only where basis, business plan, and downside scenario all align.",
+  },
+  {
+    title: "Operational Alpha",
+    desc: "Returns are realized after closing, not at it. Active leasing, targeted capex, and operator-led submarket repositioning turn underwritten upside into NOI growth that compounds over the hold.",
+  },
+  {
+    title: "Strategic Conviction",
+    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov — a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
+  },
+];
+
+const multifamilyBullets = [
+  "Concentrated exposure to multifamily assets in the U.S. markets with the strongest demographic, employment, and wage tailwinds.",
+  "Active value creation through targeted capital reinvestment, operational repositioning, and revenue strategy that compound NOI over the hold.",
+  "Institutional capital structures engineered to enhance returns while preserving downside protection.",
+];
+
+const affordableBullets = [
+  "Preserving long-term affordability for working families and seniors, sustaining the communities that depend on attainable housing to thrive.",
+  "Partnerships with mission-aligned operators who safeguard property quality, regulatory compliance, and resident stability across the full affordability period.",
+  "Investor returns are a function of the work itself: the federal LIHTC structure converts long-term preservation into tax-advantaged yield and stable operating cash flow.",
+];
+
+const strategicOperations = [
+  {
+    title: "Long-term industry relationships",
+    desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
+  },
+  {
+    title: "Local operating partners",
+    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket — leasing, construction, and property management run by people who live where we invest.",
+  },
+  {
+    title: "Institutional service standards",
+    desc: "Quarterly investor reporting, transparent waterfall calculations, and the reporting rhythm sophisticated LPs expect. The same standard whether the check is five million or fifty.",
+  },
+];
+
 const marketSignals = [
   {
     value: "3x",
@@ -75,53 +117,27 @@ const tenets = [
     desc: "TX, NC, GA — migration, jobs, and household formation support durable rent growth. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
   },
   {
-    title: "Basis discipline",
+    title: "Basis integrity",
     desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today — and refuses to pay above it.",
   },
   {
     title: "Institutional risk controls",
-    desc: "Disciplined underwriting, structured business plans, and active asset management at scale. Quarterly reporting, transparent waterfalls, and a portfolio review cadence built for sophisticated LPs.",
-  },
-];
-
-const whatWeDo = [
-  {
-    title: "Disciplined Due Diligence",
-    desc: "Our approach is built on rigorous underwriting that measures risk while identifying the catalysts for value. We engage only in friendly transactions and partner with experienced operators to deliver results.",
-  },
-  {
-    title: "Transformative Impact",
-    desc: "We create value by investing in properties where our capital, market insight, and operational expertise drive measurable transformation — for residents and investors alike.",
+    desc: "Rigorous underwriting, structured business plans, and active asset management at scale. Quarterly reporting, transparent waterfalls, and a portfolio review cadence built for sophisticated LPs.",
   },
 ];
 
 const tacticalPillars = [
   {
-    title: "Flexible",
-    desc: "Our strategy is unconstrained by asset class within rental housing, capital structure, or Sunbelt geography. We pursue compelling risk-adjusted returns wherever they appear.",
+    title: "Boundless",
+    desc: "Our strategy is unconstrained by asset class, capital structure, or geography within U.S. real estate. The mandate is the underwriting, not the category.",
   },
   {
-    title: "Decisive",
-    desc: "Markets shift quickly and windows of opportunity open and close without warning. We respond with conviction — moving decisively, with the judgment and discipline to capture opportunities less-equipped investors miss.",
+    title: "Opportunistic",
+    desc: "Every market environment, stable or dislocated, produces opportunities for capital with the conviction to underwrite them. Windows of dislocation open and close without warning. We move with the conviction of a principal and the discipline of an institution, capturing opportunities that slower capital cannot.",
   },
   {
-    title: "Distinctive",
-    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov — a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
-  },
-];
-
-const strategicOperations = [
-  {
-    title: "Long-term industry relationships",
-    desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
-  },
-  {
-    title: "Local operating partners",
-    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket — leasing, construction, and property management run by people who live where we invest.",
-  },
-  {
-    title: "Institutional service standards",
-    desc: "Quarterly investor reporting, transparent waterfall calculations, and the diligence rhythm sophisticated LPs expect. The same standard whether the check is five million or fifty.",
+    title: "Asymmetric",
+    desc: "We pursue transactions that traditional platforms cannot, whether by sourcing, structure, or speed. The result is a portfolio of asymmetric return profiles with lower correlation to broader markets and resilience across cycles.",
   },
 ];
 
@@ -132,7 +148,7 @@ export default function InvestmentsPage() {
       <TopLeftLogo />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* 1 · Hero — banner image + editorial headline */}
+        {/* Hero — banner image + editorial headline */}
         <motion.section
           className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
           variants={containerVariants}
@@ -160,136 +176,23 @@ export default function InvestmentsPage() {
               className="font-serif text-h1 leading-[1.05] text-white"
               variants={itemVariants}
             >
-              Real estate exposure built for Sunbelt rental housing.
+              Real estate exposure built where America is growing.
             </motion.h1>
             <motion.p
               className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
               variants={itemVariants}
             >
-              Deepblue invests across multifamily and affordable rental housing in
-              the high-growth Sunbelt — where demographic momentum and active
-              management compound risk-adjusted returns.
+              Deepblue invests across a diversified U.S. real estate platform,
+              anchored in the high-growth Sunbelt. Demographic momentum and
+              active management compound risk-adjusted returns.
             </motion.p>
           </div>
         </motion.section>
 
-        {/* 2 · Private Transactions */}
+        {/* 1 · What We Do — three-pillar hover-to-reveal */}
         <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
-            variants={itemVariants}
-          >
-            Private Transactions
-          </motion.p>
-          <motion.h2
-            className="max-w-4xl font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
-          >
-            We acquire rental housing across two complementary strategies.
-          </motion.h2>
-          <motion.div
-            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
-          />
-
-          {/* Row 1 — Multifamily (image left, reveals from left) */}
-          <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
-            <motion.div
-              className="relative h-[280px] overflow-hidden md:h-[360px]"
-              variants={imageRevealLeft}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </motion.div>
-            <motion.div variants={itemVariants}>
-              <h3 className="font-serif text-h3-lg text-white">
-                Multifamily
-              </h3>
-              <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                We acquire value-add multifamily in high-growth Sunbelt submarkets.
-                Disciplined basis, hands-on operations, and partnerships with
-                seasoned local operators drive cash-flow growth and durable rent
-                expansion.
-              </p>
-              <ul className="mt-8 space-y-4 md:space-y-5">
-                {[
-                  "Garden-style assets across DFW, Austin, San Antonio, and Houston — supply-constrained submarkets with durable demand.",
-                  "Value-add execution: targeted capex, operational discipline, and revenue strategy that closes the gap to market.",
-                  "Agency leverage — Fannie, Freddie, HUD — including accretive loan assumptions.",
-                ].map((b) => (
-                  <li
-                    key={b}
-                    className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
-                  >
-                    <span
-                      className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
-                      aria-hidden
-                    />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-
-          {/* Row 2 — Affordable (text left, image reveals from right) */}
-          <div className="mt-20 grid items-center gap-12 md:mt-28 md:grid-cols-2 md:gap-20">
-            <motion.div className="order-2 md:order-1" variants={itemVariants}>
-              <h3 className="font-serif text-h3-lg text-white">
-                Affordable Housing
-              </h3>
-              <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                Through Low-Income Housing Tax Credit (LIHTC) partnerships, we
-                preserve affordable rental housing — delivering durable yield,
-                federal tax benefits, and lasting community impact in the markets
-                where workforce families want to live.
-              </p>
-              <ul className="mt-8 space-y-4 md:space-y-5">
-                {[
-                  "Section 42 LIHTC preservation across Texas — senior and family communities with regulated, durable cash flow.",
-                  "Returns built on tax-advantaged yield, federal credit benefits, and disciplined operations at the AMI tier.",
-                  "Seasoned affordable operators safeguard compliance, asset quality, and resident stability.",
-                ].map((b) => (
-                  <li
-                    key={b}
-                    className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
-                  >
-                    <span
-                      className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
-                      aria-hidden
-                    />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div
-              className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
-              variants={imageRevealRight}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/investments/affordable.jpg)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* 3 · What We Do — hover to reveal */}
-        <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
+          id="what-we-do"
+          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -305,18 +208,18 @@ export default function InvestmentsPage() {
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
-            We invest with discipline across Sunbelt rental housing.
+            We invest with conviction across U.S. real estate.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
             variants={accentRule}
           />
 
-          <div className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0">
+          <div className="mt-20 grid gap-16 md:grid-cols-3 md:gap-0">
             {whatWeDo.map((w, i) => (
               <motion.div
                 key={w.title}
-                className={`group ${i > 0 ? "md:border-l md:border-[#cca885]/15 md:pl-16" : "md:pr-16"}`}
+                className={`group md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
                 variants={itemVariants}
               >
                 <h3 className="font-serif text-h3-md text-white">
@@ -335,81 +238,245 @@ export default function InvestmentsPage() {
           </div>
         </motion.section>
 
-        {/* 4 · Investment Thesis — market signals + tenets */}
-        <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
-            variants={itemVariants}
-          >
-            Investment Thesis
-          </motion.p>
-          <motion.h2
-            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
-          >
-            Where demographic momentum and operational discipline compound.
-          </motion.h2>
+        {/* 2 · Private Transactions — wraps Multifamily, Strategic Ops, Investment Thesis, Affordable */}
+        <section id="private-transactions" className="w-full scroll-mt-28">
+          {/* Block intro */}
           <motion.div
-            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
-          />
+            className="w-full px-[max(1.5rem,14vw)] pb-24 pt-24"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.p
+              className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+              variants={itemVariants}
+            >
+              Private Transactions
+            </motion.p>
+            <motion.h2
+              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+              variants={itemVariants}
+            >
+              Two complementary strategies, one underwriting standard.
+            </motion.h2>
+            <motion.div
+              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+              variants={accentRule}
+            />
+          </motion.div>
 
-          <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-0">
-            {marketSignals.map((s, i) => (
+          {/* 2a · Multifamily */}
+          <motion.div
+            className="w-full px-[max(1.5rem,14vw)] pb-32"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
               <motion.div
-                key={s.label}
-                className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
+                className="relative h-[280px] overflow-hidden md:h-[360px]"
+                variants={imageRevealLeft}
               >
-                <p className="font-serif text-stat text-[#cca885]">
-                  <CountUp value={s.value} delay={0.2 + i * 0.15} />
-                </p>
-                <p className="mt-3 font-serif text-body text-white">
-                  {s.label}
-                </p>
-                <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
-                  {s.detail}
-                </p>
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                  style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
-            {tenets.map((t, i) => (
-              <motion.div
-                key={t.title}
-                className="group flex gap-6"
-                variants={itemVariants}
-                whileHover={{ x: 6 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
-                  {String(i + 1).padStart(2, "0")}
+              <motion.div variants={itemVariants}>
+                <h3 className="font-serif text-h3-md text-white">
+                  Multifamily
+                </h3>
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+                <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
+                  We acquire value-add multifamily in high-growth Sunbelt
+                  submarkets. Disciplined basis, hands-on operations, and
+                  partnerships with seasoned local operators drive cash-flow
+                  growth and durable rent expansion.
                 </p>
-                <div>
-                  <h3 className="font-serif text-h3-sm text-white">
-                    {t.title}
-                  </h3>
-                  <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
-                    {t.desc}
+                <ul className="mt-8 space-y-4 md:space-y-5">
+                  {multifamilyBullets.map((b) => (
+                    <li
+                      key={b}
+                      className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
+                    >
+                      <span
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                        aria-hidden
+                      />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* 2b · Strategic Operations */}
+          <motion.div
+            className="w-full px-[max(1.5rem,14vw)] pb-32 pt-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.h3
+              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+              variants={itemVariants}
+            >
+              Relationships compound. Execution scales.
+            </motion.h3>
+            <motion.div
+              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+              variants={accentRule}
+            />
+
+            <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
+              {strategicOperations.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                  variants={itemVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
+                    {String(i + 1).padStart(2, "0")}
                   </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <h4 className="mt-6 font-serif text-h3-md text-white">
+                    {p.title}
+                  </h4>
+                  <p className="mt-4 font-serif text-body leading-relaxed text-white/55">
+                    {p.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-        {/* 5 · Tactical Opportunities — image + three pillars */}
+          {/* 2c · Investment Thesis */}
+          <motion.div
+            className="w-full px-[max(1.5rem,14vw)] pb-32 pt-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.h3
+              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+              variants={itemVariants}
+            >
+              Where demographic momentum and operational rigor compound.
+            </motion.h3>
+            <motion.div
+              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+              variants={accentRule}
+            />
+
+            <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-0">
+              {marketSignals.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                  variants={itemVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="font-serif text-stat text-[#cca885]">
+                    <CountUp value={s.value} delay={0.2 + i * 0.15} />
+                  </p>
+                  <p className="mt-3 font-serif text-body text-white">
+                    {s.label}
+                  </p>
+                  <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
+                    {s.detail}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
+              {tenets.map((t, i) => (
+                <motion.div
+                  key={t.title}
+                  className="group flex gap-6"
+                  variants={itemVariants}
+                  whileHover={{ x: 6 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <div>
+                    <h4 className="font-serif text-h3-sm text-white">
+                      {t.title}
+                    </h4>
+                    <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
+                      {t.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 2d · Affordable Housing */}
+          <motion.div
+            className="w-full px-[max(1.5rem,14vw)] pb-48 pt-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+              <motion.div className="order-2 md:order-1" variants={itemVariants}>
+                <h3 className="font-serif text-h3-md text-white">
+                  Affordable Housing
+                </h3>
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+                <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
+                  Through Low-Income Housing Tax Credit (LIHTC) partnerships,
+                  we preserve affordable rental housing for the working
+                  families and seniors who keep our communities running. The
+                  federal LIHTC structure aligns long-term stewardship with
+                  tax-advantaged yield for our investors.
+                </p>
+                <ul className="mt-8 space-y-4 md:space-y-5">
+                  {affordableBullets.map((b) => (
+                    <li
+                      key={b}
+                      className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
+                    >
+                      <span
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                        aria-hidden
+                      />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+              <motion.div
+                className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
+                variants={imageRevealRight}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                  style={{ backgroundImage: "url(/investments/affordable.jpg)" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* 3 · Tactical Opportunities */}
         <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
+          id="tactical-opportunities"
+          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -463,55 +530,6 @@ export default function InvestmentsPage() {
                 </motion.div>
               ))}
             </motion.div>
-          </div>
-        </motion.section>
-
-        {/* 6 · Strategic Operations */}
-        <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
-            variants={itemVariants}
-          >
-            Strategic Operations
-          </motion.p>
-          <motion.h2
-            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
-          >
-            Relationships compound. Execution scales.
-          </motion.h2>
-          <motion.div
-            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
-          />
-
-          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
-            {strategicOperations.map((p, i) => (
-              <motion.div
-                key={p.title}
-                className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <h3 className="mt-6 font-serif text-h3-lg text-white">
-                  {p.title}
-                </h3>
-                <p className="mt-4 font-serif text-body leading-relaxed text-white/55">
-                  {p.desc}
-                </p>
-              </motion.div>
-            ))}
           </div>
         </motion.section>
 
