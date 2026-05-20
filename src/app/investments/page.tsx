@@ -175,7 +175,7 @@ export default function InvestmentsPage() {
 
         {/* 2 · Private Transactions */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -253,7 +253,7 @@ export default function InvestmentsPage() {
 
         {/* 3 · What We Do — hover to reveal */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -301,7 +301,7 @@ export default function InvestmentsPage() {
 
         {/* 4 · Investment Thesis — market signals + tenets */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -375,7 +375,7 @@ export default function InvestmentsPage() {
 
         {/* 5 · Tactical Opportunities — image + three pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -434,7 +434,7 @@ export default function InvestmentsPage() {
 
         {/* 6 · Strategic Operations */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-32 pt-16 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

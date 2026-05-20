@@ -25,14 +25,6 @@ const itemVariants = {
   },
 };
 
-const imageRevealLeft = {
-  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
-  visible: {
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.2, ease: "circOut" as const },
-  },
-};
-
 const accentRule = {
   hidden: { scaleX: 0 },
   visible: {
@@ -107,8 +99,11 @@ export default function SustainabilityPage() {
         >
           <div className="relative h-[80vh] w-full overflow-hidden rounded-lg">
             {[0, 1, 2, 3, 4, 5].map((i) => {
-              const top = i * (100 / 6);
-              const bottom = (i + 1) * (100 / 6);
+              // Overlap adjacent stripes by ~0.5% on each interior edge so
+              // sub-pixel rounding can't leave visible seams once the
+              // animation completes.
+              const top = Math.max(0, i * (100 / 6) - 0.5);
+              const bottom = Math.min(100, (i + 1) * (100 / 6) + 0.5);
               return (
                 <motion.div
                   key={i}
@@ -158,7 +153,7 @@ export default function SustainabilityPage() {
 
         {/* Pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pt-40 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pt-48 pb-36 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -205,7 +200,7 @@ export default function SustainabilityPage() {
 
         {/* Commitments */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-36 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -229,16 +224,13 @@ export default function SustainabilityPage() {
           />
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <motion.div
-              className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:h-auto"
-              variants={imageRevealLeft}
-            >
+            <div className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:h-auto">
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </motion.div>
+            </div>
 
             <div className="space-y-12 md:space-y-14">
               {commitments.map((item, i) => (
