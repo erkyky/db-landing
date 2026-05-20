@@ -5,6 +5,13 @@ import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
 import TopLeftLogo from "@/components/ui/layout/top-left-logo";
+import SectionRail from "@/components/ui/layout/section-rail";
+
+const railSections = [
+  { id: "what-we-do", label: "What We Do" },
+  { id: "private-transactions", label: "Private Transactions" },
+  { id: "tactical-opportunities", label: "Tactical Opportunities" },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -146,6 +153,7 @@ export default function InvestmentsPage() {
     <>
       <NavMenu />
       <TopLeftLogo />
+      <SectionRail sections={railSections} />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero — banner image + editorial headline */}
