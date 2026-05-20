@@ -71,10 +71,10 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-12 h-[24vh] w-full overflow-hidden rounded-lg md:mt-16 md:h-[28vh] lg:h-[34vh]"
+            className="relative mt-12 h-[24vh] w-full overflow-hidden md:mt-16 md:h-[28vh] lg:h-[34vh]"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
+            transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -214,16 +214,27 @@ export default function AboutPage() {
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
             variants={accentRule}
           />
-          <motion.p
-            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            Office, mixed-use, multifamily, and single-family rental — range that helps
-            us compare opportunities rather than chase whatever is fashionable.
-          </motion.p>
-          <motion.div className="mt-14" variants={itemVariants}>
-            <InteractiveImageAccordion />
-          </motion.div>
+          <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
+            <motion.div variants={itemVariants}>
+              <p className="font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
+                Office, mixed-use, multifamily, and single-family rental — range
+                that helps us compare opportunities rather than chase whatever is
+                fashionable.
+              </p>
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                Each asset class shaped a discipline we still apply today — from
+                large-scale acquisitions at Hines and Starwood to value-add
+                execution and single-family portfolio management.
+              </p>
+              <p className="mt-6 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                Hover or tap a card to surface the people, partners, and
+                transactions behind the experience.
+              </p>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <InteractiveImageAccordion />
+            </motion.div>
+          </div>
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">

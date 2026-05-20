@@ -35,7 +35,7 @@ const imageRevealLeft = {
   hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.2, ease: "circOut" as const },
+    transition: { duration: 0.8, ease: "circOut" as const },
   },
 };
 
@@ -43,7 +43,7 @@ const imageRevealRight = {
   hidden: { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.2, ease: "circOut" as const },
+    transition: { duration: 0.8, ease: "circOut" as const },
   },
 };
 
@@ -68,19 +68,19 @@ const marketSignals = [
 const tenets = [
   {
     title: "Value-add rental",
-    desc: "Multifamily and adjacent strategies where operations and positioning create outsized value.",
+    desc: "Multifamily and adjacent strategies where operations and positioning create outsized value. We buy assets that under-earn their submarket and underwrite a clear path to closing the gap.",
   },
   {
     title: "Sunbelt selection",
-    desc: "TX, NC, GA — migration, jobs, and household formation support durable rent growth.",
+    desc: "TX, NC, GA — migration, jobs, and household formation support durable rent growth. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
   },
   {
     title: "Basis discipline",
-    desc: "Going-in basis and replacement cost define real downside protection.",
+    desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today — and refuses to pay above it.",
   },
   {
     title: "Institutional risk controls",
-    desc: "Disciplined underwriting, structured business plans, and active asset management at scale.",
+    desc: "Disciplined underwriting, structured business plans, and active asset management at scale. Quarterly reporting, transparent waterfalls, and a portfolio review cadence built for sophisticated LPs.",
   },
 ];
 
@@ -140,10 +140,10 @@ export default function InvestmentsPage() {
           animate="visible"
         >
           <motion.div
-            className="relative h-[42vh] w-full overflow-hidden rounded-lg md:h-[58vh]"
+            className="relative h-[42vh] w-full overflow-hidden md:h-[58vh]"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}
+            transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -201,7 +201,7 @@ export default function InvestmentsPage() {
           {/* Row 1 — Multifamily (image left, reveals from left) */}
           <div className="mt-20 grid items-center gap-12 md:grid-cols-2 md:gap-20">
             <motion.div
-              className="relative h-[280px] overflow-hidden rounded-lg md:h-[360px]"
+              className="relative h-[280px] overflow-hidden md:h-[360px]"
               variants={imageRevealLeft}
             >
               <div
@@ -239,7 +239,7 @@ export default function InvestmentsPage() {
               </p>
             </motion.div>
             <motion.div
-              className="relative order-1 h-[280px] overflow-hidden rounded-lg md:order-2 md:h-[360px]"
+              className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
               variants={imageRevealRight}
             >
               <div
@@ -324,52 +324,50 @@ export default function InvestmentsPage() {
             variants={accentRule}
           />
 
-          <div className="mt-20 grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-            <motion.div variants={itemVariants} className="space-y-12">
-              {marketSignals.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
-                  variants={itemVariants}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                    <CountUp value={s.value} delay={0.2 + i * 0.15} />
-                  </p>
-                  <p className="mt-2 font-serif text-xl text-white md:text-2xl">
-                    {s.label}
-                  </p>
-                  <p className="mt-2 font-serif text-lg leading-relaxed text-white/50 md:text-xl">
-                    {s.detail}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
+          <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-0">
+            {marketSignals.map((s, i) => (
+              <motion.div
+                key={s.label}
+                className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                variants={itemVariants}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                  <CountUp value={s.value} delay={0.2 + i * 0.15} />
+                </p>
+                <p className="mt-3 font-serif text-xl text-white md:text-2xl">
+                  {s.label}
+                </p>
+                <p className="mt-3 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                  {s.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
-            <motion.div variants={itemVariants}>
-              {tenets.map((t, i) => (
-                <motion.div
-                  key={t.title}
-                  className="group flex gap-6 border-b border-white/5 py-8 last:border-b-0"
-                  variants={itemVariants}
-                  whileHover={{ x: 6 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-serif text-4xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-5xl">
-                    {String(i + 1).padStart(2, "0")}
+          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
+            {tenets.map((t, i) => (
+              <motion.div
+                key={t.title}
+                className="group flex gap-6"
+                variants={itemVariants}
+                whileHover={{ x: 6 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="font-serif text-4xl leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80 md:text-5xl">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <div>
+                  <h3 className="font-serif text-2xl text-white md:text-3xl">
+                    {t.title}
+                  </h3>
+                  <p className="mt-3 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                    {t.desc}
                   </p>
-                  <div>
-                    <h3 className="font-serif text-2xl text-white md:text-3xl">
-                      {t.title}
-                    </h3>
-                    <p className="mt-3 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
-                      {t.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
@@ -400,7 +398,7 @@ export default function InvestmentsPage() {
 
           <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <motion.div
-              className="relative h-[400px] overflow-hidden rounded-lg lg:h-auto"
+              className="relative h-[400px] overflow-hidden lg:h-auto"
               variants={imageRevealLeft}
             >
               <div

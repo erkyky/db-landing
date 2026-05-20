@@ -26,9 +26,9 @@ const AccordionItem = ({
   return (
     <motion.button
       type="button"
-      className={`relative h-[400px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] text-left transition-[width,transform,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px] ${
+      className={`relative h-[400px] overflow-hidden border border-white/10 bg-white/[0.03] text-left transition-[width,transform,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px] ${
         isActive
-          ? "w-[320px] border-[#cca885]/40 sm:w-[440px] lg:w-[600px]"
+          ? "w-[320px] border-[#cca885]/40 sm:w-[440px] lg:w-[440px]"
           : "w-[90px] sm:w-[120px]"
       }`}
       onMouseEnter={onMouseEnter}

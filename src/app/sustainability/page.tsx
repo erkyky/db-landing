@@ -34,13 +34,13 @@ const accentRule = {
 };
 
 // Hero text overlay: starts right after the 6-stripe image reveal
-// (~0.55s total: 6 stripes × 0.05s stagger + 0.28s duration), with a
+// (~0.36s total: 6 stripes × 0.033s stagger + 0.19s duration), with a
 // small breath before the H1 / body fade in.
 const heroTextContainer = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: { delayChildren: 0.65, staggerChildren: 0.15 },
+    transition: { delayChildren: 0.45, staggerChildren: 0.12 },
   },
 };
 
@@ -97,7 +97,7 @@ export default function SustainabilityPage() {
           initial="hidden"
           animate="visible"
         >
-          <div className="relative h-[80vh] w-full overflow-hidden rounded-lg">
+          <div className="relative h-[80vh] w-full overflow-hidden">
             {[0, 1, 2, 3, 4, 5].map((i) => {
               // Overlap adjacent stripes by ~0.5% on each interior edge so
               // sub-pixel rounding can't leave visible seams once the
@@ -119,8 +119,8 @@ export default function SustainabilityPage() {
                     clipPath: `polygon(-1% ${top}%, 101% ${top}%, 101% ${bottom}%, -1% ${bottom}%)`,
                   }}
                   transition={{
-                    duration: 0.28,
-                    delay: 0.05 * i,
+                    duration: 0.19,
+                    delay: 0.033 * i,
                     ease: [0.22, 1, 0.36, 1] as const,
                   }}
                 />
@@ -224,7 +224,7 @@ export default function SustainabilityPage() {
           />
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:h-auto">
+            <div className="relative h-[280px] overflow-hidden md:h-[380px] lg:h-auto">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
