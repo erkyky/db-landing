@@ -117,12 +117,18 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+          <motion.div
+            className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            Co-Founders
-          </motion.p>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              Co-Founders
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
+          </motion.div>
           <motion.h2
             className="font-serif text-h2 leading-[1.08] text-white whitespace-nowrap"
             variants={itemVariants}
@@ -190,12 +196,18 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+          <motion.div
+            className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            Asset class experience
-          </motion.p>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              Asset class experience
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
+          </motion.div>
           <motion.h2
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}

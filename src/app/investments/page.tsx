@@ -410,7 +410,7 @@ export default function InvestmentsPage() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-stat text-[#cca885]">
+                  <p className="font-serif text-[clamp(4.5rem,9vw,9.5rem)] leading-none text-[#cca885]">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
                   <p className="mt-3 font-serif text-body text-white">
@@ -471,16 +471,18 @@ export default function InvestmentsPage() {
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {affordableBullets.map((b) => (
-                    <li
+                    <motion.li
                       key={b}
-                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
+                      className="group flex gap-4 font-serif text-body leading-relaxed text-white/60 transition-colors duration-300 hover:text-white/85"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.3 }}
                     >
                       <span
-                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885] md:w-4 md:group-hover:w-8"
                         aria-hidden
                       />
                       <span>{b}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
