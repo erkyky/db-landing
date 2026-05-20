@@ -221,12 +221,12 @@ export default function AboutPage() {
                 that helps us compare opportunities rather than chase whatever is
                 fashionable.
               </p>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
                 Each asset class shaped a discipline we still apply today — from
                 large-scale acquisitions at Hines and Starwood to value-add
                 execution and single-family portfolio management.
               </p>
-              <p className="mt-6 font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
                 Hover or tap a card to surface the people, partners, and
                 transactions behind the experience.
               </p>
