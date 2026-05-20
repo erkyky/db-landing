@@ -222,45 +222,47 @@ export default function SustainabilityPage() {
             variants={accentRule}
           />
 
-          <motion.div
-            className="relative mt-14 h-[280px] w-full overflow-hidden rounded-lg md:h-[380px] lg:h-[420px]"
-            variants={imageRevealLeft}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-              style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-          </motion.div>
+          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
+            <motion.div
+              className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:sticky lg:top-28 lg:h-auto lg:min-h-[640px] lg:self-start"
+              variants={imageRevealLeft}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </motion.div>
 
-          <div className="mt-14 space-y-14 md:space-y-16">
-            {commitments.map((item, i) => (
-              <motion.div
-                key={item.label}
-                className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
-                variants={itemVariants}
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
-                <div className="mt-4 flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                  <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                    <CountUp value={item.stat} delay={0.2 + i * 0.15} />
-                  </p>
-                  <p className="font-serif text-xl text-white md:text-2xl">
-                    {item.label}
-                  </p>
-                </div>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
-                  <div className="min-h-0 overflow-hidden">
-                    <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
-                      {item.detail}
+            <div className="space-y-12 md:space-y-14">
+              {commitments.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
+                  variants={itemVariants}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
+                  <div className="mt-4 flex flex-wrap items-baseline gap-x-8 gap-y-2">
+                    <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
+                      <CountUp value={item.stat} delay={0.2 + i * 0.15} />
+                    </p>
+                    <p className="font-serif text-xl text-white md:text-2xl">
+                      {item.label}
                     </p>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
+                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                    <div className="min-h-0 overflow-hidden">
+                      <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
           <motion.div
             className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"

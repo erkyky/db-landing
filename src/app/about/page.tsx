@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="relative mt-16 aspect-[36/17] w-full overflow-hidden rounded-lg md:mt-20"
+            className="relative mt-12 h-[24vh] w-full overflow-hidden rounded-lg md:mt-16 md:h-[28vh] lg:h-[34vh]"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
