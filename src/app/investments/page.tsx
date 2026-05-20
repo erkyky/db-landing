@@ -339,7 +339,7 @@ export default function InvestmentsPage() {
 
           {/* 2b · Strategic Operations */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-32 pt-12"
+            className="w-full px-[max(1.5rem,14vw)] pb-40 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -367,7 +367,7 @@ export default function InvestmentsPage() {
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <h4 className="mt-6 font-serif text-h3-md text-white">
+                  <h4 className="mt-6 font-serif text-h3-sm text-white">
                     {p.title}
                   </h4>
                   <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
@@ -384,7 +384,7 @@ export default function InvestmentsPage() {
 
           {/* 2c · Investment Thesis */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-32 pt-12"
+            className="w-full px-[max(1.5rem,14vw)] pb-40 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -450,7 +450,7 @@ export default function InvestmentsPage() {
 
           {/* 2d · Affordable Housing */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-48 pt-12"
+            className="w-full px-[max(1.5rem,14vw)] pb-48 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
