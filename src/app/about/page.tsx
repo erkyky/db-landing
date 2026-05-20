@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
-import ImageLoader from "@/components/ui/image-loading";
 import { InteractiveImageAccordion } from "@/components/ui/sections/interactive-image-accordion";
 import NavMenu from "@/components/ui/layout/nav-menu";
 import TopLeftLogo from "@/components/ui/layout/top-left-logo";
@@ -71,22 +70,21 @@ export default function AboutPage() {
             </motion.p>
           </div>
 
-          <div className="relative mt-12 h-[24vh] w-full overflow-hidden md:mt-16 md:h-[28vh] lg:h-[34vh]">
-            <ImageLoader
-              src="/about/team.jpg"
-              alt="Deepblue leadership team"
-              gridSize={12}
-              cellGap={4}
-              cellShape="circle"
-              cellColor="#cca885"
-              blinkSpeed={1100}
-              transitionDuration={300}
-              fadeOutDuration={300}
-              loadingDelay={200}
-              className="absolute inset-0 h-full w-full"
+          <motion.div
+            className="relative mt-12 h-[24vh] w-full overflow-hidden md:mt-16 md:h-[28vh] lg:h-[34vh]"
+            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url(/about/team.jpg)",
+                backgroundColor: "#1a2332",
+              }}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0d121a]/35 via-transparent to-transparent" />
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/35 via-transparent to-transparent" />
+          </motion.div>
 
           <motion.div
             className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
