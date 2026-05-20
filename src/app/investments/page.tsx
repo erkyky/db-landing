@@ -173,7 +173,7 @@ export default function InvestmentsPage() {
 
           <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
             <motion.h1
-              className="font-serif text-h2 leading-[1.05] text-white"
+              className="font-serif text-stat leading-[1.05] text-white"
               variants={itemVariants}
             >
               Real estate exposure built where America is growing.
@@ -198,12 +198,18 @@ export default function InvestmentsPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+          <motion.div
+            className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            What We Do
-          </motion.p>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              What We Do
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
+          </motion.div>
           <motion.h2
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
@@ -238,17 +244,6 @@ export default function InvestmentsPage() {
           </div>
         </motion.section>
 
-        {/* Section divider */}
-        <div className="w-full px-[max(1.5rem,14vw)] py-8">
-          <motion.div
-            className="h-px w-full origin-left bg-[#cca885]/40"
-            variants={accentRule}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          />
-        </div>
-
         {/* 2 · Private Transactions — wraps Multifamily, Strategic Ops, Investment Thesis, Affordable */}
         <section id="private-transactions" className="w-full scroll-mt-28">
           {/* Block intro */}
@@ -259,12 +254,18 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.p
-              className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+            <motion.div
+              className="mb-4 flex items-center gap-6"
               variants={itemVariants}
             >
-              Private Transactions
-            </motion.p>
+              <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+                Private Transactions
+              </p>
+              <motion.div
+                className="h-px flex-1 origin-left bg-[#cca885]/40"
+                variants={accentRule}
+              />
+            </motion.div>
             <motion.h2
               className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
               variants={itemVariants}
@@ -484,17 +485,6 @@ export default function InvestmentsPage() {
           </motion.div>
         </section>
 
-        {/* Section divider */}
-        <div className="w-full px-[max(1.5rem,14vw)] py-8">
-          <motion.div
-            className="h-px w-full origin-left bg-[#cca885]/40"
-            variants={accentRule}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          />
-        </div>
-
         {/* 3 · Tactical Opportunities */}
         <motion.section
           id="tactical-opportunities"
@@ -504,12 +494,18 @@ export default function InvestmentsPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
-          <motion.p
-            className="mb-4 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]"
+          <motion.div
+            className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            Tactical Opportunities
-          </motion.p>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              Tactical Opportunities
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
+          </motion.div>
           <motion.h2
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
@@ -554,17 +550,6 @@ export default function InvestmentsPage() {
             </motion.div>
           </div>
         </motion.section>
-
-        {/* Section divider */}
-        <div className="w-full px-[max(1.5rem,14vw)] py-8">
-          <motion.div
-            className="h-px w-full origin-left bg-[#cca885]/40"
-            variants={accentRule}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          />
-        </div>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
           &copy; 2026 Deepblue Capital Partners. All rights reserved.
