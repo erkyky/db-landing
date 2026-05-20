@@ -221,6 +221,24 @@ export default function InvestmentsPage() {
                 seasoned local operators drive cash-flow growth and durable rent
                 expansion.
               </p>
+              <ul className="mt-8 space-y-4 md:space-y-5">
+                {[
+                  "Garden-style assets across DFW, Austin, San Antonio, and Houston — supply-constrained submarkets with durable demand.",
+                  "Value-add execution: targeted capex, operational discipline, and revenue strategy that closes the gap to market.",
+                  "Agency leverage — Fannie, Freddie, HUD — including accretive loan assumptions.",
+                ].map((b) => (
+                  <li
+                    key={b}
+                    className="flex gap-4 font-serif text-lg leading-relaxed text-white/60 md:text-xl"
+                  >
+                    <span
+                      className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                      aria-hidden
+                    />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
 
@@ -237,6 +255,24 @@ export default function InvestmentsPage() {
                 federal tax benefits, and lasting community impact in the markets
                 where workforce families want to live.
               </p>
+              <ul className="mt-8 space-y-4 md:space-y-5">
+                {[
+                  "Section 42 LIHTC preservation across Texas — senior and family communities with regulated, durable cash flow.",
+                  "Returns built on tax-advantaged yield, federal credit benefits, and disciplined operations at the AMI tier.",
+                  "Seasoned affordable operators safeguard compliance, asset quality, and resident stability.",
+                ].map((b) => (
+                  <li
+                    key={b}
+                    className="flex gap-4 font-serif text-lg leading-relaxed text-white/60 md:text-xl"
+                  >
+                    <span
+                      className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                      aria-hidden
+                    />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
             <motion.div
               className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
