@@ -49,7 +49,7 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-[133.5px] md:px-12 lg:px-20"
+          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-[133.5px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -111,7 +111,7 @@ export default function AboutPage() {
 
         {/* 2 · Leadership — editorial image + split bios */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -184,7 +184,7 @@ export default function AboutPage() {
 
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

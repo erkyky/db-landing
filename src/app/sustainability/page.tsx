@@ -84,7 +84,7 @@ export default function SustainabilityPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero — image with text overlay (investments-pattern reveal) */}
         <motion.section
-          className="mx-auto flex w-full max-w-[1440px] flex-col px-6 pt-32 md:px-12 lg:px-20"
+          className="flex w-full flex-col px-[max(1.5rem,14vw)] pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -145,7 +145,7 @@ export default function SustainabilityPage() {
 
         {/* Pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pt-60 pb-48 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pt-60 pb-48"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -191,7 +191,7 @@ export default function SustainabilityPage() {
 
         {/* Commitments */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

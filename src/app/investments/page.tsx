@@ -134,7 +134,7 @@ export default function InvestmentsPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Hero — banner image + editorial headline */}
         <motion.section
-          className="mx-auto flex max-w-[1440px] flex-col px-6 pb-24 pt-32 md:px-12 lg:px-20"
+          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -163,7 +163,7 @@ export default function InvestmentsPage() {
               Real estate exposure built for Sunbelt rental housing.
             </motion.h1>
             <motion.p
-              className="max-w-xl self-end font-serif text-body leading-relaxed text-white/60"
+              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
               variants={itemVariants}
             >
               Deepblue invests across multifamily and affordable rental housing in
@@ -175,7 +175,7 @@ export default function InvestmentsPage() {
 
         {/* 2 · Private Transactions */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -289,7 +289,7 @@ export default function InvestmentsPage() {
 
         {/* 3 · What We Do — hover to reveal */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -337,7 +337,7 @@ export default function InvestmentsPage() {
 
         {/* 4 · Investment Thesis — market signals + tenets */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -409,7 +409,7 @@ export default function InvestmentsPage() {
 
         {/* 5 · Tactical Opportunities — image + three pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -468,7 +468,7 @@ export default function InvestmentsPage() {
 
         {/* 6 · Strategic Operations */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
+          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
