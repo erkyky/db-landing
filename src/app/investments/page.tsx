@@ -308,7 +308,7 @@ export default function InvestmentsPage() {
                   {multifamilyBullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
+                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
                         className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
@@ -399,7 +399,7 @@ export default function InvestmentsPage() {
                   <p className="mt-3 font-serif text-body text-white">
                     {s.label}
                   </p>
-                  <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
+                  <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
                     {s.detail}
                   </p>
                 </motion.div>
@@ -422,7 +422,7 @@ export default function InvestmentsPage() {
                     <h4 className="font-serif text-h3-sm text-white">
                       {t.title}
                     </h4>
-                    <p className="mt-3 font-serif text-body-sm leading-relaxed text-white/55">
+                    <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
                       {t.desc}
                     </p>
                   </div>
@@ -456,7 +456,7 @@ export default function InvestmentsPage() {
                   {affordableBullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-4 font-serif text-body-sm leading-relaxed text-white/60"
+                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
                         className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
