@@ -87,29 +87,25 @@ const defaultItems: AccordionItemData[] = [
     id: "office",
     title: "Office / Mixed-Use",
     subtitle: "Anthony, Hines",
-    imageUrl:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/office.jpg",
   },
   {
     id: "multifamily",
     title: "Multifamily",
     subtitle: "Ying, Starwood",
-    imageUrl:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/multifamily.png",
   },
   {
     id: "sfr",
     title: "Single Family Rental",
     subtitle: "Ying, C-Star SFR",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/single-family.png",
   },
   {
     id: "value-add",
     title: "Value-Add Renovation",
     subtitle: "Anthony, Hines",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/value-add.png",
   },
 ];
 
