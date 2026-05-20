@@ -41,14 +41,14 @@ const accentRule = {
   },
 };
 
-// Hero text overlay: starts after the image clip-path reveal completes
-// (image reveal = 0.2s delay + 1.2s duration = 1.4s), then staggers
-// the eyebrow / headline / body the same way investments staggers its h1+p.
+// Hero text overlay: starts right after the 6-stripe image reveal
+// (~0.55s total: 6 stripes × 0.05s stagger + 0.28s duration), with a
+// small breath before the H1 / body fade in.
 const heroTextContainer = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: { delayChildren: 1.4, staggerChildren: 0.18 },
+    transition: { delayChildren: 0.65, staggerChildren: 0.15 },
   },
 };
 
@@ -105,19 +105,33 @@ export default function SustainabilityPage() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div
-            className="relative h-[80vh] w-full overflow-hidden rounded-lg"
-            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: "url(/Picture1.jpg)",
-                backgroundColor: "#1a2332",
-              }}
-            />
+          <div className="relative h-[80vh] w-full overflow-hidden rounded-lg">
+            {[0, 1, 2, 3, 4, 5].map((i) => {
+              const top = i * (100 / 6);
+              const bottom = (i + 1) * (100 / 6);
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: "url(/Picture1.jpg)",
+                    backgroundColor: "#1a2332",
+                  }}
+                  initial={{
+                    clipPath: `polygon(0 ${top}%, 0 ${top}%, 0 ${bottom}%, 0 ${bottom}%)`,
+                  }}
+                  animate={{
+                    clipPath: `polygon(0 ${top}%, 100% ${top}%, 100% ${bottom}%, 0 ${bottom}%)`,
+                  }}
+                  transition={{
+                    duration: 0.28,
+                    delay: 0.05 * i,
+                    ease: [0.22, 1, 0.36, 1] as const,
+                  }}
+                />
+              );
+            })}
+
             <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
 
             <motion.div
@@ -139,7 +153,7 @@ export default function SustainabilityPage() {
                 we engage the industry all answer to the same standard of care.
               </motion.p>
             </motion.div>
-          </motion.div>
+          </div>
         </motion.section>
 
         {/* Pillars */}
