@@ -410,7 +410,7 @@ export default function InvestmentsPage() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-[clamp(4.5rem,9vw,9.5rem)] leading-none text-[#cca885]">
+                  <p className="font-serif text-[clamp(3.5rem,7vw,7rem)] leading-none text-[#cca885]">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
                   <p className="mt-3 font-serif text-body text-white">
