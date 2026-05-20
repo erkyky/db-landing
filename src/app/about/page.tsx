@@ -111,7 +111,7 @@ export default function AboutPage() {
 
         {/* 2 · Leadership — editorial image + split bios */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-40 pt-20 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-48 pt-24 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

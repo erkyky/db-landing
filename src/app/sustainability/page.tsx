@@ -113,10 +113,10 @@ export default function SustainabilityPage() {
                     backgroundColor: "#1a2332",
                   }}
                   initial={{
-                    clipPath: `polygon(0 ${top}%, 0 ${top}%, 0 ${bottom}%, 0 ${bottom}%)`,
+                    clipPath: `polygon(-1% ${top}%, -1% ${top}%, -1% ${bottom}%, -1% ${bottom}%)`,
                   }}
                   animate={{
-                    clipPath: `polygon(0 ${top}%, 100% ${top}%, 100% ${bottom}%, 0 ${bottom}%)`,
+                    clipPath: `polygon(-1% ${top}%, 101% ${top}%, 101% ${bottom}%, -1% ${bottom}%)`,
                   }}
                   transition={{
                     duration: 0.28,
@@ -153,7 +153,7 @@ export default function SustainabilityPage() {
 
         {/* Pillars */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pt-48 pb-36 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pt-60 pb-48 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -200,7 +200,7 @@ export default function SustainabilityPage() {
 
         {/* Commitments */}
         <motion.section
-          className="mx-auto max-w-[1440px] px-6 pb-36 md:px-12 lg:px-20"
+          className="mx-auto max-w-[1440px] px-6 pb-48 md:px-12 lg:px-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
