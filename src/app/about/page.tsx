@@ -24,6 +24,14 @@ const itemVariants = {
   },
 };
 
+const accentRule = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.9, ease: "easeOut" as const },
+  },
+};
+
 const heroStats = [
   { value: "16M+", label: "Square feet" },
   { value: "$10.4B", label: "Capital raised" },
@@ -83,14 +91,20 @@ export default function AboutPage() {
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
-              <div key={stat.label} className="text-center">
+              <motion.div
+                key={stat.label}
+                className="group text-center"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
                 <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
                   <CountUp value={stat.value} delay={1.6 + i * 0.12} />
                 </p>
+                <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
                 <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
                   {stat.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.section>
@@ -115,6 +129,10 @@ export default function AboutPage() {
           >
             Two Executives. One integrated story.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
           <motion.p
             className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}
@@ -127,13 +145,19 @@ export default function AboutPage() {
             className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0"
             variants={itemVariants}
           >
-            <div className="md:pr-16">
+            <motion.div
+              className="group md:pr-16"
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+            >
               <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
                 Ex-Starwood Capital Partner
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
               </h3>
+              <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
               <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
                 Founding Partner of Deepblue. Previously Director and Partner at
                 Starwood Capital Group, where she led the $4.5B 2016 hotel
@@ -141,14 +165,20 @@ export default function AboutPage() {
                 Starwood&rsquo;s history. Founded C-Star SFR Advisors and grew
                 it to $120M AUM. Master&rsquo;s in Real Estate, Harvard.
               </p>
-            </div>
-            <div className="md:border-l md:border-[#cca885]/25 md:pl-16">
+            </motion.div>
+            <motion.div
+              className="group md:border-l md:border-[#cca885]/25 md:pl-16"
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+            >
               <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
                 Ex-Hines MD
               </p>
               <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
               </h3>
+              <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
               <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
                 Founding Partner of Deepblue. Previously Managing Director,
                 Acquisitions at Hines &mdash; sourcing and managing New York
@@ -156,7 +186,7 @@ export default function AboutPage() {
                 Hudson Square Portfolio. CFA charterholder. Tepper School of
                 Business, Carnegie Mellon.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.section>
 
@@ -180,6 +210,10 @@ export default function AboutPage() {
           >
             Hands-on across the asset classes that shape the strategy.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
           <motion.p
             className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
             variants={itemVariants}

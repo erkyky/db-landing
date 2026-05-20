@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Leaf, TreePine, Droplets, Sun, HeartHandshake, ShieldCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
+import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
 import TopLeftLogo from "@/components/ui/layout/top-left-logo";
 
@@ -29,6 +30,14 @@ const imageRevealLeft = {
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
     transition: { duration: 1.2, ease: "circOut" as const },
+  },
+};
+
+const accentRule = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.9, ease: "easeOut" as const },
   },
 };
 
@@ -159,6 +168,10 @@ export default function SustainabilityPage() {
           >
             Three pillars of sustainable investment.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-14 grid gap-16 md:grid-cols-3 md:gap-0">
             {pillars.map((item, i) => (
@@ -202,18 +215,24 @@ export default function SustainabilityPage() {
           >
             Measurable targets, not just intentions.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-14 space-y-14 md:space-y-16">
-            {commitments.map((item) => (
+            {commitments.map((item, i) => (
               <motion.div
                 key={item.label}
-                className="group"
+                className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
                 variants={itemVariants}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.3 }}
               >
                 <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
                 <div className="mt-4 flex flex-wrap items-baseline gap-x-8 gap-y-2">
                   <p className="font-serif text-5xl text-[#cca885] md:text-6xl lg:text-7xl">
-                    {item.stat}
+                    <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                   </p>
                   <p className="font-serif text-xl text-white md:text-2xl">
                     {item.label}
@@ -252,6 +271,10 @@ export default function SustainabilityPage() {
           >
             Standards we align with.
           </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
             <motion.div
