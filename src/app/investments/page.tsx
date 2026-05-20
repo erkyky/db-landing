@@ -173,7 +173,7 @@ export default function InvestmentsPage() {
 
           <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
             <motion.h1
-              className="font-serif text-h1 leading-[1.05] text-white"
+              className="font-serif text-h2 leading-[1.05] text-white"
               variants={itemVariants}
             >
               Real estate exposure built where America is growing.
