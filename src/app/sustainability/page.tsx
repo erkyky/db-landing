@@ -236,9 +236,9 @@ export default function SustainabilityPage() {
               {commitments.map((item, i) => (
                 <motion.div
                   key={item.label}
-                  className="group border-l-2 border-[#cca885]/30 pl-6 transition-colors hover:border-[#cca885]"
+                  className="group"
                   variants={itemVariants}
-                  whileHover={{ x: 4 }}
+                  whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
                   <item.icon className="h-6 w-6 text-[#cca885]/75 transition-colors duration-300 group-hover:text-[#cca885]" />
@@ -250,14 +250,10 @@ export default function SustainabilityPage() {
                       {item.label}
                     </p>
                   </div>
-                  <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
-                    <div className="min-h-0 overflow-hidden">
-                      <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-white/60 opacity-100 transition-opacity duration-500 ease-out md:text-xl md:opacity-0 md:group-hover:opacity-100">
-                        {item.detail}
-                      </p>
-                    </div>
-                  </div>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <p className="mt-4 max-w-3xl font-serif text-lg leading-relaxed text-white/55 md:text-xl">
+                    {item.detail}
+                  </p>
                 </motion.div>
               ))}
             </div>
