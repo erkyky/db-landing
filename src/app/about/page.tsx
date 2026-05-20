@@ -107,10 +107,6 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         {/* 2 · Leadership — editorial image + split bios */}
@@ -155,12 +151,12 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
-                Ex-Starwood Capital Partner
-              </p>
-              <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
+              <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
               </h3>
+              <p className="mt-3 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
+                Ex-Starwood Capital Partner
+              </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
               <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
                 Founding Partner of Deepblue. Previously Director and Partner at
@@ -176,12 +172,12 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <p className="font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
-                Ex-Hines MD
-              </p>
-              <h3 className="mt-4 font-serif text-4xl text-white md:text-5xl">
+              <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
               </h3>
+              <p className="mt-3 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
+                Ex-Hines Managing Director
+              </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
               <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
                 Founding Partner of Deepblue. Previously Managing Director,
@@ -192,10 +188,6 @@ export default function AboutPage() {
               </p>
             </motion.div>
           </motion.div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         {/* Asset Class Experience — interactive accordion */}
@@ -232,10 +224,6 @@ export default function AboutPage() {
           <motion.div className="mt-14" variants={itemVariants}>
             <InteractiveImageAccordion />
           </motion.div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">

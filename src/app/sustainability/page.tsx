@@ -140,10 +140,6 @@ export default function SustainabilityPage() {
               </motion.p>
             </motion.div>
           </motion.div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         {/* Pillars */}
@@ -191,10 +187,6 @@ export default function SustainabilityPage() {
               </motion.div>
             ))}
           </div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         {/* Commitments */}
@@ -224,7 +216,7 @@ export default function SustainabilityPage() {
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
             <motion.div
-              className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:sticky lg:top-28 lg:h-auto lg:min-h-[640px] lg:self-start"
+              className="relative h-[280px] overflow-hidden rounded-lg md:h-[380px] lg:h-auto"
               variants={imageRevealLeft}
             >
               <div
@@ -264,10 +256,6 @@ export default function SustainabilityPage() {
               ))}
             </div>
           </div>
-          <motion.div
-            className="mx-auto mt-24 h-px w-16 origin-center bg-[#cca885]/40 md:w-24"
-            variants={accentRule}
-          />
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">
