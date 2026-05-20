@@ -132,7 +132,7 @@ export default function SustainabilityPage() {
                 Investing with care for the world we share.
               </motion.h1>
               <motion.p
-                className="mx-auto mt-8 max-w-3xl font-serif text-lg leading-relaxed text-white/85 md:text-xl"
+                className="mx-auto mt-8 max-w-3xl font-serif text-xl leading-relaxed text-white/60 md:text-2xl"
                 variants={itemVariants}
               >
                 At Deepblue, responsibility sits inside underwriting &mdash; not in a
@@ -158,7 +158,7 @@ export default function SustainabilityPage() {
             Our Approach
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Three pillars of sustainable investment.
@@ -204,7 +204,7 @@ export default function SustainabilityPage() {
             Within Our Portfolio
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Measurable targets, not just intentions.

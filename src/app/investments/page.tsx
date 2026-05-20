@@ -215,7 +215,7 @@ export default function InvestmentsPage() {
                 Multifamily
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/65 md:text-2xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                 We acquire value-add multifamily in high-growth Sunbelt submarkets.
                 Disciplined basis, hands-on operations, and partnerships with
                 seasoned local operators drive cash-flow growth and durable rent
@@ -249,7 +249,7 @@ export default function InvestmentsPage() {
                 Affordable Housing
               </h3>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/65 md:text-2xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                 Through Low-Income Housing Tax Credit (LIHTC) partnerships, we
                 preserve affordable rental housing — delivering durable yield,
                 federal tax benefits, and lasting community impact in the markets
@@ -350,7 +350,7 @@ export default function InvestmentsPage() {
             Investment Thesis
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Where demographic momentum and operational discipline compound.
@@ -481,7 +481,7 @@ export default function InvestmentsPage() {
             Strategic Operations
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Relationships compound. Execution scales.

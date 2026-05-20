@@ -124,7 +124,7 @@ export default function AboutPage() {
             Co-Founders
           </motion.p>
           <motion.h2
-            className="font-serif text-4xl leading-[1.05] text-white md:text-5xl lg:text-6xl whitespace-nowrap"
+            className="font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl whitespace-nowrap"
             variants={itemVariants}
           >
             Two Executives. One integrated story.
@@ -146,11 +146,11 @@ export default function AboutPage() {
               <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Ying Huang
               </h3>
-              <p className="mt-3 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
+              <p className="mt-3 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
                 Ex-Starwood Capital Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                 Founding Partner of Deepblue. Previously Director and Partner at
                 Starwood Capital Group, where she led the $4.5B 2016 hotel
                 portfolio transaction &mdash; the largest equity commitment in
@@ -167,11 +167,11 @@ export default function AboutPage() {
               <h3 className="font-serif text-4xl text-white md:text-5xl">
                 Anthony Liu
               </h3>
-              <p className="mt-3 font-sans text-base uppercase tracking-[0.28em] text-[#cca885] md:text-lg">
+              <p className="mt-3 font-sans text-sm uppercase tracking-[0.32em] text-[#cca885] md:text-base">
                 Ex-Hines Managing Director
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/72 md:text-2xl">
+              <p className="mt-6 font-serif text-xl leading-relaxed text-white/60 md:text-2xl">
                 Founding Partner of Deepblue. Previously Managing Director,
                 Acquisitions at Hines &mdash; sourcing and managing New York
                 multifamily, office, and retail including One Vanderbilt and the
@@ -197,7 +197,7 @@ export default function AboutPage() {
             Asset class experience
           </motion.p>
           <motion.h2
-            className="max-w-5xl font-serif text-5xl leading-[1.05] text-white md:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-4xl leading-[1.08] text-white md:text-5xl lg:text-6xl"
             variants={itemVariants}
           >
             Hands-on across the asset classes that shape the strategy.
