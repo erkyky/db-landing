@@ -238,6 +238,17 @@ export default function InvestmentsPage() {
           </div>
         </motion.section>
 
+        {/* Section divider */}
+        <div className="w-full px-[max(1.5rem,14vw)] py-8">
+          <motion.div
+            className="h-px w-full origin-left bg-[#cca885]/40"
+            variants={accentRule}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          />
+        </div>
+
         {/* 2 · Private Transactions — wraps Multifamily, Strategic Ops, Investment Thesis, Affordable */}
         <section id="private-transactions" className="w-full scroll-mt-28">
           {/* Block intro */}
@@ -473,6 +484,17 @@ export default function InvestmentsPage() {
           </motion.div>
         </section>
 
+        {/* Section divider */}
+        <div className="w-full px-[max(1.5rem,14vw)] py-8">
+          <motion.div
+            className="h-px w-full origin-left bg-[#cca885]/40"
+            variants={accentRule}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          />
+        </div>
+
         {/* 3 · Tactical Opportunities */}
         <motion.section
           id="tactical-opportunities"
@@ -532,6 +554,17 @@ export default function InvestmentsPage() {
             </motion.div>
           </div>
         </motion.section>
+
+        {/* Section divider */}
+        <div className="w-full px-[max(1.5rem,14vw)] py-8">
+          <motion.div
+            className="h-px w-full origin-left bg-[#cca885]/40"
+            variants={accentRule}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          />
+        </div>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
           &copy; 2026 Deepblue Capital Partners. All rights reserved.
