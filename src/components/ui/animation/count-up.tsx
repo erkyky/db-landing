@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { animate, useInView } from "framer-motion";
 
 interface CountUpProps {
   value: string;
@@ -16,6 +16,9 @@ export function CountUp({
   delay = 0,
   className,
 }: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.3 });
+
   const match = value.match(/^(\D*?)(\d+(?:\.\d+)?)(.*)$/);
   const [display, setDisplay] = useState<string>(() => {
     if (!match) return value;
@@ -25,10 +28,7 @@ export function CountUp({
   });
 
   useEffect(() => {
-    if (!match) {
-      setDisplay(value);
-      return;
-    }
+    if (!inView || !match) return;
     const [, prefix, numStr, suffix] = match;
     const target = parseFloat(numStr);
     const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
@@ -45,7 +45,11 @@ export function CountUp({
       },
     });
     return () => controls.stop();
-  }, [value, duration, delay]);
+  }, [value, duration, delay, inView]);
 
-  return <span className={className}>{display}</span>;
+  return (
+    <span ref={ref} className={className}>
+      {display}
+    </span>
+  );
 }

@@ -133,14 +133,6 @@ export default function AboutPage() {
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
             variants={accentRule}
           />
-          <motion.p
-            className="mt-6 max-w-3xl font-serif text-xl leading-relaxed text-white/58 md:text-2xl"
-            variants={itemVariants}
-          >
-            Raising capital, underwriting risk, and running business plans live in
-            the same room — not three handoffs.
-          </motion.p>
-
           <motion.div
             className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0"
             variants={itemVariants}
@@ -225,10 +217,6 @@ export default function AboutPage() {
                 Each asset class shaped a discipline we still apply today — from
                 large-scale acquisitions at Hines and Starwood to value-add
                 execution and single-family portfolio management.
-              </p>
-              <p className="mt-6 font-serif text-xl leading-relaxed text-white/58 md:text-2xl">
-                Hover or tap a card to surface the people, partners, and
-                transactions behind the experience.
               </p>
             </motion.div>
             <motion.div variants={itemVariants}>

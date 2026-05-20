@@ -54,7 +54,7 @@ const AccordionItem = ({
         className={`absolute font-serif font-medium whitespace-nowrap text-white transition-all duration-300 ease-in-out
           ${
             isActive
-              ? "bottom-14 left-5 text-xl sm:left-7 sm:text-[1.65rem]"
+              ? "bottom-6 left-5 text-xl sm:left-7 sm:text-[1.65rem]"
               : "bottom-24 left-1/2 w-auto -translate-x-1/2 rotate-90 text-left text-base text-white/72 sm:text-lg"
           }
         `}
@@ -86,25 +86,21 @@ const defaultItems: AccordionItemData[] = [
   {
     id: "office",
     title: "Office / Mixed-Use",
-    subtitle: "Anthony, Hines",
     imageUrl: "/office.jpg",
   },
   {
     id: "multifamily",
     title: "Multifamily",
-    subtitle: "Ying, Starwood",
     imageUrl: "/multifamily.png",
   },
   {
     id: "sfr",
     title: "Single Family Rental",
-    subtitle: "Ying, C-Star SFR",
     imageUrl: "/single-family.png",
   },
   {
     id: "value-add",
     title: "Value-Add Renovation",
-    subtitle: "Anthony, Hines",
     imageUrl: "/value-add.png",
   },
 ];
