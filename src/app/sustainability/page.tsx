@@ -31,14 +31,13 @@ const accentRule = {
   },
 };
 
-// Hero text overlay: starts right after the 6-stripe image reveal
-// (~0.36s total: 6 stripes × 0.033s stagger + 0.19s duration), with a
-// small breath before the H1 / body fade in.
+// Hero text overlay: kicks off mid-image-reveal so the letters cascade in
+// while the bottom-up clip-path is still finishing.
 const heroTextContainer = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: { delayChildren: 0.45, staggerChildren: 0.12 },
+    transition: { delayChildren: 0.55, staggerChildren: 0.12 },
   },
 };
 
@@ -107,39 +106,21 @@ export default function SustainabilityPage() {
           animate="visible"
         >
           <motion.div variants={heroTextContainer}>
-            <div className="relative aspect-[2.34/1] w-full overflow-hidden">
-              {[0, 1, 2, 3, 4, 5].map((i) => {
-                // Overlap adjacent stripes by ~0.5% on each interior edge so
-                // sub-pixel rounding can't leave visible seams once the
-                // animation completes.
-                const top = Math.max(0, i * (100 / 6) - 0.5);
-                const bottom = Math.min(100, (i + 1) * (100 / 6) + 0.5);
-                return (
-                  <motion.div
-                    key={i}
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                      backgroundImage: "url(/Picture1.jpg)",
-                      backgroundColor: "#1a2332",
-                    }}
-                    initial={{
-                      clipPath: `polygon(-1% ${top}%, -1% ${top}%, -1% ${bottom}%, -1% ${bottom}%)`,
-                    }}
-                    animate={{
-                      clipPath: `polygon(-1% ${top}%, 101% ${top}%, 101% ${bottom}%, -1% ${bottom}%)`,
-                    }}
-                    transition={{
-                      duration: 0.19,
-                      delay: 0.033 * i,
-                      ease: [0.22, 1, 0.36, 1] as const,
-                    }}
-                  />
-                );
-              })}
-
+            <motion.div
+              className="relative aspect-[2.34/1] w-full overflow-hidden"
+              initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+              animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+              transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: "url(/Picture1.jpg)",
+                  backgroundColor: "#1a2332",
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/40 via-transparent to-transparent" />
-
-            </div>
+            </motion.div>
 
             <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
               <motion.h1

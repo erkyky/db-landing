@@ -32,6 +32,23 @@ const accentRule = {
   },
 };
 
+const headlineContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.025 },
+  },
+};
+
+const headlineLetter = {
+  hidden: { opacity: 0, y: 6 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const heroStats = [
   { value: "16M+", label: "Square feet" },
   { value: "$10.4B", label: "Capital raised" },
@@ -57,9 +74,21 @@ export default function AboutPage() {
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20">
             <motion.h1
               className="font-serif text-h1 leading-[1.05] text-white"
-              variants={itemVariants}
+              variants={headlineContainer}
+              aria-label="A complementary leadership team built around real estate."
             >
-              A complementary leadership team built around real estate.
+              {Array.from("A complementary leadership team built around real estate.").map(
+                (char, i) => (
+                  <motion.span
+                    key={i}
+                    variants={headlineLetter}
+                    className="inline-block"
+                    aria-hidden="true"
+                  >
+                    {char === " " ? " " : char}
+                  </motion.span>
+                )
+              )}
             </motion.h1>
             <motion.p
               className="font-serif text-body leading-relaxed text-white/60 md:pt-3"

@@ -31,6 +31,23 @@ const accentRule = {
   },
 };
 
+const headlineContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.025 },
+  },
+};
+
+const headlineLetter = {
+  hidden: { opacity: 0, y: 6 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const imageRevealLeft = {
   hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
   visible: {
@@ -174,9 +191,21 @@ export default function InvestmentsPage() {
           <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
             <motion.h1
               className="font-serif text-stat leading-[1.05] text-white"
-              variants={itemVariants}
+              variants={headlineContainer}
+              aria-label="Real estate exposure built where America is growing."
             >
-              Real estate exposure built where America is growing.
+              {Array.from("Real estate exposure built where America is growing.").map(
+                (char, i) => (
+                  <motion.span
+                    key={i}
+                    variants={headlineLetter}
+                    className="inline-block"
+                    aria-hidden="true"
+                  >
+                    {char === " " ? " " : char}
+                  </motion.span>
+                )
+              )}
             </motion.h1>
             <motion.p
               className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
