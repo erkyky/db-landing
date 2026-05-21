@@ -170,7 +170,7 @@ export default function SustainabilityPage() {
               <div
                 className="absolute -inset-px bg-cover bg-center"
                 style={{
-                  backgroundImage: "url(/Picture1.jpg)",
+                  backgroundImage: "url(/sustainability/newsus.jpg)",
                   backgroundColor: "#1a2332",
                 }}
               />
