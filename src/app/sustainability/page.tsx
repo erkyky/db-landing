@@ -137,15 +137,17 @@ export default function SustainabilityPage() {
                 );
               })}
 
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/40 via-transparent to-transparent" />
 
-              <div className="absolute inset-0 flex items-center justify-center px-6 text-center md:px-12 lg:px-20">
-                <motion.h1
-                  className="max-w-5xl font-serif text-h1 leading-[0.95] text-white"
-                  variants={headlineContainer}
-                  aria-label="Investing with care for the world we share."
-                >
-                  {Array.from("Investing with care for the world we share.").map(
+            </div>
+
+            <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
+              <motion.h1
+                className="font-serif text-stat leading-[1.05] text-white"
+                variants={headlineContainer}
+                aria-label="Investing with care for the world we share."
+              >
+                {Array.from("Investing with care for the world we share.").map(
                     (char, i) => (
                       <motion.span
                         key={i}
@@ -158,17 +160,16 @@ export default function SustainabilityPage() {
                     )
                   )}
                 </motion.h1>
-              </div>
+              <motion.p
+                className="ml-auto max-w-xl self-start font-serif text-body leading-relaxed text-white/60"
+                variants={itemVariants}
+              >
+                At Deepblue, responsibility sits inside underwriting, not in a
+                separate department. How we operate, how we manage assets, and
+                how we engage the industry all answer to the same standard of
+                care.
+              </motion.p>
             </div>
-
-            <motion.p
-              className="mx-auto mt-12 max-w-3xl text-center font-serif text-body leading-relaxed text-white/60 md:mt-16"
-              variants={itemVariants}
-            >
-              At Deepblue, responsibility sits inside underwriting, not in a
-              separate department. How we operate, how we manage assets, and how
-              we engage the industry all answer to the same standard of care.
-            </motion.p>
           </motion.div>
         </motion.section>
 
