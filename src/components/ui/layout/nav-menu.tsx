@@ -185,7 +185,7 @@ export default function NavMenu() {
                             aria-hidden
                             className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
                           />
-                          <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white/55 transition-colors duration-300 group-hover:text-[#cca885]">
+                          <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
                             {child.label}
                           </span>
                         </motion.a>
