@@ -87,9 +87,18 @@ const multifamilyBullets = [
 ];
 
 const affordableBullets = [
-  "Warmth & Stability: Well-maintained housing designed to support consistency, comfort, and long-term resident retention.",
-  "Respectful Stewardship: Operations centered on responsiveness, resident retention, and steady property performance over time.",
-  "Community Trust: We invest with respect for the character of each neighborhood and the resilience of the people who support it every day.",
+  {
+    label: "Warmth & Stability",
+    desc: "Well-maintained housing designed to support consistency, comfort, and long-term resident retention.",
+  },
+  {
+    label: "Respectful Stewardship",
+    desc: "Operations centered on responsiveness, resident retention, and steady property performance over time.",
+  },
+  {
+    label: "Community Trust",
+    desc: "We invest with respect for the character of each neighborhood and the resilience of the people who support it every day.",
+  },
 ];
 
 const strategicOperations = [
@@ -530,14 +539,21 @@ export default function InvestmentsPage() {
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {affordableBullets.map((b) => (
                     <li
-                      key={b}
-                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
+                      key={b.label}
+                      className="group/bullet flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
-                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
                         aria-hidden
                       />
-                      <span>{b}</span>
+                      <div className="flex-1">
+                        <p className="font-serif text-body text-white/80 transition-colors duration-300 group-hover/bullet:text-[#cca885]">
+                          {b.label}
+                        </p>
+                        <p className="mt-1 font-serif text-body-sm leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
+                          {b.desc}
+                        </p>
+                      </div>
                     </li>
                   ))}
                 </ul>

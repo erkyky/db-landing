@@ -104,7 +104,7 @@ export default function NavMenu() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
 
-  const inactiveClass = "text-white/45 hover:text-white/85";
+  const inactiveClass = "text-white hover:text-[#cca885]";
   const activeClass = "text-[#cca885]";
   const baseTrigger =
     "font-serif uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
