@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import { InteractiveImageAccordion } from "@/components/ui/sections/interactive-image-accordion";
@@ -58,6 +59,19 @@ const heroStats = [
 
 
 export default function AboutPage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
+  const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
+
   return (
     <>
       <NavMenu />
@@ -66,12 +80,16 @@ export default function AboutPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
+          ref={heroRef}
           className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-[133.5px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20">
+          <motion.div
+            className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20"
+            style={textStyle}
+          >
             <motion.h1
               className="font-serif text-h1 leading-[1.05] text-white"
               variants={headlineContainer}
@@ -97,13 +115,14 @@ export default function AboutPage() {
               Capital formation, acquisitions, and asset management. One team, one
               conversation across every deal we touch.
             </motion.p>
-          </div>
+          </motion.div>
 
           <motion.div
             className="relative mt-12 aspect-[3.56/1] w-full overflow-hidden md:mt-16"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
+            style={imageStyle}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"

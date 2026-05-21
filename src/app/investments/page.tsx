@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
@@ -159,6 +160,19 @@ const tacticalPillars = [
 ];
 
 export default function InvestmentsPage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
+  const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
+
   return (
     <>
       <NavMenu />
@@ -167,6 +181,7 @@ export default function InvestmentsPage() {
       <BeamsBackground intensity="subtle" className="min-h-0">
         {/* Hero — banner image + editorial headline */}
         <motion.section
+          ref={heroRef}
           className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
@@ -177,6 +192,7 @@ export default function InvestmentsPage() {
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
+            style={imageStyle}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -188,7 +204,10 @@ export default function InvestmentsPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/40 via-transparent to-transparent" />
           </motion.div>
 
-          <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20">
+          <motion.div
+            className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20"
+            style={textStyle}
+          >
             <motion.h1
               className="font-serif text-stat leading-[1.05] text-white"
               variants={headlineContainer}
@@ -215,7 +234,7 @@ export default function InvestmentsPage() {
               anchored in the high-growth Sunbelt. Demographic momentum and
               active management compound risk-adjusted returns.
             </motion.p>
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* 1 · What We Do — three-pillar hover-to-reveal */}
