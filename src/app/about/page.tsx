@@ -81,7 +81,7 @@ export default function AboutPage() {
         {/* 1 · Intro — editorial header + image + stats */}
         <motion.section
           ref={heroRef}
-          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-[133.5px]"
+          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-24"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -121,7 +121,7 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="relative mt-12 aspect-[3.56/1] w-full overflow-hidden md:mt-16"
+            className="relative mt-8 aspect-[2.34/1] max-h-[46vh] w-full overflow-hidden md:mt-10"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
@@ -138,7 +138,7 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-20 md:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-12 md:grid-cols-4"
             variants={itemVariants}
           >
             {heroStats.map((stat, i) => (
