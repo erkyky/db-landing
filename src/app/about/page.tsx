@@ -128,6 +128,12 @@ export default function AboutPage() {
                 </span>
               ))}
             </motion.h1>
+            <motion.p
+              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
+              variants={itemVariants}
+            >
+              One team, one conversation across every deal we touch.
+            </motion.p>
           </motion.div>
         </motion.section>
 
