@@ -101,7 +101,7 @@ const defaultItems: AccordionItemData[] = [
   {
     id: "value-add",
     title: "Value-Add Renovation",
-    imageUrl: "/value-add.png",
+    imageUrl: "/value.jpg",
   },
 ];
 

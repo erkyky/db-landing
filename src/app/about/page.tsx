@@ -128,13 +128,6 @@ export default function AboutPage() {
                 </span>
               ))}
             </motion.h1>
-            <motion.p
-              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
-              variants={itemVariants}
-            >
-              Capital formation, acquisitions, and asset management. One team, one
-              conversation across every deal we touch.
-            </motion.p>
           </motion.div>
         </motion.section>
 
@@ -162,7 +155,7 @@ export default function AboutPage() {
             className="font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
-            Where Two Veterans Converge on One Greater Mission.
+            Where Two Veterans Converge on One Mission.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
