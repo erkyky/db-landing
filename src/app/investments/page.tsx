@@ -68,7 +68,7 @@ const imageRevealRight = {
 const whatWeDo = [
   {
     title: "Disciplined Due Diligence",
-    desc: "Discipline compounds over time. Every investment is examined through market fundamentals, local realities, operational feasibility, and downside resilience before capital is committed. Discipline is not a process for us, it is a responsibility.",
+    desc: "Discipline compounds over time. Every investment is examined through market fundamentals, local realities, operational feasibility, and downside resilience before capital is committed.",
   },
   {
     title: "Operational Alpha",
