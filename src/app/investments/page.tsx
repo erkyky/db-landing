@@ -463,7 +463,7 @@ export default function InvestmentsPage() {
           >
             <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
               <motion.div
-                className="order-2 group/block md:order-1"
+                className="order-2 group md:order-1"
                 variants={itemVariants}
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
@@ -471,7 +471,7 @@ export default function InvestmentsPage() {
                 <h3 className="font-serif text-h3-md text-white">
                   Affordable Housing
                 </h3>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover/block:w-24 group-hover/block:bg-[#cca885]" />
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                   Through Low-Income Housing Tax Credit (LIHTC) partnerships,
                   we preserve affordable rental housing for the working
@@ -481,18 +481,16 @@ export default function InvestmentsPage() {
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {affordableBullets.map((b) => (
-                    <motion.li
+                    <li
                       key={b}
-                      className="group flex gap-4 font-serif text-body leading-relaxed text-white/60 transition-colors duration-300 hover:text-white/85"
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.3 }}
+                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
-                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885] md:w-4 md:group-hover:w-8"
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
                         aria-hidden
                       />
                       <span>{b}</span>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </motion.div>
