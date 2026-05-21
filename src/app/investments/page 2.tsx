@@ -68,42 +68,42 @@ const imageRevealRight = {
 const whatWeDo = [
   {
     title: "Disciplined Due Diligence",
-    desc: "Discipline compounds over time. Every investment is examined through market fundamentals, local realities, operational feasibility, and downside resilience before capital is committed. Discipline is not a process for us, it is a responsibility.",
+    desc: "Underwriting is where conviction is built. Every transaction passes through a framework that prices risk before return, validates operators on execution history, and commits capital only where basis, business plan, and downside scenario all align.",
   },
   {
     title: "Operational Alpha",
-    desc: "Alpha in real estate is realized through execution. Institutional analysis is paired with firsthand local insight to guide capital improvements, leasing strategy, and day-to-day management decisions shaped by how communities actually live and function.",
+    desc: "Returns are realized after closing, not at it. Active leasing, targeted capex, and operator-led submarket repositioning turn underwritten upside into NOI growth that compounds over the hold.",
   },
   {
     title: "Strategic Conviction",
-    desc: "We value preparation, patience, and independent thinking when markets become emotional. The name Deepblue was inspired by the historic 1997 match in which IBM's Deep Blue defeated world chess champion Garry Kasparov through strategic precision and measured execution under pressure.",
+    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov, a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
   },
 ];
 
 const multifamilyBullets = [
-  "Focused on markets supported by migration, employment expansion, and sustained housing demand.",
-  "Asset improvements informed by on-the-ground observation, practical usage patterns, and day-to-day property experience.",
-  "Partners, materials, and financing structures selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
+  "Focused on U.S. markets with the strongest growth in population, jobs, and wages.",
+  "Hands-on improvements — renovations, better operations, and smarter pricing — that grow income year after year.",
+  "Thoughtful financing designed to lift returns while protecting against downside.",
 ];
 
 const affordableBullets = [
-  "Warmth & Stability: Well-maintained housing designed to support consistency, comfort, and long-term resident retention.",
-  "Respectful Stewardship: Operations centered on responsiveness, resident retention, and steady property performance over time.",
-  "Community Trust: We invest with respect for the character of each neighborhood and the resilience of the people who support it every day.",
+  "Preserving long-term affordability for working families and seniors, sustaining the communities that depend on attainable housing to thrive.",
+  "Partnerships with mission-aligned operators who safeguard property quality, regulatory compliance, and resident stability across the full affordability period.",
+  "Investor returns are a function of the work itself: the federal LIHTC structure converts long-term preservation into tax-advantaged yield and stable operating cash flow.",
 ];
 
 const strategicOperations = [
   {
-    title: "Long-term Industry Relationships",
+    title: "Long-term industry relationships",
     desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
   },
   {
-    title: "Ground-level Operating Expertise",
+    title: "Local operating partners",
     desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket, with leasing, construction, and property management run by people who live where we invest.",
   },
   {
-    title: "Institutional Service Standards",
-    desc: "Quarterly investor reporting, transparent waterfall calculations, and the reporting rhythm sophisticated LPs expect.",
+    title: "Institutional service standards",
+    desc: "Quarterly investor reporting, transparent waterfall calculations, and the reporting rhythm sophisticated LPs expect. The same standard whether the check is five million or fifty.",
   },
 ];
 
@@ -127,20 +127,20 @@ const marketSignals = [
 
 const tenets = [
   {
-    title: "Resident-Centered Repositioning",
-    desc: "We improve assets in ways residents notice and value over time.",
+    title: "Value-add rental",
+    desc: "Multifamily and adjacent strategies where operations and positioning unlock outsized value. We acquire assets that under-earn their submarket and underwrite a clear path to closing the gap.",
   },
   {
-    title: "Growth Shaped by Migration",
-    desc: "We invest where migration and employment continue to support housing demand.",
+    title: "Sunbelt selection",
+    desc: "Sunbelt corridors where migration, jobs, and household formation outpace national averages. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
   },
   {
-    title: "Thoughtful Basis Selection",
-    desc: "We avoid pricing disconnected from replacement cost and local fundamentals.",
+    title: "Anchored to replacement cost",
+    desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today. We refuse to pay above it.",
   },
   {
-    title: "Institutional Risk Controls",
-    desc: "We see inflection before others see surprise.",
+    title: "Institutional risk controls",
+    desc: "Structured business plans with measurable milestones, monitored at the asset and portfolio level. Active oversight surfaces inflection points before they become surprises.",
   },
 ];
 
@@ -151,7 +151,7 @@ const tacticalPillars = [
   },
   {
     title: "Opportunistic",
-    desc: "Every market environment, stable or dislocated, produces opportunities for capital with the conviction to underwrite them. Windows of dislocation open and close without warning. We move selectively and decisively when market dislocation creates opportunities that disciplined capital is positioned to capture.",
+    desc: "Every market environment, stable or dislocated, produces opportunities for capital with the conviction to underwrite them. Windows of dislocation open and close without warning. We move with the conviction of a principal and the discipline of an institution, capturing opportunities that slower capital cannot.",
   },
   {
     title: "Asymmetric",
@@ -233,8 +233,9 @@ export default function InvestmentsPage() {
               className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
               variants={itemVariants}
             >
-              Grounded in demographic inevitability, disciplined judgment, and
-              a long-term perspective on where communities are growing.
+              Deepblue invests across a diversified U.S. real estate platform,
+              anchored in the high-growth Sunbelt. Demographic momentum and
+              active management compound risk-adjusted returns.
             </motion.p>
           </motion.div>
         </motion.section>
@@ -264,7 +265,7 @@ export default function InvestmentsPage() {
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
-            Every investment begins with understanding how people truly live.
+            We invest with conviction across U.S. real estate.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
@@ -292,7 +293,7 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-serif text-h3-sm text-white">
+                  <h3 className="font-serif text-h3-md text-white">
                     {w.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
@@ -331,7 +332,7 @@ export default function InvestmentsPage() {
               className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
               variants={itemVariants}
             >
-              Measured · Localized · Enduring
+              Two complementary strategies, one underwriting standard.
             </motion.h2>
             <motion.div
               className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
@@ -347,14 +348,14 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
               <motion.div
-                className="relative h-[400px] overflow-hidden lg:h-auto"
+                className="relative h-[280px] overflow-hidden md:h-[360px]"
                 variants={imageRevealLeft}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ backgroundImage: "url(/investments/newnewmulti.jpg)" }}
+                  style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
@@ -364,14 +365,15 @@ export default function InvestmentsPage() {
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-sm text-white">
+                <h3 className="font-serif text-h3-md text-white">
                   Multifamily
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                  We invest in apartment communities supported by durable
-                  demand, evolving demographics, and opportunities for
-                  long-term value creation.
+                  We acquire value-add multifamily in high-growth Sunbelt
+                  submarkets. Disciplined basis, hands-on operations, and
+                  partnerships with seasoned local operators drive cash-flow
+                  growth and durable rent expansion.
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {multifamilyBullets.map((b) => (
@@ -403,7 +405,7 @@ export default function InvestmentsPage() {
               className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
               variants={itemVariants}
             >
-              Relationships built over time. Standards carried through execution.
+              Relationships compound. Execution scales.
             </motion.h3>
             <motion.div
               className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
@@ -448,7 +450,7 @@ export default function InvestmentsPage() {
               className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
               variants={itemVariants}
             >
-              Demographic tailwinds. Thoughtful entry points.
+              Demographic tailwinds. Disciplined basis.
             </motion.h3>
             <motion.div
               className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
@@ -464,10 +466,10 @@ export default function InvestmentsPage() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="font-serif text-h2 leading-none text-[#cca885]">
+                  <p className="font-serif text-[clamp(3.5rem,7vw,7rem)] leading-none text-[#cca885]">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
-                  <p className="mt-3 font-serif text-h3-sm text-white">
+                  <p className="mt-3 font-serif text-body text-white">
                     {s.label}
                   </p>
                   <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
@@ -510,22 +512,23 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
               <motion.div
-                className="order-2 group lg:order-1"
+                className="order-2 group md:order-1"
                 variants={itemVariants}
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-sm text-white">
+                <h3 className="font-serif text-h3-md text-white">
                   Affordable Housing
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                  We invest in housing that serves working families, seniors,
-                  and essential communities, often through Low-Income Housing
-                  Tax Credit (LIHTC) partnerships, with an emphasis on
-                  defensive cash flow, stability, and responsible ownership.
+                  Through Low-Income Housing Tax Credit (LIHTC) partnerships,
+                  we preserve affordable rental housing for the working
+                  families and seniors who keep our communities running. The
+                  federal LIHTC structure aligns long-term stewardship with
+                  tax-advantaged yield for our investors.
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {affordableBullets.map((b) => (
@@ -543,12 +546,12 @@ export default function InvestmentsPage() {
                 </ul>
               </motion.div>
               <motion.div
-                className="relative order-1 h-[400px] overflow-hidden lg:order-2 lg:h-auto"
+                className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
                 variants={imageRevealRight}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ backgroundImage: "url(/investments/affd.jpg)" }}
+                  style={{ backgroundImage: "url(/investments/affordable.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
@@ -595,7 +598,7 @@ export default function InvestmentsPage() {
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/investments/newtactical.jpg)" }}
+                style={{ backgroundImage: "url(/investments/tactical.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
             </motion.div>
@@ -609,7 +612,7 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-serif text-h3-sm text-white">
+                  <h3 className="font-serif text-h3-md text-white">
                     {p.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
