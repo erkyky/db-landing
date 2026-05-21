@@ -293,7 +293,7 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-serif text-h3-md text-white">
+                  <h3 className="font-serif text-h3-sm text-white">
                     {w.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
@@ -365,7 +365,7 @@ export default function InvestmentsPage() {
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-md text-white">
+                <h3 className="font-serif text-h3-sm text-white">
                   Multifamily
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -468,7 +468,7 @@ export default function InvestmentsPage() {
                   <p className="font-serif text-[clamp(3.5rem,7vw,7rem)] leading-none text-[#cca885]">
                     <CountUp value={s.value} delay={0.2 + i * 0.15} />
                   </p>
-                  <p className="mt-3 font-serif text-body text-white">
+                  <p className="mt-3 font-serif text-h3-sm text-white">
                     {s.label}
                   </p>
                   <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
@@ -518,7 +518,7 @@ export default function InvestmentsPage() {
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-md text-white">
+                <h3 className="font-serif text-h3-sm text-white">
                   Affordable Housing
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -609,7 +609,7 @@ export default function InvestmentsPage() {
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-serif text-h3-md text-white">
+                  <h3 className="font-serif text-h3-sm text-white">
                     {p.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
