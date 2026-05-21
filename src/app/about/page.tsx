@@ -201,7 +201,7 @@ export default function AboutPage() {
                 Co-Founder
               </p>
               <p className="mt-2 font-sans text-xs md:text-sm uppercase tracking-[0.32em] text-white/70">
-                Ex-Hines Managing Director
+                Ex-Hines Managing Director, Acquisition
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
             </motion.div>
