@@ -2,12 +2,54 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 
 type NavItem = {
   label: string;
   href: string;
   children?: { label: string; href: string }[];
+};
+
+const panelVariants: Variants = {
+  hidden: { opacity: 0, y: -10, scaleX: 0.9, scaleY: 0.92 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scaleX: 1,
+    scaleY: 1,
+    transition: {
+      duration: 0.34,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -6,
+    scaleX: 0.96,
+    scaleY: 0.96,
+    transition: { duration: 0.18, ease: "easeIn" },
+  },
+};
+
+const accentRuleVariants: Variants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: { scaleX: 0, transition: { duration: 0.18, ease: "easeIn" } },
+};
+
+const childVariants: Variants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: { opacity: 0, y: -4, transition: { duration: 0.12 } },
 };
 
 const navItems: NavItem[] = [
@@ -115,22 +157,30 @@ export default function NavMenu() {
                   {open && (
                     <motion.div
                       key="panel"
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.22, ease: "easeOut" }}
+                      variants={panelVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ transformOrigin: "0% 0%" }}
                       onMouseEnter={() => openMenu(item.href)}
                       onMouseLeave={closeMenuSoon}
-                      className="absolute left-1/2 top-full mt-4 -translate-x-1/2 flex items-center gap-7 whitespace-nowrap rounded-sm border-t border-[#cca885]/40 bg-[#0d121a]/85 px-6 py-3 backdrop-blur-sm"
+                      className="absolute left-0 top-full mt-3 flex items-center gap-7 whitespace-nowrap rounded-sm bg-[#0d121a]/85 px-5 py-3 backdrop-blur-sm shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]"
                     >
+                      <motion.span
+                        aria-hidden
+                        variants={accentRuleVariants}
+                        style={{ transformOrigin: "0% 50%" }}
+                        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#cca885]/60"
+                      />
                       {item.children!.map((child) => (
-                        <a
+                        <motion.a
                           key={child.href}
                           href={child.href}
+                          variants={childVariants}
                           className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white/55 transition-colors duration-300 hover:text-[#cca885]"
                         >
                           {child.label}
-                        </a>
+                        </motion.a>
                       ))}
                     </motion.div>
                   )}
