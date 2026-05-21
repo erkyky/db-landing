@@ -399,7 +399,7 @@ export default function InvestmentsPage() {
               className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
               variants={itemVariants}
             >
-              Where demographic momentum and operational rigor compound.
+              Demographic tailwinds. Disciplined basis.
             </motion.h3>
             <motion.div
               className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
