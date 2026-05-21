@@ -200,7 +200,7 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-serif text-h3-lg text-white">
+              <h3 className="font-serif text-h3-sm text-white">
                 Ying Huang
               </h3>
               <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
@@ -214,7 +214,7 @@ export default function AboutPage() {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-serif text-h3-lg text-white">
+              <h3 className="font-serif text-h3-sm text-white">
                 Anthony Liu
               </h3>
               <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
