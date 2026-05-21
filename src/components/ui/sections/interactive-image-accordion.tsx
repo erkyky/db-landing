@@ -26,9 +26,9 @@ const AccordionItem = ({
   return (
     <motion.button
       type="button"
-      className={`relative h-[400px] overflow-hidden border border-white/10 bg-white/[0.03] text-left transition-[width,transform,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px] ${
+      className={`relative h-[400px] overflow-hidden border border-transparent text-left transition-[width] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px] ${
         isActive
-          ? "w-[320px] border-[#cca885]/40 sm:w-[440px] lg:w-[440px]"
+          ? "w-[320px] sm:w-[440px] lg:w-[440px]"
           : "w-[90px] sm:w-[120px]"
       }`}
       onMouseEnter={onMouseEnter}
@@ -44,35 +44,14 @@ const AccordionItem = ({
         decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/65 to-[#0d121a]/10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(204,168,133,0.22),transparent_35%)]" />
 
       {isActive && (
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#cca885]" />
       )}
 
-      <span
-        className={`absolute font-serif font-medium whitespace-nowrap text-white transition-all duration-300 ease-in-out
-          ${
-            isActive
-              ? "bottom-6 left-5 text-xl sm:left-7 sm:text-[1.65rem]"
-              : "bottom-24 left-1/2 w-auto -translate-x-1/2 rotate-90 text-left text-base text-white/72 sm:text-lg"
-          }
-        `}
-      >
+      <span className="absolute bottom-24 left-1/2 w-auto -translate-x-1/2 rotate-90 font-serif font-medium whitespace-nowrap text-left text-base text-white/72 sm:text-lg">
         {item.title}
       </span>
-
-      {isActive && item.subtitle && (
-        <span className="absolute bottom-6 left-5 rounded-full border border-white/10 bg-white/8 px-3 py-1 font-serif text-sm text-[#cca885] backdrop-blur-sm transition-opacity duration-500 sm:left-7 sm:text-base">
-          {item.subtitle}
-        </span>
-      )}
-
-      {isActive && (
-        <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 px-2.5 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-white/75 backdrop-blur-sm sm:right-6 sm:top-6">
-          Active
-        </div>
-      )}
     </motion.button>
   );
 };
