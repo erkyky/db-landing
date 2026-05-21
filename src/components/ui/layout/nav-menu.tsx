@@ -11,24 +11,24 @@ type NavItem = {
 };
 
 const panelVariants: Variants = {
-  hidden: { opacity: 0, y: -10, scaleX: 0.9, scaleY: 0.92 },
+  hidden: { opacity: 0, y: -10, scaleX: 0.92, scaleY: 0.82 },
   visible: {
     opacity: 1,
     y: 0,
     scaleX: 1,
     scaleY: 1,
     transition: {
-      duration: 0.34,
+      duration: 0.36,
       ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
+      staggerChildren: 0.07,
+      delayChildren: 0.12,
     },
   },
   exit: {
     opacity: 0,
     y: -6,
     scaleX: 0.96,
-    scaleY: 0.96,
+    scaleY: 0.9,
     transition: { duration: 0.18, ease: "easeIn" },
   },
 };
@@ -37,19 +37,19 @@ const accentRuleVariants: Variants = {
   hidden: { scaleX: 0 },
   visible: {
     scaleX: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },
   exit: { scaleX: 0, transition: { duration: 0.18, ease: "easeIn" } },
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: -8 },
+  hidden: { opacity: 0, x: -10 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+    x: 0,
+    transition: { duration: 0.38, ease: [0.22, 1, 0.36, 1] },
   },
-  exit: { opacity: 0, y: -4, transition: { duration: 0.12 } },
+  exit: { opacity: 0, x: -6, transition: { duration: 0.12 } },
 };
 
 const navItems: NavItem[] = [
@@ -164,7 +164,7 @@ export default function NavMenu() {
                       style={{ transformOrigin: "0% 0%" }}
                       onMouseEnter={() => openMenu(item.href)}
                       onMouseLeave={closeMenuSoon}
-                      className="absolute left-0 top-full mt-3 flex items-center gap-7 whitespace-nowrap rounded-sm bg-[#0d121a]/85 px-5 py-3 backdrop-blur-sm shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]"
+                      className="absolute left-0 top-full mt-3 flex min-w-[clamp(12rem,13vw,16rem)] flex-col whitespace-nowrap rounded-sm bg-[#0d121a]/85 px-5 py-2 backdrop-blur-sm shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]"
                     >
                       <motion.span
                         aria-hidden
@@ -172,14 +172,22 @@ export default function NavMenu() {
                         style={{ transformOrigin: "0% 50%" }}
                         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#cca885]/60"
                       />
-                      {item.children!.map((child) => (
+                      {item.children!.map((child, ci) => (
                         <motion.a
                           key={child.href}
                           href={child.href}
                           variants={childVariants}
-                          className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white/55 transition-colors duration-300 hover:text-[#cca885]"
+                          className={`group flex items-center gap-3 py-3 ${
+                            ci > 0 ? "border-t border-[#cca885]/10" : ""
+                          }`}
                         >
-                          {child.label}
+                          <span
+                            aria-hidden
+                            className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
+                          />
+                          <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white/55 transition-colors duration-300 group-hover:text-[#cca885]">
+                            {child.label}
+                          </span>
                         </motion.a>
                       ))}
                     </motion.div>
