@@ -123,76 +123,67 @@ export default function NavMenu() {
             const active = isActive(item.href);
             const open = openKey === item.href;
             const triggerColor = active || open ? activeClass : inactiveClass;
-
-            if (!item.children) {
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`${baseTrigger} ${triggerColor}`}
-                >
-                  {item.label}
-                </a>
-              );
-            }
+            const hasChildren = Boolean(item.children);
 
             return (
               <div
                 key={item.href}
                 className="relative"
-                onMouseEnter={() => openMenu(item.href)}
-                onMouseLeave={closeMenuSoon}
-                onFocus={() => openMenu(item.href)}
-                onBlur={closeMenuSoon}
+                onMouseEnter={hasChildren ? () => openMenu(item.href) : undefined}
+                onMouseLeave={hasChildren ? closeMenuSoon : undefined}
+                onFocus={hasChildren ? () => openMenu(item.href) : undefined}
+                onBlur={hasChildren ? closeMenuSoon : undefined}
               >
                 <a
                   href={item.href}
-                  aria-haspopup="true"
-                  aria-expanded={open}
+                  aria-haspopup={hasChildren ? "true" : undefined}
+                  aria-expanded={hasChildren ? open : undefined}
                   className={`${baseTrigger} ${triggerColor}`}
                 >
                   {item.label}
                 </a>
-                <AnimatePresence>
-                  {open && (
-                    <motion.div
-                      key="panel"
-                      variants={panelVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      style={{ transformOrigin: "0% 0%" }}
-                      onMouseEnter={() => openMenu(item.href)}
-                      onMouseLeave={closeMenuSoon}
-                      className="absolute left-0 top-full mt-3 flex min-w-[clamp(12rem,13vw,16rem)] flex-col whitespace-nowrap rounded-sm bg-[#0d121a]/85 px-5 py-2 backdrop-blur-sm shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]"
-                    >
-                      <motion.span
-                        aria-hidden
-                        variants={accentRuleVariants}
-                        style={{ transformOrigin: "0% 50%" }}
-                        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#cca885]/60"
-                      />
-                      {item.children!.map((child, ci) => (
-                        <motion.a
-                          key={child.href}
-                          href={child.href}
-                          variants={childVariants}
-                          className={`group flex items-center gap-3 py-3 ${
-                            ci > 0 ? "border-t border-[#cca885]/10" : ""
-                          }`}
-                        >
-                          <span
-                            aria-hidden
-                            className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
-                          />
-                          <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
-                            {child.label}
-                          </span>
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {hasChildren && (
+                  <AnimatePresence>
+                    {open && (
+                      <motion.div
+                        key="panel"
+                        variants={panelVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        style={{ transformOrigin: "0% 0%" }}
+                        onMouseEnter={() => openMenu(item.href)}
+                        onMouseLeave={closeMenuSoon}
+                        className="absolute left-0 top-full mt-3 flex min-w-[clamp(12rem,13vw,16rem)] flex-col whitespace-nowrap rounded-sm bg-[#0d121a]/85 px-5 py-2 backdrop-blur-sm shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]"
+                      >
+                        <motion.span
+                          aria-hidden
+                          variants={accentRuleVariants}
+                          style={{ transformOrigin: "0% 50%" }}
+                          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#cca885]/60"
+                        />
+                        {item.children!.map((child, ci) => (
+                          <motion.a
+                            key={child.href}
+                            href={child.href}
+                            variants={childVariants}
+                            className={`group flex items-center gap-3 py-3 ${
+                              ci > 0 ? "border-t border-[#cca885]/10" : ""
+                            }`}
+                          >
+                            <span
+                              aria-hidden
+                              className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
+                            />
+                            <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
+                              {child.label}
+                            </span>
+                          </motion.a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
               </div>
             );
           })}
