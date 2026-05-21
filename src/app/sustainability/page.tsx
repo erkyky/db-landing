@@ -206,9 +206,8 @@ export default function SustainabilityPage() {
                 className="ml-auto max-w-xl self-start font-serif text-body leading-relaxed text-white/60"
                 variants={itemVariants}
               >
-                At Deepblue, responsibility lives inside underwriting, not in a
-                separate department. Every decision answers to the same standard
-                of care.
+                Responsibility lives inside underwriting, not in a separate
+                department. Every decision answers to the same standard of care.
               </motion.p>
             </motion.div>
           </motion.div>
