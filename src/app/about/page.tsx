@@ -200,10 +200,10 @@ export default function AboutPage() {
               <h3 className="font-serif text-h3-sm text-white">
                 Ying Huang
               </h3>
-              <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
+              <p className="mt-3 font-sans text-body uppercase tracking-[0.32em] text-[#cca885]">
                 Co-Founder
               </p>
-              <p className="mt-2 font-sans text-eyebrow uppercase tracking-[0.32em] text-white/70">
+              <p className="mt-2 font-sans text-body uppercase tracking-[0.32em] text-white/70">
                 Ex-Starwood Capital Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -217,10 +217,10 @@ export default function AboutPage() {
               <h3 className="font-serif text-h3-sm text-white">
                 Anthony Liu
               </h3>
-              <p className="mt-3 font-sans text-eyebrow uppercase tracking-[0.32em] text-[#cca885]">
+              <p className="mt-3 font-sans text-body uppercase tracking-[0.32em] text-[#cca885]">
                 Co-Founder
               </p>
-              <p className="mt-2 font-sans text-eyebrow uppercase tracking-[0.32em] text-white/70">
+              <p className="mt-2 font-sans text-body uppercase tracking-[0.32em] text-white/70">
                 Ex-Hines Managing Director
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
