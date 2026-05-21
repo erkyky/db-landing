@@ -308,11 +308,16 @@ export default function InvestmentsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
-              <motion.div variants={itemVariants}>
+              <motion.div
+                className="group"
+                variants={itemVariants}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.3 }}
+              >
                 <h3 className="font-serif text-h3-md text-white">
                   Multifamily
                 </h3>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                   We acquire value-add multifamily in high-growth Sunbelt
                   submarkets. Disciplined basis, hands-on operations, and
@@ -457,11 +462,16 @@ export default function InvestmentsPage() {
             viewport={{ once: true, amount: 0.15 }}
           >
             <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
-              <motion.div className="order-2 md:order-1" variants={itemVariants}>
+              <motion.div
+                className="order-2 group/block md:order-1"
+                variants={itemVariants}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.3 }}
+              >
                 <h3 className="font-serif text-h3-md text-white">
                   Affordable Housing
                 </h3>
-                <div className="mt-5 h-px w-12 bg-[#cca885]/50" />
+                <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover/block:w-24 group-hover/block:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                   Through Low-Income Housing Tax Credit (LIHTC) partnerships,
                   we preserve affordable rental housing for the working
