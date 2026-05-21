@@ -550,7 +550,7 @@ export default function InvestmentsPage() {
                         <p className="font-serif text-body text-white/80 transition-colors duration-300 group-hover/bullet:text-[#cca885]">
                           {b.label}
                         </p>
-                        <p className="mt-1 font-serif text-body-sm leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
+                        <p className="mt-1 font-serif text-body leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
                           {b.desc}
                         </p>
                       </div>
