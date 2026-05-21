@@ -543,11 +543,11 @@ export default function InvestmentsPage() {
                       className="group/bullet flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
-                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
+                        className="mt-[0.9em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
                         aria-hidden
                       />
                       <div className="flex-1">
-                        <p className="font-serif text-body text-white/80 transition-colors duration-300 group-hover/bullet:text-[#cca885]">
+                        <p className="font-serif text-[clamp(1.25rem,1.9vw,2rem)] leading-[clamp(1.75rem,2.6vw,2.75rem)] text-white/80 transition-all duration-300 group-hover/bullet:text-[clamp(1rem,1.2vw,1.625rem)] group-hover/bullet:text-[#cca885]">
                           {b.label}
                         </p>
                         <p className="mt-1 font-serif text-body leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
