@@ -179,7 +179,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.4, margin: "0px 0px -150px 0px" }}
         >
           <motion.div
             className="mb-4 flex items-center gap-6"
@@ -231,7 +231,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.4, margin: "0px 0px -150px 0px" }}
         >
           <motion.div
             className="mb-4 flex items-center gap-6"
