@@ -213,18 +213,21 @@ export default function InvestmentsPage() {
               variants={headlineContainer}
               aria-label="Real estate exposure built where America is growing."
             >
-              {Array.from("Real estate exposure built where America is growing.").map(
-                (char, i) => (
-                  <motion.span
-                    key={i}
-                    variants={headlineLetter}
-                    className="inline-block"
-                    aria-hidden="true"
-                  >
-                    {char === " " ? " " : char}
-                  </motion.span>
-                )
-              )}
+              {"Real estate exposure built where America is growing.".split(" ").map((word, wi, words) => (
+                <span key={wi} className="inline-block whitespace-nowrap">
+                  {Array.from(word).map((char, ci) => (
+                    <motion.span
+                      key={ci}
+                      variants={headlineLetter}
+                      className="inline-block"
+                      aria-hidden="true"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  {wi < words.length - 1 ? " " : ""}
+                </span>
+              ))}
             </motion.h1>
             <motion.p
               className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"

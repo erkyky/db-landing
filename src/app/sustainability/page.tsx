@@ -186,27 +186,29 @@ export default function SustainabilityPage() {
                 variants={headlineContainer}
                 aria-label="Investing with care for the world we share."
               >
-                {Array.from("Investing with care for the world we share.").map(
-                    (char, i) => (
-                      <motion.span
-                        key={i}
-                        variants={headlineLetter}
-                        className="inline-block"
-                        aria-hidden="true"
-                      >
-                        {char === " " ? " " : char}
-                      </motion.span>
-                    )
-                  )}
+                {"Investing with care for the world we share.".split(" ").map((word, wi, words) => (
+                    <span key={wi} className="inline-block whitespace-nowrap">
+                      {Array.from(word).map((char, ci) => (
+                        <motion.span
+                          key={ci}
+                          variants={headlineLetter}
+                          className="inline-block"
+                          aria-hidden="true"
+                        >
+                          {char}
+                        </motion.span>
+                      ))}
+                      {wi < words.length - 1 ? " " : ""}
+                    </span>
+                  ))}
                 </motion.h1>
               <motion.p
                 className="ml-auto max-w-xl self-start font-serif text-body leading-relaxed text-white/60"
                 variants={itemVariants}
               >
-                At Deepblue, responsibility sits inside underwriting, not in a
-                separate department. How we operate, how we manage assets, and
-                how we engage the industry all answer to the same standard of
-                care.
+                At Deepblue, responsibility lives inside underwriting, not in a
+                separate department. Every decision answers to the same standard
+                of care.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -241,7 +243,7 @@ export default function SustainabilityPage() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-serif text-h3-md text-white">
+                  <h3 className="font-serif text-h3-sm text-white">
                     {item.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />

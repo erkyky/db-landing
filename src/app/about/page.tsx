@@ -95,18 +95,21 @@ export default function AboutPage() {
               variants={headlineContainer}
               aria-label="A complementary leadership team built around real estate."
             >
-              {Array.from("A complementary leadership team built around real estate.").map(
-                (char, i) => (
-                  <motion.span
-                    key={i}
-                    variants={headlineLetter}
-                    className="inline-block"
-                    aria-hidden="true"
-                  >
-                    {char === " " ? " " : char}
-                  </motion.span>
-                )
-              )}
+              {"A complementary leadership team built around real estate.".split(" ").map((word, wi, words) => (
+                <span key={wi} className="inline-block whitespace-nowrap">
+                  {Array.from(word).map((char, ci) => (
+                    <motion.span
+                      key={ci}
+                      variants={headlineLetter}
+                      className="inline-block"
+                      aria-hidden="true"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  {wi < words.length - 1 ? " " : ""}
+                </span>
+              ))}
             </motion.h1>
             <motion.p
               className="font-serif text-body leading-relaxed text-white/60 md:pt-3"
@@ -178,10 +181,10 @@ export default function AboutPage() {
             />
           </motion.div>
           <motion.h2
-            className="font-serif text-h2 leading-[1.08] text-white whitespace-nowrap"
+            className="font-serif text-h2 leading-[1.08] text-white"
             variants={itemVariants}
           >
-            Two Executives. One integrated story.
+            Where Two Veterans Converge on One Greater Mission.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
@@ -204,13 +207,6 @@ export default function AboutPage() {
                 Ex-Starwood Capital Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                Founding Partner of Deepblue. Previously Director and Partner at
-                Starwood Capital Group, where she led the $4.5B 2016 hotel
-                portfolio transaction, the largest equity commitment in
-                Starwood&rsquo;s history. Founded C-Star SFR Advisors and grew
-                it to $120M AUM. Master&rsquo;s in Real Estate, Harvard.
-              </p>
             </motion.div>
             <motion.div
               className="group md:border-l md:border-[#cca885]/25 md:pl-16"
@@ -225,13 +221,6 @@ export default function AboutPage() {
                 Ex-Hines Managing Director
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
-              <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                Founding Partner of Deepblue. Previously Managing Director,
-                Acquisitions at Hines, sourcing and managing New York
-                multifamily, office, and retail including One Vanderbilt and the
-                Hudson Square Portfolio. CFA charterholder. Tepper School of
-                Business, Carnegie Mellon.
-              </p>
             </motion.div>
           </motion.div>
         </motion.section>
