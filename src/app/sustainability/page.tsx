@@ -162,13 +162,13 @@ export default function SustainabilityPage() {
           <motion.div variants={heroTextContainer}>
             <motion.div
               className="relative aspect-[2.34/1] w-full overflow-hidden"
-              initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
-              animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+              initial={{ clipPath: "polygon(-1% 100%, 101% 100%, 101% 100%, -1% 100%)" }}
+              animate={{ clipPath: "polygon(-1% -1%, 101% -1%, 101% 101%, -1% 101%)" }}
               transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
               style={imageStyle}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute -inset-px bg-cover bg-center"
                 style={{
                   backgroundImage: "url(/Picture1.jpg)",
                   backgroundColor: "#1a2332",
