@@ -363,7 +363,7 @@ export default function InvestmentsPage() {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ backgroundImage: "url(/investments/newnewmulti.jpg)" }}
+                  style={{ backgroundImage: "url(/investments/22.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
@@ -564,7 +564,7 @@ export default function InvestmentsPage() {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ backgroundImage: "url(/investments/affd.jpg)" }}
+                  style={{ backgroundImage: "url(/investments/11.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
