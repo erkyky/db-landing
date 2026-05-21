@@ -348,9 +348,9 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+            <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <motion.div
-                className="relative h-[280px] overflow-hidden md:h-[360px]"
+                className="relative h-[400px] overflow-hidden lg:h-auto"
                 variants={imageRevealLeft}
               >
                 <div
@@ -511,9 +511,9 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-20">
+            <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <motion.div
-                className="order-2 group md:order-1"
+                className="order-2 group lg:order-1"
                 variants={itemVariants}
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
@@ -543,7 +543,7 @@ export default function InvestmentsPage() {
                 </ul>
               </motion.div>
               <motion.div
-                className="relative order-1 h-[280px] overflow-hidden md:order-2 md:h-[360px]"
+                className="relative order-1 h-[400px] overflow-hidden lg:order-2 lg:h-auto"
                 variants={imageRevealRight}
               >
                 <div
