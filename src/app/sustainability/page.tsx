@@ -107,7 +107,7 @@ export default function SustainabilityPage() {
           animate="visible"
         >
           <motion.div variants={heroTextContainer}>
-            <div className="relative aspect-[1.80/1] w-full overflow-hidden">
+            <div className="relative aspect-[2.34/1] w-full overflow-hidden">
               {[0, 1, 2, 3, 4, 5].map((i) => {
                 // Overlap adjacent stripes by ~0.5% on each interior edge so
                 // sub-pixel rounding can't leave visible seams once the
