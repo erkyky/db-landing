@@ -474,7 +474,11 @@ export default function InvestmentsPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="font-serif text-h2 leading-none text-[#cca885]">
-                    <CountUp value={s.value} delay={0.2 + i * 0.15} />
+                    <CountUp
+                      value={s.value}
+                      delay={0.2 + i * 0.15}
+                      numberClassName="text-[1.4em] leading-none"
+                    />
                   </p>
                   <p className="mt-3 font-serif text-h3-sm text-white">
                     {s.label}
@@ -543,14 +547,14 @@ export default function InvestmentsPage() {
                       className="group/bullet flex gap-4 font-serif text-body leading-relaxed text-white/60"
                     >
                       <span
-                        className="mt-[0.9em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
+                        className="mt-[clamp(3.5rem,6vw,5rem)] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:mt-[0.9em] group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
                         aria-hidden
                       />
-                      <div className="flex-1">
-                        <p className="font-serif text-[clamp(1.25rem,1.9vw,2rem)] leading-[clamp(1.75rem,2.6vw,2.75rem)] text-white/80 transition-all duration-300 group-hover/bullet:text-[clamp(1rem,1.2vw,1.625rem)] group-hover/bullet:text-[#cca885]">
+                      <div className="relative flex-1 min-h-[clamp(9rem,13vw,11rem)]">
+                        <p className="absolute inset-x-0 top-1/2 -translate-y-1/2 font-serif text-[clamp(1.25rem,1.9vw,2rem)] leading-[clamp(1.75rem,2.6vw,2.75rem)] text-white/80 transition-all duration-300 group-hover/bullet:top-0 group-hover/bullet:translate-y-0 group-hover/bullet:text-[clamp(1rem,1.2vw,1.625rem)] group-hover/bullet:text-[#cca885]">
                           {b.label}
                         </p>
-                        <p className="mt-1 font-serif text-body leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
+                        <p className="absolute inset-x-0 top-[clamp(2rem,2.9vw,3rem)] font-serif text-body leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
                           {b.desc}
                         </p>
                       </div>

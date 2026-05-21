@@ -65,10 +65,10 @@ export default function AboutPage() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-110%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-140%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.38], [1, 0]);
   const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
   const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
 
@@ -78,20 +78,37 @@ export default function AboutPage() {
       <TopLeftLogo />
 
       <BeamsBackground intensity="subtle" className="min-h-0">
-        {/* 1 · Intro — editorial header + image + stats */}
+        {/* Hero — banner image + editorial headline */}
         <motion.section
           ref={heroRef}
-          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-24"
+          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.div
-            className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-20"
+            className="relative aspect-[2.34/1] w-full overflow-hidden"
+            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
+            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
+            style={imageStyle}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url(/about/33.png)",
+                backgroundColor: "#1a2332",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/40 via-transparent to-transparent" />
+          </motion.div>
+
+          <motion.div
+            className="mt-16 grid gap-10 md:mt-20 md:grid-cols-[1.1fr_1fr] md:gap-20"
             style={textStyle}
           >
             <motion.h1
-              className="font-serif text-h1 leading-[1.05] text-white"
+              className="font-serif text-stat leading-[1.05] text-white"
               variants={headlineContainer}
               aria-label="A complementary leadership team built around real estate."
             >
@@ -112,51 +129,12 @@ export default function AboutPage() {
               ))}
             </motion.h1>
             <motion.p
-              className="font-serif text-body leading-relaxed text-white/60 md:pt-3"
+              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
               variants={itemVariants}
             >
               Capital formation, acquisitions, and asset management. One team, one
               conversation across every deal we touch.
             </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="relative mt-8 aspect-[2.34/1] max-h-[calc(46vh+0.5in)] w-full overflow-hidden md:mt-10"
-            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
-            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
-            style={imageStyle}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: "url(/about/vandy.jpg)",
-                backgroundColor: "#1a2332",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/35 via-transparent to-transparent" />
-          </motion.div>
-
-          <motion.div
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-12 md:grid-cols-4"
-            variants={itemVariants}
-          >
-            {heroStats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                className="group text-center"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="font-serif text-stat text-[#cca885]">
-                  <CountUp value={stat.value} delay={1.6 + i * 0.12} />
-                </p>
-                <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
           </motion.div>
         </motion.section>
 
@@ -228,6 +206,28 @@ export default function AboutPage() {
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
             </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="mt-24 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-32 md:grid-cols-4"
+            variants={itemVariants}
+          >
+            {heroStats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                className="group text-center"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="font-serif text-stat text-[#cca885]">
+                  <CountUp value={stat.value} delay={0.2 + i * 0.12} />
+                </p>
+                <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.section>
 
