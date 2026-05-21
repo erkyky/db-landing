@@ -81,15 +81,15 @@ const whatWeDo = [
 ];
 
 const multifamilyBullets = [
-  "Concentrated exposure to multifamily assets in the U.S. markets with the strongest demographic, employment, and wage tailwinds.",
-  "Active value creation through targeted capital reinvestment, operational repositioning, and revenue strategy that compound NOI over the hold.",
-  "Institutional capital structures engineered to enhance returns while preserving downside protection.",
+  "Focused on U.S. markets with the strongest growth in population, jobs, and wages.",
+  "Hands-on improvements — renovations, better operations, and smarter pricing — that grow income year after year.",
+  "Thoughtful financing designed to lift returns while protecting against downside.",
 ];
 
 const affordableBullets = [
-  "Preserving long-term affordability for working families and seniors, sustaining the communities that depend on attainable housing to thrive.",
-  "Partnerships with mission-aligned operators who safeguard property quality, regulatory compliance, and resident stability across the full affordability period.",
-  "Investor returns are a function of the work itself: the federal LIHTC structure converts long-term preservation into tax-advantaged yield and stable operating cash flow.",
+  "Homes held for the workers, families, and seniors who keep the city running.",
+  "Operators whose standard of care matches ours — held across decades.",
+  "Yield is the reward of stewardship, not its alternative.",
 ];
 
 const strategicOperations = [
@@ -128,19 +128,19 @@ const marketSignals = [
 const tenets = [
   {
     title: "Value-add rental",
-    desc: "Multifamily and adjacent strategies where operations and positioning unlock outsized value. We acquire assets that under-earn their submarket and underwrite a clear path to closing the gap.",
+    desc: "We buy assets that under-earn their place — and close the gap.",
   },
   {
     title: "Sunbelt selection",
-    desc: "Sunbelt corridors where migration, jobs, and household formation outpace national averages. We focus on submarkets where the next decade of demand is already visible in today's permits and payrolls.",
+    desc: "Tomorrow's demand is already written in today's permits and payrolls.",
   },
   {
     title: "Anchored to replacement cost",
-    desc: "Going-in basis and replacement cost define real downside protection. Our underwriting starts from what a willing builder would charge to deliver the same asset today. We refuse to pay above it.",
+    desc: "We pay no more than it would cost to build the asset again.",
   },
   {
     title: "Institutional risk controls",
-    desc: "Structured business plans with measurable milestones, monitored at the asset and portfolio level. Active oversight surfaces inflection points before they become surprises.",
+    desc: "We see inflection before others see surprise.",
   },
 ];
 
@@ -355,7 +355,7 @@ export default function InvestmentsPage() {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ backgroundImage: "url(/investments/multifamily.jpg)" }}
+                  style={{ backgroundImage: "url(/investments/multinew.jpeg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
@@ -370,10 +370,9 @@ export default function InvestmentsPage() {
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                  We acquire value-add multifamily in high-growth Sunbelt
-                  submarkets. Disciplined basis, hands-on operations, and
-                  partnerships with seasoned local operators drive cash-flow
-                  growth and durable rent expansion.
+                  We acquire apartment communities in high-growth Sunbelt
+                  markets, partnering with experienced local operators to
+                  upgrade properties and grow rental income over time.
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {multifamilyBullets.map((b) => (
@@ -524,11 +523,9 @@ export default function InvestmentsPage() {
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
-                  Through Low-Income Housing Tax Credit (LIHTC) partnerships,
-                  we preserve affordable rental housing for the working
-                  families and seniors who keep our communities running. The
-                  federal LIHTC structure aligns long-term stewardship with
-                  tax-advantaged yield for our investors.
+                  A city stands on those who serve it. We preserve their homes
+                  through Low-Income Housing Tax Credit (LIHTC) partnerships —
+                  where return follows the work.
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {affordableBullets.map((b) => (
@@ -598,7 +595,7 @@ export default function InvestmentsPage() {
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/investments/tactical.jpg)" }}
+                style={{ backgroundImage: "url(/investments/to.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
             </motion.div>
