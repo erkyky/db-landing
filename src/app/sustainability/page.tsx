@@ -42,6 +42,23 @@ const heroTextContainer = {
   },
 };
 
+const headlineContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.025 },
+  },
+};
+
+const headlineLetter = {
+  hidden: { opacity: 0, y: 6 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const pillars: Array<{ title: string; desc: string }> = [
   {
     title: "Environmental stewardship",
@@ -89,58 +106,70 @@ export default function SustainabilityPage() {
           initial="hidden"
           animate="visible"
         >
-          <div className="relative aspect-[1.80/1] w-full overflow-hidden">
-            {[0, 1, 2, 3, 4, 5].map((i) => {
-              // Overlap adjacent stripes by ~0.5% on each interior edge so
-              // sub-pixel rounding can't leave visible seams once the
-              // animation completes.
-              const top = Math.max(0, i * (100 / 6) - 0.5);
-              const bottom = Math.min(100, (i + 1) * (100 / 6) + 0.5);
-              return (
-                <motion.div
-                  key={i}
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url(/Picture1.jpg)",
-                    backgroundColor: "#1a2332",
-                  }}
-                  initial={{
-                    clipPath: `polygon(-1% ${top}%, -1% ${top}%, -1% ${bottom}%, -1% ${bottom}%)`,
-                  }}
-                  animate={{
-                    clipPath: `polygon(-1% ${top}%, 101% ${top}%, 101% ${bottom}%, -1% ${bottom}%)`,
-                  }}
-                  transition={{
-                    duration: 0.19,
-                    delay: 0.033 * i,
-                    ease: [0.22, 1, 0.36, 1] as const,
-                  }}
-                />
-              );
-            })}
+          <motion.div variants={heroTextContainer}>
+            <div className="relative aspect-[1.80/1] w-full overflow-hidden">
+              {[0, 1, 2, 3, 4, 5].map((i) => {
+                // Overlap adjacent stripes by ~0.5% on each interior edge so
+                // sub-pixel rounding can't leave visible seams once the
+                // animation completes.
+                const top = Math.max(0, i * (100 / 6) - 0.5);
+                const bottom = Math.min(100, (i + 1) * (100 / 6) + 0.5);
+                return (
+                  <motion.div
+                    key={i}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: "url(/Picture1.jpg)",
+                      backgroundColor: "#1a2332",
+                    }}
+                    initial={{
+                      clipPath: `polygon(-1% ${top}%, -1% ${top}%, -1% ${bottom}%, -1% ${bottom}%)`,
+                    }}
+                    animate={{
+                      clipPath: `polygon(-1% ${top}%, 101% ${top}%, 101% ${bottom}%, -1% ${bottom}%)`,
+                    }}
+                    transition={{
+                      duration: 0.19,
+                      delay: 0.033 * i,
+                      ease: [0.22, 1, 0.36, 1] as const,
+                    }}
+                  />
+                );
+              })}
 
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0d121a]/65 via-[#0d121a]/35 to-[#0d121a]/80" />
 
-            <motion.div
-              className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-12 lg:px-20"
-              variants={heroTextContainer}
+              <div className="absolute inset-0 flex items-center justify-center px-6 text-center md:px-12 lg:px-20">
+                <motion.h1
+                  className="max-w-5xl font-serif text-h1 leading-[0.95] text-white"
+                  variants={headlineContainer}
+                  aria-label="Investing with care for the world we share."
+                >
+                  {Array.from("Investing with care for the world we share.").map(
+                    (char, i) => (
+                      <motion.span
+                        key={i}
+                        variants={headlineLetter}
+                        className="inline-block"
+                        aria-hidden="true"
+                      >
+                        {char === " " ? " " : char}
+                      </motion.span>
+                    )
+                  )}
+                </motion.h1>
+              </div>
+            </div>
+
+            <motion.p
+              className="mx-auto mt-12 max-w-3xl text-center font-serif text-body leading-relaxed text-white/60 md:mt-16"
+              variants={itemVariants}
             >
-              <motion.h1
-                className="max-w-5xl font-serif text-h1 leading-[0.95] text-white"
-                variants={itemVariants}
-              >
-                Investing with care for the world we share.
-              </motion.h1>
-              <motion.p
-                className="mx-auto mt-8 max-w-3xl font-serif text-body leading-relaxed text-white/60"
-                variants={itemVariants}
-              >
-                At Deepblue, responsibility sits inside underwriting, not in a
-                separate department. How we operate, how we manage assets, and how
-                we engage the industry all answer to the same standard of care.
-              </motion.p>
-            </motion.div>
-          </div>
+              At Deepblue, responsibility sits inside underwriting, not in a
+              separate department. How we operate, how we manage assets, and how
+              we engage the industry all answer to the same standard of care.
+            </motion.p>
+          </motion.div>
         </motion.section>
 
         {/* Pillars */}
