@@ -19,9 +19,11 @@ export default function TopLeftLogo() {
     <AnimatePresence>
       {visible && (
         <div className="pointer-events-none fixed inset-x-0 top-0 z-40">
-          <div className="mx-auto flex max-w-[1440px] px-6 pt-3 md:px-12 lg:px-20">
-            <motion.div
+          <div className="flex pl-[max(1.5rem,14vw)] pr-6 pt-3">
+            <motion.a
               key="top-left-logo"
+              href="/"
+              aria-label="Deepblue Capital Partners - Home"
               className="pointer-events-auto"
               initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)", opacity: 0 }}
               animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", opacity: 1 }}
@@ -33,7 +35,7 @@ export default function TopLeftLogo() {
                 alt="Deepblue Capital Partners"
                 className="h-9 w-auto md:h-10"
               />
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       )}
