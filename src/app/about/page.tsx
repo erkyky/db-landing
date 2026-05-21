@@ -172,6 +172,9 @@ export default function AboutPage() {
             className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              Executive Officers
+            </p>
             <motion.div
               className="h-px flex-1 origin-left bg-[#cca885]/40"
               variants={accentRule}
