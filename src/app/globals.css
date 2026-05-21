@@ -128,10 +128,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-[13px] leading-relaxed text-foreground md:text-[15px];
+    @apply bg-background leading-relaxed text-foreground;
+    font-size: clamp(15px, 1vw, 22px);
   }
   html {
-    font-size: 13px;
+    font-size: clamp(13px, 0.88vw, 19px);
     @apply scroll-smooth font-sans;
   }
 

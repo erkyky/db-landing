@@ -65,7 +65,7 @@ export default function AboutPage() {
               className="font-serif text-body leading-relaxed text-white/60 md:pt-3"
               variants={itemVariants}
             >
-              Capital formation, acquisitions, and asset management — one team, one
+              Capital formation, acquisitions, and asset management. One team, one
               conversation across every deal we touch.
             </motion.p>
           </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
               <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                 Founding Partner of Deepblue. Previously Director and Partner at
                 Starwood Capital Group, where she led the $4.5B 2016 hotel
-                portfolio transaction &mdash; the largest equity commitment in
+                portfolio transaction, the largest equity commitment in
                 Starwood&rsquo;s history. Founded C-Star SFR Advisors and grew
                 it to $120M AUM. Master&rsquo;s in Real Estate, Harvard.
               </p>
@@ -179,7 +179,7 @@ export default function AboutPage() {
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
               <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
                 Founding Partner of Deepblue. Previously Managing Director,
-                Acquisitions at Hines &mdash; sourcing and managing New York
+                Acquisitions at Hines, sourcing and managing New York
                 multifamily, office, and retail including One Vanderbilt and the
                 Hudson Square Portfolio. CFA charterholder. Tepper School of
                 Business, Carnegie Mellon.
@@ -221,12 +221,12 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
             <motion.div variants={itemVariants}>
               <p className="font-serif text-body leading-relaxed text-white/58">
-                Office, mixed-use, multifamily, and single-family rental — range
+                Office, mixed-use, multifamily, and single-family rental. A range
                 that helps us compare opportunities rather than chase whatever is
                 fashionable.
               </p>
               <p className="mt-6 font-serif text-body leading-relaxed text-white/58">
-                Each asset class shaped a discipline we still apply today — from
+                Each asset class shaped a discipline we still apply today, from
                 large-scale acquisitions at Hines and Starwood to value-add
                 execution and single-family portfolio management.
               </p>

@@ -49,7 +49,7 @@ const pillars: Array<{ title: string; desc: string }> = [
   },
   {
     title: "Community impact",
-    desc: "Investments that strengthen neighborhoods — quality housing, local employment, and shared spaces that endure.",
+    desc: "Investments that strengthen neighborhoods with quality housing, local employment, and shared spaces that endure.",
   },
   {
     title: "Responsible governance",
@@ -135,7 +135,7 @@ export default function SustainabilityPage() {
                 className="mx-auto mt-8 max-w-3xl font-serif text-body leading-relaxed text-white/60"
                 variants={itemVariants}
               >
-                At Deepblue, responsibility sits inside underwriting &mdash; not in a
+                At Deepblue, responsibility sits inside underwriting, not in a
                 separate department. How we operate, how we manage assets, and how
                 we engage the industry all answer to the same standard of care.
               </motion.p>

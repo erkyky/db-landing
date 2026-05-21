@@ -39,7 +39,7 @@ export default function NavMenu() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="fixed top-5 left-1/2 z-50 flex -translate-x-1/2 items-center gap-10"
+          className="fixed top-5 left-1/2 z-50 flex -translate-x-1/2 items-center gap-[clamp(2rem,2.5vw,3.5rem)]"
         >
           {navItems.map((item) => {
             const active = isActive(item.href);
@@ -47,7 +47,7 @@ export default function NavMenu() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-serif text-base uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 ${
+                className={`font-serif uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(15px,1.05vw,22px)] ${
                   active ? activeClass : inactiveClass
                 }`}
               >

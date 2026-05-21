@@ -58,7 +58,7 @@ const whatWeDo = [
   },
   {
     title: "Strategic Conviction",
-    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov — a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
+    desc: "Our firm name, Deepblue Capital Partners, is inspired by the 1997 chess match in which IBM's Deep Blue defeated world champion Garry Kasparov, a historic moment that symbolized the power of strategic thinking, precision, and bold innovation, values we bring to every investment decision.",
   },
 ];
 
@@ -81,7 +81,7 @@ const strategicOperations = [
   },
   {
     title: "Local operating partners",
-    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket — leasing, construction, and property management run by people who live where we invest.",
+    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket, with leasing, construction, and property management run by people who live where we invest.",
   },
   {
     title: "Institutional service standards",
