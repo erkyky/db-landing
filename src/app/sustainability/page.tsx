@@ -99,10 +99,10 @@ export default function SustainabilityPage() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-110%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-140%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.38], [1, 0]);
   const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
   const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
 
