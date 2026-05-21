@@ -595,7 +595,7 @@ export default function InvestmentsPage() {
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
-                style={{ backgroundImage: "url(/investments/topp.jpg)" }}
+                style={{ backgroundImage: "url(/investments/newtactical.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
             </motion.div>
