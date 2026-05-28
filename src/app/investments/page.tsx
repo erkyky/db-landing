@@ -32,6 +32,16 @@ const accentRule = {
   },
 };
 
+// Hero wrapper: delays text descendants so the image clip-path reveal is
+// clearly the first thing the audience sees, then the text cascades in.
+const heroTextContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { delayChildren: 0.55, staggerChildren: 0.12 },
+  },
+};
+
 const headlineContainer = {
   hidden: { opacity: 1 },
   visible: {
@@ -196,6 +206,7 @@ export default function InvestmentsPage() {
           initial="hidden"
           animate="visible"
         >
+          <motion.div variants={heroTextContainer}>
           <motion.div
             className="relative aspect-[2.34/1] w-full overflow-hidden"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
@@ -245,6 +256,7 @@ export default function InvestmentsPage() {
               Grounded in demographic inevitability, disciplined judgment, and
               a long-term perspective on where communities are growing.
             </motion.p>
+          </motion.div>
           </motion.div>
         </motion.section>
 

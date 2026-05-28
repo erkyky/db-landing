@@ -186,7 +186,8 @@ export default function SustainabilityPage() {
 
         {/* THE STANDARD — Three pillars */}
         <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-24 pt-24"
+          id="the-standard"
+          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-24 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -235,7 +236,8 @@ export default function SustainabilityPage() {
 
         {/* THE EVIDENCE — Commitments */}
         <motion.section
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
+          id="the-evidence"
+          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

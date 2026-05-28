@@ -21,13 +21,28 @@ const navItems: NavItem[] = [
       { label: "Tactical Opportunities", href: "/investments#tactical-opportunities" },
     ],
   },
-  { label: "Sustainability", href: "/sustainability" },
-  { label: "Team", href: "/about" },
+  {
+    label: "Sustainability",
+    href: "/sustainability",
+    children: [
+      { label: "The Standard", href: "/sustainability#the-standard" },
+      { label: "The Evidence", href: "/sustainability#the-evidence" },
+    ],
+  },
+  {
+    label: "Team",
+    href: "/about",
+    children: [
+      { label: "Executive Officers", href: "/about#executive-officers" },
+      { label: "Asset Class Experience", href: "/about#asset-class-experience" },
+    ],
+  },
 ];
 
 const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
-const DROPDOWN_PAD = 128;
+const DROPDOWN_BASE_PAD = 50;
+const DROPDOWN_PER_ITEM = 28;
 
 const dropdownContainerVariants = {
   hidden: { opacity: 0, y: -6 },
@@ -109,8 +124,14 @@ export default function NavMenu() {
     "font-serif uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
 
   const showBg = !atTop && visible;
-  const dropdownOpen = openKey === "/investments";
-  // Show the bar surface either when scrolled-revealed OR when the dropdown is
+  const activeDropdownItem = openKey
+    ? navItems.find((i) => i.href === openKey) ?? null
+    : null;
+  const dropdownOpen = Boolean(activeDropdownItem?.children?.length);
+  const dropdownPad = dropdownOpen
+    ? DROPDOWN_BASE_PAD + activeDropdownItem!.children!.length * DROPDOWN_PER_ITEM
+    : 0;
+  // Show the bar surface either when scrolled-revealed OR when any dropdown is
   // open (so dropdown text doesn't sit on raw page content).
   const surfaceVisible = showBg || dropdownOpen;
 
@@ -126,7 +147,7 @@ export default function NavMenu() {
         >
           <motion.div
             className="relative"
-            animate={{ paddingBottom: dropdownOpen ? DROPDOWN_PAD : 0 }}
+            animate={{ paddingBottom: dropdownPad }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Bar surface — gradient fill + backdrop blur, fades in/out.
