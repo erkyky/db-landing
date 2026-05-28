@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -39,6 +39,13 @@ const navItems: NavItem[] = [
   },
 ];
 
+// Prepend an explicit "Overview" link (→ the section's own landing page) to a
+// dropdown. The parent label is itself a link, but the deliberate, non-power-user
+// investor audience won't assume that — so we surface it as the first row, set
+// off by a hairline so it reads as "the whole page" above "its sections".
+const childrenWithOverview = (item: NavItem) =>
+  item.children ? [{ label: "Overview", href: item.href }, ...item.children] : [];
+
 const SCROLL_THRESHOLD = 80;
 // Hover-intent delay (Baymard recommends 300–500ms) so users mousing toward
 // the parent label don't accidentally trigger the dropdown mid-click.
@@ -46,6 +53,7 @@ const OPEN_DELAY_MS = 400;
 const CLOSE_DELAY_MS = 180;
 const DROPDOWN_BASE_PAD = 50;
 const DROPDOWN_PER_ITEM = 28;
+const DROPDOWN_DIVIDER_PAD = 9;
 
 const dropdownContainerVariants = {
   hidden: { opacity: 0, y: -6 },
@@ -149,7 +157,9 @@ export default function NavMenu() {
     : null;
   const dropdownOpen = Boolean(activeDropdownItem?.children?.length);
   const dropdownPad = dropdownOpen
-    ? DROPDOWN_BASE_PAD + activeDropdownItem!.children!.length * DROPDOWN_PER_ITEM
+    ? DROPDOWN_BASE_PAD +
+      childrenWithOverview(activeDropdownItem!).length * DROPDOWN_PER_ITEM +
+      DROPDOWN_DIVIDER_PAD
     : 0;
   // Show the bar surface either when scrolled-revealed OR when any dropdown is
   // open (so dropdown text doesn't sit on raw page content).
@@ -249,22 +259,30 @@ export default function NavMenu() {
                               exit="exit"
                               className="absolute left-0 top-full mt-4 flex flex-col items-start gap-1 whitespace-nowrap"
                             >
-                              {item.children!.map((child) => (
-                                <motion.a
-                                  key={child.href}
-                                  href={child.href}
-                                  variants={dropdownItemVariants}
-                                  whileHover={{ x: 6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-                                  className="group flex items-center gap-3 py-1"
-                                >
-                                  <span
-                                    aria-hidden
-                                    className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
-                                  />
-                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
-                                    {child.label}
-                                  </span>
-                                </motion.a>
+                              {childrenWithOverview(item).map((child, idx) => (
+                                <Fragment key={child.href}>
+                                  <motion.a
+                                    href={child.href}
+                                    variants={dropdownItemVariants}
+                                    whileHover={{ x: 6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+                                    className="group flex items-center gap-3 py-1"
+                                  >
+                                    <span
+                                      aria-hidden
+                                      className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
+                                    />
+                                    <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
+                                      {child.label}
+                                    </span>
+                                  </motion.a>
+                                  {idx === 0 && (
+                                    <motion.span
+                                      aria-hidden
+                                      variants={dropdownItemVariants}
+                                      className="my-1 ml-6 h-px w-16 bg-white/15"
+                                    />
+                                  )}
+                                </Fragment>
                               ))}
                             </motion.div>
                           )}
