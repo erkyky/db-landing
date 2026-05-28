@@ -75,10 +75,17 @@ export default function NavMenu() {
   const [visible, setVisible] = useState(true);
   const [openKey, setOpenKey] = useState<string | null>(null);
   const closeTimer = useRef<number | null>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY < HIDE_AFTER_PX);
-    onScroll();
+    lastScrollY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const isAtTop = y < HIDE_AFTER_PX;
+      const isScrollingUp = y < lastScrollY.current;
+      setVisible(isAtTop || isScrollingUp);
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

@@ -189,7 +189,7 @@ export function BeamsBackground({
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0"
-                style={{ filter: "blur(20px)" }}
+                style={{ filter: "blur(20px)", transform: "translate3d(0, 0, 0)" }}
             />
 
             <div className="relative z-10 flex min-h-screen w-full flex-col">

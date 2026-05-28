@@ -143,7 +143,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 key={i}
                 className="font-serif leading-relaxed text-white/70"
                 style={{
-                  fontSize: "clamp(0.95rem, 1.15vw, 1.5rem)",
+                  fontSize: "clamp(0.875rem, 1.0vw, 1.3rem)",
                   marginBottom: "clamp(0.5rem, 1vh, 1rem)",
                 }}
                 variants={itemVariants}

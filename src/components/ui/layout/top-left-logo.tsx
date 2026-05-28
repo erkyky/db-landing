@@ -1,16 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const HIDE_AFTER_PX = 80;
 
 export default function TopLeftLogo() {
   const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY < HIDE_AFTER_PX);
-    onScroll();
+    lastScrollY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const isAtTop = y < HIDE_AFTER_PX;
+      const isScrollingUp = y < lastScrollY.current;
+      setVisible(isAtTop || isScrollingUp);
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
