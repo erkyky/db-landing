@@ -50,6 +50,33 @@ const headlineLetter = {
   },
 };
 
+// Slower, more deliberate entrance for the two main on-scroll sections.
+// Used so the audience clearly perceives the cascade ("the best entering the stage").
+const slowContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.25, delayChildren: 0.4 },
+  },
+};
+
+const slowItemVariants = {
+  hidden: { y: 36, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const slowAccentRule = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const heroStats = [
   { value: "16M+", label: "Square feet" },
   { value: "$10.4B", label: "Capital raised" },
@@ -140,40 +167,40 @@ export default function AboutPage() {
         {/* 2 · Leadership — editorial image + split bios */}
         <motion.section
           className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
-          variants={containerVariants}
+          variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           <motion.div
             className="mb-4 flex items-center gap-6"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
               Executive Officers
             </p>
             <motion.div
               className="h-px flex-1 origin-left bg-[#cca885]/40"
-              variants={accentRule}
+              variants={slowAccentRule}
             />
           </motion.div>
           <motion.h2
             className="font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             Where Two Veterans Converge on One Mission.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
+            variants={slowAccentRule}
           />
           <motion.div
             className="mt-20 grid gap-16 md:grid-cols-2 md:gap-0"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             <motion.div
               className="group md:pr-16"
-              variants={itemVariants}
+              variants={slowItemVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
@@ -190,7 +217,7 @@ export default function AboutPage() {
             </motion.div>
             <motion.div
               className="group md:border-l md:border-[#cca885]/25 md:pl-16"
-              variants={itemVariants}
+              variants={slowItemVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
             >
@@ -209,7 +236,7 @@ export default function AboutPage() {
 
           <motion.div
             className="mt-24 grid grid-cols-2 gap-x-8 gap-y-10 md:mt-32 md:grid-cols-4"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             {heroStats.map((stat, i) => (
               <motion.div
@@ -219,7 +246,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
               >
                 <p className="font-serif text-stat text-[#cca885]">
-                  <CountUp value={stat.value} delay={0.2 + i * 0.12} />
+                  <CountUp value={stat.value} delay={1.6 + i * 0.18} />
                 </p>
                 <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
                 <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
@@ -233,35 +260,35 @@ export default function AboutPage() {
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
           className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
-          variants={containerVariants}
+          variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           <motion.div
             className="mb-4 flex items-center gap-6"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
               Asset class experience
             </p>
             <motion.div
               className="h-px flex-1 origin-left bg-[#cca885]/40"
-              variants={accentRule}
+              variants={slowAccentRule}
             />
           </motion.div>
           <motion.h2
             className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
+            variants={slowItemVariants}
           >
             Hands-on across the asset classes that shape the strategy.
           </motion.h2>
           <motion.div
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
+            variants={slowAccentRule}
           />
           <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
-            <motion.div variants={itemVariants}>
+            <motion.div variants={slowItemVariants}>
               <p className="font-serif text-body leading-relaxed text-white/58">
                 Office, mixed-use, multifamily, and single-family rental. A range
                 that helps us compare opportunities rather than chase whatever is
@@ -273,7 +300,7 @@ export default function AboutPage() {
                 execution and single-family portfolio management.
               </p>
             </motion.div>
-            <motion.div variants={itemVariants}>
+            <motion.div variants={slowItemVariants}>
               <InteractiveImageAccordion />
             </motion.div>
           </div>
