@@ -141,7 +141,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             {descriptions.map((desc, i) => (
               <motion.p
                 key={i}
-                className="font-serif leading-relaxed text-white/70"
+                className="font-serif leading-normal text-white/70"
                 style={{
                   fontSize: "clamp(0.875rem, 1.0vw, 1.3rem)",
                   marginBottom: "clamp(0.5rem, 1vh, 1rem)",

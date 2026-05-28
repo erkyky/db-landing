@@ -273,7 +273,7 @@ export function CinematicHero({
         <h1 className="hero-headline gsap-reveal text-hero-glow max-w-5xl text-5xl font-bold leading-[0.92] tracking-tight md:text-7xl lg:text-8xl xl:text-[7rem]">
           {headline}
         </h1>
-        <p className="hero-subtitle gsap-reveal mt-8 max-w-3xl text-xl leading-relaxed text-white/60 md:text-2xl">
+        <p className="hero-subtitle gsap-reveal mt-8 max-w-3xl text-xl leading-normal text-white/60 md:text-2xl">
           {subtitle}
         </p>
       </div>
@@ -283,7 +283,7 @@ export function CinematicHero({
         <h2 className="max-w-4xl text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl text-hero-glow">
           Ready to explore the thesis?
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-white/50 md:text-xl font-light leading-relaxed">
+        <p className="mt-6 max-w-xl text-lg text-white/50 md:text-xl font-light leading-normal">
           We welcome conversations with aligned investors who value transparency and execution discipline.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-5">

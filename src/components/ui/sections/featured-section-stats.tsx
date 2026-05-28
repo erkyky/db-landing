@@ -129,7 +129,7 @@ export function FeaturedSectionStats({
           variants={itemVariants}
         />
         <motion.p
-          className="mb-12 max-w-3xl font-serif text-lg leading-relaxed text-white/55 md:text-xl"
+          className="mb-12 max-w-3xl font-serif text-lg leading-normal text-white/55 md:text-xl"
           variants={itemVariants}
         >
           {subtitle}

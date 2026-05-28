@@ -239,7 +239,7 @@ export default function InvestmentsPage() {
               ))}
             </motion.h1>
             <motion.p
-              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
+              className="max-w-xl self-start ml-auto font-serif text-body leading-normal text-white/60"
               variants={itemVariants}
             >
               Grounded in demographic inevitability, disciplined judgment, and
@@ -305,7 +305,7 @@ export default function InvestmentsPage() {
                     {w.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-5 font-serif text-body leading-relaxed text-white/60">
+                  <p className="mt-5 font-serif text-body leading-normal text-white/60">
                     {w.desc}
                   </p>
                 </motion.div>
@@ -377,7 +377,7 @@ export default function InvestmentsPage() {
                   Multifamily
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
-                <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
+                <p className="mt-6 font-serif text-body leading-normal text-white/60">
                   We invest in apartment communities supported by durable
                   demand, evolving demographics, and opportunities for
                   long-term value creation.
@@ -386,7 +386,7 @@ export default function InvestmentsPage() {
                   {multifamilyBullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-4 font-serif text-body leading-relaxed text-white/60"
+                      className="flex gap-4 font-serif text-body leading-normal text-white/60"
                     >
                       <span
                         className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
@@ -435,7 +435,7 @@ export default function InvestmentsPage() {
                   </h4>
                   <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
                     <div className="min-h-0 overflow-hidden">
-                      <p className="mt-4 font-serif text-body leading-relaxed text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
+                      <p className="mt-4 font-serif text-body leading-normal text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
                         {p.desc}
                       </p>
                     </div>
@@ -484,7 +484,7 @@ export default function InvestmentsPage() {
                   <p className="mt-3 font-serif text-h3-sm text-white">
                     {s.label}
                   </p>
-                  <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
+                  <p className="mt-3 font-serif text-body leading-normal text-white/55">
                     {s.detail}
                   </p>
                 </motion.div>
@@ -507,7 +507,7 @@ export default function InvestmentsPage() {
                     <h4 className="font-serif text-h3-sm text-white">
                       {t.title}
                     </h4>
-                    <p className="mt-3 font-serif text-body leading-relaxed text-white/55">
+                    <p className="mt-3 font-serif text-body leading-normal text-white/55">
                       {t.desc}
                     </p>
                   </div>
@@ -535,7 +535,7 @@ export default function InvestmentsPage() {
                   Affordable Housing
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
-                <p className="mt-6 font-serif text-body leading-relaxed text-white/60">
+                <p className="mt-6 font-serif text-body leading-normal text-white/60">
                   We invest in housing that serves working families, seniors,
                   and essential communities, often through Low-Income Housing
                   Tax Credit (LIHTC) partnerships, with an emphasis on
@@ -557,7 +557,7 @@ export default function InvestmentsPage() {
                         <div className="mt-3 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover/bullet:w-20 group-hover/bullet:bg-[#cca885]" />
                         <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover/bullet:grid-rows-[1fr]">
                           <div className="min-h-0 overflow-hidden">
-                            <p className="mt-4 font-serif text-body leading-relaxed text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover/bullet:opacity-100">
+                            <p className="mt-4 font-serif text-body leading-normal text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover/bullet:opacity-100">
                               {b.desc}
                             </p>
                           </div>
@@ -638,7 +638,7 @@ export default function InvestmentsPage() {
                     {p.title}
                   </h3>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-5 font-serif text-body leading-relaxed text-white/60">
+                  <p className="mt-5 font-serif text-body leading-normal text-white/60">
                     {p.desc}
                   </p>
                 </motion.div>

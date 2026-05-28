@@ -128,7 +128,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background leading-relaxed text-foreground;
+    @apply bg-background leading-normal text-foreground;
     font-size: clamp(15px, 1vw, 22px);
   }
   html {

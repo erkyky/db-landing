@@ -156,7 +156,7 @@ export default function AboutPage() {
               ))}
             </motion.h1>
             <motion.p
-              className="max-w-xl self-start ml-auto font-serif text-body leading-relaxed text-white/60"
+              className="max-w-xl self-start ml-auto font-serif text-body leading-normal text-white/60"
               variants={itemVariants}
             >
               One team, one conversation across every deal we touch.
@@ -289,12 +289,12 @@ export default function AboutPage() {
           />
           <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
             <motion.div variants={slowItemVariants}>
-              <p className="font-serif text-body leading-relaxed text-white/58">
+              <p className="font-serif text-body leading-normal text-white/58">
                 Office, mixed-use, multifamily, and single-family rental. A range
                 that helps us compare opportunities rather than chase whatever is
                 fashionable.
               </p>
-              <p className="mt-6 font-serif text-body leading-relaxed text-white/58">
+              <p className="mt-6 font-serif text-body leading-normal text-white/58">
                 Each asset class shaped a discipline we still apply today, from
                 large-scale acquisitions at Hines and Starwood to value-add
                 execution and single-family portfolio management.
