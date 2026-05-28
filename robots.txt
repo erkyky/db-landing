@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /sign-in
-
-Sitemap: https://deepbluepartners.co/sitemap.xml

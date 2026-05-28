@@ -216,7 +216,7 @@ export default function SustainabilityPage() {
         {/* Pillars */}
         <section
           ref={pillarsRef}
-          className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full px-[max(1.5rem,14vw)] pb-24 pt-24"
         >
           <motion.div style={pillarsTitleStyle}>
             <div className="mb-4 flex items-center gap-6">
@@ -297,7 +297,10 @@ export default function SustainabilityPage() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                      <p className="font-serif text-stat text-[#cca885]">
+                      <p
+                        className="font-serif text-stat text-[#cca885]"
+                        style={item.stat === "Net Zero" ? { fontSize: "clamp(1.3rem, 2.6vw, 2.6rem)" } : undefined}
+                      >
                         <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                       </p>
                       <p className="font-serif text-body text-white">
