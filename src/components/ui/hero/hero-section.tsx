@@ -71,6 +71,35 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       },
     };
 
+    // Brass plaque reveal — wrapper participates in parent stagger; inner
+    // mask + sweep animate when wrapper's turn arrives.
+    const logoWrapperVariants = {
+      hidden: {},
+      visible: {},
+    };
+
+    const logoMaskVariants = {
+      hidden: { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+      visible: {
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] as const },
+      },
+    };
+
+    const logoSweepVariants = {
+      hidden: { x: "-110%", opacity: 0 },
+      visible: {
+        x: "110%",
+        opacity: [0, 1, 1, 0],
+        transition: {
+          duration: 1.2,
+          ease: "easeOut" as const,
+          delay: 0.7,
+          times: [0, 0.15, 0.85, 1],
+        },
+      },
+    };
+
     return (
       <motion.section
         ref={ref}
@@ -114,16 +143,30 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               ))}
             </motion.p>
 
-            {/* Logo */}
+            {/* Logo — brass plaque reveal */}
             <motion.div
-              variants={itemVariants}
-              style={{ marginBottom: "clamp(1rem, 2vh, 2.5rem)" }}
+              variants={logoWrapperVariants}
+              className="relative overflow-hidden"
+              style={{
+                marginBottom: "clamp(1rem, 2vh, 2.5rem)",
+                width: "clamp(180px, 22vw, 400px)",
+              }}
             >
-              <img
-                src={logo.url}
-                alt={logo.alt}
-                className="h-auto brightness-0 invert opacity-90"
-                style={{ width: "clamp(180px, 22vw, 400px)" }}
+              <motion.div variants={logoMaskVariants}>
+                <img
+                  src={logo.url}
+                  alt={logo.alt}
+                  className="h-auto w-full brightness-0 invert opacity-90"
+                />
+              </motion.div>
+              <motion.div
+                aria-hidden
+                variants={logoSweepVariants}
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(105deg, transparent 35%, rgba(204,168,133,0.65) 50%, transparent 65%)",
+                }}
               />
             </motion.div>
 
