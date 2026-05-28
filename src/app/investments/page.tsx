@@ -378,7 +378,7 @@ export default function InvestmentsPage() {
               variants={imageRevealLeft}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/investments/bright.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
@@ -454,7 +454,7 @@ export default function InvestmentsPage() {
                 variants={imageRevealLeft}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                  className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: "url(/investments/22.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
@@ -683,7 +683,7 @@ export default function InvestmentsPage() {
               variants={imageRevealLeft}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/investments/newtactical.jpg)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
