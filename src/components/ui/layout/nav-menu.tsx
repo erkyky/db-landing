@@ -101,7 +101,9 @@ export default function NavMenu() {
             animate={{ paddingBottom: dropdownOpen ? DROPDOWN_PAD : 0 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Bar surface — gradient fill + backdrop blur, fades in/out */}
+            {/* Bar surface — gradient fill + backdrop blur, fades in/out.
+                Mask fades the last 14px of the element (color AND blur) to true
+                transparent so there's no hard edge line at the bottom. */}
             <AnimatePresence>
               {surfaceVisible && (
                 <motion.div
@@ -114,23 +116,12 @@ export default function NavMenu() {
                   className="pointer-events-none absolute inset-0 backdrop-blur-md"
                   style={{
                     backgroundImage:
-                      "linear-gradient(to bottom, rgba(13,18,26,0.85) 0%, rgba(13,18,26,0.80) 60%, rgba(13,18,26,0.55) 100%)",
+                      "linear-gradient(to bottom, rgba(13,18,26,0.85) 0%, rgba(13,18,26,0.80) 60%, rgba(13,18,26,0.55) 92%, rgba(13,18,26,0) 100%)",
+                    maskImage:
+                      "linear-gradient(to bottom, black calc(100% - 14px), transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, black calc(100% - 14px), transparent 100%)",
                   }}
-                />
-              )}
-            </AnimatePresence>
-
-            {/* Soft bottom fade — overlaps the bar bottom and bleeds into the page */}
-            <AnimatePresence>
-              {surfaceVisible && (
-                <motion.div
-                  key="bottomfade"
-                  aria-hidden
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="pointer-events-none absolute inset-x-0 -bottom-6 h-24 bg-gradient-to-b from-[#0d121a]/40 via-[#0d121a]/12 to-transparent"
                 />
               )}
             </AnimatePresence>

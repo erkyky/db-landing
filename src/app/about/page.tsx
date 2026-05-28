@@ -263,7 +263,7 @@ export default function AboutPage() {
           variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           <motion.div
             className="mb-4 flex items-center gap-6"
