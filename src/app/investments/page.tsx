@@ -373,7 +373,7 @@ export default function InvestmentsPage() {
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-sm text-white">
+                <h3 className="font-serif text-h2 text-white">
                   Multifamily
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -478,6 +478,7 @@ export default function InvestmentsPage() {
                       value={s.value}
                       delay={0.2 + i * 0.15}
                       numberClassName="text-[1.4em] leading-none"
+                      suffixClassName="text-[0.7em] leading-none"
                     />
                   </p>
                   <p className="mt-3 font-serif text-h3-sm text-white">
@@ -530,7 +531,7 @@ export default function InvestmentsPage() {
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-serif text-h3-sm text-white">
+                <h3 className="font-serif text-h2 text-white">
                   Affordable Housing
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
