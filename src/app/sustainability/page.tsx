@@ -123,7 +123,7 @@ export default function SustainabilityPage() {
         {/* Hero — image with text overlay (investments-pattern reveal) */}
         <motion.section
           ref={heroRef}
-          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
+          className="flex w-full flex-col section-px pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -187,14 +187,14 @@ export default function SustainabilityPage() {
         {/* THE STANDARD — Three pillars */}
         <motion.section
           id="the-standard"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-24 pt-24"
+          className="w-full scroll-mt-28 section-px pb-24 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               THE STANDARD
             </p>
             <motion.div
@@ -237,14 +237,14 @@ export default function SustainabilityPage() {
         {/* THE EVIDENCE — Commitments */}
         <motion.section
           id="the-evidence"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               THE EVIDENCE
             </p>
             <motion.div

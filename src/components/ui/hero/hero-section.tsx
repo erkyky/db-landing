@@ -104,14 +104,14 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           style={{
             paddingLeft: "clamp(1.5rem, 6vw, 8rem)",
             paddingRight: "clamp(1.5rem, 3vw, 4rem)",
-            paddingTop: "clamp(8rem, 14vh, 12rem)",
+            paddingTop: "clamp(6rem, 14vh, 12rem)",
             paddingBottom: "clamp(2rem, 4vh, 4rem)",
           }}
         >
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan — letter-by-letter reveal */}
             <motion.p
-              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-nowrap"
+              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-normal md:whitespace-nowrap"
               style={{
                 fontSize: "clamp(0.9rem, 1.4vw, 1.6rem)",
                 marginBottom: "clamp(0.75rem, 1.5vh, 1.5rem)",
@@ -136,7 +136,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               className="relative overflow-hidden"
               style={{
                 marginBottom: "clamp(1rem, 2vh, 2.5rem)",
-                width: "clamp(180px, 22vw, 400px)",
+                width: "clamp(150px, 22vw, 400px)",
               }}
             >
               <motion.div variants={logoMaskVariants}>

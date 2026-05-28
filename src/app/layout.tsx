@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -35,6 +35,14 @@ export const metadata: Metadata = {
     description:
       "A forward-thinking private equity firm dedicated to strategic real estate investments.",
   },
+};
+
+// Render at device width on phones (otherwise mobile Safari assumes a ~980px
+// desktop viewport and scales the whole page down). Pinch-zoom left enabled
+// for accessibility — no maximumScale / userScalable.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

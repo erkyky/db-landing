@@ -118,7 +118,7 @@ export default function AboutPage() {
         {/* Hero — banner image + editorial headline */}
         <motion.section
           ref={heroRef}
-          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
+          className="flex w-full flex-col section-px pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -179,7 +179,7 @@ export default function AboutPage() {
         {/* 2 · Leadership — editorial image + split bios */}
         <motion.section
           id="executive-officers"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
@@ -189,7 +189,7 @@ export default function AboutPage() {
             className="mb-4 flex items-center gap-6"
             variants={slowItemVariants}
           >
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               Executive Officers
             </p>
             <motion.div
@@ -273,7 +273,7 @@ export default function AboutPage() {
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
           id="asset-class-experience"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
@@ -283,7 +283,7 @@ export default function AboutPage() {
             className="mb-4 flex items-center gap-6"
             variants={slowItemVariants}
           >
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               Asset class experience
             </p>
             <motion.div

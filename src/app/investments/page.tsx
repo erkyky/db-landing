@@ -201,7 +201,7 @@ export default function InvestmentsPage() {
         {/* Hero — banner image + editorial headline */}
         <motion.section
           ref={heroRef}
-          className="flex w-full flex-col px-[max(1.5rem,14vw)] pb-24 pt-32"
+          className="flex w-full flex-col section-px pb-24 pt-32"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -263,7 +263,7 @@ export default function InvestmentsPage() {
         {/* 1 · What We Do — three-pillar hover-to-reveal */}
         <motion.section
           id="what-we-do"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -273,7 +273,7 @@ export default function InvestmentsPage() {
             className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               What We Do
             </p>
             <motion.div
@@ -330,7 +330,7 @@ export default function InvestmentsPage() {
         <section id="private-transactions" className="w-full scroll-mt-28">
           {/* Block intro */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-24 pt-24"
+            className="w-full section-px pb-24 pt-24"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -340,7 +340,7 @@ export default function InvestmentsPage() {
               className="mb-4 flex items-center gap-6"
               variants={itemVariants}
             >
-              <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
                 Private Transactions
               </p>
               <motion.div
@@ -362,7 +362,7 @@ export default function InvestmentsPage() {
 
           {/* 2a · Multifamily */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-32"
+            className="w-full section-px pb-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -414,7 +414,7 @@ export default function InvestmentsPage() {
 
           {/* 2b · Strategic Operations */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-40 pt-32"
+            className="w-full section-px pb-40 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -459,7 +459,7 @@ export default function InvestmentsPage() {
 
           {/* 2c · Investment Thesis */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-40 pt-32"
+            className="w-full section-px pb-40 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -530,7 +530,7 @@ export default function InvestmentsPage() {
 
           {/* 2d · Affordable Housing */}
           <motion.div
-            className="w-full px-[max(1.5rem,14vw)] pb-48 pt-32"
+            className="w-full section-px pb-48 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -596,7 +596,7 @@ export default function InvestmentsPage() {
         {/* 3 · Tactical Opportunities */}
         <motion.section
           id="tactical-opportunities"
-          className="w-full scroll-mt-28 px-[max(1.5rem,14vw)] pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -606,7 +606,7 @@ export default function InvestmentsPage() {
             className="mb-4 flex items-center gap-6"
             variants={itemVariants}
           >
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
               Tactical Opportunities
             </p>
             <motion.div

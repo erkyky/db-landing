@@ -26,7 +26,7 @@ const AccordionItem = ({
   return (
     <motion.button
       type="button"
-      className="relative h-[400px] overflow-hidden border border-transparent text-left transition-[flex-grow,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px]"
+      className="relative min-h-[150px] w-full overflow-hidden border border-transparent text-left transition-[flex-grow,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 md:min-h-0 md:h-[400px] md:w-auto lg:h-[520px]"
       style={{
         flexGrow: isActive ? 4 : 1,
         flexShrink: 1,
@@ -52,10 +52,10 @@ const AccordionItem = ({
       )}
 
       <span
-        className={`absolute font-serif font-medium whitespace-nowrap transition-all duration-300 ease-in-out ${
+        className={`absolute bottom-6 left-5 font-serif font-medium whitespace-nowrap text-lg transition-all duration-300 ease-in-out ${
           isActive
-            ? "bottom-6 left-5 text-xl text-white sm:left-7 sm:text-[1.65rem]"
-            : "bottom-24 left-1/2 w-auto -translate-x-1/2 rotate-90 text-left text-base text-white/72 sm:text-lg"
+            ? "text-white md:left-7 md:text-[1.65rem]"
+            : "text-white/70 md:bottom-24 md:left-1/2 md:-translate-x-1/2 md:rotate-90 md:text-base md:text-white/72"
         }`}
       >
         {item.title}
@@ -100,7 +100,7 @@ export function InteractiveImageAccordion({
 
   return (
     <div className={className}>
-      <div className="flex w-full items-center gap-3 px-1 py-4">
+      <div className="flex w-full flex-col gap-3 px-1 py-4 md:flex-row md:items-center">
         {items.map((item, index) => (
           <AccordionItem
             key={item.id}

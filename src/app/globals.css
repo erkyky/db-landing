@@ -192,4 +192,12 @@
   .text-body { font-size: clamp(1rem, 1.2vw, 1.625rem); }
   .text-body-sm { font-size: clamp(0.9375rem, 1.05vw, 1.375rem); }
   .text-stat { font-size: clamp(1.5rem, 3vw, 3rem); }
+
+  /* Shared section gutter. On phones a comfortable ~23–40px inset (vs. the old
+     14vw ≈ 55px that crushed content); from md up it restores the original 14vw
+     exactly, so desktop/tablet layout is unchanged. */
+  .section-px { padding-inline: clamp(1.25rem, 6vw, 2.5rem); }
+  @media (min-width: 768px) {
+    .section-px { padding-inline: 14vw; }
+  }
 }
