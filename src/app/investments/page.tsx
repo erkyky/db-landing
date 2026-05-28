@@ -457,7 +457,7 @@ export default function InvestmentsPage() {
             </div>
           </motion.div>
 
-          {/* 2c · Investment Thesis */}
+          {/* 2c · Investment Thesis — sticky thesis (left) + flowing evidence (right) */}
           <motion.div
             className="w-full section-px pb-40 pt-32"
             variants={containerVariants}
@@ -465,66 +465,77 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <motion.h3
-              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-              variants={itemVariants}
-            >
-              Demographic tailwinds. Thoughtful entry points.
-            </motion.h3>
-            <motion.div
-              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-              variants={accentRule}
-            />
-
-            <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-0">
-              {marketSignals.map((s, i) => (
+            <div className="grid gap-14 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
+              {/* Left — thesis, pinned on desktop while the evidence scrolls past */}
+              <motion.div
+                className="lg:sticky lg:top-28 lg:self-start"
+                variants={itemVariants}
+              >
+                <h3 className="max-w-md font-serif text-h2 leading-[1.08] text-white">
+                  Demographic tailwinds. Thoughtful entry points.
+                </h3>
                 <motion.div
-                  key={s.label}
-                  className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                  variants={itemVariants}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-serif text-h2 leading-none text-[#cca885]">
-                    <CountUp
-                      value={s.value}
-                      delay={0.2 + i * 0.15}
-                      numberClassName="text-[1.4em] leading-none"
-                      suffixClassName="text-[0.7em] leading-none"
-                    />
-                  </p>
-                  <p className="mt-3 font-serif text-h3-sm text-white">
-                    {s.label}
-                  </p>
-                  <p className="mt-3 font-serif text-body leading-normal text-white/55">
-                    {s.detail}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                  className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+                  variants={accentRule}
+                />
+                <p className="mt-6 max-w-sm font-serif text-body leading-normal text-white/55">
+                  Migration sets the direction. Discipline sets the price.
+                </p>
+              </motion.div>
 
-            <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
-              {tenets.map((t, i) => (
-                <motion.div
-                  key={t.title}
-                  className="group flex gap-6"
-                  variants={itemVariants}
-                  whileHover={{ x: 6 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <div>
-                    <h4 className="font-serif text-h3-sm text-white">
-                      {t.title}
-                    </h4>
-                    <p className="mt-3 font-serif text-body leading-normal text-white/55">
-                      {t.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              {/* Right — the evidence: demographic signals, then the entry tenets */}
+              <div>
+                <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
+                  {marketSignals.map((s, i) => (
+                    <motion.div
+                      key={s.label}
+                      className={`group relative px-0 sm:px-8 ${i > 0 ? "sm:border-l sm:border-[#cca885]/15" : ""}`}
+                      variants={itemVariants}
+                      whileHover={{ y: -4 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="font-serif text-h2 leading-none text-[#cca885]">
+                        <CountUp
+                          value={s.value}
+                          delay={0.2 + i * 0.15}
+                          numberClassName="text-[1.4em] leading-none"
+                          suffixClassName="text-[0.7em] leading-none"
+                        />
+                      </p>
+                      <p className="mt-3 font-serif text-h3-sm text-white">
+                        {s.label}
+                      </p>
+                      <p className="mt-3 font-serif text-body leading-normal text-white/55">
+                        {s.detail}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-12 md:gap-y-12">
+                  {tenets.map((t, i) => (
+                    <motion.div
+                      key={t.title}
+                      className="group flex gap-5"
+                      variants={itemVariants}
+                      whileHover={{ x: 6 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
+                        {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <div>
+                        <h4 className="font-serif text-h3-sm text-white">
+                          {t.title}
+                        </h4>
+                        <p className="mt-3 font-serif text-body leading-normal text-white/55">
+                          {t.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
