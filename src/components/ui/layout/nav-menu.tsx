@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -53,7 +53,6 @@ const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
 const DROPDOWN_BASE_PAD = 50;
 const DROPDOWN_PER_ITEM = 28;
-const DROPDOWN_DIVIDER_PAD = 9;
 
 const dropdownContainerVariants = {
   hidden: { opacity: 0, y: -6 },
@@ -141,8 +140,7 @@ export default function NavMenu() {
   const dropdownOpen = Boolean(activeDropdownItem?.children?.length);
   const dropdownPad = dropdownOpen
     ? DROPDOWN_BASE_PAD +
-      childrenWithOverview(activeDropdownItem!).length * DROPDOWN_PER_ITEM +
-      DROPDOWN_DIVIDER_PAD
+      childrenWithOverview(activeDropdownItem!).length * DROPDOWN_PER_ITEM
     : 0;
   // Show the bar surface either when scrolled-revealed OR when any dropdown is
   // open (so dropdown text doesn't sit on raw page content).
@@ -242,30 +240,22 @@ export default function NavMenu() {
                               exit="exit"
                               className="absolute left-0 top-full mt-4 flex flex-col items-start gap-1 whitespace-nowrap"
                             >
-                              {childrenWithOverview(item).map((child, idx) => (
-                                <Fragment key={child.href}>
-                                  <motion.a
-                                    href={child.href}
-                                    variants={dropdownItemVariants}
-                                    whileHover={{ x: 6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-                                    className="group flex items-center gap-3 py-1"
-                                  >
-                                    <span
-                                      aria-hidden
-                                      className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
-                                    />
-                                    <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
-                                      {child.label}
-                                    </span>
-                                  </motion.a>
-                                  {idx === 0 && (
-                                    <motion.span
-                                      aria-hidden
-                                      variants={dropdownItemVariants}
-                                      className="my-1 ml-6 h-px w-16 bg-white/15"
-                                    />
-                                  )}
-                                </Fragment>
+                              {childrenWithOverview(item).map((child) => (
+                                <motion.a
+                                  key={child.href}
+                                  href={child.href}
+                                  variants={dropdownItemVariants}
+                                  whileHover={{ x: 6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+                                  className="group flex items-center gap-3 py-1"
+                                >
+                                  <span
+                                    aria-hidden
+                                    className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
+                                  />
+                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(11px,0.78vw,14px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
+                                    {child.label}
+                                  </span>
+                                </motion.a>
                               ))}
                             </motion.div>
                           )}
