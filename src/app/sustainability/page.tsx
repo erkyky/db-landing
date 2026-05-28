@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
@@ -156,19 +156,21 @@ export default function SustainabilityPage() {
                 aria-label="Investing with care for the world we share."
               >
                 {"Investing with care for the world we share.".split(" ").map((word, wi, words) => (
-                    <span key={wi} className="inline-block whitespace-nowrap">
-                      {Array.from(word).map((char, ci) => (
-                        <motion.span
-                          key={ci}
-                          variants={headlineLetter}
-                          className="inline-block"
-                          aria-hidden="true"
-                        >
-                          {char}
-                        </motion.span>
-                      ))}
+                    <React.Fragment key={wi}>
+                      <span className="inline-block whitespace-nowrap">
+                        {Array.from(word).map((char, ci) => (
+                          <motion.span
+                            key={ci}
+                            variants={headlineLetter}
+                            className="inline-block"
+                            aria-hidden="true"
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                      </span>
                       {wi < words.length - 1 ? " " : ""}
-                    </span>
+                    </React.Fragment>
                   ))}
                 </motion.h1>
               <motion.p
@@ -188,7 +190,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
@@ -237,7 +239,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">

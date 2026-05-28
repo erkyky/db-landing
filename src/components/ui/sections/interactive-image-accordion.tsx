@@ -26,11 +26,13 @@ const AccordionItem = ({
   return (
     <motion.button
       type="button"
-      className={`relative h-[400px] overflow-hidden border border-transparent text-left transition-[width,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px] ${
-        isActive
-          ? "w-[320px] sm:w-[440px] lg:w-[440px]"
-          : "w-[90px] sm:w-[120px]"
-      }`}
+      className="relative h-[400px] overflow-hidden border border-transparent text-left transition-[flex-grow,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 sm:h-[470px] lg:h-[520px]"
+      style={{
+        flexGrow: isActive ? 4 : 1,
+        flexShrink: 1,
+        flexBasis: 0,
+        minWidth: isActive ? undefined : "60px",
+      }}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
       aria-pressed={isActive}
@@ -98,7 +100,7 @@ export function InteractiveImageAccordion({
 
   return (
     <div className={className}>
-      <div className="flex flex-row items-center justify-start gap-3 px-1 py-4">
+      <div className="flex w-full items-center gap-3 px-1 py-4">
         {items.map((item, index) => (
           <AccordionItem
             key={item.id}
