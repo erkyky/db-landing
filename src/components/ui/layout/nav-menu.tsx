@@ -47,9 +47,9 @@ const childrenWithOverview = (item: NavItem) =>
   item.children ? [{ label: "Overview", href: item.href }, ...item.children] : [];
 
 const SCROLL_THRESHOLD = 80;
-// Hover-intent delay (Baymard recommends 300–500ms) so users mousing toward
-// the parent label don't accidentally trigger the dropdown mid-click.
-const OPEN_DELAY_MS = 400;
+// Dropdowns open instantly on hover. The old hover-intent open delay existed to
+// protect the parent-label click, but the "Overview" row now gives a clear path
+// to the section page from inside the menu — so a snappy open is the better call.
 const CLOSE_DELAY_MS = 180;
 const DROPDOWN_BASE_PAD = 50;
 const DROPDOWN_PER_ITEM = 28;
@@ -91,7 +91,6 @@ export default function NavMenu() {
   const [openKey, setOpenKey] = useState<string | null>(null);
   const lastScrollY = useRef(0);
   const closeTimer = useRef<number | null>(null);
-  const openTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const y0 = window.scrollY;
@@ -112,7 +111,6 @@ export default function NavMenu() {
   useEffect(() => {
     return () => {
       if (closeTimer.current) window.clearTimeout(closeTimer.current);
-      if (openTimer.current) window.clearTimeout(openTimer.current);
     };
   }, []);
 
@@ -121,24 +119,9 @@ export default function NavMenu() {
       window.clearTimeout(closeTimer.current);
       closeTimer.current = null;
     }
-    // If the dropdown is already open (for any key), switch immediately —
-    // user has already cleared the hover-intent bar.
-    if (openKey !== null) {
-      setOpenKey(key);
-      return;
-    }
-    if (openTimer.current) window.clearTimeout(openTimer.current);
-    openTimer.current = window.setTimeout(() => {
-      setOpenKey(key);
-      openTimer.current = null;
-    }, OPEN_DELAY_MS);
+    setOpenKey(key);
   };
   const closeMenuSoon = () => {
-    // Cancel any pending open: user left before the delay elapsed.
-    if (openTimer.current) {
-      window.clearTimeout(openTimer.current);
-      openTimer.current = null;
-    }
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     closeTimer.current = window.setTimeout(() => setOpenKey(null), CLOSE_DELAY_MS);
   };
