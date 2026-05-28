@@ -633,7 +633,7 @@ export default function InvestmentsPage() {
                 variants={imageRevealRight}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-[1.02]"
+                  className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: "url(/investments/11.jpg)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
