@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
 
 const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
-const DROPDOWN_PAD = 144;
+const DROPDOWN_PAD = 128;
 
 export default function NavMenu() {
   const pathname = usePathname();
