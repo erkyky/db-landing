@@ -71,8 +71,9 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       },
     };
 
-    // Brass plaque reveal — wrapper participates in parent stagger; inner
-    // mask + sweep animate when wrapper's turn arrives.
+    // Logo reveal — clip-path mask sweeps from top to bottom over 1.4s.
+    // The wrapper participates in parent stagger; the inner mask animates
+    // when the wrapper's turn arrives.
     const logoWrapperVariants = {
       hidden: {},
       visible: {},
@@ -83,20 +84,6 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       visible: {
         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] as const },
-      },
-    };
-
-    const logoSweepVariants = {
-      hidden: { x: "-110%", opacity: 0 },
-      visible: {
-        x: "110%",
-        opacity: [0, 1, 1, 0],
-        transition: {
-          duration: 1.2,
-          ease: "easeOut" as const,
-          delay: 0.7,
-          times: [0, 0.15, 0.85, 1],
-        },
       },
     };
 
@@ -143,7 +130,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               ))}
             </motion.p>
 
-            {/* Logo — brass plaque reveal */}
+            {/* Logo — clip-path reveal, top to bottom */}
             <motion.div
               variants={logoWrapperVariants}
               className="relative overflow-hidden"
@@ -159,15 +146,6 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                   className="h-auto w-full brightness-0 invert opacity-90"
                 />
               </motion.div>
-              <motion.div
-                aria-hidden
-                variants={logoSweepVariants}
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(105deg, transparent 35%, rgba(204,168,133,0.65) 50%, transparent 65%)",
-                }}
-              />
             </motion.div>
 
             {/* Accent line */}
