@@ -39,12 +39,12 @@ const navItems: NavItem[] = [
   },
 ];
 
-// Prepend an explicit "Overview" link (→ the section's own landing page) to a
+// Prepend an explicit "At a Glance" link (→ the section's own landing page) to a
 // dropdown. The parent label is itself a link, but the deliberate, non-power-user
-// investor audience won't assume that — so we surface it as the first row, set
-// off by a hairline so it reads as "the whole page" above "its sections".
+// investor audience won't assume that — so we surface it as the first row, reading
+// as "the whole page" above "its sections".
 const childrenWithOverview = (item: NavItem) =>
-  item.children ? [{ label: "Overview", href: item.href }, ...item.children] : [];
+  item.children ? [{ label: "At a Glance", href: item.href }, ...item.children] : [];
 
 const SCROLL_THRESHOLD = 80;
 // Dropdowns open instantly on hover. The old hover-intent open delay existed to
