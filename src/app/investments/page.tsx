@@ -540,23 +540,27 @@ export default function InvestmentsPage() {
                   Tax Credit (LIHTC) partnerships, with an emphasis on
                   defensive cash flow, stability, and responsible ownership.
                 </p>
-                <ul className="mt-8 space-y-4 md:space-y-5">
-                  {affordableBullets.map((b) => (
+                <ul className="mt-10 space-y-8 md:space-y-10">
+                  {affordableBullets.map((b, i) => (
                     <li
                       key={b.label}
-                      className="group/bullet flex gap-4 font-serif text-body leading-relaxed text-white/60"
+                      className="group/bullet flex gap-6"
                     >
-                      <span
-                        className="mt-[clamp(3.5rem,6vw,5rem)] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 group-hover/bullet:mt-[0.9em] group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
-                        aria-hidden
-                      />
-                      <div className="relative flex-1 min-h-[clamp(9rem,13vw,11rem)]">
-                        <p className="absolute inset-x-0 top-1/2 -translate-y-1/2 font-serif text-[clamp(1.25rem,1.9vw,2rem)] leading-[clamp(1.75rem,2.6vw,2.75rem)] text-white/80 transition-all duration-300 group-hover/bullet:top-0 group-hover/bullet:translate-y-0 group-hover/bullet:text-[clamp(1rem,1.2vw,1.625rem)] group-hover/bullet:text-[#cca885]">
+                      <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-500 ease-out group-hover/bullet:text-[#cca885]/80">
+                        {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <div className="flex-1">
+                        <h4 className="font-serif text-h3-sm text-white">
                           {b.label}
-                        </p>
-                        <p className="absolute inset-x-0 top-[clamp(2rem,2.9vw,3rem)] font-serif text-body leading-relaxed text-white/55 opacity-0 transition-opacity duration-300 group-hover/bullet:opacity-100">
-                          {b.desc}
-                        </p>
+                        </h4>
+                        <div className="mt-3 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover/bullet:w-20 group-hover/bullet:bg-[#cca885]" />
+                        <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover/bullet:grid-rows-[1fr]">
+                          <div className="min-h-0 overflow-hidden">
+                            <p className="mt-4 font-serif text-body leading-relaxed text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover/bullet:opacity-100">
+                              {b.desc}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </li>
                   ))}
