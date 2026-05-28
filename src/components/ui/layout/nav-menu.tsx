@@ -29,6 +29,34 @@ const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
 const DROPDOWN_PAD = 128;
 
+const dropdownContainerVariants = {
+  hidden: { opacity: 0, y: -6 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.28,
+      ease: [0.22, 1, 0.36, 1] as const,
+      staggerChildren: 0.07,
+      delayChildren: 0.06,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -6,
+    transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const dropdownItemVariants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 export default function NavMenu() {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -174,26 +202,28 @@ export default function NavMenu() {
                           {open && (
                             <motion.div
                               key="dropdown"
-                              initial={{ opacity: 0, y: -6 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -6 }}
-                              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                              variants={dropdownContainerVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="exit"
                               className="absolute left-0 top-full mt-4 flex flex-col items-start gap-1 whitespace-nowrap"
                             >
                               {item.children!.map((child) => (
-                                <a
+                                <motion.a
                                   key={child.href}
                                   href={child.href}
+                                  variants={dropdownItemVariants}
+                                  whileHover={{ x: 6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
                                   className="group flex items-center gap-3 py-1"
                                 >
                                   <span
                                     aria-hidden
-                                    className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
+                                    className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
                                   />
-                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
+                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
                                     {child.label}
                                   </span>
-                                </a>
+                                </motion.a>
                               ))}
                             </motion.div>
                           )}
