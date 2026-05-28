@@ -219,10 +219,13 @@ export default function InvestmentsPage() {
       window.removeEventListener("resize", update);
     };
   }, [thesisProgress]);
-  const statsOpacity = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [0, 1, 1, 0]);
-  const statsY = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [40, 0, 0, 60]);
-  const tenetsOpacity = useTransform(thesisProgress, [0.42, 0.58, 0.95], [0, 1, 1]);
-  const tenetsY = useTransform(thesisProgress, [0.42, 0.58], [60, 0]);
+  // Stats: slow fade+rise in (0.05→0.18), sit a long while (→0.46), then fade
+  // out sinking down. Tenets: rise+fade in (0.54→0.70) and stay to the end so
+  // there's no dead "nothing happening" tail before Affordable Housing.
+  const statsOpacity = useTransform(thesisProgress, [0.05, 0.18, 0.46, 0.56], [0, 1, 1, 0]);
+  const statsY = useTransform(thesisProgress, [0.05, 0.18, 0.46, 0.56], [30, 0, 0, 50]);
+  const tenetsOpacity = useTransform(thesisProgress, [0.54, 0.7, 1], [0, 1, 1]);
+  const tenetsY = useTransform(thesisProgress, [0.54, 0.7], [60, 0]);
   const pinned = !reduceMotion;
 
   // Shared markup for the thesis content — reused by the pinned (desktop) and
@@ -537,7 +540,7 @@ export default function InvestmentsPage() {
           {/* 2c · Investment Thesis — desktop: pinned title with a stats→tenets
               swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
           {pinned && (
-            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[180vh]">
+            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[210vh]">
               <div className="sticky top-0 flex h-screen flex-col section-px pt-[24vh]">
                 <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
                   Demographic tailwinds. Thoughtful entry points.
@@ -579,7 +582,7 @@ export default function InvestmentsPage() {
 
           {/* 2d · Affordable Housing */}
           <motion.div
-            className="w-full section-px pb-48 pt-12"
+            className="w-full section-px pb-48 pt-4"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
