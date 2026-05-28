@@ -208,7 +208,7 @@ export default function InvestmentsPage() {
         >
           <motion.div variants={heroTextContainer}>
           <motion.div
-            className="relative aspect-[2.34/1] w-full overflow-hidden"
+            className="relative h-[50svh] w-full overflow-hidden md:aspect-[2.34/1] md:h-auto"
             initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}

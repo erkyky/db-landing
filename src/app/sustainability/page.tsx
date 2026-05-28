@@ -130,7 +130,7 @@ export default function SustainabilityPage() {
         >
           <motion.div variants={heroTextContainer}>
             <motion.div
-              className="relative aspect-[2.34/1] w-full overflow-hidden"
+              className="relative h-[50svh] w-full overflow-hidden md:aspect-[2.34/1] md:h-auto"
               initial={{ clipPath: "polygon(-1% 100%, 101% 100%, 101% 100%, -1% 100%)" }}
               animate={{ clipPath: "polygon(-1% -1%, 101% -1%, 101% 101%, -1% 101%)" }}
               transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}

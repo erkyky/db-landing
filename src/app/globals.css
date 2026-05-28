@@ -200,4 +200,20 @@
   @media (min-width: 768px) {
     .section-px { padding-inline: 14vw; }
   }
+
+  /* Phone-only type bump. The fluid scale's floors (and the 13px root) make
+     text read small on phones; these explicit px sizes enlarge it ~+20–25%.
+     Scoped to <768px so laptop/desktop stay exactly as-is. */
+  @media (max-width: 767.98px) {
+    body { font-size: 16px; }
+    .text-eyebrow { font-size: 12px; }
+    .text-body { font-size: 16px; }
+    .text-body-sm { font-size: 15px; }
+    .text-h1,
+    .text-h2,
+    .text-stat { font-size: 26px; }
+    .text-h3-lg { font-size: 28px; }
+    .text-h3-md { font-size: 24px; }
+    .text-h3-sm { font-size: 20px; }
+  }
 }

@@ -111,9 +111,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan — letter-by-letter reveal */}
             <motion.p
-              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-normal md:whitespace-nowrap"
+              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-normal text-[15px] md:whitespace-nowrap md:text-[clamp(0.9rem,1.4vw,1.6rem)]"
               style={{
-                fontSize: "clamp(0.9rem, 1.4vw, 1.6rem)",
                 marginBottom: "clamp(0.75rem, 1.5vh, 1.5rem)",
               }}
               variants={sloganContainer}
@@ -162,9 +161,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             {descriptions.map((desc, i) => (
               <motion.p
                 key={i}
-                className="font-serif leading-normal text-white/70"
+                className="font-serif leading-normal text-white/70 text-[15px] md:text-[clamp(0.875rem,1.0vw,1.3rem)]"
                 style={{
-                  fontSize: "clamp(0.875rem, 1.0vw, 1.3rem)",
                   marginBottom: "clamp(0.5rem, 1vh, 1rem)",
                 }}
                 variants={itemVariants}
