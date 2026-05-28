@@ -200,10 +200,10 @@ export default function InvestmentsPage() {
     target: thesisRef,
     offset: ["start start", "end end"],
   });
-  const statsOpacity = useTransform(thesisProgress, [0, 0.12, 0.4, 0.52], [0, 1, 1, 0]);
-  const statsY = useTransform(thesisProgress, [0, 0.12, 0.4, 0.55], [30, 0, 0, 90]);
-  const tenetsOpacity = useTransform(thesisProgress, [0.48, 0.62, 1], [0, 1, 1]);
-  const tenetsY = useTransform(thesisProgress, [0.48, 0.65], [90, 0]);
+  const statsOpacity = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [0, 1, 1, 0]);
+  const statsY = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [40, 0, 0, 60]);
+  const tenetsOpacity = useTransform(thesisProgress, [0.42, 0.58, 0.95], [0, 1, 1]);
+  const tenetsY = useTransform(thesisProgress, [0.42, 0.58], [60, 0]);
   const pinned = !reduceMotion;
 
   // Shared markup for the thesis content — reused by the pinned (desktop) and
@@ -472,7 +472,7 @@ export default function InvestmentsPage() {
 
           {/* 2b · Strategic Operations */}
           <motion.div
-            className="w-full section-px pb-40 pt-32"
+            className="w-full section-px pb-20 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -518,13 +518,13 @@ export default function InvestmentsPage() {
           {/* 2c · Investment Thesis — desktop: pinned title with a stats→tenets
               swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
           {pinned && (
-            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[260vh]">
-              <div className="sticky top-0 flex h-screen flex-col justify-center section-px">
+            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[180vh]">
+              <div className="sticky top-0 flex h-screen flex-col section-px pt-[24vh]">
                 <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
                   Demographic tailwinds. Thoughtful entry points.
                 </h3>
                 <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
-                <div className="relative mt-12 h-[44vh]">
+                <div className="relative mt-10 h-[42vh]">
                   <motion.div
                     style={{ y: statsY, opacity: statsOpacity }}
                     className="absolute inset-x-0 top-0"
@@ -544,7 +544,7 @@ export default function InvestmentsPage() {
 
           {/* Stacked fallback — phones always; everyone when reduced-motion */}
           <motion.div
-            className={`w-full section-px pb-40 pt-32 ${pinned ? "lg:hidden" : ""}`}
+            className={`w-full section-px pb-24 pt-24 ${pinned ? "lg:hidden" : ""}`}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -560,7 +560,7 @@ export default function InvestmentsPage() {
 
           {/* 2d · Affordable Housing */}
           <motion.div
-            className="w-full section-px pb-48 pt-32"
+            className="w-full section-px pb-48 pt-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
