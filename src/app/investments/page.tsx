@@ -192,6 +192,64 @@ export default function InvestmentsPage() {
   const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
   const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
 
+  // Investment Thesis — pinned scroll choreography (desktop only). Stats reveal
+  // first, then on continued scroll they slide down/out while the tenets rise
+  // up/in; the title stays fixed as the anchor.
+  const thesisRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: thesisProgress } = useScroll({
+    target: thesisRef,
+    offset: ["start start", "end end"],
+  });
+  const statsOpacity = useTransform(thesisProgress, [0, 0.12, 0.4, 0.52], [0, 1, 1, 0]);
+  const statsY = useTransform(thesisProgress, [0, 0.12, 0.4, 0.55], [30, 0, 0, 90]);
+  const tenetsOpacity = useTransform(thesisProgress, [0.48, 0.62, 1], [0, 1, 1]);
+  const tenetsY = useTransform(thesisProgress, [0.48, 0.65], [90, 0]);
+  const pinned = !reduceMotion;
+
+  // Shared markup for the thesis content — reused by the pinned (desktop) and
+  // stacked (mobile / reduced-motion) layouts. CSS hover so no motion wrapper
+  // is needed on the items themselves.
+  const statsGrid = (
+    <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
+      {marketSignals.map((s, i) => (
+        <div
+          key={s.label}
+          className={`group relative px-0 transition-transform duration-300 hover:-translate-y-1 sm:px-8 ${i > 0 ? "sm:border-l sm:border-[#cca885]/15" : ""}`}
+        >
+          <p className="font-serif text-h2 leading-none text-[#cca885]">
+            <CountUp
+              value={s.value}
+              delay={0.2 + i * 0.15}
+              numberClassName="text-[1.4em] leading-none"
+              suffixClassName="text-[0.7em] leading-none"
+            />
+          </p>
+          <p className="mt-3 font-serif text-h3-sm text-white">{s.label}</p>
+          <p className="mt-3 font-serif text-body leading-normal text-white/55">{s.detail}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  const tenetsGrid = (
+    <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10">
+      {tenets.map((t, i) => (
+        <div
+          key={t.title}
+          className="group flex gap-5 transition-transform duration-300 hover:translate-x-1.5"
+        >
+          <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
+            {String(i + 1).padStart(2, "0")}
+          </p>
+          <div>
+            <h4 className="font-serif text-h3-sm text-white">{t.title}</h4>
+            <p className="mt-3 font-serif text-body leading-normal text-white/55">{t.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <>
       <NavMenu />
@@ -457,86 +515,47 @@ export default function InvestmentsPage() {
             </div>
           </motion.div>
 
-          {/* 2c · Investment Thesis — sticky thesis (left) + flowing evidence (right) */}
+          {/* 2c · Investment Thesis — desktop: pinned title with a stats→tenets
+              swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
+          {pinned && (
+            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[260vh]">
+              <div className="sticky top-0 flex h-screen flex-col justify-center section-px">
+                <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
+                  Demographic tailwinds. Thoughtful entry points.
+                </h3>
+                <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
+                <div className="relative mt-12 h-[44vh]">
+                  <motion.div
+                    style={{ y: statsY, opacity: statsOpacity }}
+                    className="absolute inset-x-0 top-0"
+                  >
+                    {statsGrid}
+                  </motion.div>
+                  <motion.div
+                    style={{ y: tenetsY, opacity: tenetsOpacity }}
+                    className="absolute inset-x-0 top-0"
+                  >
+                    {tenetsGrid}
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Stacked fallback — phones always; everyone when reduced-motion */}
           <motion.div
-            className="w-full section-px pb-40 pt-32"
+            className={`w-full section-px pb-40 pt-32 ${pinned ? "lg:hidden" : ""}`}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid gap-14 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
-              {/* Left — thesis, pinned on desktop while the evidence scrolls past */}
-              <motion.div
-                className="lg:sticky lg:top-28 lg:self-start"
-                variants={itemVariants}
-              >
-                <h3 className="max-w-md font-serif text-h2 leading-[1.08] text-white">
-                  Demographic tailwinds. Thoughtful entry points.
-                </h3>
-                <motion.div
-                  className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-                  variants={accentRule}
-                />
-                <p className="mt-6 max-w-sm font-serif text-body leading-normal text-white/55">
-                  Migration sets the direction. Discipline sets the price.
-                </p>
-              </motion.div>
-
-              {/* Right — the evidence: demographic signals, then the entry tenets */}
-              <div>
-                <div className="grid gap-12 sm:grid-cols-3 sm:gap-0">
-                  {marketSignals.map((s, i) => (
-                    <motion.div
-                      key={s.label}
-                      className={`group relative px-0 sm:px-8 ${i > 0 ? "sm:border-l sm:border-[#cca885]/15" : ""}`}
-                      variants={itemVariants}
-                      whileHover={{ y: -4 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p className="font-serif text-h2 leading-none text-[#cca885]">
-                        <CountUp
-                          value={s.value}
-                          delay={0.2 + i * 0.15}
-                          numberClassName="text-[1.4em] leading-none"
-                          suffixClassName="text-[0.7em] leading-none"
-                        />
-                      </p>
-                      <p className="mt-3 font-serif text-h3-sm text-white">
-                        {s.label}
-                      </p>
-                      <p className="mt-3 font-serif text-body leading-normal text-white/55">
-                        {s.detail}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-12 md:gap-y-12">
-                  {tenets.map((t, i) => (
-                    <motion.div
-                      key={t.title}
-                      className="group flex gap-5"
-                      variants={itemVariants}
-                      whileHover={{ x: 6 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p className="font-serif text-h3-lg leading-none text-[#cca885]/35 transition-colors duration-300 group-hover:text-[#cca885]/80">
-                        {String(i + 1).padStart(2, "0")}
-                      </p>
-                      <div>
-                        <h4 className="font-serif text-h3-sm text-white">
-                          {t.title}
-                        </h4>
-                        <p className="mt-3 font-serif text-body leading-normal text-white/55">
-                          {t.desc}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
+              Demographic tailwinds. Thoughtful entry points.
+            </h3>
+            <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
+            <div className="mt-16">{statsGrid}</div>
+            <div className="mt-16">{tenetsGrid}</div>
           </motion.div>
 
           {/* 2d · Affordable Housing */}
