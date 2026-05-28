@@ -11,7 +11,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
@@ -56,6 +56,14 @@ const headlineLetter = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const imageRevealLeft = {
+  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+  visible: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { duration: 0.8, ease: "circOut" as const },
   },
 };
 
@@ -105,45 +113,6 @@ export default function SustainabilityPage() {
   const textOpacity = useTransform(scrollYProgress, [0, 0.38], [1, 0]);
   const imageStyle = reduceMotion ? undefined : { y: imageY, opacity: imageOpacity };
   const textStyle = reduceMotion ? undefined : { y: textY, opacity: textOpacity };
-
-  // Pillars section parallax (THE STANDARD)
-  const pillarsRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: pillarsProgress } = useScroll({
-    target: pillarsRef,
-    offset: ["start end", "end start"],
-  });
-  const pillarsTitleY = useTransform(pillarsProgress, [0, 1], ["0%", "-8%"]);
-  const pillarsTitleOpacity = useTransform(pillarsProgress, [0.05, 0.18, 0.82, 0.95], [0, 1, 1, 0]);
-  const pillarY0 = useTransform(pillarsProgress, [0, 1], ["0%", "-16%"]);
-  const pillarY1 = useTransform(pillarsProgress, [0, 1], ["0%", "-16%"]);
-  const pillarY2 = useTransform(pillarsProgress, [0, 1], ["0%", "-16%"]);
-  const pillarO0 = useTransform(pillarsProgress, [0.10, 0.22, 0.82, 0.95], [0, 1, 1, 0]);
-  const pillarO1 = useTransform(pillarsProgress, [0.13, 0.25, 0.82, 0.95], [0, 1, 1, 0]);
-  const pillarO2 = useTransform(pillarsProgress, [0.16, 0.28, 0.82, 0.95], [0, 1, 1, 0]);
-  const pillarsTitleStyle = reduceMotion ? undefined : { y: pillarsTitleY, opacity: pillarsTitleOpacity };
-  const pillarYs = [pillarY0, pillarY1, pillarY2];
-  const pillarOs = [pillarO0, pillarO1, pillarO2];
-
-  // Commitments section parallax (THE EVIDENCE)
-  const commitsRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: commitsProgress } = useScroll({
-    target: commitsRef,
-    offset: ["start end", "end start"],
-  });
-  const commitsTitleY = useTransform(commitsProgress, [0, 1], ["0%", "-8%"]);
-  const commitsTitleOpacity = useTransform(commitsProgress, [0.05, 0.18, 0.82, 0.95], [0, 1, 1, 0]);
-  const commitsImageY = useTransform(commitsProgress, [0, 1], ["0%", "-6%"]);
-  const commitsImageOpacity = useTransform(commitsProgress, [0.05, 0.18, 0.82, 0.95], [0, 1, 1, 0]);
-  const commitY0 = useTransform(commitsProgress, [0, 1], ["0%", "-16%"]);
-  const commitY1 = useTransform(commitsProgress, [0, 1], ["0%", "-16%"]);
-  const commitY2 = useTransform(commitsProgress, [0, 1], ["0%", "-16%"]);
-  const commitO0 = useTransform(commitsProgress, [0.10, 0.22, 0.82, 0.95], [0, 1, 1, 0]);
-  const commitO1 = useTransform(commitsProgress, [0.13, 0.25, 0.82, 0.95], [0, 1, 1, 0]);
-  const commitO2 = useTransform(commitsProgress, [0.16, 0.28, 0.82, 0.95], [0, 1, 1, 0]);
-  const commitsTitleStyle = reduceMotion ? undefined : { y: commitsTitleY, opacity: commitsTitleOpacity };
-  const commitsImageStyle = reduceMotion ? undefined : { y: commitsImageY, opacity: commitsImageOpacity };
-  const commitYs = [commitY0, commitY1, commitY2];
-  const commitOs = [commitO0, commitO1, commitO2];
 
   return (
     <>
@@ -198,7 +167,7 @@ export default function SustainabilityPage() {
                           {char}
                         </motion.span>
                       ))}
-                      {wi < words.length - 1 ? " " : ""}
+                      {wi < words.length - 1 ? " " : ""}
                     </span>
                   ))}
                 </motion.h1>
@@ -213,70 +182,87 @@ export default function SustainabilityPage() {
           </motion.div>
         </motion.section>
 
-        {/* Pillars */}
-        <section
-          ref={pillarsRef}
+        {/* THE STANDARD — Three pillars */}
+        <motion.section
           className="w-full px-[max(1.5rem,14vw)] pb-24 pt-24"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div style={pillarsTitleStyle}>
-            <div className="mb-4 flex items-center gap-6">
-              <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
-                THE STANDARD
-              </p>
-              <div className="h-px flex-1 bg-[#cca885]/40" />
-            </div>
-            <h2 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
-              Three pillars of sustainable investment.
-            </h2>
-            <div className="mt-6 h-px w-24 bg-[#cca885]/60 md:w-32" />
+          <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              THE STANDARD
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
           </motion.div>
+          <motion.h2
+            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+            variants={itemVariants}
+          >
+            Three pillars of sustainable investment.
+          </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-14 grid gap-16 md:grid-cols-3 md:gap-0">
             {pillars.map((item, i) => (
               <motion.div
                 key={item.title}
-                style={reduceMotion ? undefined : { y: pillarYs[i], opacity: pillarOs[i] }}
+                className={`group px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                variants={itemVariants}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  className={`group px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="font-serif text-h3-sm text-white">
-                    {item.title}
-                  </h3>
-                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-4 font-serif text-body-sm leading-relaxed text-white/55">
-                    {item.desc}
-                  </p>
-                </motion.div>
+                <h3 className="font-serif text-h3-sm text-white">
+                  {item.title}
+                </h3>
+                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                <p className="mt-4 font-serif text-body-sm leading-relaxed text-white/55">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        {/* Commitments */}
-        <section
-          ref={commitsRef}
+        {/* THE EVIDENCE — Commitments */}
+        <motion.section
           className="w-full px-[max(1.5rem,14vw)] pb-48 pt-24"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
         >
-          <motion.div style={commitsTitleStyle}>
-            <div className="mb-4 flex items-center gap-6">
-              <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
-                THE EVIDENCE
-              </p>
-              <div className="h-px flex-1 bg-[#cca885]/40" />
-            </div>
-            <h2 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
-              Measurable targets, not just intentions.
-            </h2>
-            <div className="mt-6 h-px w-24 bg-[#cca885]/60 md:w-32" />
+          <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
+            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
+              THE EVIDENCE
+            </p>
+            <motion.div
+              className="h-px flex-1 origin-left bg-[#cca885]/40"
+              variants={accentRule}
+            />
           </motion.div>
+          <motion.h2
+            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+            variants={itemVariants}
+          >
+            Measurable targets, not just intentions.
+          </motion.h2>
+          <motion.div
+            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+            variants={accentRule}
+          />
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
             <motion.div
               className="relative h-[280px] overflow-hidden md:h-[380px] lg:h-auto"
-              style={commitsImageStyle}
+              variants={imageRevealLeft}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -285,38 +271,35 @@ export default function SustainabilityPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
             </motion.div>
 
-            <div className="space-y-12 md:space-y-14">
+            <motion.div className="space-y-12 md:space-y-14" variants={itemVariants}>
               {commitments.map((item, i) => (
                 <motion.div
                   key={item.label}
-                  style={reduceMotion ? undefined : { y: commitYs[i], opacity: commitOs[i] }}
+                  className="group"
+                  variants={itemVariants}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <motion.div
-                    className="group"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                      <p
-                        className="font-serif text-stat text-[#cca885]"
-                        style={item.stat === "Net Zero" ? { fontSize: "clamp(1.3rem, 2.6vw, 2.6rem)" } : undefined}
-                      >
-                        <CountUp value={item.stat} delay={0.2 + i * 0.15} />
-                      </p>
-                      <p className="font-serif text-body text-white">
-                        {item.label}
-                      </p>
-                    </div>
-                    <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                    <p className="mt-4 max-w-3xl font-serif text-body-sm leading-relaxed text-white/55">
-                      {item.detail}
+                  <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
+                    <p
+                      className="font-serif text-stat text-[#cca885]"
+                      style={item.stat === "Net Zero" ? { fontSize: "clamp(1.3rem, 2.6vw, 2.6rem)" } : undefined}
+                    >
+                      <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                     </p>
-                  </motion.div>
+                    <p className="font-serif text-body text-white">
+                      {item.label}
+                    </p>
+                  </div>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <p className="mt-4 max-w-3xl font-serif text-body-sm leading-relaxed text-white/55">
+                    {item.detail}
+                  </p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">
           &copy; 2026 Deepblue Capital Partners. All rights reserved.
