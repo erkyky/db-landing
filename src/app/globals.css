@@ -201,6 +201,13 @@
     .section-px { padding-inline: 14vw; }
   }
 
+  /* Gentle scroll-snap (desktop only). Only the Investment Thesis anchors opt in
+     via scroll-snap-align, so proximity snapping catches on the stats and the
+     four points but leaves the rest of the page scrolling freely. */
+  @media (min-width: 1024px) {
+    html { scroll-snap-type: y proximity; }
+  }
+
   /* Phone-only type bump. The fluid scale's floors (and the 13px root) make
      text read small on phones; these explicit px sizes enlarge it ~+20–25%.
      Scoped to <768px so laptop/desktop stay exactly as-is. */

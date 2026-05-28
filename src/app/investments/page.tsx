@@ -541,6 +541,10 @@ export default function InvestmentsPage() {
               swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
           {pinned && (
             <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[210vh]">
+              {/* Gentle snap catch-points: the scroll rests on the stats, then on
+                  the four points (snap-always = can't fly past in one gesture). */}
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-always" style={{ top: "35vh", height: 1 }} />
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-always" style={{ top: "92vh", height: 1 }} />
               <div className="sticky top-0 flex h-screen flex-col section-px pt-[24vh]">
                 <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
                   Demographic tailwinds. Thoughtful entry points.
