@@ -25,8 +25,8 @@ const navItems: NavItem[] = [
     label: "Sustainability",
     href: "/sustainability",
     children: [
-      { label: "The Standard", href: "/sustainability#the-standard" },
-      { label: "The Evidence", href: "/sustainability#the-evidence" },
+      { label: "Our Approach", href: "/sustainability#the-standard" },
+      { label: "Our Commitments", href: "/sustainability#the-evidence" },
     ],
   },
   {
@@ -39,12 +39,8 @@ const navItems: NavItem[] = [
   },
 ];
 
-// Prepend an explicit "At a Glance" link (→ the section's own landing page) to a
-// dropdown. The parent label is itself a link, but the deliberate, non-power-user
-// investor audience won't assume that — so we surface it as the first row, reading
-// as "the whole page" above "its sections".
-const childrenWithOverview = (item: NavItem) =>
-  item.children ? [{ label: "At a Glance", href: item.href }, ...item.children] : [];
+// The dropdown items for a nav entry — its in-page section links.
+const dropdownChildren = (item: NavItem) => item.children ?? [];
 
 const SCROLL_THRESHOLD = 80;
 // Dropdowns open instantly on hover. The old hover-intent open delay existed to
@@ -195,7 +191,7 @@ export default function NavMenu() {
   const dropdownOpen = Boolean(activeDropdownItem?.children?.length);
   const dropdownPad = dropdownOpen
     ? DROPDOWN_BASE_PAD +
-      childrenWithOverview(activeDropdownItem!).length * DROPDOWN_PER_ITEM
+      dropdownChildren(activeDropdownItem!).length * DROPDOWN_PER_ITEM
     : 0;
   // Show the bar surface either when scrolled-revealed OR when any dropdown is
   // open (so dropdown text doesn't sit on raw page content).
@@ -316,7 +312,7 @@ export default function NavMenu() {
                               exit="exit"
                               className="absolute left-0 top-full mt-4 flex flex-col items-start gap-1 whitespace-nowrap"
                             >
-                              {childrenWithOverview(item).map((child) => (
+                              {dropdownChildren(item).map((child) => (
                                 <motion.a
                                   key={child.href}
                                   href={child.href}
@@ -427,7 +423,7 @@ export default function NavMenu() {
                           className="overflow-hidden"
                         >
                           <div className="flex flex-col gap-1 pb-4 pl-1">
-                            {childrenWithOverview(item).map((child) => (
+                            {dropdownChildren(item).map((child) => (
                               <a
                                 key={child.href}
                                 href={child.href}

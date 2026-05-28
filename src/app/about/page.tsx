@@ -179,7 +179,7 @@ export default function AboutPage() {
         {/* 2 · Leadership — editorial image + split bios */}
         <motion.section
           id="executive-officers"
-          className="w-full scroll-mt-28 section-px pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-20 pt-24"
           variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"
@@ -223,7 +223,7 @@ export default function AboutPage() {
               <p className="mt-3 font-sans text-xs md:text-sm uppercase tracking-[0.32em] text-[#cca885]">
                 Co-Founder
               </p>
-              <p className="mt-2 font-sans text-xs md:text-sm uppercase tracking-[0.32em] text-white/70">
+              <p className="mt-2 font-serif text-xs md:text-sm uppercase tracking-[0.32em] text-white/70">
                 Ex-Starwood Capital Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -240,7 +240,7 @@ export default function AboutPage() {
               <p className="mt-3 font-sans text-xs md:text-sm uppercase tracking-[0.32em] text-[#cca885]">
                 Co-Founder
               </p>
-              <p className="mt-2 font-sans text-xs md:text-sm uppercase tracking-[0.32em] text-white/70">
+              <p className="mt-2 font-serif text-xs md:text-sm uppercase tracking-[0.32em] text-white/70">
                 Ex-Hines Managing Director, Acquisition
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
@@ -262,7 +262,7 @@ export default function AboutPage() {
                   <CountUp value={stat.value} delay={1.6 + i * 0.18} />
                 </p>
                 <div className="mx-auto mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <p className="mt-3 font-sans text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
+                <p className="mt-3 font-serif text-xs uppercase tracking-[0.26em] text-white/55 md:text-sm">
                   {stat.label}
                 </p>
               </motion.div>
@@ -273,7 +273,7 @@ export default function AboutPage() {
         {/* Asset Class Experience — interactive accordion */}
         <motion.section
           id="asset-class-experience"
-          className="w-full scroll-mt-28 section-px pb-48 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-12"
           variants={slowContainerVariants}
           initial="hidden"
           whileInView="visible"

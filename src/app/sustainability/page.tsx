@@ -184,7 +184,7 @@ export default function SustainabilityPage() {
           </motion.div>
         </motion.section>
 
-        {/* THE STANDARD — Three pillars */}
+        {/* OUR APPROACH — Three pillars */}
         <motion.section
           id="the-standard"
           className="w-full scroll-mt-28 section-px pb-24 pt-24"
@@ -195,7 +195,7 @@ export default function SustainabilityPage() {
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
-              THE STANDARD
+              Our Approach
             </p>
             <motion.div
               className="h-px flex-1 origin-left bg-[#cca885]/40"
@@ -234,7 +234,7 @@ export default function SustainabilityPage() {
           </div>
         </motion.section>
 
-        {/* THE EVIDENCE — Commitments */}
+        {/* OUR COMMITMENTS — Commitments */}
         <motion.section
           id="the-evidence"
           className="w-full scroll-mt-28 section-px pb-48 pt-24"
@@ -245,7 +245,7 @@ export default function SustainabilityPage() {
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
-              THE EVIDENCE
+              Our Commitments
             </p>
             <motion.div
               className="h-px flex-1 origin-left bg-[#cca885]/40"
