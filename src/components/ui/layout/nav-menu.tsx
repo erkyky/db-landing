@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
 
 const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
-const DROPDOWN_PAD = 110;
+const DROPDOWN_PAD = 144;
 
 export default function NavMenu() {
   const pathname = usePathname();
@@ -116,7 +116,7 @@ export default function NavMenu() {
                   className="pointer-events-none absolute inset-0 backdrop-blur-md"
                   style={{
                     backgroundImage:
-                      "linear-gradient(to bottom, rgba(13,18,26,0.85) 0%, rgba(13,18,26,0.80) 60%, rgba(13,18,26,0.55) 92%, rgba(13,18,26,0) 100%)",
+                      "linear-gradient(to bottom, rgba(13,18,26,0.65) 0%, rgba(13,18,26,0.60) 60%, rgba(13,18,26,0.35) 92%, rgba(13,18,26,0) 100%)",
                     maskImage:
                       "linear-gradient(to bottom, black calc(100% - 14px), transparent 100%)",
                     WebkitMaskImage:
@@ -144,7 +144,7 @@ export default function NavMenu() {
               )}
 
               {/* 4 nav items, centered in the viewport regardless of logo */}
-              <div className="flex justify-center gap-[clamp(1.75rem,2.25vw,3rem)] py-3 md:py-4">
+              <div className="flex justify-center gap-[clamp(1.75rem,2.25vw,3rem)] py-4 md:py-5">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
                   const open = openKey === item.href;
