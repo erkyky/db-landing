@@ -27,9 +27,11 @@ const navItems: NavItem[] = [
 
 const SCROLL_THRESHOLD = 80;
 const CLOSE_DELAY_MS = 180;
+const DROPDOWN_PAD = 110;
 
 export default function NavMenu() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -79,6 +81,10 @@ export default function NavMenu() {
     "font-serif uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
 
   const showBg = !atTop && visible;
+  const dropdownOpen = openKey === "/investments";
+  // Show the bar surface either when scrolled-revealed OR when the dropdown is
+  // open (so dropdown text doesn't sit on raw page content).
+  const surfaceVisible = showBg || dropdownOpen;
 
   return (
     <AnimatePresence>
@@ -91,37 +97,63 @@ export default function NavMenu() {
           className="fixed inset-x-0 top-0 z-50"
         >
           <motion.div
-            className="relative border-b backdrop-blur-md"
-            animate={{
-              backgroundColor: showBg ? "rgba(13,18,26,0.78)" : "rgba(13,18,26,0)",
-              borderBottomColor: showBg ? "rgba(204,168,133,0.18)" : "rgba(204,168,133,0)",
-            }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="relative"
+            animate={{ paddingBottom: dropdownOpen ? DROPDOWN_PAD : 0 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Soft bottom fade — only visible when surface is on */}
-            <motion.div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 -bottom-6 h-6 bg-gradient-to-b from-[#0d121a]/40 to-transparent"
-              animate={{ opacity: showBg ? 1 : 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
-
-            <div className="flex items-start pl-[max(1.5rem,14vw)] pr-6 pt-3 md:pt-4">
-              {/* Logo on the left */}
-              <a
-                href="/"
-                aria-label="Deepblue Capital Partners - Home"
-                className="shrink-0"
-              >
-                <img
-                  src="/small-logo.png"
-                  alt="Deepblue Capital Partners"
-                  className="h-9 w-auto md:h-10"
+            {/* Bar surface — gradient fill + backdrop blur, fades in/out */}
+            <AnimatePresence>
+              {surfaceVisible && (
+                <motion.div
+                  key="surface"
+                  aria-hidden
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="pointer-events-none absolute inset-0 backdrop-blur-md"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, rgba(13,18,26,0.85) 0%, rgba(13,18,26,0.80) 60%, rgba(13,18,26,0.55) 100%)",
+                  }}
                 />
-              </a>
+              )}
+            </AnimatePresence>
 
-              {/* Centered nav cluster — items-start so the Investments column can grow downward */}
-              <div className="flex flex-1 items-start justify-center gap-[clamp(1.75rem,2.25vw,3rem)] pt-2 md:pt-3 pb-3 md:pb-4">
+            {/* Soft bottom fade — overlaps the bar bottom and bleeds into the page */}
+            <AnimatePresence>
+              {surfaceVisible && (
+                <motion.div
+                  key="bottomfade"
+                  aria-hidden
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="pointer-events-none absolute inset-x-0 -bottom-6 h-24 bg-gradient-to-b from-[#0d121a]/40 via-[#0d121a]/12 to-transparent"
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Nav row container — relative so the absolute logo + dropdown sit over the surface */}
+            <div className="relative z-10">
+              {/* Logo on left — hidden on home page */}
+              {!isHome && (
+                <a
+                  href="/"
+                  aria-label="Deepblue Capital Partners - Home"
+                  className="absolute left-[max(1.5rem,14vw)] top-1/2 -translate-y-1/2"
+                >
+                  <img
+                    src="/small-logo.png"
+                    alt="Deepblue Capital Partners"
+                    className="h-9 w-auto md:h-10"
+                  />
+                </a>
+              )}
+
+              {/* 4 nav items, centered in the viewport regardless of logo */}
+              <div className="flex justify-center gap-[clamp(1.75rem,2.25vw,3rem)] py-3 md:py-4">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
                   const open = openKey === item.href;
@@ -131,7 +163,7 @@ export default function NavMenu() {
                   return (
                     <div
                       key={item.href}
-                      className="flex flex-col items-start"
+                      className="relative"
                       onMouseEnter={hasChildren ? () => openMenu(item.href) : undefined}
                       onMouseLeave={hasChildren ? closeMenuSoon : undefined}
                       onFocus={hasChildren ? () => openMenu(item.href) : undefined}
@@ -147,33 +179,31 @@ export default function NavMenu() {
                       </a>
 
                       {hasChildren && (
-                        <AnimatePresence initial={false}>
+                        <AnimatePresence>
                           {open && (
                             <motion.div
-                              key="panel"
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden"
+                              key="dropdown"
+                              initial={{ opacity: 0, y: -6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                              className="absolute left-0 top-full mt-4 flex flex-col items-start gap-1 whitespace-nowrap"
                             >
-                              <div className="flex flex-col gap-1 pt-4 pb-1">
-                                {item.children!.map((child) => (
-                                  <a
-                                    key={child.href}
-                                    href={child.href}
-                                    className="group flex items-center gap-3 py-1"
-                                  >
-                                    <span
-                                      aria-hidden
-                                      className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
-                                    />
-                                    <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
-                                      {child.label}
-                                    </span>
-                                  </a>
-                                ))}
-                              </div>
+                              {item.children!.map((child) => (
+                                <a
+                                  key={child.href}
+                                  href={child.href}
+                                  className="group flex items-center gap-3 py-1"
+                                >
+                                  <span
+                                    aria-hidden
+                                    className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 group-hover:w-6 group-hover:bg-[#cca885]"
+                                  />
+                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(12px,0.85vw,16px)] text-white transition-colors duration-300 group-hover:text-[#cca885]">
+                                    {child.label}
+                                  </span>
+                                </a>
+                              ))}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -181,15 +211,6 @@ export default function NavMenu() {
                     </div>
                   );
                 })}
-              </div>
-
-              {/* Right-side mirror of the logo — keeps the nav cluster optically centered */}
-              <div aria-hidden className="invisible shrink-0">
-                <img
-                  src="/small-logo.png"
-                  alt=""
-                  className="h-9 w-auto md:h-10"
-                />
               </div>
             </div>
           </motion.div>
