@@ -11,16 +11,16 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.25, delayChildren: 0.4 },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 24, opacity: 0 },
+  hidden: { y: 36, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -28,7 +28,7 @@ const accentRule = {
   hidden: { scaleX: 0 },
   visible: {
     scaleX: 1,
-    transition: { duration: 0.9, ease: "easeOut" as const },
+    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -63,7 +63,7 @@ const imageRevealLeft = {
   hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 0.8, ease: "circOut" as const },
+    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -239,7 +239,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-nowrap text-[#cca885]">
