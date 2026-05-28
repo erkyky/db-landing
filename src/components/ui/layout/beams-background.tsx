@@ -182,7 +182,10 @@ export function BeamsBackground({
     return (
         <div
             className={cn(
-                "relative min-h-screen w-full overflow-hidden bg-[#0d121a]",
+                // NOTE: overflow-clip (not -hidden) so the canvas is still clipped
+                // WITHOUT creating a scroll container — that would break position:sticky
+                // for descendants (e.g. the pinned Investment Thesis section).
+                "relative min-h-screen w-full overflow-clip bg-[#0d121a]",
                 className
             )}
         >
