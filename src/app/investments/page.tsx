@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
@@ -195,11 +195,30 @@ export default function InvestmentsPage() {
   // Investment Thesis — pinned scroll choreography (desktop only). Stats reveal
   // first, then on continued scroll they slide down/out while the tenets rise
   // up/in; the title stays fixed as the anchor.
-  const thesisRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: thesisProgress } = useScroll({
-    target: thesisRef,
-    offset: ["start start", "end end"],
-  });
+  const thesisRef = useRef<HTMLElement>(null);
+  // Compute scroll progress through the section directly from layout on every
+  // scroll. framer's useScroll({target}) caches the target's offset and the
+  // heavy content above this section (hero + background images + font swap)
+  // shifts it after measurement, leaving the progress stuck — so we read
+  // getBoundingClientRect live, which always reflects the true position.
+  const thesisProgress = useMotionValue(0);
+  useEffect(() => {
+    const el = thesisRef.current;
+    if (!el) return;
+    const update = () => {
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+      thesisProgress.set(p);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [thesisProgress]);
   const statsOpacity = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [0, 1, 1, 0]);
   const statsY = useTransform(thesisProgress, [0, 0.06, 0.3, 0.45], [40, 0, 0, 60]);
   const tenetsOpacity = useTransform(thesisProgress, [0.42, 0.58, 0.95], [0, 1, 1]);
