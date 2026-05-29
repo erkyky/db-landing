@@ -551,7 +551,7 @@ export default function InvestmentsPage() {
                   stop, just a gentle rest near the stats and the four points. */}
               <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "35vh", height: 1 }} />
               <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "92vh", height: 1 }} />
-              <div className="sticky top-0 flex h-screen flex-col section-px pt-[40vh]">
+              <div className="sticky top-0 flex h-screen flex-col section-px pt-[32vh]">
                 <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
                   Demographic tailwinds. Thoughtful entry points.
                 </h3>
