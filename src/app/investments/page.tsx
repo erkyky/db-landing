@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
@@ -219,13 +219,18 @@ export default function InvestmentsPage() {
       window.removeEventListener("resize", update);
     };
   }, [thesisProgress]);
+  // Smooth the raw scroll progress through a gentle spring so the reveals glide
+  // in and settle with a faint follow-through instead of tracking the scrollbar
+  // 1:1 (which read as a rigid "magnetic" snap). Low-ish stiffness + damping ~20
+  // = smooth with a barely-there overshoot.
+  const smoothProgress = useSpring(thesisProgress, { stiffness: 90, damping: 20, mass: 0.7 });
   // Stats: slow fade+rise in (0.05→0.18), sit a long while (→0.46), then fade
   // out sinking down. Tenets: rise+fade in (0.54→0.70) and stay to the end so
   // there's no dead "nothing happening" tail before Affordable Housing.
-  const statsOpacity = useTransform(thesisProgress, [0.05, 0.18, 0.46, 0.56], [0, 1, 1, 0]);
-  const statsY = useTransform(thesisProgress, [0.05, 0.18, 0.46, 0.56], [30, 0, 0, 50]);
-  const tenetsOpacity = useTransform(thesisProgress, [0.54, 0.7, 1], [0, 1, 1]);
-  const tenetsY = useTransform(thesisProgress, [0.54, 0.7], [60, 0]);
+  const statsOpacity = useTransform(smoothProgress, [0.05, 0.18, 0.46, 0.56], [0, 1, 1, 0]);
+  const statsY = useTransform(smoothProgress, [0.05, 0.18, 0.46, 0.56], [30, 0, 0, 50]);
+  const tenetsOpacity = useTransform(smoothProgress, [0.54, 0.7, 1], [0, 1, 1]);
+  const tenetsY = useTransform(smoothProgress, [0.54, 0.7], [60, 0]);
   const pinned = !reduceMotion;
 
   // Shared markup for the thesis content — reused by the pinned (desktop) and
@@ -541,11 +546,12 @@ export default function InvestmentsPage() {
               swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
           {pinned && (
             <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[210vh]">
-              {/* Gentle snap catch-points: the scroll rests on the stats, then on
-                  the four points (snap-always = can't fly past in one gesture). */}
-              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-always" style={{ top: "35vh", height: 1 }} />
-              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-always" style={{ top: "92vh", height: 1 }} />
-              <div className="sticky top-0 flex h-screen flex-col section-px pt-[24vh]">
+              {/* Soft snap catch-points: proximity-only (snap-normal) so the scroll
+                  can glide past and the spring entrance reads — no hard "magnetic"
+                  stop, just a gentle rest near the stats and the four points. */}
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "35vh", height: 1 }} />
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "92vh", height: 1 }} />
+              <div className="sticky top-0 flex h-screen flex-col section-px pt-[40vh]">
                 <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
                   Demographic tailwinds. Thoughtful entry points.
                 </h3>
