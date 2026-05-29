@@ -388,25 +388,37 @@ export default function NavMenu() {
                   className="border-b border-white/10"
                 >
                   {hasChildren ? (
-                    <button
-                      type="button"
-                      aria-expanded={expanded}
-                      onClick={() => setExpandedKey(expanded ? null : item.href)}
-                      className={`flex w-full items-center justify-between py-4 text-left font-serif uppercase tracking-[0.12em] text-[clamp(1.5rem,7vw,2.25rem)] transition-colors ${active ? "text-[#cca885]" : "text-white"}`}
-                    >
-                      <span>{item.label}</span>
-                      <span
-                        aria-hidden
-                        className={`ml-4 text-3xl font-light leading-none text-[#cca885] transition-transform duration-300 ${expanded ? "rotate-45" : ""}`}
+                    // Split row: tapping the label navigates to the section page
+                    // and closes the menu; the separate + button toggles the
+                    // dropdown so both the page and its sub-sections are reachable.
+                    <div className="flex w-full items-center justify-between">
+                      <a
+                        href={item.href}
+                        onClick={closeMobile}
+                        className={`flex-1 py-4 font-serif uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
                       >
-                        +
-                      </span>
-                    </button>
+                        {item.label}
+                      </a>
+                      <button
+                        type="button"
+                        aria-expanded={expanded}
+                        aria-label={`${expanded ? "Collapse" : "Expand"} ${item.label} submenu`}
+                        onClick={() => setExpandedKey(expanded ? null : item.href)}
+                        className="flex items-center py-4 pl-6"
+                      >
+                        <span
+                          aria-hidden
+                          className={`text-2xl font-light leading-none text-[#cca885] transition-transform duration-300 ${expanded ? "rotate-45" : ""}`}
+                        >
+                          +
+                        </span>
+                      </button>
+                    </div>
                   ) : (
                     <a
                       href={item.href}
                       onClick={closeMobile}
-                      className={`block py-4 font-serif uppercase tracking-[0.12em] text-[clamp(1.5rem,7vw,2.25rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
+                      className={`block py-4 font-serif uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
                     >
                       {item.label}
                     </a>
@@ -434,7 +446,7 @@ export default function NavMenu() {
                                   aria-hidden
                                   className="h-px w-4 shrink-0 bg-[#cca885]/50 transition-all duration-300 group-hover:w-8 group-hover:bg-[#cca885]"
                                 />
-                                <span className="font-serif uppercase tracking-[0.12em] text-[clamp(0.95rem,4.5vw,1.2rem)] text-white/75 transition-colors group-hover:text-[#cca885]">
+                                <span className="font-serif uppercase tracking-[0.12em] text-[clamp(0.85rem,4vw,1.05rem)] text-white/75 transition-colors group-hover:text-[#cca885]">
                                   {child.label}
                                 </span>
                               </a>

@@ -175,8 +175,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
         {/* Right Side: Image with Clip Path Animation — flush to right edge */}
         <motion.div
-          className="relative w-full md:w-3/5 md:mt-[clamp(2rem,8vh,6rem)]"
-          style={{ height: "clamp(360px, 60vh, 720px)" }}
+          className="relative h-[clamp(280px,45vh,460px)] w-full md:mt-[clamp(2rem,8vh,6rem)] md:h-[clamp(360px,60vh,720px)] md:w-3/5"
           initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
           animate={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
