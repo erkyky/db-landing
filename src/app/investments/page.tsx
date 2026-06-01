@@ -335,7 +335,7 @@ export default function InvestmentsPage() {
               ))}
             </motion.h1>
             <motion.p
-              className="max-w-xl self-start ml-auto font-serif text-body leading-normal text-white/60"
+              className="max-w-xl self-start md:ml-auto font-serif text-body leading-normal text-white/60"
               variants={itemVariants}
             >
               Grounded in demographic inevitability, disciplined judgment, and

@@ -174,7 +174,7 @@ export default function SustainabilityPage() {
                   ))}
                 </motion.h1>
               <motion.p
-                className="ml-auto max-w-xl self-start font-serif text-body leading-normal text-white/60"
+                className="md:ml-auto max-w-xl self-start font-serif text-body leading-normal text-white/60"
                 variants={itemVariants}
               >
                 Responsibility lives inside underwriting, not in a separate
