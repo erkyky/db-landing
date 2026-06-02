@@ -301,26 +301,23 @@ export default function AboutPage() {
             className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
             variants={slowAccentRule}
           />
-          {/* Full-width intro: two paragraphs read left-to-right across the top */}
-          <motion.div
-            className="mt-14 grid gap-8 md:grid-cols-2 md:gap-12"
-            variants={slowItemVariants}
-          >
-            <p className="font-serif text-body leading-normal text-white/58">
-              Office, mixed-use, multifamily, and single-family rental. A range
-              that helps us compare opportunities rather than chase whatever is
-              fashionable.
-            </p>
-            <p className="font-serif text-body leading-normal text-white/58">
-              Each asset class shaped a discipline we still apply today, from
-              large-scale acquisitions at Hines and Starwood to value-add
-              execution and single-family portfolio management.
-            </p>
-          </motion.div>
-          {/* Image-hover accordion: full content width, below the intro */}
-          <motion.div className="mt-12" variants={slowItemVariants}>
-            <InteractiveImageAccordion />
-          </motion.div>
+          <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
+            <motion.div variants={slowItemVariants}>
+              <p className="font-serif text-body leading-normal text-white/58">
+                Office, mixed-use, multifamily, and single-family rental. A range
+                that helps us compare opportunities rather than chase whatever is
+                fashionable.
+              </p>
+              <p className="mt-6 font-serif text-body leading-normal text-white/58">
+                Each asset class shaped a discipline we still apply today, from
+                large-scale acquisitions at Hines and Starwood to value-add
+                execution and single-family portfolio management.
+              </p>
+            </motion.div>
+            <motion.div variants={slowItemVariants}>
+              <InteractiveImageAccordion />
+            </motion.div>
+          </div>
         </motion.section>
 
         <p className="pb-10 text-center font-serif text-base text-white/22">
