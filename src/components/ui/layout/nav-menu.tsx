@@ -276,7 +276,7 @@ export default function NavMenu() {
               </div>
 
               {/* 4 nav items, centered in the viewport regardless of logo (desktop only) */}
-              <div className="hidden justify-center gap-[clamp(1.75rem,2.25vw,3rem)] py-4 md:flex md:py-5">
+              <div className="hidden justify-center gap-[clamp(2.25rem,2.9vw,3.75rem)] py-4 md:flex md:py-5">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
                   const open = openKey === item.href;
