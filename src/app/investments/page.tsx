@@ -233,28 +233,27 @@ export default function InvestmentsPage() {
   const tenetsY = useTransform(smoothProgress, [0.54, 0.7], [60, 0]);
   const pinned = !reduceMotion;
 
-  // Affordable Housing: pin the right image to the LEFT column's *resting*
-  // height (desktop only) so it lines up with the third bullet and adapts to
-  // zoom/resize — but freeze it while a bullet is hovered, so revealing a
-  // description doesn't push the image taller. We measure the text column and
-  // skip updates that happen during hover.
+  // Affordable Housing: pin the right image to the LEFT column's resting height
+  // (desktop only) so it lines up with the third bullet and adapts to
+  // zoom/resize. We measure ONLY on load and on window resize — never via a
+  // ResizeObserver — so hovering a bullet (which expands a description and
+  // grows the column) can't retrigger a measurement and resize the image.
   const affordableTextRef = useRef<HTMLDivElement>(null);
-  const affordableHovering = useRef(false);
   const [affordableImgH, setAffordableImgH] = useState<number | null>(null);
   useEffect(() => {
     const el = affordableTextRef.current;
     if (!el) return;
     const measure = () => {
-      if (affordableHovering.current) return; // ignore the hover-expanded height
       const lg = window.matchMedia("(min-width: 1024px)").matches;
       setAffordableImgH(lg ? el.offsetHeight : null);
     };
     measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
+    const raf = requestAnimationFrame(measure);
+    // Re-measure once webfonts settle (metrics can shift the resting height).
+    if (document.fonts?.ready) document.fonts.ready.then(measure).catch(() => {});
     window.addEventListener("resize", measure);
     return () => {
-      ro.disconnect();
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", measure);
     };
   }, []);
@@ -531,7 +530,7 @@ export default function InvestmentsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <div className="grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <motion.div
                 ref={affordableTextRef}
                 className="order-2 group lg:order-1"
@@ -549,15 +548,7 @@ export default function InvestmentsPage() {
                   Tax Credit (LIHTC) partnerships, with an emphasis on
                   defensive cash flow, stability, and responsible ownership.
                 </p>
-                <ul
-                  className="mt-10 space-y-8 md:space-y-10"
-                  onMouseEnter={() => {
-                    affordableHovering.current = true;
-                  }}
-                  onMouseLeave={() => {
-                    affordableHovering.current = false;
-                  }}
-                >
+                <ul className="mt-10 space-y-8 md:space-y-10">
                   {affordableBullets.map((b, i) => (
                     <li
                       key={b.label}
