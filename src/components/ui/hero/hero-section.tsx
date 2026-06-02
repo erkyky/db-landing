@@ -135,6 +135,10 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               className="relative overflow-hidden"
               style={{
                 marginBottom: "clamp(1rem, 2vh, 2.5rem)",
+                // Nudge left ~half the slogan's letter size so the logo's
+                // visible mark (the PNG has transparent padding) aligns with
+                // the text's left edge. Scales with the slogan's clamp.
+                marginLeft: "clamp(-0.6rem, -0.55vw, -0.35rem)",
                 width: "clamp(120px, 17.6vw, 320px)",
               }}
             >
