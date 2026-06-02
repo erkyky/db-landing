@@ -231,6 +231,12 @@ export default function InvestmentsPage() {
   const statsY = useTransform(smoothProgress, [0.05, 0.18, 0.46, 0.56], [30, 0, 0, 50]);
   const tenetsOpacity = useTransform(smoothProgress, [0.54, 0.7, 1], [0, 1, 1]);
   const tenetsY = useTransform(smoothProgress, [0.54, 0.7], [60, 0]);
+  // Stats and tenets are stacked absolute layers; the top (tenets) layer would
+  // otherwise swallow hover over the stats even at opacity 0. Gate pointer
+  // events on opacity so only the visible layer is interactive — letting the
+  // whole stat block (not just the exposed number) respond to hover.
+  const statsPointer = useTransform(statsOpacity, (o) => (o > 0.5 ? "auto" : "none"));
+  const tenetsPointer = useTransform(tenetsOpacity, (o) => (o > 0.5 ? "auto" : "none"));
   const pinned = !reduceMotion;
 
   // Affordable Housing: pin the right image to the LEFT column's resting height
@@ -649,13 +655,13 @@ export default function InvestmentsPage() {
                 <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
                 <div className="relative mt-10 h-[42vh]">
                   <motion.div
-                    style={{ y: statsY, opacity: statsOpacity }}
+                    style={{ y: statsY, opacity: statsOpacity, pointerEvents: statsPointer }}
                     className="absolute inset-x-0 top-0"
                   >
                     {statsGrid}
                   </motion.div>
                   <motion.div
-                    style={{ y: tenetsY, opacity: tenetsOpacity }}
+                    style={{ y: tenetsY, opacity: tenetsOpacity, pointerEvents: tenetsPointer }}
                     className="absolute inset-x-0 top-0"
                   >
                     {tenetsGrid}
