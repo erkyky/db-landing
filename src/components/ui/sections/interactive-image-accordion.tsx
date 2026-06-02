@@ -45,7 +45,7 @@ const AccordionItem = ({
         loading="lazy"
         decoding="async"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/65 to-[#0d121a]/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/80 via-[#0d121a]/45 to-[#0d121a]/5" />
 
       {isActive && (
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#cca885]" />
