@@ -291,7 +291,7 @@ export default function SustainabilityPage() {
                     >
                       <CountUp value={item.stat} delay={0.2 + i * 0.15} />
                     </p>
-                    <p className="font-serif text-body text-white">
+                    <p className="font-serif text-h3-sm text-white">
                       {item.label}
                     </p>
                   </div>
