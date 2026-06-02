@@ -304,9 +304,9 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-start lg:gap-16">
             <motion.div variants={slowItemVariants}>
               <p className="font-serif text-body leading-normal text-white/58">
-                Office, mixed-use, multifamily, and single-family rental. A range
-                that helps us compare opportunities rather than chase whatever is
-                fashionable.
+                Office, multifamily, single-family rental, hotel, and retail. A
+                range that helps us compare opportunities rather than chase
+                whatever is fashionable.
               </p>
               <p className="mt-6 font-serif text-body leading-normal text-white/58">
                 Each asset class shaped a discipline we still apply today, from
