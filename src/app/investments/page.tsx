@@ -93,21 +93,21 @@ const whatWeDo = [
 const multifamilyBullets = [
   "Focused on markets supported by migration, employment expansion, and sustained housing demand.",
   "Asset improvements informed by on-the-ground observation, practical usage patterns, and day-to-day property experience.",
-  "Partners, materials, and financing structures selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
+  "Partners, financing, and vendors selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
 ];
 
 const affordableBullets = [
   {
-    label: "Warmth & Stability",
-    desc: "Well-maintained housing designed to support consistency, comfort, and long-term resident retention.",
+    label: "Defensive Cash Flow",
+    desc: "Predictable income supported by essential housing demand, public-private structures, and disciplined expense management across market cycles.",
   },
   {
-    label: "Respectful Stewardship",
-    desc: "Operations centered on responsiveness, resident retention, and steady property performance over time.",
+    label: "Stability",
+    desc: "Enduring housing fundamentals reinforced by resident continuity, operational consistency, and assets designed for sustained performance.",
   },
   {
-    label: "Community Trust",
-    desc: "We invest with respect for the character of each neighborhood and the resilience of the people who support it every day.",
+    label: "Responsible Ownership",
+    desc: "Stewardship-driven ownership that respects the character of each community, supports resident well-being, and aligns investor outcomes with lasting social impact.",
   },
 ];
 
@@ -122,7 +122,7 @@ const strategicOperations = [
   },
   {
     title: "Institutional Service Standards",
-    desc: "Quarterly investor reporting, transparent waterfall calculations, and the reporting rhythm sophisticated LPs expect.",
+    desc: "Quarterly investor updates, clear capital account reporting, and a communication cadence aligned with the expectations of sophisticated limited partners.",
   },
 ];
 

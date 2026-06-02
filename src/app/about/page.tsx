@@ -224,7 +224,7 @@ export default function AboutPage() {
                 Co-Founder
               </p>
               <p className="mt-2 font-serif text-body tracking-[0.08em] text-white/70">
-                Ex-Starwood Capital Partner
+                Ex-Starwood Capital, Partner
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
             </motion.div>
@@ -241,7 +241,7 @@ export default function AboutPage() {
                 Co-Founder
               </p>
               <p className="mt-2 font-serif text-body tracking-[0.08em] text-white/70">
-                Ex-Hines Managing Director, Acquisition
+                Ex-Hines, Managing Director, Acquisition
               </p>
               <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-500 ease-out group-hover:w-24 group-hover:bg-[#cca885]" />
             </motion.div>
