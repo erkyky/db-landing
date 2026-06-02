@@ -182,7 +182,7 @@ export default function NavMenu() {
   const inactiveClass = "text-white hover:text-[#cca885]";
   const activeClass = "text-[#cca885]";
   const baseTrigger =
-    "font-serif uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
+    "font-sanomat uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
 
   const showBg = !atTop && visible;
   const activeDropdownItem = openKey
@@ -324,7 +324,7 @@ export default function NavMenu() {
                                     aria-hidden
                                     className="h-px w-3 shrink-0 bg-[#cca885]/40 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#cca885]"
                                   />
-                                  <span className="font-serif uppercase tracking-[0.12em] text-[clamp(11px,0.78vw,14px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
+                                  <span className="font-sanomat uppercase tracking-[0.12em] text-[clamp(11px,0.78vw,14px)] text-white transition-colors duration-300 ease-out group-hover:text-[#cca885]">
                                     {child.label}
                                   </span>
                                 </motion.a>
@@ -395,7 +395,7 @@ export default function NavMenu() {
                       <a
                         href={item.href}
                         onClick={closeMobile}
-                        className={`flex-1 py-4 font-serif uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
+                        className={`flex-1 py-4 font-sanomat uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
                       >
                         {item.label}
                       </a>
@@ -418,7 +418,7 @@ export default function NavMenu() {
                     <a
                       href={item.href}
                       onClick={closeMobile}
-                      className={`block py-4 font-serif uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
+                      className={`block py-4 font-sanomat uppercase tracking-[0.12em] text-[clamp(1.1rem,5.5vw,1.6rem)] transition-colors ${active ? "text-[#cca885]" : "text-white hover:text-[#cca885]"}`}
                     >
                       {item.label}
                     </a>
@@ -446,7 +446,7 @@ export default function NavMenu() {
                                   aria-hidden
                                   className="h-px w-4 shrink-0 bg-[#cca885]/50 transition-all duration-300 group-hover:w-8 group-hover:bg-[#cca885]"
                                 />
-                                <span className="font-serif uppercase tracking-[0.12em] text-[clamp(0.85rem,4vw,1.05rem)] text-white/75 transition-colors group-hover:text-[#cca885]">
+                                <span className="font-sanomat uppercase tracking-[0.12em] text-[clamp(0.85rem,4vw,1.05rem)] text-white/75 transition-colors group-hover:text-[#cca885]">
                                   {child.label}
                                 </span>
                               </a>

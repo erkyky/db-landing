@@ -111,7 +111,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           <motion.div variants={containerVariants} className="max-w-xl">
             {/* Slogan — letter-by-letter reveal */}
             <motion.p
-              className="font-serif tracking-[0.15em] text-[#cca885] uppercase whitespace-normal text-[15px] md:whitespace-nowrap md:text-[clamp(0.9rem,1.4vw,1.6rem)]"
+              className="font-sanomat tracking-[0.15em] text-[#cca885] uppercase whitespace-normal text-[15px] md:whitespace-nowrap md:text-[clamp(0.9rem,1.4vw,1.6rem)]"
               style={{
                 marginBottom: "clamp(0.75rem, 1.5vh, 1.5rem)",
               }}
