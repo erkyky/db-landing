@@ -182,7 +182,7 @@ export default function NavMenu() {
   const inactiveClass = "text-white hover:text-[#cca885]";
   const activeClass = "text-[#cca885]";
   const baseTrigger =
-    "font-sanomat uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(14px,0.95vw,20px)]";
+    "font-sanomat uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 text-[clamp(12px,0.82vw,17px)]";
 
   const showBg = !atTop && visible;
   const activeDropdownItem = openKey
