@@ -549,7 +549,7 @@ export default function InvestmentsPage() {
                 </ul>
               </motion.div>
               <motion.div
-                className="relative order-1 h-[400px] self-start overflow-hidden lg:order-2 lg:h-[520px]"
+                className="relative order-1 h-[400px] overflow-hidden lg:order-2 lg:h-auto"
                 variants={imageRevealRight}
               >
                 <div
