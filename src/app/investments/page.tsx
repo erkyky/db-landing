@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
 import { CountUp } from "@/components/ui/animation/count-up";
@@ -232,6 +232,32 @@ export default function InvestmentsPage() {
   const tenetsOpacity = useTransform(smoothProgress, [0.54, 0.7, 1], [0, 1, 1]);
   const tenetsY = useTransform(smoothProgress, [0.54, 0.7], [60, 0]);
   const pinned = !reduceMotion;
+
+  // Affordable Housing: pin the right image to the LEFT column's *resting*
+  // height (desktop only) so it lines up with the third bullet and adapts to
+  // zoom/resize — but freeze it while a bullet is hovered, so revealing a
+  // description doesn't push the image taller. We measure the text column and
+  // skip updates that happen during hover.
+  const affordableTextRef = useRef<HTMLDivElement>(null);
+  const affordableHovering = useRef(false);
+  const [affordableImgH, setAffordableImgH] = useState<number | null>(null);
+  useEffect(() => {
+    const el = affordableTextRef.current;
+    if (!el) return;
+    const measure = () => {
+      if (affordableHovering.current) return; // ignore the hover-expanded height
+      const lg = window.matchMedia("(min-width: 1024px)").matches;
+      setAffordableImgH(lg ? el.offsetHeight : null);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
 
   // Shared markup for the thesis content — reused by the pinned (desktop) and
   // stacked (mobile / reduced-motion) layouts. CSS hover so no motion wrapper
@@ -507,6 +533,7 @@ export default function InvestmentsPage() {
           >
             <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
               <motion.div
+                ref={affordableTextRef}
                 className="order-2 group lg:order-1"
                 variants={itemVariants}
                 whileHover={{ x: 4 }}
@@ -522,7 +549,15 @@ export default function InvestmentsPage() {
                   Tax Credit (LIHTC) partnerships, with an emphasis on
                   defensive cash flow, stability, and responsible ownership.
                 </p>
-                <ul className="mt-10 space-y-8 md:space-y-10">
+                <ul
+                  className="mt-10 space-y-8 md:space-y-10"
+                  onMouseEnter={() => {
+                    affordableHovering.current = true;
+                  }}
+                  onMouseLeave={() => {
+                    affordableHovering.current = false;
+                  }}
+                >
                   {affordableBullets.map((b, i) => (
                     <li
                       key={b.label}
@@ -549,7 +584,8 @@ export default function InvestmentsPage() {
                 </ul>
               </motion.div>
               <motion.div
-                className="relative order-1 h-[400px] overflow-hidden lg:order-2 lg:h-auto"
+                className="relative order-1 h-[400px] self-start overflow-hidden lg:order-2 lg:h-[520px]"
+                style={affordableImgH ? { height: affordableImgH } : undefined}
                 variants={imageRevealRight}
               >
                 <div
