@@ -86,9 +86,14 @@ const defaultItems: AccordionItemData[] = [
     imageUrl: "/single-family.png",
   },
   {
-    id: "value-add",
-    title: "Value-Add Renovation",
-    imageUrl: "/value.jpg",
+    id: "hotel",
+    title: "Hotel",
+    imageUrl: "/1hotel.jpg",
+  },
+  {
+    id: "retail",
+    title: "Retail",
+    imageUrl: "/westfield.jpg",
   },
 ];
 
