@@ -82,7 +82,7 @@ const whatWeDo = [
   },
   {
     title: "Operational Alpha",
-    desc: "Alpha in real estate is realized through execution. Institutional analysis is paired with firsthand local insight to guide capital improvements, leasing strategy, and day-to-day management decisions shaped by how communities actually live and function.",
+    desc: "Alpha in real estate is realized through execution. Institutional analysis is paired with firsthand local insight to guide capital improvements, portfolio positioning, and operational decision-making shaped by how communities actually live and function.",
   },
   {
     title: "Strategic Conviction",
@@ -226,7 +226,7 @@ export default function InvestmentsPage() {
   const smoothProgress = useSpring(thesisProgress, { stiffness: 90, damping: 20, mass: 0.7 });
   // Stats: slow fade+rise in (0.05→0.18), sit a long while (→0.46), then fade
   // out sinking down. Tenets: rise+fade in (0.54→0.70) and stay to the end so
-  // there's no dead "nothing happening" tail before Affordable Housing.
+  // there's no dead "nothing happening" tail before the section closes.
   const statsOpacity = useTransform(smoothProgress, [0.05, 0.18, 0.46, 0.56], [0, 1, 1, 0]);
   const statsY = useTransform(smoothProgress, [0.05, 0.18, 0.46, 0.56], [30, 0, 0, 50]);
   const tenetsOpacity = useTransform(smoothProgress, [0.54, 0.7, 1], [0, 1, 1]);
@@ -411,7 +411,7 @@ export default function InvestmentsPage() {
           </div>
         </motion.section>
 
-        {/* 2 · Private Transactions — wraps Multifamily, Strategic Ops, Investment Thesis, Affordable */}
+        {/* 2 · Private Transactions — wraps Multifamily, Affordable, Strategic Ops, Investment Thesis */}
         <section id="private-transactions" className="w-full scroll-mt-28">
           {/* Block intro */}
           <motion.div
@@ -497,102 +497,9 @@ export default function InvestmentsPage() {
             </div>
           </motion.div>
 
-          {/* 2b · Strategic Operations */}
+          {/* 2b · Affordable Housing */}
           <motion.div
-            className="w-full section-px pb-20 pt-32"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <motion.h3
-              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-              variants={itemVariants}
-            >
-              Relationships built over time. Standards carried through execution.
-            </motion.h3>
-            <motion.div
-              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-              variants={accentRule}
-            />
-
-            <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
-              {strategicOperations.map((p, i) => (
-                <motion.div
-                  key={p.title}
-                  className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                  variants={itemVariants}
-                >
-                  <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-500 group-hover:text-[#cca885]/80">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <h4 className="mt-6 font-serif text-h3-sm text-white">
-                    {p.title}
-                  </h4>
-                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
-                    <div className="min-h-0 overflow-hidden">
-                      <p className="mt-4 font-serif text-body leading-normal text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
-                        {p.desc}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* 2c · Investment Thesis — desktop: pinned title with a stats→tenets
-              swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
-          {pinned && (
-            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[210vh]">
-              {/* Soft snap catch-points: proximity-only (snap-normal) so the scroll
-                  can glide past and the spring entrance reads — no hard "magnetic"
-                  stop, just a gentle rest near the stats and the four points. */}
-              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "35vh", height: 1 }} />
-              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "92vh", height: 1 }} />
-              <div className="sticky top-0 flex h-screen flex-col section-px pt-[32vh]">
-                <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
-                  Demographic tailwinds. Thoughtful entry points.
-                </h3>
-                <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
-                <div className="relative mt-10 h-[42vh]">
-                  <motion.div
-                    style={{ y: statsY, opacity: statsOpacity }}
-                    className="absolute inset-x-0 top-0"
-                  >
-                    {statsGrid}
-                  </motion.div>
-                  <motion.div
-                    style={{ y: tenetsY, opacity: tenetsOpacity }}
-                    className="absolute inset-x-0 top-0"
-                  >
-                    {tenetsGrid}
-                  </motion.div>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* Stacked fallback — phones always; everyone when reduced-motion */}
-          <motion.div
-            className={`w-full section-px pb-24 pt-24 ${pinned ? "lg:hidden" : ""}`}
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-          >
-            <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
-              Demographic tailwinds. Thoughtful entry points.
-            </h3>
-            <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
-            <div className="mt-16">{statsGrid}</div>
-            <div className="mt-16">{tenetsGrid}</div>
-          </motion.div>
-
-          {/* 2d · Affordable Housing */}
-          <motion.div
-            className="w-full section-px pb-48 pt-4"
+            className="w-full section-px pb-32 pt-32"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -652,6 +559,99 @@ export default function InvestmentsPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
               </motion.div>
             </div>
+          </motion.div>
+
+          {/* 2c · Strategic Operations */}
+          <motion.div
+            className="w-full section-px pb-20 pt-32"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.h3
+              className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
+              variants={itemVariants}
+            >
+              Relationships built over time. Standards carried through execution.
+            </motion.h3>
+            <motion.div
+              className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
+              variants={accentRule}
+            />
+
+            <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-3 md:gap-0">
+              {strategicOperations.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  className={`group relative px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
+                  variants={itemVariants}
+                >
+                  <p className="font-serif text-stat leading-none text-[#cca885]/35 transition-colors duration-500 group-hover:text-[#cca885]/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-500 ease-out group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <h4 className="mt-6 font-serif text-h3-sm text-white">
+                    {p.title}
+                  </h4>
+                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
+                    <div className="min-h-0 overflow-hidden">
+                      <p className="mt-4 font-serif text-body leading-normal text-white/55 opacity-100 transition-opacity duration-500 ease-out md:opacity-0 md:group-hover:opacity-100">
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 2d · Investment Thesis — desktop: pinned title with a stats→tenets
+              swap on scroll. Mobile / reduced-motion: a normal stacked layout. */}
+          {pinned && (
+            <section ref={thesisRef} className="relative hidden w-full lg:block lg:h-[210vh]">
+              {/* Soft snap catch-points: proximity-only (snap-normal) so the scroll
+                  can glide past and the spring entrance reads — no hard "magnetic"
+                  stop, just a gentle rest near the stats and the four points. */}
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "35vh", height: 1 }} />
+              <div aria-hidden className="pointer-events-none absolute inset-x-0 snap-start snap-normal" style={{ top: "92vh", height: 1 }} />
+              <div className="sticky top-0 flex h-screen flex-col section-px pt-[32vh]">
+                <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
+                  Demographic tailwinds. Thoughtful entry points.
+                </h3>
+                <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
+                <div className="relative mt-10 h-[42vh]">
+                  <motion.div
+                    style={{ y: statsY, opacity: statsOpacity }}
+                    className="absolute inset-x-0 top-0"
+                  >
+                    {statsGrid}
+                  </motion.div>
+                  <motion.div
+                    style={{ y: tenetsY, opacity: tenetsOpacity }}
+                    className="absolute inset-x-0 top-0"
+                  >
+                    {tenetsGrid}
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Stacked fallback — phones always; everyone when reduced-motion */}
+          <motion.div
+            className={`w-full section-px pb-48 pt-24 ${pinned ? "lg:hidden" : ""}`}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <h3 className="max-w-5xl font-serif text-h2 leading-[1.08] text-white">
+              Demographic tailwinds. Thoughtful entry points.
+            </h3>
+            <div className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32" />
+            <div className="mt-16">{statsGrid}</div>
+            <div className="mt-16">{tenetsGrid}</div>
           </motion.div>
         </section>
 
