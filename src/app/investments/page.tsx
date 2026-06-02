@@ -509,10 +509,10 @@ export default function InvestmentsPage() {
                   {multifamilyBullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-4 font-serif text-body leading-normal text-white/60"
+                      className="group/bullet flex gap-4 font-serif text-body leading-normal text-white/60 transition-colors duration-300 ease-out hover:text-white/90"
                     >
                       <span
-                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 md:w-4"
+                        className="mt-[0.7em] h-px w-3 shrink-0 bg-[#cca885]/70 transition-all duration-300 ease-out group-hover/bullet:w-6 group-hover/bullet:bg-[#cca885] md:w-4"
                         aria-hidden
                       />
                       <span>{b}</span>
