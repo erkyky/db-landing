@@ -26,7 +26,7 @@ const AccordionItem = ({
   return (
     <motion.button
       type="button"
-      className="relative min-h-[150px] w-full overflow-hidden border border-transparent text-left transition-[flex-grow,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 md:min-h-0 md:h-[400px] md:w-auto lg:h-[520px]"
+      className="relative min-h-[150px] w-full overflow-hidden border border-transparent text-left transition-[flex-grow,border-color] duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cca885]/60 md:min-h-0 md:h-[400px] md:w-auto lg:h-[600px]"
       style={{
         flexGrow: isActive ? 4 : 1,
         flexShrink: 1,
