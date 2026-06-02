@@ -93,7 +93,7 @@ const whatWeDo = [
 const multifamilyBullets = [
   "Focused on markets supported by migration, employment expansion, and sustained housing demand.",
   "Asset improvements informed by on-the-ground observation, practical usage patterns, and day-to-day property experience.",
-  "Partners, financing, and vendors selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
+  "Partners, financing structure, and vendors selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
 ];
 
 const affordableBullets = [
@@ -107,7 +107,7 @@ const affordableBullets = [
   },
   {
     label: "Responsible Ownership",
-    desc: "Stewardship-driven ownership that respects the character of each community, supports resident well-being, and aligns investor outcomes with lasting social impact.",
+    desc: "Ownership grounded in respect for neighborhood character, responsive operations, and well-maintained housing that supports resident stability and well-being.",
   },
 ];
 
@@ -122,7 +122,7 @@ const strategicOperations = [
   },
   {
     title: "Institutional Service Standards",
-    desc: "Quarterly investor updates, clear capital account reporting, and a communication cadence aligned with the expectations of sophisticated limited partners.",
+    desc: "Quarterly investor updates, market research reports, and a communication cadence aligned with the expectations of sophisticated limited partners.",
   },
 ];
 
@@ -549,10 +549,10 @@ export default function InvestmentsPage() {
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-normal text-white/60">
-                  We invest in housing that serves working families, seniors,
-                  and essential communities, often through Low-Income Housing
-                  Tax Credit (LIHTC) partnerships, with an emphasis on
-                  defensive cash flow, stability, and responsible ownership.
+                  We invest in housing that supports working families, seniors,
+                  and essential communities—often through Low-Income Housing
+                  Tax Credit (LIHTC) partnerships—prioritizing resilient income,
+                  long-term reliability, and thoughtful stewardship.
                 </p>
                 <ul className="mt-10 space-y-8 md:space-y-10">
                   {affordableBullets.map((b, i) => (
