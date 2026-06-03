@@ -99,7 +99,7 @@ const multifamilyBullets = [
 const affordableBullets = [
   {
     label: "Defensive Cash Flow",
-    desc: "Predictable income anchored by essential housing demand, public private structures, and disciplined expense management across market cycles.",
+    desc: "Predictable income anchored by essential housing demand, public private structures, and prudent financial management across market cycles.",
   },
   {
     label: "Stability",
