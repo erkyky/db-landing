@@ -172,7 +172,7 @@ export default function SustainabilityPage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
             <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
