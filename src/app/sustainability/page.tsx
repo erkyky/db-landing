@@ -3,7 +3,6 @@
 import React, { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { BeamsBackground } from "@/components/ui/layout/beams-background";
-import { CountUp } from "@/components/ui/animation/count-up";
 import NavMenu from "@/components/ui/layout/nav-menu";
 import TopLeftLogo from "@/components/ui/layout/top-left-logo";
 
@@ -79,24 +78,6 @@ const pillars: Array<{ title: string; desc: string }> = [
   {
     title: "Responsible governance",
     desc: "Transparent reporting, ethical decision making, accountability to investors and communities alike.",
-  },
-];
-
-const commitments: Array<{ stat: string; label: string; detail: string }> = [
-  {
-    stat: "100%",
-    label: "ESG-screened deals",
-    detail: "Every acquisition passes environmental, social, and governance review during underwriting.",
-  },
-  {
-    stat: "Net Zero",
-    label: "Operational target",
-    detail: "Working toward net-zero carbon across the managed portfolio via efficiency upgrades and renewables.",
-  },
-  {
-    stat: "30%",
-    label: "Water reduction goal",
-    detail: "Smart-system retrofits and drought-tolerant landscaping driving measurable water savings.",
   },
 ];
 
@@ -232,77 +213,19 @@ export default function SustainabilityPage() {
               </motion.div>
             ))}
           </div>
-        </motion.section>
 
-        {/* OUR COMMITMENTS — Commitments */}
-        <motion.section
-          id="the-evidence"
-          className="w-full scroll-mt-28 section-px pb-48 pt-24"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-        >
-          <motion.div className="mb-4 flex items-center gap-6" variants={itemVariants}>
-            <p className="font-sans text-eyebrow uppercase tracking-[0.32em] whitespace-normal md:whitespace-nowrap text-[#cca885]">
-              Our Commitments
-            </p>
-            <motion.div
-              className="h-px flex-1 origin-left bg-[#cca885]/40"
-              variants={accentRule}
-            />
-          </motion.div>
-          <motion.h2
-            className="max-w-5xl font-serif text-h2 leading-[1.08] text-white"
-            variants={itemVariants}
-          >
-            Measurable targets, not just intentions.
-          </motion.h2>
+          {/* Full-width image strip */}
           <motion.div
-            className="mt-6 h-px w-24 origin-left bg-[#cca885]/60 md:w-32"
-            variants={accentRule}
-          />
-
-          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <motion.div
-              className="relative h-[280px] overflow-hidden md:h-[380px] lg:h-auto"
-              variants={imageRevealLeft}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-            </motion.div>
-
-            <motion.div className="space-y-12 md:space-y-14" variants={itemVariants}>
-              {commitments.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  className="group"
-                  variants={itemVariants}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
-                    <p
-                      className="font-serif text-stat text-[#cca885]"
-                      style={item.stat === "Net Zero" ? { fontSize: "clamp(1.3rem, 2.6vw, 2.6rem)" } : undefined}
-                    >
-                      <CountUp value={item.stat} delay={0.2 + i * 0.15} />
-                    </p>
-                    <p className="font-serif text-h3-sm text-white">
-                      {item.label}
-                    </p>
-                  </div>
-                  <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-4 max-w-3xl font-serif text-body leading-normal text-white/55">
-                    {item.detail}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+            className="relative mt-16 w-full overflow-hidden md:mt-20"
+            style={{ height: "clamp(220px, 30vh, 420px)" }}
+            variants={imageRevealLeft}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+          </motion.div>
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">
