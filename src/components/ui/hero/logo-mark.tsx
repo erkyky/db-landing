@@ -27,15 +27,21 @@ export function LogoMark({
 
   return (
     <div className={className} style={{ position: "relative" }}>
-      {/* Final logo (frame + wordmark) in white — fades in gently underneath. */}
+      {/* Final logo (frame + wordmark) in white. Wipes in left-to-right after
+          the frame has drawn — same direction as the frame, so the wordmark
+          reads as "writing on" inside the box. The white frame in this image
+          lands over the already-white animated frame, so only the letters
+          visibly reveal. */}
       <motion.img
         src="/company_logo.svg"
         alt={alt}
         className="block h-auto w-full opacity-90"
-        initial={reduce ? { opacity: 0.9 } : { opacity: 0 }}
-        animate={{ opacity: 0.9 }}
+        initial={
+          reduce ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }
+        }
+        animate={{ clipPath: "inset(0 0% 0 0)" }}
         transition={
-          reduce ? { duration: 0 } : { delay: 1.1, duration: 1.0, ease: "easeInOut" }
+          reduce ? { duration: 0 } : { delay: 1.05, duration: 0.8, ease: [0.22, 1, 0.36, 1] }
         }
       />
 
@@ -59,8 +65,8 @@ export function LogoMark({
                 opacity: [1, 1, 1, 1, 0],
               }}
               transition={{
-                duration: 2.3,
-                times: [0, 0.43, 0.57, 0.83, 1],
+                duration: 2.1,
+                times: [0, 0.43, 0.48, 0.9, 1],
                 ease: "easeInOut",
               }}
             />

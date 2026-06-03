@@ -52,6 +52,16 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       },
     };
 
+    // The box (logo frame) draws first; the slogan, accent line and
+    // descriptions hold until it's essentially complete, then cascade in.
+    const contentContainer = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.12, delayChildren: 0.95 },
+      },
+    };
+
     const sloganContainer = {
       hidden: { opacity: 1 },
       visible: {
@@ -101,7 +111,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             paddingBottom: "clamp(2rem, 4vh, 4rem)",
           }}
         >
-          <motion.div variants={containerVariants} className="max-w-xl">
+          <motion.div variants={contentContainer} className="max-w-xl">
             {/* Slogan — letter-by-letter reveal */}
             <motion.p
               className="font-sanomat tracking-[0.15em] text-[#cca885] uppercase whitespace-normal text-[11px] md:whitespace-nowrap md:text-[clamp(0.7rem,1.1vw,1.2rem)]"
