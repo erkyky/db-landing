@@ -107,7 +107,7 @@ const affordableBullets = [
   },
   {
     label: "Responsible Ownership",
-    desc: "Ownership grounded in respect for neighborhood character, responsive operations, and well-maintained housing that supports resident stability and well-being.",
+    desc: "Ownership grounded in respect for neighborhood character and continuity of community operations, with a focus on retaining trusted on-site teams and preserving the stability and well-being of residents.",
   },
 ];
 
