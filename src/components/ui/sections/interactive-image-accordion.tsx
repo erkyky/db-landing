@@ -78,12 +78,12 @@ const defaultItems: AccordionItemData[] = [
   {
     id: "multifamily",
     title: "Multifamily",
-    imageUrl: "/multifamily.png",
+    imageUrl: "/multifamily.jpg",
   },
   {
     id: "sfr",
     title: "Single Family Rental",
-    imageUrl: "/single-family.png",
+    imageUrl: "/single-family.jpg",
   },
   {
     id: "hotel",

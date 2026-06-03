@@ -134,7 +134,7 @@ export default function AboutPage() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: "url(/about/33.png)",
+                backgroundImage: "url(/about/33.jpg)",
                 backgroundColor: "#1a2332",
               }}
             />
