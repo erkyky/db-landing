@@ -10,7 +10,7 @@ export default function Home() {
         <NavMenu />
         <HeroSection
           logo={{
-            url: "/company_logo.png",
+            url: "/company_logo.svg",
             alt: "Deepblue Capital Partners Logo",
           }}
           slogan="Managing Investments. and life"

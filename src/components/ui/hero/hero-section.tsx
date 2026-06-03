@@ -146,7 +146,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 <img
                   src={logo.url}
                   alt={logo.alt}
-                  className="h-auto w-full brightness-0 invert opacity-90"
+                  className="h-auto w-full opacity-90"
                 />
               </motion.div>
             </motion.div>
