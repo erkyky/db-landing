@@ -561,9 +561,9 @@ export default function InvestmentsPage() {
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-normal text-white/60">
                   We invest in housing that supports working families, seniors,
-                  and essential communities—often through Low-Income Housing
-                  Tax Credit (LIHTC) partnerships—prioritizing resilient income,
-                  long-term reliability, and thoughtful stewardship.
+                  and essential communities, often through Low-Income Housing
+                  Tax Credit (LIHTC) partnerships, while prioritizing resilient
+                  income, long-term reliability, and thoughtful stewardship.
                 </p>
                 <ul className="mt-10 space-y-8 md:space-y-10">
                   {affordableBullets.map((b, i) => (
