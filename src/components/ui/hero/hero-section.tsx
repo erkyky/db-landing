@@ -139,7 +139,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 // visible mark (the PNG has transparent padding) aligns with
                 // the text's left edge. Scales with the slogan's clamp.
                 marginLeft: "clamp(-0.35rem, -0.32vw, -0.2rem)",
-                width: "clamp(120px, 17.6vw, 320px)",
+                width: "clamp(200px, 11vw, 320px)",
               }}
             >
               <motion.div variants={logoMaskVariants}>
@@ -179,7 +179,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
 
         {/* Right Side: Image with Clip Path Animation — flush to right edge */}
         <motion.div
-          className="relative h-[clamp(280px,45vh,460px)] w-full md:mt-[clamp(2rem,8vh,6rem)] md:h-[clamp(360px,60vh,720px)] md:w-3/5"
+          className="relative h-[clamp(280px,45vh,460px)] w-full md:mt-[clamp(2rem,8vh,6rem)] md:h-[clamp(440px,60vh,720px)] md:w-3/5"
           initial={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }}
           animate={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
           transition={{ duration: 1.2, ease: "circOut", delay: 0.4 }}
