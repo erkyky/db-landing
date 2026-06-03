@@ -41,3 +41,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logo/image experiment artifacts — not for production, keep out of build sync
+/_cmp_*
+/_crop_*
+/_hi_svg.png
+/_logo_mask.pgm
+/_logo_traced.svg
+public/_cmp_*
+public/_crop_*
+public/_hi_svg.png
+public/_logo_mask.pgm
+public/_logo_traced.svg
