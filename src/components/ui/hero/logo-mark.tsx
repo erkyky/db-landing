@@ -41,7 +41,7 @@ export function LogoMark({
         }
         animate={{ clipPath: "inset(0 0% 0 0)" }}
         transition={
-          reduce ? { duration: 0 } : { delay: 1.05, duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+          reduce ? { duration: 0 } : { delay: 1.05, duration: 1.4, ease: [0.22, 1, 0.36, 1] }
         }
       />
 
@@ -65,8 +65,8 @@ export function LogoMark({
                 opacity: [1, 1, 1, 1, 0],
               }}
               transition={{
-                duration: 2.1,
-                times: [0, 0.43, 0.48, 0.9, 1],
+                duration: 2.7,
+                times: [0, 0.333, 0.37, 0.907, 1],
                 ease: "easeInOut",
               }}
             />
