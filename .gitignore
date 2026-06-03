@@ -53,3 +53,6 @@ public/_crop_*
 public/_hi_svg.png
 public/_logo_mask.pgm
 public/_logo_traced.svg
+
+# local-only backups (originals before optimization)
+.backups/

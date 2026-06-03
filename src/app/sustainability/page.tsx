@@ -62,7 +62,7 @@ const imageRevealLeft = {
   hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.8, ease: "circOut" as const },
   },
 };
 
