@@ -139,7 +139,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 // visible mark (the PNG has transparent padding) aligns with
                 // the text's left edge. Scales with the slogan's clamp.
                 marginLeft: "clamp(-0.35rem, -0.32vw, -0.2rem)",
-                width: "clamp(200px, 11vw, 320px)",
+                width: "clamp(220px, 17.6vw, 340px)",
               }}
             >
               <motion.div variants={logoMaskVariants}>
