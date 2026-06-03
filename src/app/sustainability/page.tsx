@@ -58,8 +58,8 @@ const headlineLetter = {
   },
 };
 
-const imageRevealLeft = {
-  hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+const imageRevealUp = {
+  hidden: { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
   visible: {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
     transition: { duration: 1.6, ease: [0.22, 1, 0.36, 1] as const },
@@ -218,7 +218,7 @@ export default function SustainabilityPage() {
           <motion.div
             className="relative mt-16 w-full overflow-hidden md:mt-20"
             style={{ height: "clamp(220px, 30vh, 420px)" }}
-            variants={imageRevealLeft}
+            variants={imageRevealUp}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
