@@ -247,7 +247,7 @@ export default function NavMenu() {
                   className={`absolute top-1/2 -translate-y-1/2 ${EDGE_INSET_L}`}
                 >
                   <img
-                    src="/small-logo.svg"
+                    src="/small-logo.png"
                     alt="Deepblue Capital Partners"
                     className="h-9 w-auto md:h-10"
                   />
