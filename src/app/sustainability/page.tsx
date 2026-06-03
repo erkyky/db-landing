@@ -226,7 +226,7 @@ export default function SustainabilityPage() {
                   {item.title}
                 </h3>
                 <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <p className="mt-4 font-serif text-body-sm leading-normal text-white/55">
+                <p className="mt-4 font-serif text-body leading-normal text-white/55">
                   {item.desc}
                 </p>
               </motion.div>
@@ -296,7 +296,7 @@ export default function SustainabilityPage() {
                     </p>
                   </div>
                   <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                  <p className="mt-4 max-w-3xl font-serif text-body-sm leading-normal text-white/55">
+                  <p className="mt-4 max-w-3xl font-serif text-body leading-normal text-white/55">
                     {item.detail}
                   </p>
                 </motion.div>
