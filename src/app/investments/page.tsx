@@ -82,7 +82,7 @@ const whatWeDo = [
   },
   {
     title: "Operational Alpha",
-    desc: "Alpha in real estate is realized through execution. Institutional analysis is paired with firsthand local insight to guide capital improvements, portfolio positioning, and operational decision-making shaped by how communities actually live and function.",
+    desc: "Alpha in real estate is realized through execution. Institutional analysis is paired with firsthand local insight to guide capital improvements, portfolio positioning, and operational decision making shaped by how communities actually live and function.",
   },
   {
     title: "Strategic Conviction",
@@ -91,15 +91,15 @@ const whatWeDo = [
 ];
 
 const multifamilyBullets = [
-  "Focused on markets supported by migration, employment expansion, and sustained housing demand.",
-  "Asset improvements informed by on-the-ground observation, practical usage patterns, and day-to-day property experience.",
+  "Focused on markets driven by migration, employment expansion, and sustained housing demand.",
+  "Asset improvements informed by on the ground observation, practical usage patterns, and day to day property experience.",
   "Partners, financing structure, and vendors selected with an emphasis on durability, alignment, and consistency through changing market conditions.",
 ];
 
 const affordableBullets = [
   {
     label: "Defensive Cash Flow",
-    desc: "Predictable income supported by essential housing demand, public-private structures, and disciplined expense management across market cycles.",
+    desc: "Predictable income anchored by essential housing demand, public private structures, and disciplined expense management across market cycles.",
   },
   {
     label: "Stability",
@@ -113,12 +113,12 @@ const affordableBullets = [
 
 const strategicOperations = [
   {
-    title: "Long-term Industry Relationships",
+    title: "Long term Industry Relationships",
     desc: "Deepblue partners with brokers, lenders, and joint-venture sponsors built over twenty-five years. We see opportunities before they're listed and price them with conviction.",
   },
   {
-    title: "Ground-level Operating Expertise",
-    desc: "Every deal pairs Deepblue's underwriting with on-the-ground operators who know their submarket, with leasing, construction, and property management run by people who live where we invest.",
+    title: "Ground level Operating Expertise",
+    desc: "Every deal pairs Deepblue's underwriting with on the ground operators who know their submarket, with leasing, construction, and property management run by people who live where we invest.",
   },
   {
     title: "Institutional Service Standards",
@@ -506,9 +506,9 @@ export default function InvestmentsPage() {
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-normal text-white/60">
-                  We invest in apartment communities supported by durable
+                  We invest in apartment communities backed by durable
                   demand, evolving demographics, and opportunities for
-                  long-term value creation.
+                  long term value creation.
                 </p>
                 <ul className="mt-8 space-y-4 md:space-y-5">
                   {multifamilyBullets.map((b, i) => {
@@ -560,10 +560,10 @@ export default function InvestmentsPage() {
                 </h3>
                 <div className="mt-5 h-px w-12 bg-[#cca885]/50 transition-all duration-300 group-hover:w-24 group-hover:bg-[#cca885]" />
                 <p className="mt-6 font-serif text-body leading-normal text-white/60">
-                  We invest in housing that supports working families, seniors,
-                  and essential communities, often through Low-Income Housing
+                  We invest in housing that serves working families, seniors,
+                  and essential communities, often through Low Income Housing
                   Tax Credit (LIHTC) partnerships, while prioritizing resilient
-                  income, long-term reliability, and thoughtful stewardship.
+                  income, long term reliability, and thoughtful stewardship.
                 </p>
                 <ul className="mt-10 space-y-8 md:space-y-10">
                   {affordableBullets.map((b, i) => (

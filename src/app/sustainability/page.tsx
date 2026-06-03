@@ -70,7 +70,7 @@ const imageRevealLeft = {
 const pillars: Array<{ title: string; desc: string }> = [
   {
     title: "Environmental stewardship",
-    desc: "Energy efficiency, embodied carbon, and long-term resilience evaluated before capital is committed.",
+    desc: "Energy efficiency, embodied carbon, and long term resilience evaluated before capital is committed.",
   },
   {
     title: "Community impact",
@@ -78,7 +78,7 @@ const pillars: Array<{ title: string; desc: string }> = [
   },
   {
     title: "Responsible governance",
-    desc: "Transparent reporting, ethical decision-making, accountability to investors and communities alike.",
+    desc: "Transparent reporting, ethical decision making, accountability to investors and communities alike.",
   },
 ];
 
