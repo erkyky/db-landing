@@ -2,15 +2,20 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-// Centerline of the logo's frame band, expressed in the source SVG's path
-// coordinate space (company_logo.svg's <g> uses transform
-// "translate(0,757) scale(0.1,-0.1)"). Animating a stroked rect along this
-// centerline traces the frame exactly; strokeWidth ≈ the band thickness.
-const FRAME = { x: 332, y: 2107, w: 16175, h: 5170, stroke: 90 } as const;
+// The logo's frame, traced as an explicit path in the source SVG's coordinate
+// space (company_logo.svg's <g> uses transform "translate(0,757) scale(0.1,-0.1)",
+// which flips Y). Points are ordered so the stroke STARTS at the on-screen
+// top-left corner and runs clockwise to the right. Coords are the centerline of
+// the frame band; FRAME_STROKE ≈ the band thickness, so it fills the frame.
+//   top-left → top-right → bottom-right → bottom-left → close
+const FRAME_PATH = "M332 7277 L16507 7277 L16507 2107 L332 2107 Z";
+const FRAME_STROKE = 90;
+const GOLD = "#cca885"; // same as the "Managing Investments. and life" slogan
 
-// One-time intro: the frame draws itself around in gold, turns white, then the
-// full white logo (frame + wordmark) settles in. Keeps the logo's exact letter
-// shapes (they come from the SVG art itself — only the frame is animated).
+// One-time intro: the frame draws itself from the top-left corner to the right
+// in gold, turns white, and the full white wordmark fades in underneath so the
+// hand-off is seamless. Letters are the SVG art (font unchanged); only the
+// frame is animated. Honors reduced-motion (static logo, no animation).
 export function LogoMark({
   className,
   alt,
@@ -22,7 +27,7 @@ export function LogoMark({
 
   return (
     <div className={className} style={{ position: "relative" }}>
-      {/* Final logo (frame + wordmark) in white — fades in after the draw. */}
+      {/* Final logo (frame + wordmark) in white — fades in gently underneath. */}
       <motion.img
         src="/company_logo.svg"
         alt={alt}
@@ -30,12 +35,12 @@ export function LogoMark({
         initial={reduce ? { opacity: 0.9 } : { opacity: 0 }}
         animate={{ opacity: 0.9 }}
         transition={
-          reduce ? { duration: 0 } : { delay: 1.2, duration: 0.6, ease: "easeOut" }
+          reduce ? { duration: 0 } : { delay: 1.1, duration: 1.0, ease: "easeInOut" }
         }
       />
 
-      {/* Gold frame that runs around once, then turns white and hands off to the
-          settled white logo above. Skipped entirely under reduced-motion. */}
+      {/* Gold frame drawing on (top-left → right), turning white, then fading
+          out once the white logo above has fully settled in. */}
       {!reduce && (
         <svg
           aria-hidden
@@ -43,21 +48,19 @@ export function LogoMark({
           className="pointer-events-none absolute inset-0 h-full w-full"
         >
           <g transform="translate(0,757) scale(0.1,-0.1)" fill="none">
-            <motion.rect
-              x={FRAME.x}
-              y={FRAME.y}
-              width={FRAME.w}
-              height={FRAME.h}
-              strokeWidth={FRAME.stroke}
-              initial={{ pathLength: 0, stroke: "#cca885", opacity: 1 }}
+            <motion.path
+              d={FRAME_PATH}
+              strokeWidth={FRAME_STROKE}
+              strokeLinejoin="miter"
+              initial={{ pathLength: 0, stroke: GOLD, opacity: 1 }}
               animate={{
-                pathLength: [0, 1, 1, 1],
-                stroke: ["#cca885", "#cca885", "#ffffff", "#ffffff"],
-                opacity: [1, 1, 1, 0],
+                pathLength: [0, 1, 1, 1, 1],
+                stroke: [GOLD, GOLD, "#ffffff", "#ffffff", "#ffffff"],
+                opacity: [1, 1, 1, 1, 0],
               }}
               transition={{
-                duration: 1.9,
-                times: [0, 0.62, 0.82, 1],
+                duration: 2.3,
+                times: [0, 0.43, 0.57, 0.83, 1],
                 ease: "easeInOut",
               }}
             />
