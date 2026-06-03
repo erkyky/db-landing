@@ -26,7 +26,6 @@ const navItems: NavItem[] = [
     href: "/sustainability",
     children: [
       { label: "Our Approach", href: "/sustainability#the-standard" },
-      { label: "Our Commitments", href: "/sustainability#the-evidence" },
     ],
   },
   {

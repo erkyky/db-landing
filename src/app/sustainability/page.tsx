@@ -168,7 +168,7 @@ export default function SustainabilityPage() {
         {/* OUR APPROACH — Three pillars */}
         <motion.section
           id="the-standard"
-          className="w-full scroll-mt-28 section-px pb-24 pt-24"
+          className="w-full scroll-mt-28 section-px pb-48 pt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -194,38 +194,38 @@ export default function SustainabilityPage() {
             variants={accentRule}
           />
 
-          <div className="mt-14 grid gap-16 md:grid-cols-3 md:gap-0">
-            {pillars.map((item, i) => (
-              <motion.div
-                key={item.title}
-                className={`group px-0 md:px-10 ${i > 0 ? "md:border-l md:border-[#cca885]/15" : ""}`}
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="font-serif text-h3-sm text-white">
-                  {item.title}
-                </h3>
-                <div className="mt-4 h-px w-10 bg-[#cca885]/40 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
-                <p className="mt-4 font-serif text-body leading-normal text-white/55">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <div className="mt-20 grid items-stretch gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <motion.div
+              className="relative h-[400px] overflow-hidden lg:h-auto"
+              variants={imageRevealUp}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
+            </motion.div>
 
-          {/* Full-width image strip */}
-          <motion.div
-            className="relative mt-16 w-full overflow-hidden md:mt-20"
-            style={{ height: "clamp(220px, 30vh, 420px)" }}
-            variants={imageRevealUp}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url(/sustainability/industry.jpg)" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a]/30 to-transparent" />
-          </motion.div>
+            <motion.div className="space-y-10" variants={itemVariants}>
+              {pillars.map((item) => (
+                <motion.div
+                  key={item.title}
+                  className="group"
+                  variants={itemVariants}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="font-serif text-h3-sm text-white">
+                    {item.title}
+                  </h3>
+                  <div className="mt-4 h-px w-10 bg-[#cca885]/50 transition-all duration-300 group-hover:w-20 group-hover:bg-[#cca885]" />
+                  <p className="mt-5 font-serif text-body leading-normal text-white/60">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </motion.section>
 
         <p className="pb-8 text-center font-serif text-base text-white/22">
