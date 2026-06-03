@@ -3,6 +3,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { LogoMark } from "./logo-mark";
 
 interface HeroSectionProps {
   className?: string;
@@ -79,14 +80,6 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       visible: {},
     };
 
-    const logoMaskVariants = {
-      hidden: { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-      visible: {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] as const },
-      },
-    };
-
     return (
       <motion.section
         ref={ref}
@@ -142,13 +135,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 width: "clamp(220px, 17.6vw, 340px)",
               }}
             >
-              <motion.div variants={logoMaskVariants}>
-                <img
-                  src={logo.url}
-                  alt={logo.alt}
-                  className="h-auto w-full opacity-90"
-                />
-              </motion.div>
+              <LogoMark className="w-full" alt={logo.alt} />
             </motion.div>
 
             {/* Accent line */}
